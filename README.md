@@ -112,6 +112,7 @@ against the confirmed, currently-documented constraints of that environment:
 | File | Description |
 |---|---|
 | `quadratic_solver.py` | Quadratic equation solver with discriminant classification and real/complex roots. |
+| `quadratic_vertex_analyzer.py` | Finds and fully analyzes a quadratic from its vertex and one other point. |
 | `linear_system_solver.py` | 2x2 or 3x3 linear system solver via Gaussian elimination with partial pivoting. |
 | `matrix_toolkit.py` | Matrix add, multiply, determinant, and inverse for 2x2/3x3 matrices you enter. |
 | `descriptive_stats.py` | Mean, median, mode, sample/population variance & standard deviation from a data list. |
@@ -121,6 +122,9 @@ against the confirmed, currently-documented constraints of that environment:
 
 - **`quadratic_solver.py`** — Prompts for `a`, `b`, `c`. Outputs the discriminant, its classification, and either
   two real roots, one repeated root, or a complex conjugate pair written as `a ± bi`.
+- **`quadratic_vertex_analyzer.py`** — Prompts for the vertex `(h, k)` and one other point `(x, y)`. Outputs
+  vertex and standard equation forms, domain, range, axis of symmetry, opening direction, minimum/maximum,
+  x- and y-intercepts, and increasing/decreasing behavior.
 - **`linear_system_solver.py`** — Prompts for system size (2 or 3) then each equation's coefficients and constant.
   Outputs the solved variables, or a message if the system is inconsistent/dependent.
 - **`matrix_toolkit.py`** — Menu for add/multiply/determinant/inverse; prompts for matrix size and entries.
