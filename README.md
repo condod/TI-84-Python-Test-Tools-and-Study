@@ -66,7 +66,8 @@ against the confirmed, currently-documented constraints of that environment:
   matching TI's own documented `eval()` usage pattern. Supported names
   include `sin`, `cos`, `tan`, `asin`, `acos`, `atan`, `atan2`, `exp`,
   `log`, `log10`, `sqrt`, `pi`, `e`, `abs`, plus `+ - * / **` and
-  parentheses.
+  parentheses. `ode_solver_euler.py` uses the same pattern for a function
+  of both `x` and `y`.
 
 ## Folder Structure
 
@@ -74,6 +75,7 @@ against the confirmed, currently-documented constraints of that environment:
 .
 ├── README.md
 ├── calculus/
+├── differential_equations/
 ├── algebra_linear_stats/
 ├── physics_engineering/
 └── chemistry_and_exam_tools/
@@ -104,6 +106,21 @@ against the confirmed, currently-documented constraints of that environment:
   sensible defaults). Outputs an iteration table of `x` and `f(x)` and the final root estimate.
 - **`limit_evaluator.py`** — Prompts for `f(x)` and a target value `c`. Outputs `f(c-eps)`/`f(c+eps)` for shrinking
   `eps` and a best-guess limit if both sides agree.
+
+---
+
+## Differential Equations (`differential_equations/`)
+
+| File | Description |
+|---|---|
+| `ode_solver_euler.py` | First-order ODE numerical solver for dy/dx = f(x,y): Euler's method or Improved Euler (Heun's method). |
+
+**Course fit:** Calculus II/III, introductory Differential Equations, numerical methods.
+
+- **`ode_solver_euler.py`** — Prompts for `f(x,y)` (as a string using `x` and `y`), an initial condition `x0`/`y0`,
+  a target `x` value to solve toward, and a step size `h` (blank defaults to 0.1). Pick Euler's method or
+  Improved Euler (Heun's method) from the menu. Outputs a step-by-step table of `x` and `y` and the final
+  approximate `y` at the target `x` (capped at 500 steps as a safety limit).
 
 ---
 
@@ -145,6 +162,7 @@ against the confirmed, currently-documented constraints of that environment:
 | `ohms_law_circuits.py` | Ohm's Law/power solver plus a series/parallel resistor combiner. |
 | `rlc_impedance.py` | Series RLC impedance magnitude/phase and LC resonant frequency calculator. |
 | `statics_vectors.py` | Resultant of 2D force vectors, and 2D torque/moment about a point. |
+| `vector3d_toolkit.py` | 3D vector toolkit: dot product, cross product, magnitude, angle between vectors, and projection. |
 
 **Course fit:** Physics I/II (mechanics, circuits), Statics, Circuits/Engineering fundamentals.
 
@@ -158,6 +176,9 @@ against the confirmed, currently-documented constraints of that environment:
   phase angle, and the LC resonant frequency (computed with plain real arithmetic, no `cmath` needed).
 - **`statics_vectors.py`** — Menu for force resultant (magnitude+angle pairs) or torque about a point
   (position + force components). Outputs the resultant magnitude/angle, or net torque with rotation sense.
+- **`vector3d_toolkit.py`** — Menu for dot product, cross product, magnitude, angle between two vectors, or
+  scalar/vector projection of one vector onto another. Enter each vector as `x`, `y`, `z` components. Outputs
+  the requested result(s).
 
 ---
 
@@ -170,6 +191,7 @@ against the confirmed, currently-documented constraints of that environment:
 | `unit_converter.py` | Menu-driven unit converter: length, mass, pressure, temperature, energy. |
 | `formula_flashcards.py` | Self-quiz flashcards: random formula-name recall drill by subject category. **Self-study only.** |
 | `exam_countdown_drill.py` | Countdown timer plus a random mental-math/sanity-check practice drill with answer checking. |
+| `acid_base_calculator.py` | pH/pOH from [H+] or [OH-] (and back), plus Henderson-Hasselbalch buffer pH. |
 
 **Course fit:** General/Intro Chemistry, and general practice-exam time management for any STEM course.
 
@@ -186,6 +208,9 @@ against the confirmed, currently-documented constraints of that environment:
 - **`exam_countdown_drill.py`** — Menu for a countdown timer (enter minutes; updates every second) or a random
   drill generator (arithmetic, order-of-magnitude estimation, or percent-of-a-number problems) that checks your
   typed answer against the correct value.
+- **`acid_base_calculator.py`** — Menu for pH/pOH from a given [H+] or [OH-] (mol/L), [H+]/[OH-] back-calculated
+  from a given pH or pOH, or buffer pH via the Henderson-Hasselbalch equation (enter pKa, [A-], and [HA]).
+  Outputs the computed value(s) and an acidic/basic/neutral classification where applicable.
 
 ---
 
