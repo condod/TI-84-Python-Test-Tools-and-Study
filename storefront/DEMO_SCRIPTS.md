@@ -44,9 +44,9 @@ app. This is the widest-reach concept and should be the first one you post.*
 |---|---|---|---|
 | 0:00–0:03 | Close-up, thumb pressing the `prgm`/apps key, Python app icon visible | **You've had this the whole time** | "If your TI-84 says 'Python Edition' on the front, you own a tiny computer and you've probably never used it." |
 | 0:03–0:08 | Open Python app, empty program list | *nothing* | "This is the Python app. Mine was empty for a year." |
-| 0:08–0:16 | Scroll a list of ~10 loaded programs | **24 programs I wrote for it** | "So I filled it. Derivatives, matrices, kinematics, gas laws." |
+| 0:08–0:16 | Scroll a list of ~10 loaded programs | **52 programs I wrote for it** | "So I filled it. Derivatives, matrices, kinematics, gas laws." |
 | 0:16–0:26 | Run `quadratic_solver`, type 2, -7, 3, results appear | **x = 3 and x = 0.5** ← big text | "Quadratic with complex-root support. Three keystrokes instead of three lines of algebra I'd get wrong at midnight." |
-| 0:26–0:30 | Hold on the result screen | **3 of them free — link in bio** | "Three of them are free. Link's in my bio." |
+| 0:26–0:30 | Hold on the result screen | **5 of them free — link in bio** | "Five of them are free. Link's in my bio." |
 
 **Hook alternatives to A/B test:** "Your TI-84 has a Python app you've never opened." /
 "Nobody told me the TI-84 could do this." / "POV: you find out in week 12 that your
@@ -100,7 +100,7 @@ which reads as impossible to people who think of the TI-84 as a 1990s device.*
 | 0:04–0:12 | Run the program, enter speed 25, angle 40, height 1.5 | **v = 25 m/s · θ = 40° · h = 1.5 m** | "Speed, angle, launch height." |
 | 0:12–0:22 | Text output: time of flight, range, max height | **t = 3.36 s**<br>**range = 64.3 m**<br>**max h = 14.7 m** | "Time of flight, range, max height." |
 | 0:22–0:33 | Answer "yes" to the plot prompt; the trajectory draws across the screen | **and it draws it** | "And then it plots the trajectory. On a TI-84. This thing has a graphics library and nobody uses it." |
-| 0:33–0:40 | Hold on the curve | **ti_plotlib · 24 programs · 3 free** | "Free starter pack in my bio if you want to try the install." |
+| 0:33–0:40 | Hold on the curve | **ti_plotlib · 52 programs · 5 free** | "Free starter pack in my bio if you want to try the install." |
 
 *Fill the numbers above with your actual outputs when you shoot — don't publish
 placeholder values.*
@@ -138,19 +138,23 @@ communities on the same day.
 
 ### Draft A — the free-tools post (for communities that permit sharing free resources)
 
-> **Title:** I wrote 24 Python programs for the TI-84 Plus CE — here are three of them, free
+> **Title:** I wrote 52 Python programs for the TI-84 Plus CE — here are five of them, free
 >
 > The CE Python Edition has a full Python environment that, judging by everyone I've asked,
 > approximately nobody uses. I spent [YOUR TIMEFRAME] filling mine up, and figured I'd
 > share the generally useful ones.
 >
-> The three free ones:
+> The five free ones:
 >
 > - **Unit converter** — length, mass, pressure, temperature, energy, from a menu.
 > - **Quadratic solver** — discriminant classification, and it handles complex roots
 >   properly (`cmath` doesn't exist on-device, so it splits real and imaginary parts by hand).
 > - **Descriptive stats** — mean, median, mode, sample and population variance/SD from a
 >   list you type in.
+> - **Unit circle reference** — all six trig functions at any angle, with the exact value
+>   named where one exists, plus reference angle, quadrant and sign.
+> - **Geometry solver** — area and perimeter for 2D shapes, volume and surface area for
+>   spheres, cylinders, cones and prisms.
 >
 > Each one ships as both a ready-to-install `.8xv` Python AppVar and the plain `.py` source,
 > so you can drag them straight across and still read what they're doing. [LINK]
@@ -214,7 +218,7 @@ will notice if it's bad, and they are historically cool on commercial calculator
 Lead with the engineering, publish something genuinely free, and never post a bare
 advertisement.
 
-> **Title:** [Project] 24 Python programs for the CE Python Edition — numerical methods,
+> **Title:** [Project] 52 Python programs for the CE Python Edition — numerical methods,
 > physics, chemistry
 >
 > I've been building out a library of TI-84 Plus CE Python programs, mostly numerical
@@ -345,8 +349,8 @@ honest objections.
 > - You get roughly 50 KB and 100 programs of space. Archive what you're not using.
 > - Lists cap at 100 elements — relevant the moment you write anything statistical.
 >
-> If you want the rest of what I've built, the subject bundles are six programs each and
-> the complete toolkit is all 24: [LINK]. No pressure — the three you have are yours
+> If you want the rest of what I've built, the subject bundles run 5–13 programs each and
+> the complete toolkit is all 52: [LINK]. No pressure — the five you have are yours
 > regardless.
 >
 > — [YOUR NAME]
@@ -369,17 +373,26 @@ doesn't run is the fastest way to lose the reader.)*
 >
 > If it was useful, the rest of the library splits by what you're actually enrolled in:
 >
-> - **Calculus & Differential Equations** — numeric derivatives, Simpson's rule, Taylor
->   series, Newton-Raphson with an iteration table, two-sided limits, Euler/Heun ODEs.
-> - **Algebra, Linear Algebra & Stats** — quadratics, vertex analysis, 2×2/3×3 systems,
->   matrix determinant and inverse, descriptive stats, nPr/nCr/binomial.
-> - **Physics & Engineering** — SUVAT, projectile motion with a plot, Ohm's law and
->   resistor combining, RLC impedance and resonance, 2D statics, 3D vectors.
-> - **Chemistry & Exam Tools** — gas laws, molar mass and stoichiometry, unit conversion,
->   a formula self-quiz drill, a countdown timer with mental-maths practice, pH and buffers.
+> - **Algebra, Precalculus & Trigonometry** (11, $19) — quadratics and vertex analysis,
+>   2×2/3×3 systems, matrices, polynomial and rational analysis, logs and exponentials,
+>   sequences and series, oblique triangles, the unit circle, 2D/3D geometry.
+> - **Calculus & Differential Equations** (6, $12) — numeric derivatives, Simpson's rule,
+>   Taylor series, Newton-Raphson with an iteration table, two-sided limits, Euler/Heun ODEs.
+> - **Statistics, Probability & Discrete Math** (5, $12) — descriptive stats, confidence
+>   intervals and hypothesis tests, nPr/nCr/binomial, chi-square, base conversion and
+>   truth tables.
+> - **Physics & Engineering** (13, $19) — SUVAT, projectile motion with a plot, Ohm's law and
+>   resistor combining, RLC impedance and resonance, 2D statics, 3D vectors, Bernoulli and
+>   Reynolds, calorimetry, gas processes, Carnot, stress-strain, thermal expansion, orbits.
+> - **Chemistry & Exam Tools** (7, $15) — gas laws, molar mass and stoichiometry, kinetics,
+>   unit conversion, a formula self-quiz drill, a countdown timer, pH and buffers.
+> - **Biology & Lab Science** (6, $12) — Punnett squares, Hardy-Weinberg, chi-square
+>   genetics, population growth, dilutions, surface-area-to-volume.
+> - **Finance & Business Math** (5, $12) — TVM, compound interest, loan amortization,
+>   NPV/IRR, break-even and margin.
 >
-> $14 each, or all 24 in the Complete Toolkit for $35 — which is less than three of the
-> subject bundles.
+> $12–$19 each, or all 52 in the Complete Toolkit for $49 — against $101 for the seven
+> subject bundles bought separately.
 >
 > **`STARTER25` takes 25% off the complete toolkit through [DATE].** [LINK]
 >

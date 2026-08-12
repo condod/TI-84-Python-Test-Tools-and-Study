@@ -1,84 +1,55 @@
-# Physics / Engineering Bundle — TI-84 Plus CE Python
+# Physics & Engineering Bundle — TI-84 Plus CE Python
 
-6 standalone TI-84 Plus CE **Python Edition** programs for Physics I/II (mechanics, circuits),
-Statics, and Circuits/Engineering fundamentals.
+13 standalone TI-84 Plus CE **Python Edition** programs spanning the introductory physics
+sequence and the first engineering courses that follow it — mechanics, circuits, fluids,
+heat, thermodynamics, and mechanics of materials.
 
 ## What's Included
 
 | File | What it does |
 |---|---|
-| `kinematics_solver.py` | SUVAT kinematics solver: pick the unknown of v0, v, a, t, d and enter the other four. |
-| `projectile_motion.py` | Projectile motion: range, max height, time of flight, with optional `ti_plotlib` trajectory plot. |
-| `ohms_law_circuits.py` | Ohm's Law/power solver plus a series/parallel resistor combiner. |
-| `rlc_impedance.py` | Series RLC impedance magnitude/phase and LC resonant frequency calculator. |
-| `statics_vectors.py` | Resultant of 2D force vectors, and 2D torque/moment about a point. |
-| `vector3d_toolkit.py` | 3D vector toolkit: dot product, cross product, magnitude, angle between vectors, and projection. |
+| `kinematics_solver.py` | SUVAT solver: pick which of `v0`, `v`, `a`, `t`, `d` is unknown, enter the other four, and get the value plus the formula used. Says so when the inputs are inconsistent. |
+| `projectile_motion.py` | Time of flight, range and maximum height from launch speed, angle and height, with an optional on-calculator trajectory sketch via `ti_plotlib`. |
+| `statics_vectors.py` | Resultant of 2D force vectors from magnitude/angle pairs, and torque/moment about a point with the rotation sense named. |
+| `vector3d_toolkit.py` | 3D vectors: dot product, cross product, magnitude, angle between two vectors, and scalar or vector projection. |
+| `ohms_law_circuits.py` | Ohm's Law and power — solve V/I/R/P from any two knowns — plus a series and parallel resistor combiner. |
+| `rlc_impedance.py` | Series RLC: `X_L`, `X_C`, impedance magnitude, phase angle, and the LC resonant frequency, in plain real arithmetic. |
+| `fluid_mechanics_solver.py` | Bernoulli's equation between two points in a flow, solving for whichever of `P2`, `v2` or `h2` is unknown, plus the Reynolds number for pipe flow with a laminar / transitional / turbulent classification. |
+| `heat_transfer_calculator.py` | Specific heat `q = mcΔT`, phase-change latent heat `q = mL`, and the equilibrium temperature of two masses mixed together, with each substance's heat gained or lost for an energy-conservation check. |
+| `ideal_gas_processes.py` | Work, heat and internal-energy change for isothermal, isobaric, isochoric and adiabatic ideal-gas processes, with monatomic/diatomic/custom molar heat capacity, plus a `PV = nRT` state solver. |
+| `carnot_efficiency.py` | Carnot and actual heat-engine efficiency, refrigerator and heat-pump COP, the minimum work for a given load, a second-law sanity check that flags an impossible cycle, and a temperature converter. |
+| `stress_strain.py` | Axial stress, strain (also in percent and microstrain), Young's modulus, deformation `δ = FL/(AE)`, factor of safety, Poisson's ratio, and a reference table of typical `E` and yield values. |
+| `thermal_expansion.py` | Linear, area and volume thermal expansion, thermal stress in a restrained member, expansion-gap sizing, and bimetallic-strip mismatch with the direction of curvature named. |
+| `orbital_mechanics_calculator.py` | Circular-orbit speed and period, escape velocity, and Kepler's Third Law converting between period and semi-major axis, with GM presets for Earth, the Moon and the Sun. |
 
-## What's in This Download
+**Course fit:** Physics I/II (mechanics, circuits, thermal), Statics, Dynamics, Circuits,
+Fluid Mechanics, Thermodynamics, Mechanics of Materials, and intro Astronomy.
 
-Every program is included **twice**, in two formats. You only need one of them:
+**Heads up if you are studying for the NCEES FE or PE exams:** the TI-84 is not an approved
+calculator for those exams in any form — see the exam-policy section below.
 
-```
-8xv/   ready-to-install Python AppVars  <- drag these onto TI Connect CE, no conversion needed
-py/    the plain-text Python source     <- read it, edit it, or type it in by hand
-```
-
-The `.8xv` files are the same programs, already converted into the calculator's native Python
-AppVar format. Each one is named after the name it will show up as in the Python App's program
-list, so `QUADSOLV.8xv` installs as `QUADSOLV`.
+<!-- SHARED: DOWNLOAD-CONTENTS -->
 
 <!-- PROGRAM-NAME-TABLE -->
 
-## Installing on Your Calculator (TI Connect™ CE)
+## Install these a course at a time, not all thirteen
 
-First, the part that's the same either way:
+All 13 programs come to about **58 KB** of Python AppVars, and a TI-84 Plus CE Python holds
+roughly **50 KB**. So the full set does not fit on the calculator at once — and it is not
+meant to. This bundle deliberately spans mechanics, circuits, fluids, thermodynamics and
+materials, which in practice are three or four different semesters.
 
-1. Download and install **TI Connect™ CE** (free, from Texas Instruments) on your Windows/Mac computer.
-2. Connect your TI-84 Plus CE **Python Edition** to your computer with a USB cable.
-3. Open TI Connect CE — your calculator should appear in **Calculator Explorer**.
+Install the five or six you need for the course you are actually taking (say the first six
+for Physics I, or the thermal group for Thermodynamics), and archive or delete them when the
+course ends. Keep this ZIP — it is your backup, and you will want it after any Press-to-Test
+or memory reset (see below).
 
-### Option A — send the ready-made `.8xv` files (fewest steps)
+<!-- SHARED: COMPATIBILITY -->
 
-4. Open this bundle's `8xv/` folder, select the files you want (or all of them), and drag them onto
-   the Calculator Explorer window — or use **Actions → Send to Calculator**. There's no conversion
-   step: these are already Python AppVars.
-5. On the calculator, open the **Python App**, pick the program from the list, and select **Run**.
+<!-- SHARED: INSTALL -->
 
-### Option B — send the `.py` source and let TI Connect CE convert it
+<!-- SHARED: PRESS-TO-TEST -->
 
-4. Do exactly the same thing, but drag the files from the `py/` folder instead. TI Connect CE
-   converts each `.py` file into a Python AppVar itself as it sends.
-5. Open the **Python App**, pick the program, and select **Run**.
+<!-- SHARED: EXAM-POLICY -->
 
-Option B uses TI's own converter, so it's the fallback if anything about Option A doesn't work on
-your setup. Both produce the same program on the calculator.
-
-### Option C — no computer at all
-
-Open the **Python App** on the calculator, create a new program, and type the source in from the
-`py/` folder. These are short, plain-text files, so this is slower but perfectly workable.
-
-### A note on the `.8xv` files
-
-The `.8xv` files were generated with an open-source converter (included in the project repo as
-`tools/py_to_8xv.py`) rather than by TI Connect CE itself. Every file is checked byte-for-byte
-against the format TI's own software produces, and the converter is validated by reproducing a
-TI-generated Python AppVar exactly. If you ever hit a file that won't load, use Option B — the
-`.py` source in this bundle is the same program and always works through TI's own converter.
-
-Keep an eye on the ~50 KB / 100-program on-device storage limit; archive or delete programs you're
-not actively using to free up space.
-
-## ⚠️ Exam Policy Disclaimer — Read This First
-
-**Many standardized and proctored exams — AP Exams, the FE/PE exams, and many university
-midterms/finals — explicitly prohibit calculators that have been loaded with stored notes,
-formulas, or "quiz" programs.** Some exams require you to clear your calculator's memory or use
-exam mode (e.g. TI's Press-to-Test) before you're allowed to bring it into the room.
-
-**Before bringing any of these programs into a real exam, you MUST verify your specific exam's
-calculator and program policy with your instructor or exam administrator.** These tools are
-intended strictly as **study and practice aids** for homework, practice exams, and self-review —
-they are **not** intended to help with, and must not be used to facilitate, cheating or misconduct
-on a live/proctored exam. When in doubt, delete or archive these programs (or reset your
-calculator to defaults) before any exam where their presence would violate the rules.
+<!-- SHARED: TRADEMARK -->

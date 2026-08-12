@@ -393,7 +393,11 @@ def convert_file(
     }
 
 
-DEFAULT_SKIP_DIRS = {"__pycache__", ".git", ".venv", "venv", "tools", "8xv", "bundles"}
+# "qa" holds the desktop test harness, not calculator programs: it imports argparse,
+# subprocess and friends, so converting it would ship files that cannot run on a TI-84.
+DEFAULT_SKIP_DIRS = {
+    "__pycache__", ".git", ".venv", "venv", "tools", "8xv", "bundles", "qa", "storefront",
+}
 
 
 def iter_sources(root: str, skip_dirs=(), only_dirs=()):

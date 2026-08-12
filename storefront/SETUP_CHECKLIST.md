@@ -27,10 +27,10 @@ platforms charge fixed per-transaction fees that bite hardest on cheap products:
 
 | Sale | Gumroad direct | Gumroad Discover | Etsy (US) |
 |---|---|---|---|
-| $14 subject bundle | keeps **$11.39** (18.6% fees) | keeps $9.80 (30%) | keeps **$12.22** (12.7%) |
-| $12 Etsy-priced bundle | — | — | keeps **$10.41** (13.3%) |
-| $35 complete toolkit | keeps **$29.68** (15.2%) | keeps $24.50 (30%) | keeps **$31.23** (10.8%) |
-| $30 Etsy-priced toolkit | — | — | keeps **$26.70** (11%) |
+| $12 small subject bundle | keeps **$9.65** (19.6% fees) | keeps $8.40 (30%) | keeps **$10.41** (13.3%) |
+| $15 chemistry bundle | keeps **$12.27** (18.2%) | keeps $10.50 (30%) | keeps **$13.13** (12.5%) |
+| $19 large subject bundle | keeps **$15.75** (17.1%) | keeps $13.30 (30%) | keeps **$16.75** (11.9%) |
+| $49 complete toolkit | keeps **$41.88** (14.5%) | keeps $34.30 (30%) | keeps **$43.90** (10.4%) |
 
 *(Gumroad direct = price − 0.129 × price − $0.80. Etsy = price − 0.095 × price − $0.45,
 assuming the listing fee is incurred per sale via renewal and excluding Offsite Ads.)*
@@ -38,12 +38,13 @@ assuming the listing fee is incurred per sale via renewal and excluding Offsite 
 **Three practical consequences:**
 
 1. **Etsy nets more per unit than Gumroad at every price in our range**, despite Etsy's
-   reputation as the pricier marketplace. The $12/$30 Etsy pricing in `bundles/PRICING.md`
-   still nets slightly less than $14/$35 on Gumroad direct — but Etsy brings its own
-   traffic, which Gumroad direct does not.
-2. **Don't count on Gumroad Discover.** 30% on a $14 sale leaves $9.80. Discover is a
-   discovery channel you pay dearly for; treat any Discover sale as a bonus, and drive
-   your own traffic to direct links.
+   reputation as the pricier marketplace — and the gap widens as the price falls, because
+   Gumroad's $0.80 flat fee is a bigger slice of a $12 sale than Etsy's $0.45 + $0.20.
+   This is why `bundles/PRICING.md` lists the **same** price on both platforms rather than
+   discounting Etsy: there is no fee reason to.
+2. **Don't count on Gumroad Discover.** 30% on a $12 sale leaves $8.40 — worse than Etsy on
+   every line above. Discover is a discovery channel you pay dearly for; treat any Discover
+   sale as a bonus, and drive your own traffic to direct links.
 3. **Never price a paid product below about $9 on either platform.** At $5 on Etsy the
    fixed fees alone are ~18.6% of the sale. This is exactly why the à-la-carte $3–4
    single-program tier in `PRICING.md` should stay a price anchor on the landing page
@@ -63,15 +64,18 @@ AppVar and the matching plain-text `.py` source.
 
 | File | Programs | Size |
 |---|---|---|
-| `free_starter_bundle.zip` | 3 | 10.0 KB |
-| `calculus_bundle.zip` | 6 | 17.4 KB |
-| `algebra_linear_stats_bundle.zip` | 6 | 17.2 KB |
-| `physics_engineering_bundle.zip` | 6 | 17.2 KB |
-| `chemistry_and_exam_tools_bundle.zip` | 6 | 21.4 KB |
-| `complete_toolkit_bundle.zip` | 24 | 72.0 KB |
+| `free_starter_bundle.zip` | 5 | 20.4 KB |
+| `calculus_bundle.zip` | 6 | 20.8 KB |
+| `statistics_probability_bundle.zip` | 5 | 22.8 KB |
+| `finance_bundle.zip` | 5 | 24.3 KB |
+| `chemistry_bundle.zip` | 7 | 27.6 KB |
+| `biology_bundle.zip` | 6 | 28.0 KB |
+| `algebra_precalculus_trig_bundle.zip` | 11 | 43.6 KB |
+| `physics_engineering_bundle.zip` | 13 | 46.6 KB |
+| `complete_toolkit_bundle.zip` | 52 | 180.6 KB |
 
 Etsy allows 5 files per listing at 20 MB each; Gumroad's limits are far higher. Every
-bundle fits in a single file slot with roughly 280× headroom.
+bundle fits in a single file slot with over 100× headroom.
 
 - [ ] Open each ZIP and confirm the install README and the exam-policy disclaimer are inside.
 - [ ] Confirm filenames are lowercase, no spaces. (Etsy caps filenames at 70 characters
@@ -88,14 +92,17 @@ bundle fits in a single file slot with roughly 280× headroom.
       calculator" is a materially better offer and should be in the listing's first two lines
       and on the contents image.
 
-> **Program count:** the bundles currently contain 24 programs (6 per subject, 3 free). The
-> repo itself has since grown past that — there are now programs under `biology/`,
-> `computer_science/` and `trigonometry/` that are **not in any bundle**. If you re-cut the
-> ZIPs to include them, the number "24" has to change in the same pass in
-> `storefront/index.html` (title, meta description, hero, trust row, pricing table, complete-
-> toolkit callout and footer), `SEO_KEYWORDS.md` (titles), `bundles/PRICING.md` and
-> `bundles/LISTING_COPY.md`. Selling "24 programs" and delivering 29 is a good problem, but
-> selling 29 and delivering 24 is a refund.
+> **Program count:** the library is **52 programs**, and every one of them ships in at least
+> one bundle — `tools/build_bundles.py` fails the build if that stops being true, so the
+> "programs in the repo but in no bundle" gap that existed at 24 programs cannot silently
+> reappear.
+>
+> If you change the lineup, the count has to change in the same pass in
+> `storefront/index.html` (title, meta description, hero, trust row, pricing table,
+> complete-toolkit callout and footer), `SEO_KEYWORDS.md` (titles and tags),
+> `bundles/PRICING.md`, `bundles/LISTING_COPY.md` and the root `README.md`. Selling
+> "52 programs" and delivering more is a good problem; selling 52 and delivering fewer is a
+> refund.
 
 ### 1.2 Make the listing images
 
@@ -195,14 +202,14 @@ This is the top of the funnel and the reason to be on Gumroad at all.
 - [ ] Under **Checkout**, keep the email field required — that's the whole point.
 - [ ] Publish and buy your own copy in an incognito window to confirm the download works.
 
-### 2.3 The five paid products
+### 2.3 The eight paid products
 
-Repeat for each of the four subject bundles ($14) and the complete toolkit ($35):
+Repeat for each of the seven subject bundles ($12–$19) and the complete toolkit ($49):
 
 - [ ] New digital product, title from `LISTING_COPY.md`, price set, ZIP uploaded.
-- [ ] Set a memorable custom permalink: `/l/ti84-calculus`, `/l/ti84-physics`,
-      `/l/ti84-algebra-stats`, `/l/ti84-chemistry`, `/l/ti84-complete`. These are the URLs
-      you paste into `index.html`.
+- [ ] Set a memorable custom permalink: `/l/ti84-algebra`, `/l/ti84-calculus`,
+      `/l/ti84-statistics`, `/l/ti84-physics`, `/l/ti84-chemistry`, `/l/ti84-biology`,
+      `/l/ti84-finance`, `/l/ti84-complete`. These are the URLs you paste into `index.html`.
 - [ ] Add the cover images from step 1.2.
 - [ ] Add a **thumbnail** (600×600) — it's a separate field from the cover and Gumroad
       uses it in emails and Discover.
@@ -212,13 +219,15 @@ Repeat for each of the four subject bundles ($14) and the complete toolkit ($35)
       Discover categorisation.
 - [ ] **Decide on Discover.** Toggling a product into Discover exposes it to Gumroad's
       marketplace but means Gumroad *may* charge 30% on those sales. Recommendation: leave
-      the complete toolkit in Discover (30% of $35 still nets $24.50 from a buyer you'd
-      never have reached) and keep the $14 bundles out, where 30% hurts proportionally more.
-- [ ] Set up **cross-sells / upsells**: on each $14 bundle checkout, offer the $35 complete
-      toolkit as an upgrade. Gumroad supports this natively and it is the easiest average-
-      order-value win available.
-- [ ] Create a **version/variant** if you end up shipping both `.py` and `.8xv` formats —
-      one product, two files, rather than two listings.
+      the complete toolkit in Discover (30% of $49 still nets $34.30 from a buyer you'd
+      never have reached) and keep the $12–$19 bundles out, where 30% hurts proportionally
+      more — a $12 Discover sale nets $8.40, less than the same sale on Etsy.
+- [ ] Set up **cross-sells / upsells**: on each subject-bundle checkout, offer the $49
+      complete toolkit as an upgrade. Gumroad supports this natively and it is the easiest
+      average-order-value win available — and with the toolkit at $49 against $101 for the
+      seven bundles separately, the upgrade maths is easy for a buyer to see.
+- [ ] No format variants needed: every bundle already ships `.py` **and** `.8xv` for every
+      program in the one ZIP.
 
 ### 2.4 Email follow-up (Gumroad Workflows)
 
@@ -316,15 +325,16 @@ For each:
 - [ ] **Description:** first two lines are what shows above the fold and what Google
       indexes — put the calculator model and the program count there. Then the
       "what's included" list, install steps, compatibility, exam disclaimer.
-- [ ] **Price:** the $12 / $30 Etsy pricing from `PRICING.md` is a reasonable read of the
-      audience, but note from the fee table above that Etsy nets more per unit than
-      Gumroad even at $14/$35. Consider launching at $14/$35 to match the landing page —
-      consistent pricing across channels avoids awkward questions — and discounting via
-      Etsy sales events instead of a permanently lower price.
+- [ ] **Price: use the same numbers as Gumroad and the landing page** — $12/$15/$19 for the
+      subject bundles and $49 for the toolkit. `PRICING.md` deliberately does *not* set a
+      lower Etsy price: the fee table above shows Etsy nets **more** per unit than Gumroad at
+      every one of these prices, so there is nothing to compensate for, and consistent
+      pricing across channels avoids awkward questions from buyers who find both listings.
+      Discount via Etsy sales events instead of a permanently lower price.
 - [ ] **Renewal:** manual vs. automatic. Automatic renews at $0.20 every four months; with
       a handful of listings that is trivial and you should leave it on.
 - [ ] **Offsite Ads:** under $10k in annual sales you can opt out. Opt out at launch — the
-      15% fee on top of the ~13% base stack is brutal at $14. Revisit once a listing is
+      15% fee on top of the ~13% base stack is brutal at $12. Revisit once a listing is
       proven. (Above $10k/year in Etsy sales, participation becomes mandatory at 12%.)
 
 ### 3.3 Fees to actually expect

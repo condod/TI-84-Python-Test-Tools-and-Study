@@ -1,87 +1,42 @@
-# Free Starter Bundle — TI-84 Plus CE Python
+# Free Starter Pack — TI-84 Plus CE Python
 
-A free taste of the full toolkit: 3 essential, broadly-useful TI-84 Plus CE **Python Edition**
-programs that work for almost any math/science class. Install these in a few minutes and see
-what the paid subject bundles and the Complete Toolkit offer.
+5 free TI-84 Plus CE **Python Edition** programs, deliberately picked from five
+different subjects so at least one is useful whatever you are taking this semester.
+
+Same code, same install guide, same file formats as the paid bundles. Nothing here is
+a demo or a trial — these are the real programs.
 
 ## What's Included
 
 | File | What it does |
 |---|---|
-| `unit_converter.py` | Menu-driven unit converter: length, mass, pressure, temperature, energy. Useful in nearly every science and engineering course. |
-| `quadratic_solver.py` | Quadratic equation solver with discriminant classification and real/complex roots (`a ± bi`). A staple of Algebra I/II and beyond. |
-| `descriptive_stats.py` | Mean, median, mode, min/max/range, sample & population variance/standard deviation from a data list. Handy for Stats, labs, and data analysis. |
+| `unit_converter.py` | Length, mass, pressure, temperature and energy conversions from a numbered menu. Useful in essentially every science course. |
+| `quadratic_solver.py` | Quadratic equation solver: discriminant, its classification, and either two real roots, one repeated root, or a complex conjugate pair written as `a ± bi`. |
+| `descriptive_stats.py` | Mean, median, mode, min/max/range, and both sample and population variance and standard deviation from a list of up to 90 values. |
+| `unit_circle_reference.py` | Unit-circle reference and trig evaluator: all six functions at an angle with exact values named where they exist, plus reference angle, quadrant, sign pattern and degree/radian conversion. |
+| `shape_geometry_solver.py` | Area and perimeter for circles, rectangles and triangles, plus volume and surface area for spheres, cylinders, cones and rectangular prisms. |
 
-Like it? The full paid lineup includes 4 subject bundles (Calculus & Differential Equations,
-Algebra/Linear Algebra/Stats, Physics/Engineering, and Chemistry & Exam Tools) plus a
-**Complete Toolkit** bundle with all 24 of them and the full reference README — see the
-main `bundles/` folder and `PRICING.md` for details.
+## Where these came from
 
-## What's in This Download
+Each of these also ships inside a paid bundle — `unit_converter.py` in Chemistry & Exam
+Tools, `quadratic_solver.py`, `unit_circle_reference.py` and `shape_geometry_solver.py`
+in Algebra, Precalculus & Trigonometry, and `descriptive_stats.py` in Statistics,
+Probability & Discrete Math. If you buy one of those later you are not paying twice for
+the same file; you are paying for the other programs in it.
 
-Every program is included **twice**, in two formats. You only need one of them:
+The full library is 52 programs across 7 subject bundles, or a Complete Toolkit with
+every one of them. Please share this free pack with anyone who would find it useful.
 
-```
-8xv/   ready-to-install Python AppVars  <- drag these onto TI Connect CE, no conversion needed
-py/    the plain-text Python source     <- read it, edit it, or type it in by hand
-```
-
-The `.8xv` files are the same programs, already converted into the calculator's native Python
-AppVar format. Each one is named after the name it will show up as in the Python App's program
-list, so `QUADSOLV.8xv` installs as `QUADSOLV`.
+<!-- SHARED: DOWNLOAD-CONTENTS -->
 
 <!-- PROGRAM-NAME-TABLE -->
 
-## Installing on Your Calculator (TI Connect™ CE)
+<!-- SHARED: COMPATIBILITY -->
 
-First, the part that's the same either way:
+<!-- SHARED: INSTALL -->
 
-1. Download and install **TI Connect™ CE** (free, from Texas Instruments) on your Windows/Mac computer.
-2. Connect your TI-84 Plus CE **Python Edition** to your computer with a USB cable.
-3. Open TI Connect CE — your calculator should appear in **Calculator Explorer**.
+<!-- SHARED: PRESS-TO-TEST -->
 
-### Option A — send the ready-made `.8xv` files (fewest steps)
+<!-- SHARED: EXAM-POLICY -->
 
-4. Open this bundle's `8xv/` folder, select the files you want (or all of them), and drag them onto
-   the Calculator Explorer window — or use **Actions → Send to Calculator**. There's no conversion
-   step: these are already Python AppVars.
-5. On the calculator, open the **Python App**, pick the program from the list, and select **Run**.
-
-### Option B — send the `.py` source and let TI Connect CE convert it
-
-4. Do exactly the same thing, but drag the files from the `py/` folder instead. TI Connect CE
-   converts each `.py` file into a Python AppVar itself as it sends.
-5. Open the **Python App**, pick the program, and select **Run**.
-
-Option B uses TI's own converter, so it's the fallback if anything about Option A doesn't work on
-your setup. Both produce the same program on the calculator.
-
-### Option C — no computer at all
-
-Open the **Python App** on the calculator, create a new program, and type the source in from the
-`py/` folder. These are short, plain-text files, so this is slower but perfectly workable.
-
-### A note on the `.8xv` files
-
-The `.8xv` files were generated with an open-source converter (included in the project repo as
-`tools/py_to_8xv.py`) rather than by TI Connect CE itself. Every file is checked byte-for-byte
-against the format TI's own software produces, and the converter is validated by reproducing a
-TI-generated Python AppVar exactly. If you ever hit a file that won't load, use Option B — the
-`.py` source in this bundle is the same program and always works through TI's own converter.
-
-Keep an eye on the ~50 KB / 100-program on-device storage limit; archive or delete programs you're
-not actively using to free up space.
-
-## ⚠️ Exam Policy Disclaimer — Read This First
-
-**Many standardized and proctored exams — AP Exams, the FE/PE exams, and many university
-midterms/finals — explicitly prohibit calculators that have been loaded with stored notes,
-formulas, or "quiz" programs.** Some exams require you to clear your calculator's memory or use
-exam mode (e.g. TI's Press-to-Test) before you're allowed to bring it into the room.
-
-**Before bringing any of these programs into a real exam, you MUST verify your specific exam's
-calculator and program policy with your instructor or exam administrator.** These tools are
-intended strictly as **study and practice aids** for homework, practice exams, and self-review —
-they are **not** intended to help with, and must not be used to facilitate, cheating or misconduct
-on a live/proctored exam. When in doubt, delete or archive these programs (or reset your
-calculator to defaults) before any exam where their presence would violate the rules.
+<!-- SHARED: TRADEMARK -->

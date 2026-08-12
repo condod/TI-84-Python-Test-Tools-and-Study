@@ -30,6 +30,7 @@ from __future__ import annotations
 import argparse
 import json
 import os
+import re
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
@@ -57,8 +58,31 @@ REFERENCE_COMMENT = "Created by TI-Smartview CE 5.3.0.384"
 REFERENCE_SCRIPT = b"import sys\nprint(sys.version)\n"
 
 
+ONCALC_HEADER_RE = re.compile(r"^#\s*On-calc name:\s*([A-Za-z0-9]+)\s*$", re.MULTILINE)
+
+
 class Failure(Exception):
     pass
+
+
+def check_header_name(src_path: str, var_name: str):
+    """Require the program's own ``# On-calc name:`` header to match its AppVar name.
+
+    Each program prints that same short name as its on-screen banner, so if the two
+    drift apart a student picks ``QUADSOLV`` out of the Python App list and the program
+    announces itself as ``QUAD``. The header is the authoritative side; ``varnames.json``
+    mirrors it.
+    """
+    with open(src_path, "r", encoding="utf-8") as handle:
+        head = handle.read(1024)
+    match = ONCALC_HEADER_RE.search(head)
+    check(match is not None, "source has no '# On-calc name:' header comment")
+    declared = match.group(1).upper()
+    check(
+        declared == var_name,
+        f"source header declares '{declared}' but the AppVar installs as '{var_name}'; "
+        "update tools/varnames.json or the header so they agree",
+    )
 
 
 def check(condition: bool, message: str):
@@ -252,6 +276,7 @@ def main(argv=None) -> int:
 
             parsed = check_structure(blob, script)
             check(parsed["name"] == var_name, f"name is {parsed['name']!r}, expected {var_name!r}")
+            check_header_name(src_path, var_name)
             result = cross_validate(out_path, parsed["name"], PY_MAGIC_CODE)
             if result:
                 cross_validated += 1

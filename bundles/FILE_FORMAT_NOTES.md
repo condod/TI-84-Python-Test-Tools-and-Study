@@ -110,9 +110,15 @@ The name field is 8 bytes, null-padded. Legal names are **1–8 characters, `A`�
 anything illegal rather than writing a file the calculator would reject.
 
 Because 8 characters is tight, `tools/varnames.json` maps each program to a hand-picked
-name (`quadratic_solver.py` → `QUADSOLV`, `stoichiometry_molar_mass.py` → `MOLARMAS`) so the
-Python App's program list stays readable. Anything not listed falls back to automatic
-derivation with collision-avoidance.
+name (`quadratic_solver.py` → `QUAD`, `stoichiometry_molar_mass.py` → `MOLAR`) so the
+Python App's program list stays readable. All 52 programs are listed explicitly; anything not
+listed would fall back to automatic derivation with collision-avoidance.
+
+Each curated name is the one the program declares in its own `# On-calc name:` header and
+prints in its own banner, so the entry a student picks out of the Python App's list matches
+the title the program shows when it runs. `tools/verify_8xv.py` fails the build if
+`varnames.json` and the source headers ever disagree — they had drifted apart for 38 of the
+52 programs before that check existed.
 
 ## The converter
 
@@ -128,8 +134,9 @@ python tools/py_to_8xv.py --batch . --out ./8xv --names tools/varnames.json \
 ```
 
 `--name-by-var` names each output after the on-calculator variable name (so
-`QUADSOLV.8xv` installs as `QUADSOLV`); without it, outputs keep the source file's stem.
-Batch mode skips `tools/`, `8xv/`, `bundles/`, caches and dotted folders by default;
+`QUAD.8xv` installs as `QUAD`); without it, outputs keep the source file's stem.
+Batch mode skips `tools/`, `8xv/`, `bundles/`, `qa/`, `storefront/`, caches and dotted
+folders by default;
 `--skip DIR` excludes more, and `--only DIR` restricts the walk to named subfolders if you
 ever need a build to ignore unrelated `.py` files elsewhere in the tree.
 
@@ -169,23 +176,24 @@ detects a stale one automatically except the verifier.
   TI-SmartView CE 5.3.0.384 — byte for byte, all 111 of them. Our understanding of the
   layout is therefore not merely self-consistent; it agrees exactly with TI's software on a
   real example.
-- **Structural validity, 29/29 programs.** Signature, export bytes, header length, var type
+- **Structural validity, 52/52 programs.** Signature, export bytes, header length, var type
   byte `0x15`, both variable-data length fields agreeing with each other and with the actual
   data, the payload length prefix, the `PYCD` magic, the metadata terminator, and the
   recomputed checksum.
-- **Clean round-trip, 29/29 programs.** Parsing each generated `.8xv` recovers the script
+- **Clean round-trip, 52/52 programs.** Parsing each generated `.8xv` recovers the script
   byte-for-byte identical to the normalised source.
-- **Independent cross-validation, 29/29 programs.** `tivars_lib_py` — a separately-authored
+- **Independent cross-validation, 52/52 programs.** `tivars_lib_py` — a separately-authored
   implementation — opens every file we generate, reads back the expected name and type ID
   `0x15`, and re-serialises to bytes identical to ours.
 - **The checks are not vacuous.** `tools/test_py_to_8xv.py` flips one byte at a time across
-  13 structurally distinct positions (signature, both length fields, type byte, name, payload
+  the structurally distinct positions (signature, both length fields, type byte, name, payload
   prefix, magic, terminator, script body, checksum) and also tries truncated, over-long,
-  empty, and non-var input. All 17 corruptions are rejected. 48/48 checks pass.
+  empty, illegally-named, and non-var input. All 27 malformed inputs are rejected rather than
+  silently accepted. 46/46 checks pass.
 - **The shipped artifacts, not just the intermediates.** The verifier opens each ZIP bundle
   and confirms every `.8xv` inside matches a `.py` in the same bundle by recovered script,
   that the README documents each on-calculator name, and that the exam-policy disclaimer is
-  present. 51 AppVars checked across the 6 bundles.
+  present. 110 AppVars checked across the 9 bundles.
 
 ### What is NOT proven
 
@@ -201,21 +209,22 @@ detects a stale one automatically except the verifier.
   address.
 - **Edge cases we can't see.** Anything about how the Python App handles a name collision
   with an existing on-calculator program, or behaviour at the ~50 KB storage ceiling, is
-  untested. The largest AppVar here is 5,391 bytes and all 29 together come to 106,409 bytes
-  (103.9 KB), which is **over** the ~50 KB on-device guideline if installed all at once —
-  buyers should install the subjects they need rather than everything.
+  untested. The largest AppVar here is 9,807 bytes (`POLYFUNC`) and all 52 together come to
+  249,322 bytes (243.5 KB), which is roughly **five times** the ~50 KB on-device guideline —
+  buyers should install the subjects they need rather than everything. See the storage tables
+  in the root `README.md` for the per-folder and per-bundle breakdown.
 
 ### Recommended owner check (about 5 minutes, needs a calculator)
 
 Do this once before promoting the `.8xv` files heavily in the store listing:
 
 1. Install TI Connect™ CE and connect a TI-84 Plus CE **Python Edition** over USB.
-2. Drag `8xv/algebra_linear_stats/QUADSOLV.8xv` onto Calculator Explorer. Confirm it appears
-   as `QUADSOLV`, listed as **AppVar Python** (TI Connect CE labels Python AppVars this way).
-3. On the calculator, open the **Python App**, confirm `QUADSOLV` is in the program list,
+2. Drag `8xv/algebra_linear_stats/QUAD.8xv` onto Calculator Explorer. Confirm it appears
+   as `QUAD`, listed as **AppVar Python** (TI Connect CE labels Python AppVars this way).
+3. On the calculator, open the **Python App**, confirm `QUAD` is in the program list,
    open it in the editor to confirm the source is intact, and **Run** it.
-4. Repeat with one large program (`chemistry_and_exam_tools/IDEALGAS.8xv`, ~4.8 KB) to check
-   there's no size-related problem.
+4. Repeat with the largest program (`precalculus/POLYFUNC.8xv`, ~9.8 KB) to check there's no
+   size-related problem.
 5. For a belt-and-braces comparison, send `algebra_linear_stats/quadratic_solver.py` through
    TI Connect CE, pull the resulting AppVar back to the computer as `.8xv`, and diff it
    against ours. Expect the 42-byte comment field to differ (TI writes its own) and possibly
@@ -231,13 +240,21 @@ Every bundle contains each program twice: `8xv/` with the ready-to-install Pytho
 `py/` with the plain-text source. Each bundle README explains both install paths (drag the
 `.8xv` onto TI Connect CE, or drag the `.py` and let TI Connect CE convert it), states plainly
 that the `.8xv` files came from our own converter rather than TI's, and points at the `.py`
-route as the fallback. The exam-policy disclaimer is unchanged and present in all six.
+route as the fallback. The exam-policy disclaimer is present in all nine.
 
-**Bundle membership is unchanged** — the same 24 programs as before. Five newer programs
-(`complex_number_calculator`, `heat_transfer_calculator`, `oblique_triangle_solver`,
-`punnett_square_solver`, `discrete_math_toolkit`) have `.8xv` files in `8xv/` but are not in
-any bundle yet, because which programs go in which paid product — and what that does to
-pricing — is a call for the owner rather than the build script. To add them, extend the
-program lists at the top of `tools/build_bundles.py`, mention them in the matching
-`bundles/readme/*.md`, and re-run the build. `build_bundles.py` prints a reminder listing
-every unbundled program each time it runs.
+**Bundle membership covers the whole library.** All 52 programs ship in at least one of the
+nine bundles: a 5-program free starter, seven subject bundles, and the 52-program Complete
+Toolkit. `chi_square_genetics` is the one program that sells in two subject bundles
+(statistics and biology), so the seven subject bundles list 53 slots across 52 distinct
+programs; the Complete Toolkit ships it once.
+
+The bundle definitions live at the top of `tools/build_bundles.py` and are the authoritative
+mapping from subject folder to sellable product. To change what is in a bundle, edit those
+lists, update the matching `bundles/readme/*.md`, and re-run the build — `build_bundles.py`
+fails loudly if any program in the library would end up in no bundle at all.
+
+The legally-sensitive sections of each bundle README (compatibility warning, install guide,
+Press-to-Test warning, exam-policy disclaimer, trademark footer) are **not** copy-pasted into
+the nine files. They live once in `bundles/readme/_shared.md` and are injected at build time
+wherever a `<!-- SHARED: NAME -->` placeholder appears, so the nine copies cannot drift apart
+the way they previously did.

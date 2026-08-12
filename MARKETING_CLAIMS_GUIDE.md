@@ -29,7 +29,7 @@ else.**
 
 Use this as the top-of-listing pitch. Every sentence is defensible.
 
-> **24 ready-to-run Python programs for the TI-84 Plus CE Python Edition — built to save you time on
+> **52 ready-to-run Python programs for the TI-84 Plus CE Python Edition — built to save you time on
 > homework, labs, and practice problems, and to make the calculator you already own genuinely
 > faster.**
 >

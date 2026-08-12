@@ -140,7 +140,7 @@ behaviour over time rather than any single post: a genuinely helpful account tha
 references its own work survives here; a promo-first account does not.
 
 **r/GetStudying** — *ARCHIVED 2026-04-08.* Bans "spamming or promotion of **courses**" and
-"blogspam" — narrower than a blanket ban, and a $14 program bundle isn't a course. I'd still
+"blogspam" — narrower than a blanket ban, and a $12 program bundle isn't a course. I'd still
 read a bare product link as within the spirit of the prohibition. Link flair expected. Medium
 risk.
 
@@ -492,7 +492,7 @@ for you and the reciprocity is real.
 >
 > Hi [name],
 >
-> I've built a library of 24 Python programs for the TI-84 Plus CE Python Edition — numerical
+> I've built a library of 52 Python programs for the TI-84 Plus CE Python Edition — numerical
 > methods, kinematics, circuits, gas laws, that sort of thing. Plain `.py` source, so students
 > can read the algorithm rather than just get an answer out of it.
 >
@@ -555,10 +555,11 @@ your products. Feed it back into your tags.
 | **r/HomeworkHelp promotion** | — | — | — | **"Banned. No warnings."** | **Don't** |
 | Paid ads | Money | Immediate | Negative at these margins | None | **Don't** |
 
-**On paid ads:** at $14 with roughly 13–19% platform fees, your gross margin per unit is about
-$11–12. Realistic search CPCs in education keywords make paid acquisition a reliable way to
-lose money at this price point. Revisit only if the complete toolkit starts selling
-consistently, and even then, only on high-intent long-tail terms.
+**On paid ads:** at $12–$19 with roughly 12–20% platform fees, your gross margin per unit is
+about $10–17. Realistic search CPCs in education keywords make paid acquisition a reliable way
+to lose money at this price point. Revisit only if the $49 complete toolkit starts selling
+consistently — it is the only SKU with enough margin to survive a paid click — and even then,
+only on high-intent long-tail terms.
 
 ---
 

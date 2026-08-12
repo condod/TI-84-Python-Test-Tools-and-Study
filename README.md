@@ -6,39 +6,90 @@ is a single `.py` text file you can type in on the calculator or transfer
 with TI Connect™ CE — and every program is also available as a ready-to-install
 `.8xv` Python AppVar in [`8xv/`](8xv/).
 
-> **Before you install:** the full library is about 242 KB of source and the
+> **Before you install:** the full library is about 247 KB of source and the
 > calculator holds roughly 50 KB of Python, so it is meant to be installed a
 > subject at a time. See [Storage Budget](#storage-budget-the-full-library-does-not-fit-at-once).
 
+> **⚠️ Before you buy a calculator for this:** these need a TI-84 Plus CE
+> **Python Edition**, or a TI-84 Plus CE with TI's Python App installed. TI
+> discontinued the CE Python on **2026-04-27** and the plain TI-84 Plus CE now
+> sold does **not** include Python. See
+> [Hardware Compatibility](#hardware-compatibility-check-for-python-before-you-buy).
+
 ## 📦 Pre-Packaged Bundles Available
 
-Ready-to-sell/ready-to-share ZIP bundles of these programs — organized by subject, plus a
-free starter pack and a complete all-in-one toolkit — live in [`bundles/`](bundles/). Each
-ZIP ships every program twice, as a ready-to-install `.8xv` AppVar under `8xv/` and as `.py`
-source under `py/`, and includes its own install guide covering both routes. Each ZIP also
-repeats the exam policy disclaimer below. The
-`bundles/` folder also includes suggested USD pricing per bundle (see
+Ready-to-sell/ready-to-share ZIP bundles of these programs — **seven subject bundles**, a
+free 5-program starter pack, and a complete all-in-one toolkit with all 52 — live in
+[`bundles/`](bundles/). Each ZIP ships every program twice, as a ready-to-install `.8xv`
+AppVar under `8xv/` and as `.py` source under `py/`, and includes its own install guide
+covering both routes. Each ZIP also repeats the compatibility warning, the Press-to-Test
+backup warning, the exam policy disclaimer below, and the trademark footer — all injected
+at build time from [`bundles/readme/_shared.md`](bundles/readme/_shared.md) so the nine
+copies cannot drift apart.
+
+| Bundle | Programs | Price |
+|---|---|---|
+| Free Starter Pack | 5 | $0 |
+| Algebra, Precalculus & Trigonometry | 11 | $19 |
+| Calculus & Differential Equations | 6 | $12 |
+| Statistics, Probability & Discrete Math | 5 | $12 |
+| Physics & Engineering | 13 | $19 |
+| Chemistry & Exam Tools | 7 | $15 |
+| Biology & Lab Science | 6 | $12 |
+| Finance & Business Math | 5 | $12 |
+| **Complete Toolkit** | **52** | **$49** (vs. $101 separately) |
+
+The `bundles/` folder also holds the pricing rationale and platform fee maths (see
 [`bundles/PRICING.md`](bundles/PRICING.md)) and ready-to-paste store listing copy for
 Gumroad/Etsy-style storefronts (see [`bundles/LISTING_COPY.md`](bundles/LISTING_COPY.md)).
 
+The seven subject bundles list 53 slots but the library is 52 distinct programs:
+`chi_square_genetics.py` sells into both the statistics and the biology bundle, and the
+Complete Toolkit ships it once.
+
 ## ⚠️ Exam Policy Disclaimer — Read This First
 
-**Many standardized and proctored exams — AP Exams, the FE/PE exams, and many
-university midterms/finals — explicitly prohibit calculators that have been
-loaded with stored notes, formulas, or "quiz" programs.** Some exams require
-you to clear your calculator's memory or use exam mode (e.g. TI's Press-to-Test)
-before you're allowed to bring it into the room.
+**You are responsible for knowing your own exam's calculator rules.** They differ
+significantly between exams, and they change. **Nothing here is "approved" for any exam** —
+no exam board operates an approval process for third-party calculator software. Verified
+from primary sources on 2026-08-12; re-check before any exam.
 
-**Before bringing any of these programs into a real exam, you MUST verify
-your specific exam's calculator and program policy with your instructor or
-exam administrator.** These tools are intended strictly as **study and
-practice aids** for homework, practice exams, and self-review — they are
-**not** intended to help with, and must not be used to facilitate, cheating
-or misconduct on a live/proctored exam. The `formula_flashcards.py` program
-in particular is a self-quiz memorization drill, not an answer-lookup tool,
-and its own header/prompts repeat this same warning. When in doubt, delete
-or archive these programs (or reset your calculator to defaults) before any
-exam where their presence would violate the rules.
+- **AP® Exams (College Board).** The TI-84 Plus CE Python Edition appears on College Board's
+  list of approved handheld graphing calculators, and College Board's published AP
+  calculator policy states: *"You don't need to clear your calculators' memories before or
+  after the exam,"* and *"Calculators with built-in physical constants, metric conversions,
+  and physics, chemistry, or mathematics formulas are permitted."* College Board approves the
+  *calculator* — it does not approve, review, or endorse third-party programs. Note that
+  College Board prohibits using calculator memory to remove test material from the room, and
+  that AP® Calculus and AP® Precalculus both have sections where no calculator is allowed.
+- **SAT®, PSAT/NMSQT®, PSAT™ 10, PSAT™ 8/9.** College Board requires you to *"remove programs
+  that have algebra functionality"* and *"remove any stored documents,"* and the Testing
+  Rules state that *"Before testing, you will be asked to clear all saved formulas."*
+  **Remove these programs before an SAT® Suite test.**
+- **ACT®.** ACT requires all documents to be removed and permits only single-purpose math
+  programs of **25 logical lines or fewer** — most programs here exceed that. ACT also states
+  that Press-to-Test mode is *not* sufficient. **Remove these programs before the ACT®.**
+- **NCEES® FE / PE / FS / PS.** The TI-84 is **prohibited outright**, regardless of what is
+  stored on it — only Casio fx-115/fx-991, HP 33s/35s, and TI models with "TI-30X" or
+  "TI-36X" in the name are permitted. If you are sitting the FE, use a TI-36X Pro.
+- **IB® Diploma Programme.** A permitted non-CAS device, but IB requires third-party programs
+  and stored notes to be removed or blocked, and schools must clear calculator memories.
+- **CLEP®.** No personal calculator at all; CLEP provides an on-screen TI-84 Plus CE.
+- **University and course exams.** Your instructor or department sets the rules. Many require
+  a memory clear or Press-to-Test. **Ask before test day.**
+
+These tools are intended strictly as **study and practice aids** for homework, practice
+exams, and self-review — they are **not** intended to help with, and must not be used to
+facilitate, cheating or misconduct on a live/proctored exam. The `formula_flashcards.py`
+program in particular is a self-quiz memorization drill, not an answer-lookup tool, and its
+own header/prompts repeat this same warning. Where a program's presence would break your
+exam's rules, delete it or use exam mode — and back it up first (see
+[Press-to-Test](#back-up-before-press-to-test)).
+
+The full per-exam write-up, with policy language quoted verbatim and source URLs, is in
+[`COMPLIANCE_RESEARCH.md`](COMPLIANCE_RESEARCH.md); the claim-by-claim
+"safe to say / do NOT say" guide is in
+[`MARKETING_CLAIMS_GUIDE.md`](MARKETING_CLAIMS_GUIDE.md).
 
 ## Exam Policy Research & Marketing Claims
 
@@ -56,7 +107,7 @@ accurate:
   say" claims guide, per-exam nuance, ready-to-paste storefront and bundle-README disclaimer text,
   and a trademark / non-affiliation footer.
 
-Three findings worth knowing even if you never sell a copy:
+Four findings worth knowing even if you never sell a copy:
 
 - **AP Exams:** the TI-84 Plus CE Python is named on College Board's approved calculator list, and
   College Board states that *"You don't need to clear your calculators' memories before or after
@@ -66,6 +117,9 @@ Three findings worth knowing even if you never sell a copy:
 - **Press-to-Test deletes Python programs.** It disables Apps and TI-BASIC programs, but AppVars
   (how Python programs are stored) are deleted and do not return. Back up with TI Connect™ CE
   first.
+- **The hardware is being discontinued.** TI discontinued the TI-84 Plus CE Python on 2026-04-27,
+  and the plain TI-84 Plus CE still on sale has no Python. Check for "Python" before buying a
+  calculator for this.
 
 ## 🛒 Storefront & Go-to-Market
 
@@ -139,18 +193,41 @@ against the confirmed, currently-documented constraints of that environment:
 ```
 ti84-python-programs/
 ├── README.md                     (this file)
-├── calculus/                     .py source, by subject
-├── differential_equations/
-├── algebra_linear_stats/
-├── physics_engineering/
-├── chemistry_and_exam_tools/
-├── trigonometry/
-├── biology/
-├── computer_science/
+├── COMPLIANCE_RESEARCH.md        per-exam policy research, primary sources
+├── MARKETING_CLAIMS_GUIDE.md     safe-to-say / do-NOT-say claims guide
+│
+├── algebra_linear_stats/         .py source, by subject  (8)
+├── astronomy/                    (1)
+├── biology/                      (6)
+├── calculus/                     (5)
+├── chemistry_and_exam_tools/     (7)
+├── computer_science/             (1)
+├── differential_equations/       (1)
+├── finance/                      (5)
+├── geometry/                     (1)
+├── physics_engineering/          (8)
+├── precalculus/                  (3)
+├── thermo_materials/             (4)
+├── trigonometry/                 (2)
+│                                 = 52 programs across 13 subject folders
+│
 ├── 8xv/                          ready-to-install Python AppVars (same subject folders)
 ├── tools/                        converter, verifier, tests, bundle builder
-└── bundles/                      sellable ZIPs, pricing, listing copy, format notes
+├── qa/                           TI-environment simulator, static checks, functional cases
+├── bundles/                      sellable ZIPs, pricing, listing copy, format notes
+│   └── readme/                   per-bundle README sources + _shared.md common blocks
+├── storefront/                   landing page, deploy/setup guides, SEO, launch plan
+└── business/                     sourcing, unit economics, platform strategy
 ```
+
+Note that the **subject folders are a filing system, not the product lineup.** The bundles
+are grouped by the course a student is enrolled in, so several folders are split across
+bundles — the stats programs in `algebra_linear_stats/` sell into the statistics bundle
+while the quadratics sell into the precalculus bundle — and the thin folders
+(`geometry/`, `astronomy/`, `computer_science/`, `differential_equations/`) are folded into
+a larger neighbour rather than shipping as one-program bundles. The authoritative mapping
+is the bundle definitions at the top of
+[`tools/build_bundles.py`](tools/build_bundles.py).
 
 ---
 
@@ -206,6 +283,7 @@ ti84-python-programs/
 | `descriptive_stats.py` | Mean, median, mode, sample/population variance & standard deviation from a data list. |
 | `combinatorics_probability.py` | nPr, nCr, and binomial probability calculator. |
 | `complex_number_calculator.py` | Manual complex-number arithmetic (add/subtract/multiply/divide), magnitude/argument, and rectangular ↔ polar conversion. |
+| `confidence_interval_hypothesis_test.py` | One-sample confidence interval for a population mean and a one-sample hypothesis test, using z (σ known) or t (df = n−1) critical values from a built-in table. |
 
 **Course fit:** College Algebra, Linear Algebra, Intro Statistics/Probability.
 
@@ -223,6 +301,12 @@ ti84-python-programs/
   Outputs mean, median, mode, min/max/range, sample variance/stdev, and population variance/stdev.
 - **`combinatorics_probability.py`** — Menu for nPr, nCr, or binomial probability; prompts for `n`, `r`, and/or
   probability `p`. Outputs the computed value.
+- **`confidence_interval_hypothesis_test.py`** — Pick a confidence interval or a hypothesis test, then z or t.
+  Enter the sample mean, sample size `n`, and σ (population) or `s` (sample); the hypothesis test also asks for
+  the claimed mean `μ₀`, the tail direction, and a significance level. Critical values come from a built-in
+  standard-normal / Student's t table, because the calculator has no inverse-CDF function; t degrees of freedom
+  above 30 fall back to the normal row, the same as most textbook tables. Outputs the interval, or the test
+  statistic, the critical value, and a reject / fail-to-reject conclusion.
 - **`complex_number_calculator.py`** — Menu for add/subtract/multiply/divide of two complex numbers (entered as
   real/imaginary parts), magnitude & argument of one complex number, rectangular → polar, or polar → rectangular.
   All arithmetic is computed manually on real/imaginary float pairs (no `cmath`). Outputs the result as `a + bi`
@@ -241,8 +325,9 @@ ti84-python-programs/
 | `statics_vectors.py` | Resultant of 2D force vectors, and 2D torque/moment about a point. |
 | `vector3d_toolkit.py` | 3D vector toolkit: dot product, cross product, magnitude, angle between vectors, and projection. |
 | `heat_transfer_calculator.py` | Specific heat (q=mcΔT), phase-change latent heat (q=mL), and two-mass mixing/equilibrium temperature (calorimetry). |
+| `fluid_mechanics_solver.py` | Bernoulli's equation between two points in a flow, plus Reynolds number for pipe flow with a laminar/transitional/turbulent classification. |
 
-**Course fit:** Physics I/II (mechanics, circuits), Statics, Circuits/Engineering fundamentals, intro Thermodynamics.
+**Course fit:** Physics I/II (mechanics, circuits), Statics, Circuits/Engineering fundamentals, Fluid Mechanics, intro Thermodynamics.
 
 - **`kinematics_solver.py`** — Choose which of v0/v/a/t/d is unknown, then enter the other four. Outputs the
   solved value with the formula used, or a friendly message if the inputs are inconsistent.
@@ -262,6 +347,10 @@ ti84-python-programs/
   of two masses mixed together (enter each substance's mass, specific heat, and temperature). Outputs the
   computed heat `q` (with an absorbed/released note) or the equilibrium temperature and each substance's heat
   gained/lost for a quick energy-conservation check.
+- **`fluid_mechanics_solver.py`** — Menu for Bernoulli's equation (`P + ½ρv² + ρgh` constant between two points,
+  solving for whichever of `P2`, `v2`, or `h2` is unknown given the full state at point 1) or the Reynolds
+  number for pipe flow (`Re = ρvD/μ`, or `vD/ν` with kinematic viscosity). Outputs the solved quantity, or the
+  Reynolds number with a laminar / transitional / turbulent classification.
 
 ---
 
@@ -275,6 +364,7 @@ ti84-python-programs/
 | `formula_flashcards.py` | Self-quiz flashcards: random formula-name recall drill by subject category. **Self-study only.** |
 | `exam_countdown_drill.py` | Countdown timer plus a random mental-math/sanity-check practice drill with answer checking. |
 | `acid_base_calculator.py` | pH/pOH from [H+] or [OH-] (and back), plus Henderson-Hasselbalch buffer pH. |
+| `reaction_kinetics.py` | Zero-, first-, and second-order kinetics for a single reactant: half-life, [A] at a given time by the integrated rate law, and the time to reach a target [A]. |
 
 **Course fit:** General/Intro Chemistry, and general practice-exam time management for any STEM course.
 
@@ -294,6 +384,10 @@ ti84-python-programs/
 - **`acid_base_calculator.py`** — Menu for pH/pOH from a given [H+] or [OH-] (mol/L), [H+]/[OH-] back-calculated
   from a given pH or pOH, or buffer pH via the Henderson-Hasselbalch equation (enter pKa, [A-], and [HA]).
   Outputs the computed value(s) and an acidic/basic/neutral classification where applicable.
+- **`reaction_kinetics.py`** — Menu for half-life, concentration at a time, or time to reach a concentration;
+  then pick the reaction order (zero, first, or second) and enter the rate constant `k`, the initial
+  concentration `[A]₀`, and either a time `t` or a target `[A]`. Outputs the requested half-life,
+  concentration, or time from the integrated rate law for that order.
 
 ---
 
@@ -302,6 +396,7 @@ ti84-python-programs/
 | File | Description |
 |---|---|
 | `oblique_triangle_solver.py` | Non-right-triangle solver using the Law of Sines and Law of Cosines: SSS, SAS, ASA/AAS, and the ambiguous SSA case. |
+| `unit_circle_reference.py` | Unit-circle reference and trig evaluator: all six functions at an angle with exact values named, reference angle, quadrant, sign pattern, degree/radian conversion, inverse trig, and identity checks. |
 
 **Course fit:** Trigonometry, Pre-Calculus, Physics I (vector/force triangles).
 
@@ -309,6 +404,42 @@ ti84-python-programs/
   angles + one side), or SSA (two sides + a non-included angle, the classic ambiguous case). Outputs the missing
   sides/angles, or a message if the inputs don't form a triangle — including reporting 0, 1, or 2 valid solutions
   for the ambiguous SSA case.
+- **`unit_circle_reference.py`** — Evaluates all six trig functions at an angle entered in degrees or radians,
+  naming the exact value (like `sqrt(3)/2`) whenever the angle is one of the standard unit-circle angles, and
+  reporting the reference angle, quadrant, and sign pattern. Angles outside 0–360° are wrapped first, and
+  undefined values (like `tan 90°`) are reported as undefined rather than crashing. Also converts between
+  degrees and radians, evaluates inverse trig, and checks the Pythagorean identities numerically.
+
+---
+
+## Geometry (`geometry/`)
+
+| File | Description |
+|---|---|
+| `shape_geometry_solver.py` | Area and perimeter for common 2D shapes, and volume and surface area for common 3D solids. |
+
+**Course fit:** Geometry, Precalculus, and the mensuration parts of Physics and Chemistry labs.
+
+- **`shape_geometry_solver.py`** — Pick a shape and enter its dimensions. 2D: circle (area and circumference),
+  rectangle, and triangle by Heron's formula, which checks the triangle inequality first and says so when three
+  lengths cannot form a triangle. 3D: sphere, cylinder, cone, and rectangular prism, each reporting volume and
+  total surface area.
+
+---
+
+## Astronomy (`astronomy/`)
+
+| File | Description |
+|---|---|
+| `orbital_mechanics_calculator.py` | Circular-orbit speed and period, escape velocity, and Kepler's Third Law converting between orbital period and semi-major axis. |
+
+**Course fit:** Intro Astronomy, Physics I (gravitation), Aerospace/orbital-mechanics fundamentals.
+
+- **`orbital_mechanics_calculator.py`** — Menu for orbital speed and period around a central body, escape
+  velocity, or Kepler's Third Law (`T²/a³ = 4π²/GM`) in either direction. Uses the standard gravitational
+  parameter `GM` (μ) so you don't enter `G` and a mass separately, with presets for Earth, the Moon, and the
+  Sun plus a custom option. SI units throughout (meters, seconds, m³/s² for GM); periods are reported in both
+  seconds and days.
 
 ---
 
@@ -491,21 +622,104 @@ ti84-python-programs/
 
 ---
 
+## Hardware Compatibility: check for "Python" before you buy
+
+**These programs require a TI-84 Plus CE _Python Edition_, or a TI-84 Plus CE with TI's Python App installed.**
+A TI-84 Plus CE without Python cannot run them at all.
+
+This is worth stating loudly because the hardware situation changed. Texas Instruments **discontinued the
+TI-84 Plus CE Python on 2026-04-27**, and the plain TI-84 Plus CE that TI currently sells does **not** include
+Python. TI has named the **TI-84 Evo** as the successor model. A calculator bought new today under the
+"TI-84 Plus CE" name may therefore be a unit that cannot run any of this.
+
+Before buying hardware:
+
+- Look for the word **"Python"** printed on the calculator's faceplate or bezel.
+- Or switch it on and check that a **Python** app appears in the Apps list.
+- If you already own a TI-84 Plus CE without Python, check TI's site for the Python App for your model and OS
+  version before assuming these will run.
+
+**TI-84 Evo compatibility is not yet confirmed.** These programs have not been tested on that model and no
+claim is made either way about whether they run on it.
+
+They do **not** run on the TI-83 Plus, the monochrome TI-84 Plus, the TI-84 Plus Silver Edition, the TI-Nspire
+family, or any Casio or HP calculator.
+
 ## Transferring to Your Calculator
 
 Install **TI Connect™ CE** and connect your TI-84 Plus CE Python Edition over USB, then pick either route:
 
 - **Ready-made AppVars.** Drag files from [`8xv/`](8xv/) onto TI Connect CE's Calculator Explorer. These are
   already in the calculator's native Python AppVar format, so no conversion step is needed. Each file is named
-  after the name it installs as, e.g. `8xv/algebra_linear_stats/QUADSOLV.8xv` shows up as `QUADSOLV`.
+  after the name it installs as, e.g. `8xv/algebra_linear_stats/QUAD.8xv` shows up as `QUAD` — which is also
+  the banner the program prints when you run it.
 - **Source files.** Drag the `.py` files instead and TI Connect CE converts them as it sends — or type a program
   straight into the on-calculator Python editor.
 
 Then run programs from the calculator's Python App shell by selecting the program and pressing the Run option.
 
-Keep an eye on the ~50 KB / 100-program on-device storage limit; archive or delete programs you're not actively
-using to free up space, per the on-calculator memory management prompts. All 29 AppVars together come to about
-104 KB, so install the subjects you need rather than everything at once.
+### Back up before Press-to-Test
+
+**Entering Press-to-Test (exam mode) deletes these programs, and they do not come back.**
+
+TI documents that entering Press-to-Test deletes *"All variables stored in RAM and in archived memory,"* and
+TI's Press-to-Test Guidebook states that *"Other variables stored in RAM and in archived memory (including
+AppVars) are deleted."* Python programs on the CE Python are stored as Python AppVars. Unlike Apps and TI-BASIC
+programs — which Press-to-Test only *disables*, restoring them when you exit exam mode — **Python AppVars are
+deleted outright and are not restored.**
+
+A full **All-Memory reset** does the same, and additionally removes the **Python App itself**, which then has to
+be re-installed with TI Connect™ CE before anything here will run.
+
+The workaround takes about two minutes: keep a copy of the `.py` or `.8xv` files on your computer *before*
+entering exam mode or resetting, then re-send them afterwards. Everything in this repository is that backup.
+
+## Storage Budget: the full library does not fit at once
+
+The 52 programs come to roughly **247 KB of `.py` source** and **243 KB of `.8xv` AppVars**. A TI-84 Plus CE
+Python holds about **50 KB of Python across at most 100 programs**. So the library is roughly five times what
+the calculator can hold — by design.
+
+This is a library to install *from*, one course at a time, not a payload to load in one go.
+
+**By subject folder** — every one of these fits inside the ~50 KB budget:
+
+| Subject folder | Programs | AppVar size |
+|---|---|---|
+| `algebra_linear_stats/` | 8 | 30.8 KB |
+| `physics_engineering/` | 8 | 26.8 KB |
+| `chemistry_and_exam_tools/` | 7 | 29.1 KB |
+| `biology/` | 6 | 34.0 KB |
+| `calculus/` | 5 | 15.3 KB |
+| `finance/` | 5 | 28.1 KB |
+| `thermo_materials/` | 4 | 27.5 KB |
+| `precalculus/` | 3 | 23.1 KB |
+| `trigonometry/` | 2 | 13.6 KB |
+| `computer_science/` | 1 | 4.0 KB |
+| `differential_equations/` | 1 | 4.0 KB |
+| `geometry/` | 1 | 3.9 KB |
+| `astronomy/` | 1 | 3.3 KB |
+| **Total** | **52** | **243.5 KB** |
+
+**By sellable bundle** — most fit; the two largest do not, and that is stated on their listings rather than
+discovered after purchase:
+
+| Bundle | Programs | AppVar size | Fits in ~50 KB? |
+|---|---|---|---|
+| Calculus & Differential Equations | 6 | 19.3 KB | yes |
+| Free Starter Pack | 5 | 22.3 KB | yes |
+| Statistics, Probability & Discrete Math | 5 | 23.4 KB | yes |
+| Finance & Business Math | 5 | 28.1 KB | yes |
+| Chemistry & Exam Tools | 7 | 29.1 KB | yes |
+| Biology & Lab Science | 6 | 34.0 KB | yes |
+| Physics & Engineering | 13 | 57.6 KB | **no — install per course** |
+| Algebra, Precalculus & Trigonometry | 11 | 57.8 KB | **no — install per course** |
+| Complete Toolkit | 52 | 243.5 KB | **no — install per course** |
+
+The two 11–13 program bundles are deliberately broad: Physics & Engineering spans mechanics, circuits, fluids,
+thermodynamics and materials, which in practice are three or four different semesters. Nobody needs all
+thirteen at once. Install the six or seven for the course you are actually taking, then archive or delete them
+when it ends, per the on-calculator memory management prompts.
 
 ### About the `.8xv` files
 
@@ -553,3 +767,17 @@ has three layers:
 Current status: **52/52 programs load cleanly** under the simulator, **0 static
 errors**, and **212/212 functional cases pass**. See [`qa/README.md`](qa/README.md)
 for how to run it and how to add cases as the library grows.
+
+---
+
+AP®, Advanced Placement®, SAT®, PSAT™, and CLEP® are trademarks registered by the College Board, which is not
+affiliated with, and does not endorse, this product. PSAT/NMSQT® is a registered trademark of the College Board
+and the National Merit Scholarship Corporation, which are not affiliated with, and do not endorse, this product.
+ACT® and WorkKeys® are registered trademarks of ACT Education Corp., which is not affiliated with, and does not
+endorse, this product. IB® and International Baccalaureate® are registered trademarks of the International
+Baccalaureate Organization, which is not affiliated with, and does not endorse, this product. NCEES® is a
+registered trademark of the National Council of Examiners for Engineering and Surveying, which is not affiliated
+with, and does not endorse, this product. TI-84 Plus CE Python™, TI Connect™ CE, and Texas Instruments® are
+trademarks of Texas Instruments Incorporated, which is not affiliated with, and does not endorse, this product.
+All trademarks are the property of their respective owners. Exam policies are subject to change; verify current
+policy with the relevant exam authority.
