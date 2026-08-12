@@ -141,7 +141,7 @@ explicitly a recall drill, not an answer key.
 
 ## 6. Complete Toolkit Bundle
 
-**Title:** TI-84 Plus CE Python Complete Study Toolkit — All 23 Programs (Calculus, Algebra, Physics, Chemistry & More)
+**Title:** TI-84 Plus CE Python Complete Study Toolkit — All 24 Programs (Calculus, Algebra, Physics, Chemistry & More)
 
 **Price:** $35 *(vs. $56 buying all 4 subject bundles separately)*
 
@@ -158,7 +158,7 @@ Connect™ CE install pass.
 - All 6 Algebra / Linear Algebra / Stats programs
 - All 6 Physics / Engineering programs
 - All 6 Chemistry & Exam Tools programs (minus overlap — 23 unique programs total)
-- Full master README with per-program usage notes for all 23 programs
+- Full master README with per-program usage notes for all 24 programs
 - Step-by-step TI Connect CE install guide + exam policy disclaimer
 
 **Tags/Keywords:** ti-84 plus ce python bundle, complete calculator toolkit, ti-84 python programs pack, stem calculator programs, ti connect ce install, calculus physics chemistry calculator, ap exam study tools, ti-84 plus ce python download

@@ -14,11 +14,11 @@ research (see "Market Research" below).
 | **Algebra / Linear Algebra / Stats Bundle** | 6 programs | **$14** |
 | **Physics / Engineering Bundle** | 6 programs | **$14** |
 | **Chemistry & Exam Tools Bundle** | 6 programs | **$14** |
-| **Complete Toolkit Bundle** | All 23 programs + full master README | **$35** |
+| **Complete Toolkit Bundle** | All 24 programs + full master README | **$35** |
 
 *(Sum of all 4 subject bundles bought separately = $56. The Complete Toolkit at $35 is a
-~37% discount vs. buying every subject bundle individually, and a ~62% discount vs. buying
-all 23 programs individually at $4 each, which would total ~$92.)*
+~37% discount vs. buying every subject bundle individually, and a ~64% discount vs. buying
+all 24 programs individually at $4 each, which would total ~$96.)*
 
 Platform note: list at these prices on Gumroad (10% flat fee) directly; on Etsy, consider
 pricing 10–20% lower per the marketplace's more price-sensitive, impulse-buy audience (see
