@@ -1,6 +1,6 @@
 # TI-84 Plus CE Python Edition — Study & Practice-Exam Toolkit
 
-A collection of 23 standalone TI-84 Plus CE **Python Edition** programs for
+A collection of 28 standalone TI-84 Plus CE **Python Edition** programs for
 engineering/math/science students, organized by subject area. Every program
 is a single `.py` text file you can type in on the calculator or transfer
 with TI Connect™ CE.
@@ -91,7 +91,14 @@ against the confirmed, currently-documented constraints of that environment:
   include `sin`, `cos`, `tan`, `asin`, `acos`, `atan`, `atan2`, `exp`,
   `log`, `log10`, `sqrt`, `pi`, `e`, `abs`, plus `+ - * / **` and
   parentheses. `ode_solver_euler.py` uses the same pattern for a function
-  of both `x` and `y`.
+  of both `x` and `y`. `discrete_math_toolkit.py`'s truth-table generator
+  uses the same `eval()`-on-a-typed-expression pattern for a boolean
+  expression of up to three variables (`A`, `B`, `C`).
+- `complex_number_calculator.py` is the second program (after
+  `quadratic_solver.py`) that deals with complex numbers; since `cmath`
+  is not available, it implements add/subtract/multiply/divide/magnitude/
+  argument/polar-conversion manually on `(real, imag)` float pairs instead
+  of using the built-in `complex` type's operators.
 
 ## Folder Structure
 
@@ -102,7 +109,10 @@ ti84-python-programs/
 ├── differential_equations/
 ├── algebra_linear_stats/
 ├── physics_engineering/
-└── chemistry_and_exam_tools/
+├── chemistry_and_exam_tools/
+├── trigonometry/
+├── biology/
+└── computer_science/
 ```
 
 ---
@@ -158,6 +168,7 @@ ti84-python-programs/
 | `matrix_toolkit.py` | Matrix add, multiply, determinant, and inverse for 2x2/3x3 matrices you enter. |
 | `descriptive_stats.py` | Mean, median, mode, sample/population variance & standard deviation from a data list. |
 | `combinatorics_probability.py` | nPr, nCr, and binomial probability calculator. |
+| `complex_number_calculator.py` | Manual complex-number arithmetic (add/subtract/multiply/divide), magnitude/argument, and rectangular ↔ polar conversion. |
 
 **Course fit:** College Algebra, Linear Algebra, Intro Statistics/Probability.
 
@@ -175,6 +186,10 @@ ti84-python-programs/
   Outputs mean, median, mode, min/max/range, sample variance/stdev, and population variance/stdev.
 - **`combinatorics_probability.py`** — Menu for nPr, nCr, or binomial probability; prompts for `n`, `r`, and/or
   probability `p`. Outputs the computed value.
+- **`complex_number_calculator.py`** — Menu for add/subtract/multiply/divide of two complex numbers (entered as
+  real/imaginary parts), magnitude & argument of one complex number, rectangular → polar, or polar → rectangular.
+  All arithmetic is computed manually on real/imaginary float pairs (no `cmath`). Outputs the result as `a + bi`
+  or the requested magnitude/angle/polar form.
 
 ---
 
@@ -188,8 +203,9 @@ ti84-python-programs/
 | `rlc_impedance.py` | Series RLC impedance magnitude/phase and LC resonant frequency calculator. |
 | `statics_vectors.py` | Resultant of 2D force vectors, and 2D torque/moment about a point. |
 | `vector3d_toolkit.py` | 3D vector toolkit: dot product, cross product, magnitude, angle between vectors, and projection. |
+| `heat_transfer_calculator.py` | Specific heat (q=mcΔT), phase-change latent heat (q=mL), and two-mass mixing/equilibrium temperature (calorimetry). |
 
-**Course fit:** Physics I/II (mechanics, circuits), Statics, Circuits/Engineering fundamentals.
+**Course fit:** Physics I/II (mechanics, circuits), Statics, Circuits/Engineering fundamentals, intro Thermodynamics.
 
 - **`kinematics_solver.py`** — Choose which of v0/v/a/t/d is unknown, then enter the other four. Outputs the
   solved value with the formula used, or a friendly message if the inputs are inconsistent.
@@ -204,6 +220,11 @@ ti84-python-programs/
 - **`vector3d_toolkit.py`** — Menu for dot product, cross product, magnitude, angle between two vectors, or
   scalar/vector projection of one vector onto another. Enter each vector as `x`, `y`, `z` components. Outputs
   the requested result(s).
+- **`heat_transfer_calculator.py`** — Menu for specific heat `q = m*c*ΔT` (enter mass, specific heat, initial/final
+  temperature), phase-change latent heat `q = m*L` (enter mass and latent heat), or the equilibrium temperature
+  of two masses mixed together (enter each substance's mass, specific heat, and temperature). Outputs the
+  computed heat `q` (with an absorbed/released note) or the equilibrium temperature and each substance's heat
+  gained/lost for a quick energy-conservation check.
 
 ---
 
@@ -236,6 +257,52 @@ ti84-python-programs/
 - **`acid_base_calculator.py`** — Menu for pH/pOH from a given [H+] or [OH-] (mol/L), [H+]/[OH-] back-calculated
   from a given pH or pOH, or buffer pH via the Henderson-Hasselbalch equation (enter pKa, [A-], and [HA]).
   Outputs the computed value(s) and an acidic/basic/neutral classification where applicable.
+
+---
+
+## Trigonometry (`trigonometry/`)
+
+| File | Description |
+|---|---|
+| `oblique_triangle_solver.py` | Non-right-triangle solver using the Law of Sines and Law of Cosines: SSS, SAS, ASA/AAS, and the ambiguous SSA case. |
+
+**Course fit:** Trigonometry, Pre-Calculus, Physics I (vector/force triangles).
+
+- **`oblique_triangle_solver.py`** — Menu for SSS (three sides), SAS (two sides + included angle), ASA/AAS (two
+  angles + one side), or SSA (two sides + a non-included angle, the classic ambiguous case). Outputs the missing
+  sides/angles, or a message if the inputs don't form a triangle — including reporting 0, 1, or 2 valid solutions
+  for the ambiguous SSA case.
+
+---
+
+## Biology (`biology/`)
+
+| File | Description |
+|---|---|
+| `punnett_square_solver.py` | Monohybrid or dihybrid Punnett-square cross calculator: offspring genotype and phenotype ratios from parent genotypes. |
+
+**Course fit:** Intro Biology, Genetics.
+
+- **`punnett_square_solver.py`** — Menu for a monohybrid cross (one gene, e.g. `Aa` x `Aa`) or a dihybrid cross
+  (two independently-assorting genes, e.g. `AaBb` x `AaBb`). Enter the letter(s) used for each gene and each
+  parent's genotype. Outputs every offspring genotype and phenotype with their ratios (e.g. the classic 1:2:1
+  genotype / 3:1 phenotype monohybrid result, or 9:3:3:1 dihybrid phenotype result), assuming simple dominant/
+  recessive inheritance where uppercase is the dominant allele.
+
+---
+
+## Computer Science (`computer_science/`)
+
+| File | Description |
+|---|---|
+| `discrete_math_toolkit.py` | Number base converter (binary/octal/decimal/hex) plus a boolean logic truth-table generator for a typed expression of up to 3 variables. |
+
+**Course fit:** Discrete Math, Intro Computer Science/Digital Logic.
+
+- **`discrete_math_toolkit.py`** — Menu for a base converter (pick from/to base among binary, octal, decimal, hex,
+  then enter a value in the from-base) or a truth-table generator (pick 1-3 variables `A`/`B`/`C`, then type a
+  boolean expression using `and`/`or`/`not`/`^` for XOR, e.g. `A and not B`). Outputs the converted value, or a
+  full truth table of every input combination and the expression's result for each row.
 
 ---
 
