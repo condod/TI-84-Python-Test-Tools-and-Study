@@ -87,6 +87,20 @@ one-star review. This policy is why no SKU below exceeds ~67% utilisation.
 Median program: ~3.7 KB. Practical rule of thumb: **a physical loadout is 8–10 programs.** Twelve
 is already crowding the headroom policy; fifteen breaks it.
 
+> **Measurement basis, and drift.** These sizes were measured from the `8xv/` directory as it stood
+> on 2026-08-12 (29 AppVars, 106,409 bytes). The repo is actively growing — the `.py` source tree
+> already carries programs (geometry, fluid mechanics, orbital mechanics, reaction kinetics,
+> confidence intervals) that have no regenerated `.8xv` yet. **Re-run the measurement before each
+> production batch:**
+>
+> ```powershell
+> Get-ChildItem -Recurse -File -Filter *.8xv |
+>   Select-Object Name, Length | Sort-Object Length
+> ```
+>
+> New programs are candidates for the loadouts below, but every substitution must keep the loadout
+> under the headroom policy. Adding without removing is how you end up shipping a full calculator.
+
 ---
 
 ## 3. The physical SKU loadouts
