@@ -1,0 +1,4 @@
+# Python AppVars are binary. They are mostly ASCII source, so protect them explicitly
+# from any line-ending conversion, which would corrupt the length fields and checksum.
+*.8xv binary
+*.zip binary

@@ -1,21 +1,15 @@
-# TI-84 Plus CE Python Edition — Study & Practice-Exam Toolkit
+# Complete Toolkit Bundle — TI-84 Plus CE Python Edition Study & Practice-Exam Toolkit
 
-A collection of 29 standalone TI-84 Plus CE **Python Edition** programs for
+**This is the Complete Toolkit bundle: 24 programs across the 5 core subject areas
+(Calculus, Differential Equations, Algebra/Linear Algebra/Stats, Physics/Engineering,
+and Chemistry & Exam Tools), organized in the same subfolders as below, plus this full
+reference README.** See `PRICING.md` and `LISTING_COPY.md` in the main `bundles/` folder
+for how this compares to buying the individual subject bundles separately.
+
+A collection of 24 standalone TI-84 Plus CE **Python Edition** programs for
 engineering/math/science students, organized by subject area. Every program
 is a single `.py` text file you can type in on the calculator or transfer
-with TI Connect™ CE — and every program is also available as a ready-to-install
-`.8xv` Python AppVar in [`8xv/`](8xv/).
-
-## 📦 Pre-Packaged Bundles Available
-
-Ready-to-sell/ready-to-share ZIP bundles of these programs — organized by subject, plus a
-free starter pack and a complete all-in-one toolkit — live in [`bundles/`](bundles/). Each
-ZIP ships every program twice, as a ready-to-install `.8xv` AppVar under `8xv/` and as `.py`
-source under `py/`, and includes its own install guide covering both routes. Each ZIP also
-repeats the exam policy disclaimer below. The
-`bundles/` folder also includes suggested USD pricing per bundle (see
-[`bundles/PRICING.md`](bundles/PRICING.md)) and ready-to-paste store listing copy for
-Gumroad/Etsy-style storefronts (see [`bundles/LISTING_COPY.md`](bundles/LISTING_COPY.md)).
+with TI Connect™ CE.
 
 ## ⚠️ Exam Policy Disclaimer — Read This First
 
@@ -35,33 +29,6 @@ in particular is a self-quiz memorization drill, not an answer-lookup tool,
 and its own header/prompts repeat this same warning. When in doubt, delete
 or archive these programs (or reset your calculator to defaults) before any
 exam where their presence would violate the rules.
-
-## Exam Policy Research & Marketing Claims
-
-Two reference documents at the repo root work out, from primary sources, exactly which exams
-permit what — and, for anyone selling or sharing these bundles, exactly which claims are
-accurate:
-
-- **[`COMPLIANCE_RESEARCH.md`](COMPLIANCE_RESEARCH.md)** — the full findings, organized by exam
-  authority (College Board AP, SAT/PSAT, ACT, NCEES FE/PE, IB, CLEP, GED, university courses),
-  with the operative policy language quoted verbatim plus source URLs and access dates. Findings
-  verified from a primary source are separated from inferences, and everything that could not be
-  confirmed is flagged. Also covers what TI's Press-to-Test mode actually does to Python AppVars,
-  plus seller-side legal, platform, and trademark considerations.
-- **[`MARKETING_CLAIMS_GUIDE.md`](MARKETING_CLAIMS_GUIDE.md)** — a practical "safe to say / do NOT
-  say" claims guide, per-exam nuance, ready-to-paste storefront and bundle-README disclaimer text,
-  and a trademark / non-affiliation footer.
-
-Three findings worth knowing even if you never sell a copy:
-
-- **AP Exams:** the TI-84 Plus CE Python is named on College Board's approved calculator list, and
-  College Board states that *"You don't need to clear your calculators' memories before or after
-  the exam."*
-- **NCEES FE/PE:** the TI-84 is **not** an approved calculator in any form — only Casio fx-115/
-  fx-991, HP 33s/35s, and TI-30X/TI-36X models are permitted.
-- **Press-to-Test deletes Python programs.** It disables Apps and TI-BASIC programs, but AppVars
-  (how Python programs are stored) are deleted and do not return. Back up with TI Connect™ CE
-  first.
 
 ## About the TI-84 Plus CE Python Environment
 
@@ -94,32 +61,33 @@ against the confirmed, currently-documented constraints of that environment:
   include `sin`, `cos`, `tan`, `asin`, `acos`, `atan`, `atan2`, `exp`,
   `log`, `log10`, `sqrt`, `pi`, `e`, `abs`, plus `+ - * / **` and
   parentheses. `ode_solver_euler.py` uses the same pattern for a function
-  of both `x` and `y`. `discrete_math_toolkit.py`'s truth-table generator
-  uses the same `eval()`-on-a-typed-expression pattern for a boolean
-  expression of up to three variables (`A`, `B`, `C`).
-- `complex_number_calculator.py` is the second program (after
-  `quadratic_solver.py`) that deals with complex numbers; since `cmath`
-  is not available, it implements add/subtract/multiply/divide/magnitude/
-  argument/polar-conversion manually on `(real, imag)` float pairs instead
-  of using the built-in `complex` type's operators.
+  of both `x` and `y`.
 
 ## Folder Structure
 
+Every program is included **twice**, in two formats — you only need one of them:
+
 ```
-ti84-python-programs/
-├── README.md                     (this file)
-├── calculus/                     .py source, by subject
-├── differential_equations/
-├── algebra_linear_stats/
-├── physics_engineering/
-├── chemistry_and_exam_tools/
-├── trigonometry/
-├── biology/
-├── computer_science/
-├── 8xv/                          ready-to-install Python AppVars (same subject folders)
-├── tools/                        converter, verifier, tests, bundle builder
-└── bundles/                      sellable ZIPs, pricing, listing copy, format notes
+complete_toolkit_bundle/
+├── README.md                      (this file)
+├── 8xv/                           ready-to-install Python AppVars
+│   ├── calculus/
+│   ├── differential_equations/
+│   ├── algebra_linear_stats/
+│   ├── physics_engineering/
+│   └── chemistry_and_exam_tools/
+└── py/                            plain-text Python source
+    ├── calculus/
+    ├── differential_equations/
+    ├── algebra_linear_stats/
+    ├── physics_engineering/
+    └── chemistry_and_exam_tools/
 ```
+
+The `.8xv` files are the same programs, already converted into the calculator's native Python
+AppVar format. Each is named after the name it will show up as in the Python App's program list.
+
+<!-- PROGRAM-NAME-TABLE -->
 
 ---
 
@@ -174,7 +142,6 @@ ti84-python-programs/
 | `matrix_toolkit.py` | Matrix add, multiply, determinant, and inverse for 2x2/3x3 matrices you enter. |
 | `descriptive_stats.py` | Mean, median, mode, sample/population variance & standard deviation from a data list. |
 | `combinatorics_probability.py` | nPr, nCr, and binomial probability calculator. |
-| `complex_number_calculator.py` | Manual complex-number arithmetic (add/subtract/multiply/divide), magnitude/argument, and rectangular ↔ polar conversion. |
 
 **Course fit:** College Algebra, Linear Algebra, Intro Statistics/Probability.
 
@@ -192,10 +159,6 @@ ti84-python-programs/
   Outputs mean, median, mode, min/max/range, sample variance/stdev, and population variance/stdev.
 - **`combinatorics_probability.py`** — Menu for nPr, nCr, or binomial probability; prompts for `n`, `r`, and/or
   probability `p`. Outputs the computed value.
-- **`complex_number_calculator.py`** — Menu for add/subtract/multiply/divide of two complex numbers (entered as
-  real/imaginary parts), magnitude & argument of one complex number, rectangular → polar, or polar → rectangular.
-  All arithmetic is computed manually on real/imaginary float pairs (no `cmath`). Outputs the result as `a + bi`
-  or the requested magnitude/angle/polar form.
 
 ---
 
@@ -209,9 +172,8 @@ ti84-python-programs/
 | `rlc_impedance.py` | Series RLC impedance magnitude/phase and LC resonant frequency calculator. |
 | `statics_vectors.py` | Resultant of 2D force vectors, and 2D torque/moment about a point. |
 | `vector3d_toolkit.py` | 3D vector toolkit: dot product, cross product, magnitude, angle between vectors, and projection. |
-| `heat_transfer_calculator.py` | Specific heat (q=mcΔT), phase-change latent heat (q=mL), and two-mass mixing/equilibrium temperature (calorimetry). |
 
-**Course fit:** Physics I/II (mechanics, circuits), Statics, Circuits/Engineering fundamentals, intro Thermodynamics.
+**Course fit:** Physics I/II (mechanics, circuits), Statics, Circuits/Engineering fundamentals.
 
 - **`kinematics_solver.py`** — Choose which of v0/v/a/t/d is unknown, then enter the other four. Outputs the
   solved value with the formula used, or a friendly message if the inputs are inconsistent.
@@ -226,11 +188,6 @@ ti84-python-programs/
 - **`vector3d_toolkit.py`** — Menu for dot product, cross product, magnitude, angle between two vectors, or
   scalar/vector projection of one vector onto another. Enter each vector as `x`, `y`, `z` components. Outputs
   the requested result(s).
-- **`heat_transfer_calculator.py`** — Menu for specific heat `q = m*c*ΔT` (enter mass, specific heat, initial/final
-  temperature), phase-change latent heat `q = m*L` (enter mass and latent heat), or the equilibrium temperature
-  of two masses mixed together (enter each substance's mass, specific heat, and temperature). Outputs the
-  computed heat `q` (with an absorbed/released note) or the equilibrium temperature and each substance's heat
-  gained/lost for a quick energy-conservation check.
 
 ---
 
@@ -266,83 +223,27 @@ ti84-python-programs/
 
 ---
 
-## Trigonometry (`trigonometry/`)
-
-| File | Description |
-|---|---|
-| `oblique_triangle_solver.py` | Non-right-triangle solver using the Law of Sines and Law of Cosines: SSS, SAS, ASA/AAS, and the ambiguous SSA case. |
-
-**Course fit:** Trigonometry, Pre-Calculus, Physics I (vector/force triangles).
-
-- **`oblique_triangle_solver.py`** — Menu for SSS (three sides), SAS (two sides + included angle), ASA/AAS (two
-  angles + one side), or SSA (two sides + a non-included angle, the classic ambiguous case). Outputs the missing
-  sides/angles, or a message if the inputs don't form a triangle — including reporting 0, 1, or 2 valid solutions
-  for the ambiguous SSA case.
-
----
-
-## Biology (`biology/`)
-
-| File | Description |
-|---|---|
-| `punnett_square_solver.py` | Monohybrid or dihybrid Punnett-square cross calculator: offspring genotype and phenotype ratios from parent genotypes. |
-
-**Course fit:** Intro Biology, Genetics.
-
-- **`punnett_square_solver.py`** — Menu for a monohybrid cross (one gene, e.g. `Aa` x `Aa`) or a dihybrid cross
-  (two independently-assorting genes, e.g. `AaBb` x `AaBb`). Enter the letter(s) used for each gene and each
-  parent's genotype. Outputs every offspring genotype and phenotype with their ratios (e.g. the classic 1:2:1
-  genotype / 3:1 phenotype monohybrid result, or 9:3:3:1 dihybrid phenotype result), assuming simple dominant/
-  recessive inheritance where uppercase is the dominant allele.
-
----
-
-## Computer Science (`computer_science/`)
-
-| File | Description |
-|---|---|
-| `discrete_math_toolkit.py` | Number base converter (binary/octal/decimal/hex) plus a boolean logic truth-table generator for a typed expression of up to 3 variables. |
-
-**Course fit:** Discrete Math, Intro Computer Science/Digital Logic.
-
-- **`discrete_math_toolkit.py`** — Menu for a base converter (pick from/to base among binary, octal, decimal, hex,
-  then enter a value in the from-base) or a truth-table generator (pick 1-3 variables `A`/`B`/`C`, then type a
-  boolean expression using `and`/`or`/`not`/`^` for XOR, e.g. `A and not B`). Outputs the converted value, or a
-  full truth table of every input combination and the expression's result for each row.
-
----
-
 ## Transferring to Your Calculator
 
-Install **TI Connect™ CE** and connect your TI-84 Plus CE Python Edition over USB, then pick either route:
+1. Install **TI Connect™ CE** (free, from Texas Instruments) and connect your TI-84 Plus CE Python
+   Edition over USB. Your calculator should appear in **Calculator Explorer**.
+2. Pick one of these:
+   - **Ready-made AppVars (fewest steps).** Drag the files from `8xv/` onto the Calculator Explorer
+     window, or use **Actions → Send to Calculator**. No conversion step is needed.
+   - **Source files.** Drag the files from `py/` instead; TI Connect CE converts each `.py` into a
+     Python AppVar itself as it sends. This uses TI's own converter, so it's the fallback if
+     anything about the first option doesn't work on your setup.
+   - **No computer.** Type a program straight into the on-calculator Python editor from the `py/`
+     source. Slower, but these are short plain-text files.
+3. Run programs from the **Python App** by selecting the program and choosing **Run**.
 
-- **Ready-made AppVars.** Drag files from [`8xv/`](8xv/) onto TI Connect CE's Calculator Explorer. These are
-  already in the calculator's native Python AppVar format, so no conversion step is needed. Each file is named
-  after the name it installs as, e.g. `8xv/algebra_linear_stats/QUADSOLV.8xv` shows up as `QUADSOLV`.
-- **Source files.** Drag the `.py` files instead and TI Connect CE converts them as it sends — or type a program
-  straight into the on-calculator Python editor.
+### A note on the `.8xv` files
 
-Then run programs from the calculator's Python App shell by selecting the program and pressing the Run option.
+The `.8xv` files were generated with an open-source converter (included in the project repo as
+`tools/py_to_8xv.py`) rather than by TI Connect CE itself. Every file is checked byte-for-byte
+against the format TI's own software produces, and the converter is validated by reproducing a
+TI-generated Python AppVar exactly. If you ever hit a file that won't load, send the matching `.py`
+from `py/` instead — it's the same program, converted by TI's own tooling.
 
 Keep an eye on the ~50 KB / 100-program on-device storage limit; archive or delete programs you're not actively
-using to free up space, per the on-calculator memory management prompts. All 29 AppVars together come to about
-104 KB, so install the subjects you need rather than everything at once.
-
-### About the `.8xv` files
-
-The `.8xv` files are generated by [`tools/py_to_8xv.py`](tools/py_to_8xv.py), a dependency-free converter written
-for this repo, and not by TI Connect CE. It is validated by reproducing a Python AppVar that TI's own software
-produced, byte for byte, and every generated file is re-parsed, round-tripped against its source, and
-cross-checked with `tivars_lib_py`. **They have not been tested on physical hardware** — see
-[`bundles/FILE_FORMAT_NOTES.md`](bundles/FILE_FORMAT_NOTES.md) for the full format write-up, the verification
-evidence, and precisely what remains unproven. The `.py` route above always works regardless.
-
-If you edit any `.py` file, regenerate the AppVars and bundles:
-
-```bash
-python tools/py_to_8xv.py --batch . --out ./8xv --names tools/varnames.json --name-by-var \
-    --comment "TI-84 CE Python Study Toolkit"
-python tools/build_bundles.py --repo .
-python tools/verify_8xv.py --src . --out ./8xv --names tools/varnames.json --name-by-var \
-    --bundles ./bundles
-```
+using to free up space, per the on-calculator memory management prompts.

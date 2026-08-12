@@ -1,0 +1,38 @@
+{
+  "_comment": "Curated on-calculator names for each program. TI-8x variable names are limited to 8 characters, A-Z and 0-9, starting with a letter, so these are hand-picked to stay readable in the Python app's program list instead of being blindly truncated. Any stem not listed here falls back to automatic derivation.",
+
+  "derivative_numeric": "DERIVNUM",
+  "limit_evaluator": "LIMITEVL",
+  "newton_raphson": "NEWTRAPH",
+  "simpsons_rule": "SIMPSON",
+  "taylor_series": "TAYLOR",
+
+  "ode_solver_euler": "ODEEULER",
+
+  "combinatorics_probability": "COMBPROB",
+  "complex_number_calculator": "COMPLEX",
+  "descriptive_stats": "DESCSTAT",
+  "linear_system_solver": "LINSOLVE",
+  "matrix_toolkit": "MATRIX",
+  "quadratic_solver": "QUADSOLV",
+  "quadratic_vertex_analyzer": "QUADVERT",
+
+  "heat_transfer_calculator": "HEATXFER",
+  "kinematics_solver": "KINEMAT",
+  "ohms_law_circuits": "OHMSLAW",
+  "projectile_motion": "PROJECTL",
+  "rlc_impedance": "RLCIMPED",
+  "statics_vectors": "STATICS",
+  "vector3d_toolkit": "VECTOR3D",
+
+  "oblique_triangle_solver": "OBLIQUE",
+  "punnett_square_solver": "PUNNETT",
+  "discrete_math_toolkit": "DISCRETE",
+
+  "acid_base_calculator": "ACIDBASE",
+  "exam_countdown_drill": "EXAMDRIL",
+  "formula_flashcards": "FLASHCRD",
+  "ideal_gas_law": "IDEALGAS",
+  "stoichiometry_molar_mass": "MOLARMAS",
+  "unit_converter": "UNITCONV"
+}
