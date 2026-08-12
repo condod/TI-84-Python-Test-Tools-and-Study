@@ -168,11 +168,19 @@ by definition. That's the YouTube video and the first blog post in `LAUNCH_PLAN.
 
 ### Tier 3 — enthusiast terms (use only outside the marketplaces)
 
-`8xp` · `TI-BASIC` · `ez80` · `ti_plotlib` · `CE Python AppVar` · `TI-84 Plus CE homebrew` ·
-`calculator programming`
+`8xv` · `8xp` · `TI-BASIC` · `ez80` · `ti_plotlib` · `CE Python AppVar` ·
+`TI-84 Plus CE homebrew` · `calculator programming`
 
 For GitHub topics, Cemetech and ticalc posts. **Never in Etsy tags** — these people are
 builders, not buyers.
+
+**One exception worth making:** `.8xv` is worth mentioning in your Etsy and Gumroad
+*descriptions* (not tags — the term is far too rare to justify one of 13 slots). The bundles
+ship a ready-to-install `.8xv` Python AppVar for every program alongside the `.py` source,
+and "drag the file onto your calculator" is a concretely better install story than the
+copy-paste-into-the-Program-Editor process that every competitor listing describes. That is a
+conversion argument rather than a keyword, so put it in the first two lines of the
+description and on the contents image, where buyers who are weighing up listings will see it.
 
 ### Terms to avoid entirely
 

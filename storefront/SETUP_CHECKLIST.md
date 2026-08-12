@@ -58,24 +58,44 @@ assuming the listing fee is incurred per sale via renewal and excluding Offsite 
 The ZIPs already exist in `bundles/`. Confirm sizes are sane — they are tiny, which means
 no platform limit is anywhere close to being a problem:
 
-| File | Size |
-|---|---|
-| `free_starter_bundle.zip` | 5.3 KB |
-| `calculus_bundle.zip` | 8.9 KB |
-| `algebra_linear_stats_bundle.zip` | 8.8 KB |
-| `physics_engineering_bundle.zip` | 8.8 KB |
-| `chemistry_and_exam_tools_bundle.zip` | 10.9 KB |
-| `complete_toolkit_bundle.zip` | 37.3 KB |
+Each bundle now ships **both** formats for every program: a ready-to-install `.8xv` Python
+AppVar and the matching plain-text `.py` source.
+
+| File | Programs | Size |
+|---|---|---|
+| `free_starter_bundle.zip` | 3 | 10.0 KB |
+| `calculus_bundle.zip` | 6 | 17.4 KB |
+| `algebra_linear_stats_bundle.zip` | 6 | 17.2 KB |
+| `physics_engineering_bundle.zip` | 6 | 17.2 KB |
+| `chemistry_and_exam_tools_bundle.zip` | 6 | 21.4 KB |
+| `complete_toolkit_bundle.zip` | 24 | 72.0 KB |
 
 Etsy allows 5 files per listing at 20 MB each; Gumroad's limits are far higher. Every
-bundle fits in a single file slot with room to spare.
+bundle fits in a single file slot with roughly 280× headroom.
 
 - [ ] Open each ZIP and confirm the install README and the exam-policy disclaimer are inside.
 - [ ] Confirm filenames are lowercase, no spaces. (Etsy caps filenames at 70 characters
       and allows only letters, numbers, periods, underscores and hyphens.)
-- [ ] Decide now whether you're also shipping `.8xv`/calculator-native versions — if the
-      conversion work in `tools/` lands, re-zip and re-upload before launch rather than
-      after, so early buyers don't get a stale file.
+- [ ] **Test at least one `.8xv` on a real calculator before you take money for it.** Per
+      [`bundles/FILE_FORMAT_NOTES.md`](../bundles/FILE_FORMAT_NOTES.md), the converter
+      reproduces a TI-generated AppVar byte-for-byte and all programs pass structural and
+      round-trip checks — strong evidence, but the format has not been confirmed on physical
+      hardware. Drag one onto a device and run it. This is a 10-minute check that protects
+      every sale you make.
+- [ ] **Lead with the drag-and-drop install in your copy.** Shipping `.8xv` alongside `.py`
+      removes the single biggest friction point in this category — competitors' listings all
+      describe a copy-paste-into-the-Program-Editor process. "Drag the file onto your
+      calculator" is a materially better offer and should be in the listing's first two lines
+      and on the contents image.
+
+> **Program count:** the bundles currently contain 24 programs (6 per subject, 3 free). The
+> repo itself has since grown past that — there are now programs under `biology/`,
+> `computer_science/` and `trigonometry/` that are **not in any bundle**. If you re-cut the
+> ZIPs to include them, the number "24" has to change in the same pass in
+> `storefront/index.html` (title, meta description, hero, trust row, pricing table, complete-
+> toolkit callout and footer), `SEO_KEYWORDS.md` (titles), `bundles/PRICING.md` and
+> `bundles/LISTING_COPY.md`. Selling "24 programs" and delivering 29 is a good problem, but
+> selling 29 and delivering 24 is a refund.
 
 ### 1.2 Make the listing images
 

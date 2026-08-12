@@ -116,10 +116,10 @@ put programs on my TI-84" is an evergreen search. Least exciting, highest long-t
 |---|---|---|---|
 | 0:00–0:04 | USB cable plugging into the calculator | **How to put a Python program on a TI-84 Plus CE** | "Fastest way to get a Python program onto a TI-84 Plus CE." |
 | 0:04–0:10 | TI Connect CE window on the laptop | **1. TI Connect CE — free from Texas Instruments** | "Download TI Connect CE. It's free from TI, it's the official one." |
-| 0:10–0:18 | Click Program Editor → New → Python | **2. Program Editor → New → Python** | "Program Editor, new file, choose Python." |
-| 0:18–0:28 | Paste code, name it `NEWTRAPH` | **3. Paste the .py contents. Name it ≤8 characters.** | "Paste in the code. Keep the name short — the calculator truncates long names." |
-| 0:28–0:36 | Click send; transfer bar; calculator screen updates | **4. Send to calculator** | "Send. That's it." |
-| 0:36–0:45 | On the calculator, open Python app, run it | **5. Python app → Run** | "Python app, pick it, run. Whole thing is under a minute once you've done it once. I've got a free 3-program pack in my bio if you need something to test with." |
+| 0:10–0:16 | Explorer window with `.8xv` files visible | **2. Find your `.8xv` file** | "If you've got a `.8xv` file, this takes ten seconds. That's the calculator's own Python format." |
+| 0:16–0:26 | Drag the `.8xv` onto the TI Connect CE device window; transfer bar | **3. Drag it onto the calculator. Done.** | "Drag it across. No copy-pasting code, no retyping." |
+| 0:26–0:36 | On the calculator, open Python app, program is listed, run it | **4. Python app → Run** | "Python app, it's already there, run it." |
+| 0:36–0:45 | Cut to Program Editor showing the `.py` | **Only got a `.py`? Program Editor → New → Python → paste → send** | "If all you've got is a `.py` text file, use the Program Editor instead — new Python file, paste, keep the name under 8 characters, send. Free 3-program pack in my bio if you want something to practise on." |
 
 **Post this one on YouTube as a regular video too, not just as a Short**, with the title
 `How to Put Python Programs on a TI-84 Plus CE (TI Connect CE, 2026)`. It will collect
@@ -152,7 +152,8 @@ communities on the same day.
 > - **Descriptive stats** — mean, median, mode, sample and population variance/SD from a
 >   list you type in.
 >
-> Plain `.py` text files, so you can read and edit them. [LINK]
+> Each one ships as both a ready-to-install `.8xv` Python AppVar and the plain `.py` source,
+> so you can drag them straight across and still read what they're doing. [LINK]
 >
 > Things I learned that might save you time if you write your own:
 >
@@ -276,17 +277,21 @@ honest objections.
 >
 > **Download:** [LINK]
 >
-> Inside: `unit_converter.py`, `quadratic_solver.py`, `descriptive_stats.py`, and an
-> install guide.
+> Inside: a unit converter, a quadratic solver and a descriptive-statistics tool — each one
+> as both a ready-to-install `.8xv` and the plain `.py` source — plus an install guide.
 >
-> **The 60-second install**
+> **The 30-second install**
 >
 > 1. Install TI Connect CE (free, from Texas Instruments) and plug the calculator in.
-> 2. Program Editor → New → Python.
-> 3. Paste in the contents of one `.py` file.
-> 4. Name it **8 characters or fewer** — this is the step people get stuck on. Longer
->    names get truncated and then two programs collide.
-> 5. Send it, then open the Python app on the calculator and run it.
+> 2. Drag the three `.8xv` files onto the calculator in TI Connect CE.
+> 3. Open the Python app on the calculator. They're already there. Run one.
+>
+> That's it — the `.8xv` files are the calculator's own native Python format, so there's no
+> copy-pasting involved. The `.py` files in the same folder are the readable source, in case
+> you want to see how they work or change something. If you'd rather install that way:
+> Program Editor → New → Python, paste the contents in, and **name it 8 characters or
+> fewer** — that's the step people get stuck on, because longer names get truncated and two
+> programs end up colliding.
 >
 > **Quick check:** these need a TI-84 Plus **CE Python Edition**, or a CE with the Python
 > app installed. They won't run on a TI-83, an older monochrome TI-84, an Nspire, or a
