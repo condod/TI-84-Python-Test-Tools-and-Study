@@ -94,12 +94,28 @@ lower-value bare-resale line, not as the supply chain for the loaded SKU.
 
 **Modelled eBay take: 13.6% + 2% promoted + 0.95% tax drag = 16.55% + $0.40.**
 
-### Mercari [ESTIMATE — verify before listing]
+### Mercari [RESEARCHED]
 
-Mercari restructured seller fees in 2024 and has continued to adjust them. I could not verify the
-current 2026 structure to a standard I'm willing to publish as researched. Model it as
-**roughly comparable to or slightly below eBay**, and confirm on Mercari's own fee page before you
-cross-list. Don't build a plan on it.
+**A flat 10% selling fee** on item price plus buyer-paid shipping. **No listing fee, no per-order
+fee, and no seller payment-processing fee** — the old 2.9% + $0.50 processing charge was removed for
+listings created or updated after the January fee restructure. Buyers separately pay a ~3.6% Buyer
+Protection fee, which does not come out of your payout but does affect what a buyer is willing to
+offer. If you offer free shipping, the 10% applies to the item price only, but you pay the label.
+(<https://sellerfeecalc.com/mercari-fees>, <https://ecomcalctools.com/blog/mercari-fees/>,
+<https://crosslist.com/blog/mercari-seller-fees>, accessed 2026-08-12.)
+
+**This is materially cheaper than eBay** — 10% versus an effective ~16.55% + $0.40. On an $88 free-
+shipping sale at $30 acquisition:
+
+| | eBay | Mercari |
+|---|---:|---:|
+| Fees | $14.96 | $8.80 |
+| **Net** | **$26.34** | **$32.50** |
+
+**Cross-list everything, and prefer the Mercari sale when you get one** — it's about **$6/unit
+better**, roughly 23% more profit for identical work. The catch is traffic: Mercari's buyer base for
+a specific calculator model is much thinner than eBay's, and the "pre-loaded" story lands less well
+with a browse-driven audience. Treat eBay as the demand engine and Mercari as the margin bonus.
 
 ### Facebook Marketplace [RESEARCHED, directionally]
 
@@ -172,9 +188,24 @@ framing is that condition, accessories, and battery health drive used-calculator
 software is listed as something that *"can justify"* a higher price, with no figure attached
 (<https://production.matthewmarks.com/refurbished-ti-84-graphing-calculator/>, accessed 2026-08-12).
 
+**The most telling evidence is what the closest competitor doesn't do.** mcstutoring.com — the
+established TI-84 program seller this repo already benchmarks against in `bundles/PRICING.md`, run by
+someone with *"25+ years of tutoring experience and 30 years of TI-BASIC programming"* — sells
+programs at **$20–$60 each** and bundles up to **$160**, and sells them **exclusively as digital
+downloads**. Their own instructions tell buyers to *"transfer files using TI Connect CE"* and list
+the USB mini cable as something the buyer supplies.
+(<https://mcstutoring.com/collections/formula-programs>,
+<https://mcstutoring.com/pages/ti-84-plus-ce-calculator-programs-complete-reference-guide>, accessed
+2026-08-12.) **They do not sell pre-loaded hardware at any price.** Someone who has spent decades in
+this exact niche, and who prices software far more aggressively than this repo does, has evidently
+concluded that shipping calculators isn't worth it. That should carry weight.
+
+Etsy's TI-84 hardware listings are likewise bare used calculators — "tested," "with cover," no
+software angle (<https://www.etsy.com/market/ti84_calculator>, accessed 2026-08-12).
+
 **[UNVERIFIED]** I was not able to pull live eBay sold-comp data for "preloaded" calculator
-listings. The absence of a visible segment is itself weak evidence — if there were an easy $30
-premium here, this category is competitive enough that someone would already be farming it.
+listings specifically. The absence of a visible segment is itself weak evidence — if there were an
+easy $30 premium here, this category is competitive enough that someone would already be farming it.
 
 ### The arithmetic your buyer can do
 

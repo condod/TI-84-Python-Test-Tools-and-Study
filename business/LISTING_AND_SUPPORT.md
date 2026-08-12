@@ -79,6 +79,15 @@ Fill every one. eBay's search demonstrably favours completeness.
 | Bundled items | Slide case, USB cable, quick-start card |
 | Custom: OS Version | e.g. 5.8.5 |
 
+### One title note on the TI-84 Evo
+
+TI replaced the CE Python with the **TI-84 Evo** in April 2026 ([`SOURCING.md`](SOURCING.md) §0).
+Buyers will increasingly search "Evo," and some will land on your listing by mistake. Don't chase
+that traffic — never put "Evo" in a CE Python title, since it isn't one and the mismatch is an
+"item not as described" case waiting to happen. If you want to address it, do it in the description:
+one honest line noting this is the TI-84 Plus CE Python, the model the Evo replaced, and that it uses
+TI Connect CE and a Mini-B cable.
+
 ---
 
 ## 2. Photo shot list
@@ -427,7 +436,7 @@ Recommended on eBay. Reasoning:
 | Platform | Verdict | Notes |
 |---|---|---|
 | **eBay** | **Primary channel.** | Best buyer intent for a specific model, best search for "TI-84 Plus CE Python," and buyers there accept used-electronics norms. Fees are the highest, and the return exposure is real. Fee model in [`UNIT_ECONOMICS.md`](UNIT_ECONOMICS.md) §3. |
-| **Mercari** | **Secondary.** | Lower fees, lower traffic for this specific model, buyer base skews toward lower price points. Worth cross-listing bare units; the preloaded story lands less well. |
+| **Mercari** | **Secondary, but the best margin of the shipped channels.** | Flat **10%** seller fee, no listing fee, no per-order fee, no seller payment processing [RESEARCHED — see [`UNIT_ECONOMICS.md`](UNIT_ECONOMICS.md) §3] — about **$6/unit better than eBay** on an $88 sale. Traffic for this specific model is much thinner, and the browse-driven audience responds less to the preloaded story. Cross-list everything and take the Mercari sale when it comes. |
 | **Facebook Marketplace** | **Best margin, worst scale.** | Local pickup means no shipping cost and no platform fee, and it's the single highest-margin channel per unit. But it's slow, buyers haggle hard, no-shows are routine, and August is the only month with real volume. Use it to clear bare and grade-C/D units. |
 | **Etsy** | **Avoid for hardware.** | `COMPLIANCE_RESEARCH.md` §8.4: Etsy requires everything listed to be "made, designed, handpicked, or sourced by a seller," and how Etsy classifies "mass-produced device + seller's software" is **unverified**. The digital bundles are fine there; the calculators are a takedown risk for no upside. |
 | **Your own storefront (Gumroad/direct)** | **For digital only.** | Selling hardware direct means you eat payment processing, fraud risk, and all your own traffic acquisition, with no marketplace demand. Not worth it at this volume. |
