@@ -26,6 +26,10 @@ py/    the plain-text Python source     <- read it, edit it, or type it in by ha
 The `.8xv` files are the same programs, already converted into the calculator's native Python
 AppVar format. Each one is named after the name it will show up as in the Python App's program
 list, so `QUAD.8xv` installs as `QUAD`.
+
+**Which folder you need depends on your calculator.** The `8xv/` folder is for the TI-84 Plus CE
+family. The `py/` folder is the portable one: it is what you use on a **TI-84 Evo**, which does not
+accept `.8xv` files at all. See the install guide below.
 <!-- END BLOCK -->
 
 <!-- BLOCK: COMPATIBILITY -->
@@ -46,15 +50,44 @@ Before you buy hardware:
 - If you already own a TI-84 Plus CE without Python, check TI's site for the Python App for your
   model and OS version before assuming these will run.
 
-**TI-84 Evo compatibility is not yet confirmed.** We have not tested these programs on that model
-and make no claim either way about whether they run on it.
+### The three calculators people ask about
+
+**TI-84 Plus CE _Python Edition_ — the model this bundle is built and tested for.** Install the
+`8xv/` files with TI Connect™ CE and you are running in a couple of minutes.
+
+**Plain TI-84 Plus CE — only if it has TI's Python App.** Check the Apps list first. If Python is
+missing, the programs cannot run until you install TI's Python App for your model and OS version.
+New units sold today are the ones to watch out for, per the warning above.
+
+**TI-84 Evo — use the `py/` folder, not `8xv/`.** Every Evo has Python built in, so there is no
+"Python Edition" to look for. But the Evo uses a **new AppVar format (`.8xv2`)** and a **different
+transfer tool**, so the `.8xv` files in this bundle will **not** transfer to it and TI Connect CE
+will not connect to it at all. Send the plain `.py` files through TI's web app at
+<https://connectevo.ti.com> instead — it converts `.py` on the fly. Install steps are below.
+
+> **Honest status on the Evo:** every program here is written in plain Python using only `math`,
+> `random` and `time`, with the two optional TI-specific imports wrapped in a fallback, and none of
+> them depend on the screen size — so we **expect** them to run on an Evo. **We have not yet tested
+> them on Evo hardware and cannot promise it.** If you are buying specifically for an Evo, take the
+> free starter pack first and confirm on your own calculator before paying for anything.
 
 These programs do **not** run on the TI-83 Plus, the monochrome TI-84 Plus, the TI-84 Plus Silver
 Edition, the TI-Nspire family, or any Casio or HP calculator.
 <!-- END BLOCK -->
 
 <!-- BLOCK: INSTALL -->
-## Installing on Your Calculator (TI Connect™ CE)
+## Installing on Your Calculator
+
+There are two completely separate routes, and which one you need depends on your hardware:
+
+- **TI-84 Plus CE family** (Python Edition, or a plain CE with TI's Python App) — TI Connect™ CE on
+  your computer, USB cable, `8xv/` or `py/` files. That is the section immediately below.
+- **TI-84 Evo** — TI's web app at <https://connectevo.ti.com> in Chrome, USB-C cable, `py/` files
+  only. Skip to *[If you have a TI-84 Evo](#if-you-have-a-ti-84-evo)*.
+
+Don't mix them: TI Connect CE cannot talk to an Evo, and the Evo cannot read `.8xv` files.
+
+### TI-84 Plus CE family (TI Connect™ CE)
 
 First, the part that's the same either way:
 
@@ -62,14 +95,14 @@ First, the part that's the same either way:
 2. Connect your TI-84 Plus CE **Python Edition** to your computer with a USB cable.
 3. Open TI Connect CE — your calculator should appear in **Calculator Explorer**.
 
-### Option A — send the ready-made `.8xv` files (fewest steps)
+#### Option A — send the ready-made `.8xv` files (fewest steps)
 
 4. Open this bundle's `8xv/` folder, select the files you want (or all of them), and drag them onto
    the Calculator Explorer window — or use **Actions → Send to Calculator**. There's no conversion
    step: these are already Python AppVars.
 5. On the calculator, open the **Python App**, pick the program from the list, and select **Run**.
 
-### Option B — send the `.py` source and let TI Connect CE convert it
+#### Option B — send the `.py` source and let TI Connect CE convert it
 
 4. Do exactly the same thing, but drag the files from the `py/` folder instead. TI Connect CE
    converts each `.py` file into a Python AppVar itself as it sends.
@@ -78,12 +111,12 @@ First, the part that's the same either way:
 Option B uses TI's own converter, so it's the fallback if anything about Option A doesn't work on
 your setup. Both produce the same program on the calculator.
 
-### Option C — no computer at all
+#### Option C — no computer at all
 
 Open the **Python App** on the calculator, create a new program, and type the source in from the
 `py/` folder. These are short, plain-text files, so this is slower but perfectly workable.
 
-### A note on the `.8xv` files
+#### A note on the `.8xv` files
 
 The `.8xv` files were generated with an open-source converter (included in the project repo as
 `tools/py_to_8xv.py`) rather than by TI Connect CE itself. Every file is checked byte-for-byte
@@ -93,6 +126,36 @@ TI-generated Python AppVar exactly. If you ever hit a file that won't load, use 
 
 Keep an eye on the ~50 KB / 100-program on-device storage limit; archive or delete programs you're
 not actively using to free up space.
+
+### If you have a TI-84 Evo
+
+**Ignore everything above — none of it applies.** TI Connect CE will not connect to an Evo, and the
+Evo cannot read the `.8xv` files in this bundle (it uses a newer AppVar format, `.8xv2`). What you
+use instead is the `py/` folder and TI's browser-based transfer tool.
+
+You need: a **USB-C cable**, **Google Chrome** (WebUSB is required, so Safari and Firefox will not
+work), and an **internet connection** — the Evo tool is a web app, so there is no offline route.
+
+1. Go to <https://connectevo.ti.com> in Chrome. There is nothing to install and no sign-in.
+2. Connect the Evo to your computer with a USB-C cable and allow the browser to access it when
+   Chrome asks for permission.
+3. Choose **Send Files**, and pick the `.py` files you want from this bundle's `py/` folder. TI
+   Connect Evo converts each `.py` into the Evo's own Python format as it sends.
+4. On the calculator, open **Python**, pick the program, and run it.
+
+If you would rather not use a computer at all, Option C above works on an Evo too — open the Python
+app and type a program in from the `py/` source.
+
+**What we can and cannot promise here.** The programs in this bundle use only plain Python plus the
+standard `math`, `random` and `time` modules, which TI documents on the Evo, and nothing in them
+depends on the screen size or on the CE's key layout. On that basis we **expect** them to run
+correctly on an Evo. **They have not been tested on Evo hardware, so that is an expectation and not
+a tested claim.** If you hit a problem on an Evo, email and we will sort it out — and try the free
+starter pack first if you have not bought yet.
+
+One related warning: any keystroke-by-keystroke instruction or screenshot you find for these
+programs, here or elsewhere, was written on a TI-84 Plus CE. The Evo's keypad was substantially
+rearranged, so the keys may not be where the instructions say.
 <!-- END BLOCK -->
 
 <!-- BLOCK: PRESS-TO-TEST -->
@@ -190,7 +253,8 @@ Organization, which is not affiliated with, and does not endorse, this product. 
 registered trademark of the National Council of Examiners for Engineering and Surveying, which is
 not affiliated with, and does not endorse, this product. TI-84 Plus CE Python™, TI Connect™ CE,
 and Texas Instruments® are trademarks of Texas Instruments Incorporated, which is not affiliated
-with, and does not endorse, this product. All trademarks are the property of their respective
-owners. Exam policies are subject to change; verify current policy with the relevant exam
+with, and does not endorse, this product. TI-84 Evo™ and TI Connect™ Evo are likewise trademarks of
+Texas Instruments Incorporated, which is not affiliated with, and does not endorse, this product.
+All trademarks are the property of their respective owners. Exam policies are subject to change; verify current policy with the relevant exam
 authority.
 <!-- END BLOCK -->

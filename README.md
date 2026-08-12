@@ -4,7 +4,8 @@ A collection of 52 standalone TI-84 Plus CE **Python Edition** programs for
 engineering/math/science students, organized by subject area. Every program
 is a single `.py` text file you can type in on the calculator or transfer
 with TI Connect™ CE — and every program is also available as a ready-to-install
-`.8xv` Python AppVar in [`8xv/`](8xv/).
+`.8xv` Python AppVar in [`8xv/`](8xv/). The `.py` source is the portable format:
+it is also the route onto a **TI-84 Evo**, which cannot read `.8xv` files.
 
 > **Before you install:** the full library is about 247 KB of source and the
 > calculator holds roughly 50 KB of Python, so it is meant to be installed a
@@ -15,6 +16,10 @@ with TI Connect™ CE — and every program is also available as a ready-to-inst
 > discontinued the CE Python on **2026-04-27** and the plain TI-84 Plus CE now
 > sold does **not** include Python. See
 > [Hardware Compatibility](#hardware-compatibility-check-for-python-before-you-buy).
+
+> **Got a TI-84 Evo?** Use the `.py` files, not the `.8xv` files — the Evo uses a
+> different AppVar format and a different transfer tool. See
+> [Transferring to a TI-84 Evo](#transferring-to-a-ti-84-evo).
 
 ## 📦 Pre-Packaged Bundles Available
 
@@ -123,15 +128,21 @@ Four findings worth knowing even if you never sell a copy:
 
 ## 🛒 Storefront & Go-to-Market
 
-Everything needed to actually sell these bundles lives in [`storefront/`](storefront/):
+Everything needed to actually sell these bundles lives in [`storefront/`](storefront/).
+**The landing page is live at
+<https://condod.github.io/TI-84-Python-Test-Tools-and-Study/>** (GitHub Pages, published from
+`main` + `/docs`).
 
 - **[`index.html`](storefront/index.html)** (plus `styles.css` and `main.js`) — a self-contained,
   mobile-responsive sales landing page: bundle lineup, price comparison table, per-bundle
   contents, a free-starter-pack call to action, an FAQ, and the exam-policy disclaimer. No
   build step and no dependencies beyond a CDN font. Purchase links are flagged with `BUY LINK`
   comments and stay as placeholders until real store URLs are pasted in.
-- **[`DEPLOY.md`](storefront/DEPLOY.md)** — publishing the landing page free on GitHub Pages
-  from this repo, and pointing a custom domain at it later.
+- **[`DEPLOY.md`](storefront/DEPLOY.md)** — how the page is published free on GitHub Pages from
+  this repo, and how to point a custom domain at it later. Pages can only serve the repo root
+  or `/docs`, so [`docs/`](docs/) is a **generated copy** of the page produced by
+  [`tools/sync_docs.py`](tools/sync_docs.py) — re-run it after editing `storefront/`, or the
+  live site keeps serving the old version.
 - **[`SETUP_CHECKLIST.md`](storefront/SETUP_CHECKLIST.md)** — step-by-step Gumroad and Etsy
   setup: accounts, listings, what assets to upload, the real (and widely misquoted) fee maths
   on both platforms, and the policy considerations that apply to selling study tools.
@@ -212,11 +223,12 @@ ti84-python-programs/
 │                                 = 52 programs across 13 subject folders
 │
 ├── 8xv/                          ready-to-install Python AppVars (same subject folders)
-├── tools/                        converter, verifier, tests, bundle builder
+├── tools/                        converter, verifier, tests, bundle builder, docs sync
 ├── qa/                           TI-environment simulator, static checks, functional cases
 ├── bundles/                      sellable ZIPs, pricing, listing copy, format notes
 │   └── readme/                   per-bundle README sources + _shared.md common blocks
 ├── storefront/                   landing page, deploy/setup guides, SEO, launch plan
+├── docs/                         GENERATED GitHub Pages root - copy of storefront/ page
 └── business/                     sourcing, unit economics, platform strategy
 ```
 
@@ -639,13 +651,32 @@ Before buying hardware:
 - If you already own a TI-84 Plus CE without Python, check TI's site for the Python App for your model and OS
   version before assuming these will run.
 
-**TI-84 Evo compatibility is not yet confirmed.** These programs have not been tested on that model and no
-claim is made either way about whether they run on it.
+### The three variants people ask about
+
+| Calculator | Runs these? | How you install |
+|---|---|---|
+| **TI-84 Plus CE _Python Edition_** | Yes — the model this library is written and tested for | `.8xv` drag-and-drop via TI Connect™ CE |
+| **Plain TI-84 Plus CE** | Only if TI's Python App is installed; new units ship without it | Same as above, once Python is present |
+| **TI-84 Evo** | Expected to, but not hardware-verified — see below | `.py` files via <https://connectevo.ti.com>; `.8xv` will **not** work |
+
+**On the TI-84 Evo.** Every Evo ships with Python built in, so there is no "Python Edition" variant to look for.
+Two things do change, though. The Evo uses a **new AppVar format (`.8xv2`)**, so the `.8xv` files in [`8xv/`](8xv/)
+will not transfer to it, and **TI Connect CE does not connect to an Evo at all** — transfers go through TI's web
+app at <https://connectevo.ti.com>. The `.py` sources are the portable asset and are what an Evo owner uses; see
+[Transferring to a TI-84 Evo](#transferring-to-a-ti-84-evo).
+
+A static audit of all 52 programs found that they import only `math`, `random` and `time`, that the two programs
+touching TI-specific modules (`ti_system`, `ti_plotlib`) guard those imports with `try`/`except ImportError` and
+working text fallbacks, and that none hardcode pixel coordinates against the CE's screen. TI documents `math`,
+`random` and `time` as present on the Evo. On that basis these programs are **expected** to run on an Evo with no
+changes — but **none of them have been run on Evo hardware**, so that is an expectation, not a tested claim, and
+this README will not state otherwise until a test pass exists. Background and sources:
+[`business/EVO_TRANSITION.md`](business/EVO_TRANSITION.md).
 
 They do **not** run on the TI-83 Plus, the monochrome TI-84 Plus, the TI-84 Plus Silver Edition, the TI-Nspire
 family, or any Casio or HP calculator.
 
-## Transferring to Your Calculator
+## Transferring to Your Calculator (TI-84 Plus CE family)
 
 Install **TI Connect™ CE** and connect your TI-84 Plus CE Python Edition over USB, then pick either route:
 
@@ -657,6 +688,27 @@ Install **TI Connect™ CE** and connect your TI-84 Plus CE Python Edition over 
   straight into the on-calculator Python editor.
 
 Then run programs from the calculator's Python App shell by selecting the program and pressing the Run option.
+
+## Transferring to a TI-84 Evo
+
+The Evo route shares nothing with the CE route: different cable, different software, different file format. Do not
+try to use TI Connect CE, and do not use the files in [`8xv/`](8xv/) — the Evo cannot read them.
+
+You need a **USB-C cable**, **Google Chrome** (the tool relies on WebUSB, which Safari and Firefox do not support),
+and an **internet connection**, since the transfer tool is a web app with no offline mode.
+
+1. Open <https://connectevo.ti.com> in Chrome. Nothing to install, no sign-in.
+2. Connect the Evo over USB-C and grant Chrome access to the device when prompted.
+3. Choose **Send Files** and select the `.py` files you want. TI Connect Evo converts each `.py` into the Evo's own
+   Python format as it sends, so no conversion is needed on your side.
+4. Open **Python** on the calculator, pick the program and run it.
+
+Typing a program in by hand on the calculator's own Python editor also works, exactly as it does on the CE.
+
+Two caveats worth knowing. Bulk-sending ~50 files through the web tool has not been tested here, so if you are
+preparing a classroom set, expect to verify that workflow yourself. And any keystroke-level instruction or
+screenshot in this repository was produced on a TI-84 Plus CE — the Evo's keypad was substantially rearranged, so
+keys may not be where CE instructions say they are.
 
 ### Back up before Press-to-Test
 
@@ -779,5 +831,7 @@ Baccalaureate Organization, which is not affiliated with, and does not endorse, 
 registered trademark of the National Council of Examiners for Engineering and Surveying, which is not affiliated
 with, and does not endorse, this product. TI-84 Plus CE Python™, TI Connect™ CE, and Texas Instruments® are
 trademarks of Texas Instruments Incorporated, which is not affiliated with, and does not endorse, this product.
+TI-84 Evo™ and TI Connect™ Evo are likewise trademarks of Texas Instruments Incorporated, which is not affiliated
+with, and does not endorse, this product.
 All trademarks are the property of their respective owners. Exam policies are subject to change; verify current
 policy with the relevant exam authority.

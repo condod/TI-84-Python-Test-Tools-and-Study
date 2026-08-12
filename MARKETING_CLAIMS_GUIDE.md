@@ -281,8 +281,14 @@ name a mark, and at the bottom of every bundle README:
 > National Council of Examiners for Engineering and Surveying, which is not affiliated with, and
 > does not endorse, this product. TI-84 Plus CE Python™, TI Connect™ CE, and Texas Instruments® are
 > trademarks of Texas Instruments Incorporated, which is not affiliated with, and does not endorse,
-> this product. All trademarks are the property of their respective owners. Exam policies are
-> subject to change; verify current policy with the relevant exam authority.
+> this product. TI-84 Evo™ and TI Connect™ Evo are likewise trademarks of Texas Instruments
+> Incorporated, which is not affiliated with, and does not endorse, this product. All trademarks are
+> the property of their respective owners. Exam policies are subject to change; verify current
+> policy with the relevant exam authority.
+
+The final Texas Instruments sentence is only needed on pages that actually name the Evo marks —
+which, since the Evo install guidance was added, is the storefront, the root README and every
+bundle README.
 
 The College Board portion follows College Board's own prescribed template verbatim, including the
 mandatory separate PSAT/NMSQT sentence. Only include the sentences for marks you actually use on

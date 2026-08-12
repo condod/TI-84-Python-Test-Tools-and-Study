@@ -10,13 +10,20 @@ software byte-for-byte. That is strong evidence, but it is not the same as watch
 program run on a real calculator, which we could not do here. See
 [Verification status](#verification-status).
 
+**Scope:** everything below is about the **TI-84 Plus CE family**. It does not describe the
+TI-84 Evo, which uses a parallel and incompatible set of extensions — Python AppVars there
+are **`.8xv2`** — with no published format specification. The `.8xv` research and the
+converter remain exactly correct for CE hardware; they simply do not apply to an Evo, which
+takes plain `.py` files through TI Connect™ Evo instead. See
+[`business/EVO_TRANSITION.md`](../business/EVO_TRANSITION.md).
+
 ## What the on-calculator format is
 
 - TI-84 Plus CE Python programs are **not** `.8xp` files. `.8xp` is the extension for
   compiled **TI-BASIC** programs on TI-83/84-series calculators.
 - On-device, a Python program is stored as a **Python AppVar** with the extension
   **`.8xv`** (per Texas Instruments' TI Connect™ CE documentation and the TI-84 Plus CE
-  Python eGuide).
+  Python eGuide). On the TI-84 Evo the equivalent extension is `.8xv2`.
 - TI's normal workflow is: keep a plain `.py` text file on your computer and let TI Connect
   CE convert it to a `.8xv` Python AppVar when you send it to a connected calculator. Going
   the other way, TI Connect CE can pull a program back as either `.8xv` or `.py`.
