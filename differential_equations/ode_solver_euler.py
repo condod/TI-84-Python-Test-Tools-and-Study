@@ -1,3 +1,4 @@
+# On-calc name: ODE
 # Program: ode_solver_euler
 # Purpose: Numerically solve a first-order ODE dy/dx = f(x, y) given an
 #          initial condition (x0, y0), using either Euler's method or
@@ -14,6 +15,22 @@ from math import *
 
 def f_of_xy(expr, x, y):
     return eval(expr)
+
+
+def pad(text, width):
+    # str.ljust() is not available in the calculator's Python build.
+    s = str(text)
+    if len(s) >= width:
+        return s
+    return s + " " * (width - len(s))
+
+
+def pad_left(text, width):
+    # stand-in for str.rjust()
+    s = str(text)
+    if len(s) >= width:
+        return s
+    return " " * (width - len(s)) + s
 
 
 def get_float(prompt, default=None):
@@ -43,7 +60,8 @@ def get_expr():
 def run_euler(expr, x, y, h, x_target, improved):
     steps = 0
     print("\n Step |    x        |    y")
-    print(" " + str(steps).rjust(4) + "  | " + str(round(x, 6)).ljust(11) + " | " + str(round(y, 6)))
+    print(" " + pad_left(steps, 4) + "  | " + pad(round(x, 6), 11) +
+          " | " + str(round(y, 6)))
 
     # Cap the number of steps so a tiny h / large range can't run away.
     max_steps = 500
@@ -74,7 +92,8 @@ def run_euler(expr, x, y, h, x_target, improved):
 
         x = x + step_h
         steps += 1
-        print(" " + str(steps).rjust(4) + "  | " + str(round(x, 6)).ljust(11) + " | " + str(round(y, 6)))
+        print(" " + pad_left(steps, 4) + "  | " + pad(round(x, 6), 11) +
+              " | " + str(round(y, 6)))
 
     if steps >= max_steps:
         print("\nStopped: reached the " + str(max_steps) + "-step safety limit.")
@@ -82,7 +101,7 @@ def run_euler(expr, x, y, h, x_target, improved):
 
 
 def main():
-    print("=== First-Order ODE Solver (Euler / Improved Euler) ===")
+    print("=== ODE ===")
     print("Solves dy/dx = f(x,y) given y(x0) = y0.")
     while True:
         expr = get_expr()
@@ -104,10 +123,10 @@ def main():
         else:
             run_euler(expr, x0, y0, h, x_target, improved)
 
-        again = input("\nSolve another ODE? (y/n): ").strip().lower()
-        if again != "y":
+        print("\n1. Again  0. Quit")
+        if input("> ").strip() == "0":
             break
-    print("Done.")
+    print("Bye.")
 
 
 main()

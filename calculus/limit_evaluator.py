@@ -1,3 +1,4 @@
+# On-calc name: LIMIT
 # Program: limit_evaluator
 # Purpose: Numerically estimate the limit of f(x) as x approaches a
 #          target value c, evaluating from the left and right sides
@@ -14,6 +15,14 @@ from math import *
 
 def f_of_x(expr, x):
     return eval(expr)
+
+
+def pad(text, width):
+    # str.ljust() is not available in the calculator's Python build.
+    s = str(text)
+    if len(s) >= width:
+        return s
+    return s + " " * (width - len(s))
 
 
 def get_float(prompt):
@@ -43,7 +52,7 @@ def safe_eval(expr, x):
 
 
 def main():
-    print("=== Numeric Limit Evaluator ===")
+    print("=== LIMIT ===")
     print("Evaluates f(x) as x -> c from both sides.")
     while True:
         expr = get_expr()
@@ -59,7 +68,7 @@ def main():
             last_left, last_right = left, right
             lstr = "undefined" if left is None else str(round(left, 6))
             rstr = "undefined" if right is None else str(round(right, 6))
-            print(str(eps).ljust(9) + "| " + lstr.ljust(13) + "| " + rstr)
+            print(pad(eps, 9) + "| " + pad(lstr, 13) + "| " + rstr)
 
         print()
         if last_left is not None and last_right is not None and abs(last_left - last_right) < 1e-3:
@@ -70,10 +79,10 @@ def main():
             print("Left and right sides do not clearly agree (or f is undefined nearby).")
             print("The limit may not exist, or may need more terms/algebraic simplification.")
 
-        again = input("\nAnother limit? (y/n): ").strip().lower()
-        if again != "y":
+        print("\n1. Again  0. Quit")
+        if input("> ").strip() == "0":
             break
-    print("Done.")
+    print("Bye.")
 
 
 main()

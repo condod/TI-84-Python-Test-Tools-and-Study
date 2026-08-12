@@ -1,3 +1,4 @@
+# On-calc name: DERIV
 # Program: derivative_numeric
 # Purpose: Approximate f'(x0) using the central-difference formula
 #          f'(x0) ~= (f(x0+h) - f(x0-h)) / (2h), with a user-controlled
@@ -50,7 +51,7 @@ def central_diff(expr, x0, h):
 
 
 def main():
-    print("=== Numeric Derivative (Central Difference) ===")
+    print("=== DERIV ===")
     while True:
         expr = get_expr()
         x0 = get_float("x0 = ")
@@ -68,10 +69,10 @@ def main():
             else:
                 print(label + " = " + str(step) + " -> f'(x0) ~= " + str(round(d, 6)))
 
-        again = input("\nAnother derivative? (y/n): ").strip().lower()
-        if again != "y":
+        print("\n1. Again  0. Quit")
+        if input("> ").strip() == "0":
             break
-    print("Done.")
+    print("Bye.")
 
 
 main()

@@ -1,3 +1,4 @@
+# On-calc name: OHMS
 # Program: ohms_law_circuits
 # Purpose: Menu-driven DC circuit helper. Part 1 solves Ohm's Law /
 #          power relations for V, I, R, or P given two of the four
@@ -84,21 +85,21 @@ def combine_resistors():
 
 
 def main():
-    print("=== Ohm's Law & DC Circuit Calculator ===")
+    print("=== OHMS ===")
     while True:
-        print("\n1. Ohm's Law / Power solver")
-        print("2. Resistor combiner (series/parallel)")
-        print("3. Quit")
-        choice = input("Choice (1-3): ").strip()
+        print("\n1. Ohm/Power")
+        print("2. Series/Parallel R")
+        print("0. Quit")
+        choice = input("> ").strip()
         if choice == "1":
             solve_ohms()
         elif choice == "2":
             combine_resistors()
-        elif choice == "3":
+        elif choice == "0":
             break
         else:
             print("Invalid choice.")
-    print("Done.")
+    print("Bye.")
 
 
 main()

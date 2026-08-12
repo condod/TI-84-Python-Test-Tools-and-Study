@@ -1,3 +1,4 @@
+# On-calc name: SIMPSON
 # Program: simpsons_rule
 # Purpose: Approximate a definite integral, integral of f(x) dx from a to b,
 #          using composite Simpson's Rule.
@@ -61,7 +62,7 @@ def simpson(expr, a, b, n):
 
 
 def main():
-    print("=== Simpson's Rule Definite Integral ===")
+    print("=== SIMPSON ===")
     while True:
         expr = get_expr()
         a = get_float("Lower bound a = ")
@@ -78,10 +79,10 @@ def main():
             except Exception:
                 print("Error evaluating the integral. Check your function and bounds (e.g. avoid division by zero in range).")
 
-        again = input("\nAnother integral? (y/n): ").strip().lower()
-        if again != "y":
+        print("\n1. Again  0. Quit")
+        if input("> ").strip() == "0":
             break
-    print("Done.")
+    print("Bye.")
 
 
 main()

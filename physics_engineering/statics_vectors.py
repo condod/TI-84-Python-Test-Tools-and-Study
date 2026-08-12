@@ -1,3 +1,4 @@
+# On-calc name: STATIC
 # Program: statics_vectors
 # Purpose: Two statics tools in one menu: (1) resultant magnitude and
 #          direction of a set of 2D force vectors entered as
@@ -89,21 +90,21 @@ def torque_calc():
 
 
 def main():
-    print("=== Statics: 2D Force & Torque Helper ===")
+    print("=== STATIC ===")
     while True:
-        print("\n1. Resultant of 2D force vectors")
-        print("2. Net torque/moment about a point")
-        print("3. Quit")
-        choice = input("Choice (1-3): ").strip()
+        print("\n1. Force resultant")
+        print("2. Torque/moment")
+        print("0. Quit")
+        choice = input("> ").strip()
         if choice == "1":
             resultant_force()
         elif choice == "2":
             torque_calc()
-        elif choice == "3":
+        elif choice == "0":
             break
         else:
             print("Invalid choice.")
-    print("Done.")
+    print("Bye.")
 
 
 main()

@@ -1,3 +1,4 @@
+# On-calc name: NEWTON
 # Program: newton_raphson
 # Purpose: Find a root of f(x) = 0 using the Newton-Raphson method,
 #          printing each iteration's x value so students can watch
@@ -13,6 +14,22 @@ from math import *
 
 def f_of_x(expr, x):
     return eval(expr)
+
+
+def pad(text, width):
+    # str.ljust() is not available in the calculator's Python build.
+    s = str(text)
+    if len(s) >= width:
+        return s
+    return s + " " * (width - len(s))
+
+
+def pad_left(text, width):
+    # stand-in for str.rjust()
+    s = str(text)
+    if len(s) >= width:
+        return s
+    return " " * (width - len(s)) + s
 
 
 def get_float(prompt, default=None):
@@ -59,7 +76,7 @@ def numeric_deriv(expr, x, h=1e-5):
 
 
 def main():
-    print("=== Newton-Raphson Root Finder ===")
+    print("=== NEWTON ===")
     while True:
         expr = get_expr()
         x = get_float("Initial guess x0 = ")
@@ -76,7 +93,8 @@ def main():
                 print("Math error while evaluating f(x) or f'(x). Stopping.")
                 break
 
-            print(str(i).rjust(4) + " | " + str(round(x, 8)).ljust(12) + " | " + str(round(fx, 8)))
+            print(pad_left(i, 4) + " | " + pad(round(x, 8), 12) +
+                  " | " + str(round(fx, 8)))
 
             if dfx == 0:
                 print("Derivative is 0; Newton's method fails here. Try a different x0.")
@@ -95,10 +113,10 @@ def main():
             print("\nStopped without confirmed convergence. Last x = " + str(round(x, 8)))
             print("Try more iterations, a looser tolerance, or a different x0.")
 
-        again = input("\nFind another root? (y/n): ").strip().lower()
-        if again != "y":
+        print("\n1. Again  0. Quit")
+        if input("> ").strip() == "0":
             break
-    print("Done.")
+    print("Bye.")
 
 
 main()

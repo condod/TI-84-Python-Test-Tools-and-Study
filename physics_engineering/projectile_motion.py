@@ -1,3 +1,4 @@
+# On-calc name: PROJ
 # Program: projectile_motion
 # Purpose: Given launch speed and angle (and optional launch height),
 #          compute range, max height, and time of flight for
@@ -87,7 +88,7 @@ def draw_trajectory(v0, angle_deg, h0, result):
 
 
 def main():
-    print("=== Projectile Motion Simulator ===")
+    print("=== PROJ ===")
     if not HAS_PLOTLIB:
         print("(ti_plotlib not found on this calculator; text output only.)")
     while True:
@@ -116,10 +117,10 @@ def main():
                     except Exception:
                         print("Could not draw the plot on this calculator.")
 
-        again = input("\nAnother projectile? (y/n): ").strip().lower()
-        if again != "y":
+        print("\n1. Again  0. Quit")
+        if input("> ").strip() == "0":
             break
-    print("Done.")
+    print("Bye.")
 
 
 main()

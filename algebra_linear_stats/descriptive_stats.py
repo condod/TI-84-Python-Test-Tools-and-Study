@@ -1,3 +1,4 @@
+# On-calc name: STATS
 # Program: descriptive_stats
 # Purpose: Compute descriptive statistics (mean, median, mode, sample
 #          and population variance/standard deviation, min, max, range)
@@ -87,7 +88,7 @@ def variance_of(values, m, ddof):
 
 
 def main():
-    print("=== Descriptive Statistics Calculator ===")
+    print("=== STATS ===")
     while True:
         data = read_data()
         n = len(data)
@@ -113,10 +114,10 @@ def main():
         print("Population variance (n) = " + str(round(pop_var, 6)))
         print("Population std dev (n) = " + str(round(pop_var ** 0.5, 6)))
 
-        again = input("\nAnalyze another data set? (y/n): ").strip().lower()
-        if again != "y":
+        print("\n1. Again  0. Quit")
+        if input("> ").strip() == "0":
             break
-    print("Done.")
+    print("Bye.")
 
 
 main()

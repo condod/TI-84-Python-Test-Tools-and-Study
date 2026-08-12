@@ -1,3 +1,4 @@
+# On-calc name: GASLAW
 # Program: ideal_gas_law
 # Purpose: Two tools: (1) Ideal Gas Law PV=nRT solver for P, V, n, or T
 #          given the other three (SI-ish units: P in kPa, V in L,
@@ -122,21 +123,21 @@ def combined_gas():
 
 
 def main():
-    print("=== Ideal / Combined Gas Law Calculator ===")
+    print("=== GASLAW ===")
     while True:
-        print("\n1. Ideal Gas Law (solve for P, V, n, or T)")
-        print("2. Combined Gas Law (state 1 -> state 2)")
-        print("3. Quit")
-        choice = input("Choice (1-3): ").strip()
+        print("\n1. Ideal Gas PV=nRT")
+        print("2. Combined Gas")
+        print("0. Quit")
+        choice = input("> ").strip()
         if choice == "1":
             ideal_gas()
         elif choice == "2":
             combined_gas()
-        elif choice == "3":
+        elif choice == "0":
             break
         else:
             print("Invalid choice.")
-    print("Done.")
+    print("Bye.")
 
 
 main()

@@ -1,3 +1,4 @@
+# On-calc name: MATRIX
 # Program: matrix_toolkit
 # Purpose: Menu-driven matrix calculator for 2x2 and 3x3 matrices:
 #          addition, multiplication, determinant, and inverse.
@@ -94,16 +95,16 @@ def inverse3(m):
 
 
 def main():
-    print("=== Matrix Toolkit (2x2 / 3x3) ===")
+    print("=== MATRIX ===")
     while True:
-        print("\n1. Add two matrices")
-        print("2. Multiply two matrices")
-        print("3. Determinant")
+        print("\n1. Add")
+        print("2. Multiply")
+        print("3. Det")
         print("4. Inverse")
-        print("5. Quit")
-        choice = input("Choice (1-5): ").strip()
+        print("0. Quit")
+        choice = input("> ").strip()
 
-        if choice == "5":
+        if choice == "0":
             break
         if choice not in ("1", "2", "3", "4"):
             print("Invalid choice.")
@@ -133,7 +134,7 @@ def main():
                 print("\nInverse =")
                 print_matrix(inv)
 
-    print("Done.")
+    print("Bye.")
 
 
 main()

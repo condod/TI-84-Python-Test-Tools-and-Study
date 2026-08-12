@@ -1,3 +1,4 @@
+# On-calc name: QUAD
 # Program: quadratic_solver
 # Purpose: Solve ax^2+bx+c=0. Classifies the discriminant and prints
 #          two real roots, one repeated real root, or a complex
@@ -18,7 +19,7 @@ def get_float(prompt):
 
 
 def main():
-    print("=== Quadratic Equation Solver: ax^2 + bx + c = 0 ===")
+    print("=== QUAD ===")
     while True:
         while True:
             a = get_float("a = ")
@@ -49,10 +50,10 @@ def main():
             print("x1 = " + str(round(real_part, 6)) + " + " + str(round(imag_part, 6)) + "i")
             print("x2 = " + str(round(real_part, 6)) + " - " + str(round(imag_part, 6)) + "i")
 
-        again = input("\nSolve another? (y/n): ").strip().lower()
-        if again != "y":
+        print("\n1. Again  0. Quit")
+        if input("> ").strip() == "0":
             break
-    print("Done.")
+    print("Bye.")
 
 
 main()

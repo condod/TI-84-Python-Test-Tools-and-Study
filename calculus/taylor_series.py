@@ -1,3 +1,4 @@
+# On-calc name: TAYLOR
 # Program: taylor_series
 # Purpose: Generate Maclaurin/Taylor series terms for common functions
 #          (sin x, cos x, e^x, ln(1+x)) about 0, and show the running
@@ -8,6 +9,17 @@
 #        (math-module) value.
 
 from math import *
+
+MAX_TERMS = 25
+
+
+def factorial(n):
+    # math.factorial is not part of the TI-84 Python math module, so the
+    # factorial is built up iteratively here (no recursion, no big tables).
+    result = 1
+    for i in range(2, n + 1):
+        result *= i
+    return result
 
 
 def get_float(prompt):
@@ -25,6 +37,9 @@ def get_int(prompt):
             if n < 1:
                 print("Enter a positive whole number.")
                 continue
+            if n > MAX_TERMS:
+                print("Using the maximum of " + str(MAX_TERMS) + " terms.")
+                return MAX_TERMS
             return n
         except (ValueError, TypeError):
             print("Please enter a whole number.")
@@ -75,7 +90,7 @@ MENU = {
 
 
 def main():
-    print("=== Taylor / Maclaurin Series Explorer ===")
+    print("=== TAYLOR ===")
     while True:
         print("\nChoose a function:")
         print("1. sin(x)")
@@ -89,12 +104,15 @@ def main():
 
         name, series_fn, exact_fn = MENU[choice]
         x = get_float("x = ")
-        n_terms = get_int("Number of terms (e.g. 6): ")
+        n_terms = get_int("Number of terms (1-" + str(MAX_TERMS) + ", e.g. 6): ")
 
         terms = series_fn(x, n_terms)
         if terms is None:
             print("ln(1+x) requires x > -1. Try a different x.")
             continue
+        if choice == "4" and abs(x) > 1:
+            print("\nNote: the ln(1+x) series only converges for -1 < x <= 1,")
+            print("so these partial sums will not settle down.")
 
         print("\nMaclaurin series for " + name + " at x = " + str(x))
         running = 0.0
@@ -112,10 +130,10 @@ def main():
             print("\nApproximation: " + str(round(running, 6)))
             print("(Could not compute exact value for comparison.)")
 
-        again = input("\nTry another? (y/n): ").strip().lower()
-        if again != "y":
+        print("\n1. Again  0. Quit")
+        if input("> ").strip() == "0":
             break
-    print("Done.")
+    print("Bye.")
 
 
 main()

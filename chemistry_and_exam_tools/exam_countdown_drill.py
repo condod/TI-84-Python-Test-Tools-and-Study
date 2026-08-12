@@ -1,3 +1,4 @@
+# On-calc name: DRILL
 # Program: exam_countdown_drill
 # Purpose: Two practice-exam helpers in one menu: (1) a simple
 #          countdown timer to time yourself on practice problems, and
@@ -20,6 +21,14 @@ try:
 except ImportError:
     def clear_screen():
         print("\n" * 6)
+
+
+def two_digits(value):
+    # stand-in for str.rjust(2, "0"), which the calculator's Python lacks
+    s = str(value)
+    if len(s) >= 2:
+        return s
+    return "0" * (2 - len(s)) + s
 
 
 def get_float(prompt):
@@ -55,8 +64,8 @@ def run_timer():
             mins = remaining // 60
             secs = remaining % 60
             clear_screen()
-            print("=== Countdown ===")
-            print(str(mins).rjust(2, "0") + ":" + str(secs).rjust(2, "0") + " remaining")
+            print("=== DRILL ===")
+            print(two_digits(mins) + ":" + two_digits(secs) + " remaining")
             if remaining == 0:
                 break
             time.sleep(1)
@@ -87,6 +96,8 @@ def gen_order_of_magnitude():
     question = "Estimate the order of magnitude (power of 10) of: " + str(value)
     answer = 0
     v = value
+    if v == 0:
+        return question, 0.0
     while v >= 10:
         v /= 10.0
         answer += 1
@@ -104,23 +115,29 @@ def gen_percent():
     return question, float(answer)
 
 
-DRILLS = {
-    "1": ("Arithmetic", gen_arithmetic, 0.001),
-    "2": ("Order-of-magnitude estimate", gen_order_of_magnitude, 0.001),
-    "3": ("Percent of a number", gen_percent, 0.01),
-}
+# A list, not a dict: dictionaries are not insertion-ordered on the
+# calculator, and the menu numbering must be stable.
+DRILLS = [
+    ("Arithmetic", gen_arithmetic, 0.001),
+    ("Order-of-magnitude estimate", gen_order_of_magnitude, 0.001),
+    ("Percent of a number", gen_percent, 0.01),
+]
 
 
 def run_drill():
     print("\nDrill categories:")
-    for key, (name, _, _) in DRILLS.items():
-        print(key + ". " + name)
-    choice = input("Choice: ").strip()
-    if choice not in DRILLS:
+    for i, item in enumerate(DRILLS):
+        print(str(i + 1) + ". " + item[0])
+    choice = input("Choice (1-" + str(len(DRILLS)) + "): ").strip()
+    index = -1
+    for i in range(len(DRILLS)):
+        if choice == str(i + 1):
+            index = i
+    if index < 0:
         print("Invalid choice.")
         return
 
-    name, generator, tol = DRILLS[choice]
+    name, generator, tol = DRILLS[index]
     n_q = get_int("How many problems (1-20)? ", 1, 20)
 
     score = 0
@@ -138,21 +155,21 @@ def run_drill():
 
 
 def main():
-    print("=== Exam-Prep Countdown Timer & Drill Generator ===")
+    print("=== DRILL ===")
     while True:
-        print("\n1. Countdown timer")
-        print("2. Mental-math / sanity-check drill")
-        print("3. Quit")
-        choice = input("Choice (1-3): ").strip()
+        print("\n1. Timer")
+        print("2. Math drill")
+        print("0. Quit")
+        choice = input("> ").strip()
         if choice == "1":
             run_timer()
         elif choice == "2":
             run_drill()
-        elif choice == "3":
+        elif choice == "0":
             break
         else:
             print("Invalid choice.")
-    print("Done.")
+    print("Bye.")
 
 
 main()

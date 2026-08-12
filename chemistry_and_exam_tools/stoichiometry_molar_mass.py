@@ -1,3 +1,4 @@
+# On-calc name: MOLAR
 # Program: stoichiometry_molar_mass
 # Purpose: Two tools: (1) compute a compound's molar mass from element
 #          symbols and atom counts you enter (using a built-in table
@@ -96,12 +97,12 @@ def mass_moles_conversion(molar_mass=None):
 
 
 def main():
-    print("=== Stoichiometry & Molar Mass Calculator ===")
+    print("=== MOLAR ===")
     while True:
-        print("\n1. Molar mass from formula (element counts)")
-        print("2. Mass <-> moles conversion")
-        print("3. Quit")
-        choice = input("Choice (1-3): ").strip()
+        print("\n1. Molar mass")
+        print("2. Mass <-> moles")
+        print("0. Quit")
+        choice = input("> ").strip()
         if choice == "1":
             mm = molar_mass_from_formula()
             if mm is not None:
@@ -110,11 +111,11 @@ def main():
                     mass_moles_conversion(mm)
         elif choice == "2":
             mass_moles_conversion()
-        elif choice == "3":
+        elif choice == "0":
             break
         else:
             print("Invalid choice.")
-    print("Done.")
+    print("Bye.")
 
 
 main()

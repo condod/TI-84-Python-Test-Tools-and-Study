@@ -1,3 +1,4 @@
+# On-calc name: LINSOLV
 # Program: linear_system_solver
 # Purpose: Solve a system of 2 or 3 linear equations in 2 or 3
 #          unknowns using Gaussian elimination with partial pivoting.
@@ -52,7 +53,7 @@ def gaussian_eliminate(mat, n):
 
 
 def main():
-    print("=== Linear System Solver (Gaussian Elimination) ===")
+    print("=== LINSOLV ===")
     while True:
         n = None
         while n not in (2, 3):
@@ -74,10 +75,10 @@ def main():
             for i in range(n):
                 print(letters[i] + " = " + str(round(solution[i], 6)))
 
-        again = input("\nSolve another system? (y/n): ").strip().lower()
-        if again != "y":
+        print("\n1. Again  0. Quit")
+        if input("> ").strip() == "0":
             break
-    print("Done.")
+    print("Bye.")
 
 
 main()

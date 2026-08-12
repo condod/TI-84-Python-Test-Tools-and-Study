@@ -1,3 +1,4 @@
+# On-calc name: VERTEX
 # Program: quadratic_vertex_analyzer
 # Purpose: Determine and analyze a quadratic from its vertex and one
 #          other point on the parabola.
@@ -176,9 +177,8 @@ def show_results(h, k, x, y):
 
 
 def main():
-    print("QUADRATIC INFO")
-    print("Use vertex + one")
-    print("point on parabola.")
+    print("=== VERTEX ===")
+    print("Need vertex + 1 point")
 
     while True:
         try:
@@ -193,10 +193,9 @@ def main():
             print("INPUT ERROR")
             print(str(error))
 
-        print("")
-        again = input("Again? Y/N: ")
-        if again.upper() != "Y":
-            print("Done.")
+        print("\n1. Again  0. Quit")
+        if input("> ").strip() == "0":
+            print("Bye.")
             break
 
 

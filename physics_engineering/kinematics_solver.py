@@ -1,3 +1,4 @@
+# On-calc name: SUVAT
 # Program: kinematics_solver
 # Purpose: Solve 1D constant-acceleration (SUVAT) motion problems.
 #          Given values for 4 of the 5 variables v0 (initial velocity),
@@ -18,13 +19,13 @@ def get_float(prompt):
 
 
 def main():
-    print("=== SUVAT Kinematics Solver ===")
+    print("=== SUVAT ===")
     print("Variables: v0=initial velocity, v=final velocity,")
     print("a=acceleration, t=time, d=displacement")
     while True:
-        print("\nWhich variable is UNKNOWN?")
-        print("1. v0   2. v   3. a   4. t   5. d")
-        choice = input("Choice (1-5): ").strip()
+        print("\nUnknown?")
+        print("1.v0 2.v 3.a 4.t 5.d")
+        choice = input("> ").strip()
 
         try:
             if choice == "1":
@@ -79,10 +80,10 @@ def main():
         except Exception:
             print("Something went wrong with those inputs; please try again.")
 
-        again = input("\nSolve another? (y/n): ").strip().lower()
-        if again != "y":
+        print("\n1. Again  0. Quit")
+        if input("> ").strip() == "0":
             break
-    print("Done.")
+    print("Bye.")
 
 
 main()

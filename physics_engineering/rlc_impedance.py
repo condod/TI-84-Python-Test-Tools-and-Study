@@ -1,3 +1,4 @@
+# On-calc name: RLC
 # Program: rlc_impedance
 # Purpose: Compute the impedance magnitude and phase angle of a
 #          series RLC circuit at a given frequency, and compute the
@@ -19,7 +20,7 @@ def get_float(prompt):
 
 
 def main():
-    print("=== Series RLC Impedance & Resonance Calculator ===")
+    print("=== RLC ===")
     while True:
         r = get_float("Resistance R (ohms) = ")
         l = get_float("Inductance L (henries) = ")
@@ -53,10 +54,10 @@ def main():
         else:
             print("Resonant frequency undefined (L = 0).")
 
-        again = input("\nAnother circuit? (y/n): ").strip().lower()
-        if again != "y":
+        print("\n1. Again  0. Quit")
+        if input("> ").strip() == "0":
             break
-    print("Done.")
+    print("Bye.")
 
 
 main()

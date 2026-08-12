@@ -1,3 +1,4 @@
+# On-calc name: PH
 # Program: acid_base_calculator
 # Purpose: Three acid/base tools in one menu: (1) pH and pOH from a
 #          given [H+] or [OH-] concentration (mol/L), (2) [H+]/[OH-]
@@ -7,9 +8,16 @@
 # Usage: Pick a tool from the menu and enter the requested value(s).
 #        Prints the computed result(s). Assumes 25 C (Kw = 1.0e-14).
 
-from math import log10
+from math import log
 
 KW = 1.0e-14  # water autoionization constant at 25 C
+LN10 = log(10.0)
+
+
+def log10(x):
+    # The TI-84 Python math module has log() but no log10(), so base-10 logs
+    # are done with the change-of-base identity.
+    return log(x) / LN10
 
 
 def get_float(prompt):
@@ -70,8 +78,13 @@ def concentration_from_ph_poh():
         print("Invalid choice.")
         return
 
-    h = 10 ** (-ph)
-    oh = 10 ** (-poh)
+    try:
+        h = 10 ** (-ph)
+        oh = 10 ** (-poh)
+    except (OverflowError, ValueError):
+        print("That pH/pOH is too far outside the normal range to convert.")
+        return
+
     print("\npH  = " + str(round(ph, 4)))
     print("pOH = " + str(round(poh, 4)))
     print("[H+]  = " + str(h) + " mol/L")
@@ -91,24 +104,24 @@ def henderson_hasselbalch():
 
 
 def main():
-    print("=== Acid/Base Calculator ===")
+    print("=== PH ===")
     while True:
-        print("\n1. pH/pOH from [H+] or [OH-]")
-        print("2. [H+]/[OH-] from pH or pOH")
-        print("3. Buffer pH (Henderson-Hasselbalch)")
-        print("4. Quit")
-        choice = input("Choice (1-4): ").strip()
+        print("\n1. pH from conc")
+        print("2. Conc from pH")
+        print("3. Buffer pH")
+        print("0. Quit")
+        choice = input("> ").strip()
         if choice == "1":
             ph_poh_from_concentration()
         elif choice == "2":
             concentration_from_ph_poh()
         elif choice == "3":
             henderson_hasselbalch()
-        elif choice == "4":
+        elif choice == "0":
             break
         else:
             print("Invalid choice.")
-    print("Done.")
+    print("Bye.")
 
 
 main()

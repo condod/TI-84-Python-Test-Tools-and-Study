@@ -1,3 +1,4 @@
+# On-calc name: VECT3D
 # Program: vector3d_toolkit
 # Purpose: 3D vector operations menu: dot product, cross product,
 #          magnitude, angle between two vectors, and scalar/vector
@@ -97,15 +98,15 @@ def do_projection():
 
 
 def main():
-    print("=== 3D Vector Toolkit ===")
+    print("=== VECT3D ===")
     while True:
-        print("\n1. Dot product (A . B)")
-        print("2. Cross product (A x B)")
-        print("3. Magnitude |A|")
-        print("4. Angle between A and B")
-        print("5. Projection of A onto B")
-        print("6. Quit")
-        choice = input("Choice (1-6): ").strip()
+        print("\n1. Dot A.B")
+        print("2. Cross AxB")
+        print("3. |A|")
+        print("4. Angle A,B")
+        print("5. Proj A on B")
+        print("0. Quit")
+        choice = input("> ").strip()
         if choice == "1":
             do_dot()
         elif choice == "2":
@@ -116,11 +117,11 @@ def main():
             do_angle()
         elif choice == "5":
             do_projection()
-        elif choice == "6":
+        elif choice == "0":
             break
         else:
             print("Invalid choice.")
-    print("Done.")
+    print("Bye.")
 
 
 main()
