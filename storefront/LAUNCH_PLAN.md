@@ -4,12 +4,21 @@ How to actually get buyers for the TI-84 Plus CE Python toolkit, channel by chan
 honest effort and impact estimates and a two-week launch sequence.
 
 **On sourcing:** claims below are marked **VERIFIED** (I read the policy text myself and the
-URL is given), **SECONDARY** (a third party reports it; I could not read the original), or
-**INFERRED** (my reasoning, no source). Reddit blocks automated access to its rules pages —
-every fetch of `reddit.com/r/*/about/rules` returned HTTP 403 — so **no subreddit rule text
-below is verified**, and §2 gives you a five-minute procedure to check each one yourself
-before you post. Do not skip it. Getting this wrong costs you the account you'd be building
-on.
+URL is given), **ARCHIVED** (I read the real rule text, but from a dated Internet Archive
+capture rather than the live page), **SECONDARY** (a third party reports it; I could not read
+the original), or **INFERRED** (my reasoning, no source).
+
+Reddit blocks automated access from every route I tried — direct fetches, `old.reddit.com`,
+the `.json` endpoints, Redlib mirrors and CORS proxies all returned 403 — so **nothing in §2
+comes from a live Reddit page.** The rule text quoted there is real and verbatim, but it comes
+from Wayback Machine captures, each tagged with its capture date. Rules change. §2 gives you a
+five-minute procedure to re-check the two or three subs you actually decide to use. Do not
+skip it for those; getting it wrong costs you the account you'd be building on.
+
+One structural gotcha worth knowing: Reddit keeps rules in two places, the sidebar and the
+structured widget at `/about/rules/`. For most subs the Archive only had the sidebar. **Where
+a sub is marked "sidebar only," the absence of a promotion rule is not evidence that there
+isn't one** — it may live in the widget I couldn't reach.
 
 ---
 
@@ -66,23 +75,110 @@ For each subreddit, before posting anything:
 
 Record what you find in a table like the one below so you never have to re-check.
 
-### 2.1 What I can and can't tell you about the specific subreddits
+### 2.1 The actual rules, subreddit by subreddit
 
-| Subreddit | Audience fit | Status of my research |
+Sorted by how usable each one is. Every quotation is verbatim from the archived capture dated
+beside it.
+
+#### Green — a documented, sanctioned route exists
+
+**r/TI_Calculators** (5,400 readers) — **the single best-matched, lowest-risk subreddit
+there is.** *ARCHIVED 2025-06-01.* The complete rule list is four items, **none of which
+concern self-promotion**, and one of which explicitly contemplates program posts:
+
+> We talk about all TI calculators. If you need a program, tech support, or just general
+> discussion, please post with the correct link flair.
+
+The mod team includes a member flaired "TI-84 Plus CE Program Developer." Small, but it is
+100% your exact audience. Use the correct link flair.
+
+Note: **r/ti84 appears not to exist** — no Wayback capture exists for it, though I could not
+confirm non-existence directly. r/TI_Calculators is the sub you actually want.
+
+**r/StudyTips** — *ARCHIVED 2026-02-12.* The only explicit green light in this entire
+document. The sidebar says, verbatim:
+
+> Occasional self-promotion is encouraged but add value with it.
+
+and separately offers to link your blog if you message the mod. The same capture shows the
+front page full of thinly-veiled product posts and a "[HIRE ME]" thread, so enforcement is
+loose. Subscriber count wasn't visible — assume small. Low risk, low volume.
+
+**r/learnmath** — *ARCHIVED 2026-03-26.* The sidebar bans "**advertisements of any form**"
+and "offers or solicitations of payment in any form." But the same capture shows a pinned mod
+post: **"[Megathread] Post your favorite (or your own) resources/channels/what have you."**
+That megathread is your one clean route, and it's only for the free bundle.
+
+**r/APStudents** — *ARCHIVED 2026-08-10, two days old and the most important find here.*
+Rule 3, in full:
+
+> **No Advertising or Solicitations** — This sub is not a marketing platform. Do not offer
+> tutoring services or ask students to message you. **If you have a free resource, message the
+> moderators beforehand. You will be banned if you do not.** All surveys must be approved by
+> the mods in advance.
+
+So: paid promotion banned outright, free resources have an explicit documented path, and the
+stated penalty for skipping modmail is a **ban, not a removal**. Rule 5 is a **zero-tolerance**
+policy on advocating or facilitating AP exam cheating. Read those two together and your
+positioning becomes an asset — when you message the mods, lead with the fact that you make no
+exam-legality claims and that your disclaimer tells students to verify their own exam's
+policy. That is precisely what distinguishes you from a seller advertising "AP exam legal"
+programs, and it is the argument most likely to get a yes.
+
+#### Amber — permitted in spirit, easy to get wrong
+
+**r/EngineeringStudents** — *ARCHIVED 2026-08-07.* Best *buyer* fit of any subreddit. The
+governing line is a memorable one:
+
+> Avoid posting blogspam, blog self-promotion, or personally monetized links. **You can be an
+> account with a website, but not a website with an account.**
+
+Rule 9 permabans "Stating PM me for xyz." Note that Rule 10 says the widget rules "are not the
+'official rules'... These are for reminding users of the basics" and points at a wiki I could
+not retrieve, so **this policy is only partially known.** The framing is about account
+behaviour over time rather than any single post: a genuinely helpful account that occasionally
+references its own work survives here; a promo-first account does not.
+
+**r/GetStudying** — *ARCHIVED 2026-04-08.* Bans "spamming or promotion of **courses**" and
+"blogspam" — narrower than a blanket ban, and a $14 program bundle isn't a course. I'd still
+read a bare product link as within the spirit of the prohibition. Link flair expected. Medium
+risk.
+
+**r/chemhelp** (92,465 readers) — *ARCHIVED 2025-04-09, sidebar presents itself as the
+complete rule list.* Four rules, **none about advertising**: don't ask for homework answers,
+show your work, be civil, no illicit-substance help. Encouraging, but the capture is old.
+Flair yourself before posting.
+
+#### Red — do not promote here
+
+**r/HomeworkHelp** — *ARCHIVED 2026-08-07.* The "❌ Not Allowed" list:
+
+> **Offers or solicitations of payment in any form. Those who spam us will be banned. No
+> warnings.**
+> **Advertisements of any form.** This includes asking for "likes," page views, or similar
+> things.
+
+"No warnings" means one mistake burns the account. Participate as a genuine helper with zero
+links, or not at all.
+
+#### Unknown — sidebar only, promo rule not retrievable
+
+| Subreddit | Size at capture | What I could and couldn't see |
 |---|---|---|
-| **r/APStudents** (~330k members, SECONDARY) | High volume, but high-school AP students with the least money and the highest chance of reading your product as a cheating tool. | **SECONDARY, treat as unverified:** third-party summaries of the sidebar describe rules against advertising and against sharing copyrighted materials, alongside a no-cheating rule. Consistent with what you'd expect. **Assume promotion is not allowed** and use comments only. |
-| **r/calculus** | Excellent topical fit; students actively stuck on the exact problems your programs solve. | **UNVERIFIED.** Homework-help-adjacent subs typically permit genuinely free resources and ban paid promotion. Check first. |
-| **r/EngineeringStudents** | Best *buyer* fit of any subreddit — older, has money, takes multiple qualifying courses at once. | **UNVERIFIED.** Note that the closely related r/engineering has historically run a blunt "No self-promotion or blog-spam of any kind" rule (SECONDARY, from an archived 2015 sidebar), so expect the student sub to be similarly strict. |
-| **r/calculators** | Small but perfectly targeted; these people own the hardware and care about it. | **UNVERIFIED.** Enthusiast rather than student community; expect tolerance for a project post and hostility to an ad. |
-| **r/ti84** | Directly on-topic if active. | **UNVERIFIED — I could not even confirm the subreddit exists or its size.** Check before planning around it. |
-| **r/PhysicsStudents**, **r/chemhelp**, **r/learnmath**, **r/HomeworkHelp** | Help-oriented; ideal for the comment strategy, poor for posts. | **UNVERIFIED.** r/HomeworkHelp in particular has strict rules about not doing others' work — read carefully. |
+| **r/calculus** | 162,947 | *ARCHIVED 2025-07-29, sidebar only — no rules widget capture exists.* No promo rule in the sidebar, but I can't rule one out. One useful behavioural signal: a post titled "The #1 Tool I Used To Ace Engineering Calculus In College" was sitting on the front page with ~25 upvotes. That is exactly the soft-promo format you'd want, and it survived. Weak evidence, but real. |
+| **r/calculators** | 14,803 | *ARCHIVED 2025-07-29, sidebar only.* No promo rule visible. Front page is overwhelmingly hardware talk — collections, repairs, "which calculator for an EE degree" — including a "TI84 Plus CE Python update 8.3 fail" support post. Collector audience more than buyer audience: good for credibility and feedback, weak for conversion. |
+| **r/PhysicsStudents** | 115,682 | *ARCHIVED 2025-08-05, sidebar only.* No promo rule visible — but a pinned mod post titled "Rule #8: No Low-effort AI posts" proves there are at least eight numbered rules I never saw. **Assume a promo rule is among them.** Audience also skews well above TI-84 territory. |
 
 **Additional near-universal constraints to plan around (SECONDARY/INFERRED):** most active
 subreddits run AutoModerator filters on account age and karma (commonly in the range of days
-to a month, and tens to hundreds of karma), and Reddit's long-standing informal 9:1 guideline
-— roughly nine genuine contributions for every self-promotional one — is still how moderators
-think even though Reddit has de-emphasised the exact wording. Do not create a fresh account
-and immediately post a link. It will be filtered before a human sees it.
+to a month, and tens to hundreds of karma). Do not create a fresh account and immediately post
+a link — it will be filtered before a human sees it.
+
+On the **9:1 rule** — nine genuine contributions per self-promotional one — I could not reach
+`reddit.com/wiki/selfpromotion` or any official Reddit policy page to confirm it. Several
+secondary sources agree it is a legacy heuristic that Reddit no longer states as a hard rule,
+with real enforcement happening at subreddit level. Treat 9:1 as a sane way to behave, **not
+as a rule that grants you permission anywhere.**
 
 ### 2.2 The strategy that works regardless of the rules
 
@@ -134,11 +230,38 @@ Programming**, **Using the TI-83 Plus/TI-84 Plus**, and **Technology & Calculato
 Topic**. A project announcement belongs in **Your Projects**; answering someone's
 CE-Python question belongs in **Calculator Help**.
 
-**UNVERIFIED:** I could not retrieve Cemetech's forum rules or an explicit policy on
-commercial software. **Read the posting rules and the FAQ before your first post**, and read
-a few weeks of *Your Projects* threads to calibrate tone. Cemetech also runs a live shoutbox
-("SAX") and, by widespread report, a bridged Discord — verify both from the site's own
-navigation rather than taking my word for it.
+**UNVERIFIED — and here's exactly why, so you know how to close the gap.** The whole
+`cemetech.net` domain sits behind Anubis, a proof-of-work anti-scraping wall that blocks any
+client without JavaScript, and no Wayback capture of their rules pages exists. So I have no
+rule text and I'm not going to invent any. **A normal browser will not be blocked** — read the
+posting rules and FAQ yourself before your first post, and read a few weeks of *Your Projects*
+threads to calibrate tone.
+
+⚠️ **One trap:** searching for Cemetech's rules surfaces a page titled "Forum Rules" at
+`cemetech.net/uti/t10991-forum-rules`. That is the archived **United-TI** forum's rules — a
+separate site whose 2003–2012 archives Cemetech hosts read-only. It is not current policy.
+Don't mistake it for the real thing.
+
+**What I could establish is the community's attitude**, from search-index excerpts of their
+threads (one step removed from source, so treat as SECONDARY). On selling calculator software,
+a member states plainly:
+
+> There's nothing that says you can't sell a calculator program, but as others have commented
+> it's rare to do so for TI programs specifically (Zoom Math being one of the most prominent
+> exceptions).
+
+On a thread from someone planning to sell an academic TI-BASIC program, the replies run from
+"Of course you can. It's just not a good idea" to a flat prediction that only "high school
+nerds who somehow know next to nothing about programming" would buy one. There's also a
+documented ideological objection to closed or obfuscated code — the TI-BASIC Developer wiki
+notes the community "is strongly against protecting programs from modification," partly
+because others "lose an opportunity to learn from your source code."
+
+**So: selling is not forbidden and not unprecedented, but expect derision rather than a ban.**
+Two things follow. Your source is open on GitHub, which neutralises the strongest objection
+before it's raised — say so early. And **Zoom Math is the one commercial TI-calculator
+business these forums acknowledge as legitimate**; it's cited by name in both communities and
+is worth an hour of your research as the only real precedent for what you're attempting.
 
 **How to post there:** Draft C in `DEMO_SCRIPTS.md`. Lead with the engineering constraints you
 worked under (no `cmath`, the AppVar storage model, the 100-element list cap, `ti_plotlib`
@@ -184,12 +307,44 @@ overwhelmingly free. Don't push it.
 **Effort:** an hour to prepare a submission. **Impact:** a permanent, high-authority backlink
 and a trickle of traffic for years. **Risk:** essentially zero if you submit free files.
 
-### TI-Planet (tiplanet.org)
+### TI-Planet (tiplanet.org) — closed to you. Don't post.
 
-Large, active, French-language-primary TI community with its own archive and news feed. Same
-norms as the above: free software culture, project posts welcome, advertising not. **Fully
-UNVERIFIED** — I did not fetch their rules. Worth an hour of reading before deciding. Their
-news feed covers new CE Python projects, which is exactly your category.
+**VERIFIED**, and this is the clearest prohibition anywhere in this document. TI-Planet's
+"A LIRE AVANT DE POSTER / READ BEFORE POSTING" (<https://tiplanet.org/forum/viewtopic.php?t=19260>),
+published in French and English, lists as **absolutely forbidden** (*"formellement interdit"*):
+
+> Post a message featuring advertising to commercial activities for the benefit of the author
+> of the message or unwanted personal ads
+
+That is a precise description of what promoting your bundles there would be. There is no promo
+thread, no ratio, no approval path offered. Also forbidden: content involving "hack of the
+exam mode." The team "reserves the right to immediately remove unwanted messages without prior
+notice," and posting at all constitutes acceptance.
+
+The community itself is real and active — forum posts and news from this month, a large
+TI-83 Premium CE / 84+CE archive, roughly 850 people in their Discord. As an audience it's
+worth having. As a promotion channel it is simply shut. Participate as a person if you like;
+never advertise.
+
+One nuance that is *not* a loophole: their archive does host third-party shareware, so paid
+software isn't ideologically banned from the *files*. The rule governs **your message**, not
+the file's licence. They also run an "Occasions" second-hand subforum — **INFERRED:** that's
+for used hardware, and I wouldn't treat it as a way in.
+
+### The TI-84 Evo — a medium-term threat worth tracking
+
+**VERIFIED** from ticalc.org's own reporting: TI launched a **TI-84 Evo** in 2026, and
+"TI-BASIC programs written for the TI-84 Plus CE cannot be transferred directly to the Evo"
+because of OS architecture and token changes. The Evo also has "strict protections against
+third-party assembly and C programs." A community converter by Adriweb exists for older
+84 Plus programs.
+
+**I did not establish whether Python programs port to the Evo**, and that question directly
+determines how long your addressable market keeps growing. Find out before you commit months
+to SEO. If Python carries over, the Evo is a non-event for you and a catastrophe for every
+TI-BASIC competitor — which would be a significant competitive advantage worth saying out
+loud in your copy. If it doesn't, your market is the installed base of CE Python units, which
+is large but no longer growing.
 
 ---
 
@@ -239,25 +394,39 @@ video, made once, that collects qualified traffic for years.
 
 ## 5. Discord
 
-**UNVERIFIED throughout** — I did not join or read the rules of any server below. Verify each
-one's self-promotion policy (nearly all have a `#self-promo`, `#projects` or `#showcase`
-channel, and posting outside it gets you banned fast).
+Sizes and invite codes below are **VERIFIED** against a Discord server index, with the index's
+own last-checked date. Server *rules* are a different matter — I could only read one set, and
+it's the one that shuts you out.
 
-Targets worth investigating, roughly in order of fit:
+| Server | Members (checked) | Invite | Promotion policy |
+|---|---|---|---|
+| **AP Students** (official r/APStudents server) | 54,192 (2026-07-23) | `discord.gg/apstudents` | Rules not retrieved. Same community as the subreddit — **assume Rule 3 applies: modmail first, paid promo banned.** |
+| **Engineering Students** | 36,431 (2026-07-24) | `discord.gg/engineeringstudents` | Rules not retrieved. Advertised from the r/EngineeringStudents sidebar. |
+| **Study Together** | 250k+ | studytogether.com | ❌ **Banned. Verified.** See below. |
+| **Cemetech** | 1,108 (2026-07-24) | `discord.gg/DZbmraw` | Rules not retrieved (same anti-bot wall as the forum). |
+| **TI-Planet** | 848 (2026-07-23) | `discord.gg/AfBEHub` | Rules not retrieved; the forum's advertising ban almost certainly applies. |
 
-- **Cemetech's Discord** — believed to be bridged to the site's SAX shoutbox. Small, expert,
-  directly on-topic.
-- **TI-Planet's Discord** — same idea, larger, francophone-leaning.
-- **Subject-help servers** (maths, physics, chemistry homework help) — treat exactly like the
-  Reddit comment strategy: answer questions, don't advertise.
-- **Large study servers** (e.g. Study Together and similar) — big but diffuse; usually have a
-  promo channel where a post will be seen by approximately nobody.
-- **AP-subject servers** — high volume, wrong demographic for paid conversion, and the highest
-  sensitivity to anything resembling exam misconduct.
+**Study Together is a hard no, and it's worth reading why** — I read all 41 rules at
+<https://www.studytogether.com/rules>. Three of them close the door:
+
+> **30.** No direct or indirect self-promotion, server invites or sharing of surveys. This also
+> applies to an obvious Discord status/bio on the Discord server.
+> **31.** No direct or indirect promotion of paid tuition services.
+> **32.** Uphold academic integrity...
+
+Rule 2: "Breaking any rule may result in an instant and permanent ban from the platform, and
+can happen without a warning." Rule 1 extends enforcement to your **profile picture, status,
+bio and username** — so merely joining with a promotional bio is a violation. Their FAQ gives
+one exception: staff pre-approval by DM. Don't freelance here.
+
+**Cemetech's Discord is the one worth your time.** At 1,108 members it is small, but it is the
+densest concentration of TI developers anywhere, and per their own announcement it is bridged
+to their IRC channel and the on-site SAX shoutbox — so one message reaches three surfaces.
 
 **Effort:** low per server, but Discord rewards presence over posting, which is expensive in
-time. **Impact:** low. **Risk:** low. **Verdict:** do the two calculator servers, skip the
-rest unless one of them happens to be somewhere you already spend time.
+time. **Impact:** low. **Risk:** low if you stay out of Study Together. **Verdict:** do
+Cemetech, treat the two big student servers as places to answer questions rather than post,
+and skip the rest.
 
 ---
 
@@ -371,13 +540,19 @@ your products. Feed it back into your tags.
 | YouTube install tutorial (long-form) | One afternoon | 2–6 weeks | High, compounding | None | **1** |
 | Etsy listings + tags | One day setup | Days | Medium, steady | Low | **2** |
 | Community comment answering | 20 min/wk | Immediate | Low volume, high quality | Low | **3** |
-| Short-form video | 2–4 h/wk | Unpredictable | Very high | None | **4** |
-| Tutor/teacher outreach | 45 min/wk | Weeks | High per contact | None | **5** |
-| SEO content pages | 2 h/page | 2–3 months | High, compounding | None | 6 |
-| ticalc.org free submission | 1 h | Weeks | Low direct, good links | Near zero | 7 |
-| Cemetech project post | 2 h + follow-up | Days | Low direct, credibility | Low if done right | 8 |
-| Reddit posts (vs. comments) | 1 h each | Immediate or zero | Spiky | **Highest on this list** | 9 |
-| Discord | Ongoing | Slow | Low | Low | 10 |
+| **r/TI_Calculators flaired post** | 2 wks presence, then 1 h | Immediate | Low volume, high fit | **Verified low** | **4** |
+| Short-form video | 2–4 h/wk | Unpredictable | Very high | None | **5** |
+| **r/APStudents free resource, via modmail** | 30 min + wait | Days, if approved | Spiky and large | Low *if* you ask first, **ban if you don't** | **6** |
+| Tutor/teacher outreach | 45 min/wk | Weeks | High per contact | None | 7 |
+| SEO content pages | 2 h/page | 2–3 months | High, compounding | None | 8 |
+| r/learnmath resource megathread | 15 min | Days | Low | Low (it's the sanctioned slot) | 9 |
+| ticalc.org free submission | 1 h | Weeks | Low direct, good links | Near zero | 10 |
+| Cemetech project post + Discord | 2 h + follow-up | Days | Low direct, credibility | Low if done right | 11 |
+| Other Reddit posts (vs. comments) | 1 h each | Immediate or zero | Spiky | **Highest on this list** | 12 |
+| Big study Discords | Ongoing | Slow | Low | Low | 13 |
+| **TI-Planet** | — | — | — | **Explicitly forbidden** | **Don't** |
+| **Study Together Discord** | — | — | — | **Instant permanent ban, no warning** | **Don't** |
+| **r/HomeworkHelp promotion** | — | — | — | **"Banned. No warnings."** | **Don't** |
 | Paid ads | Money | Immediate | Negative at these margins | None | **Don't** |
 
 **On paid ads:** at $14 with roughly 13–19% platform fees, your gross margin per unit is about
@@ -415,9 +590,16 @@ Send yourself through the whole sequence and read the emails on a phone.
 description, free-pack link, pinned comment, timestamps. Publish Script 5 as a Short at the
 same time.
 
-**Day 7 — Rules reconnaissance.** Work through §2's verification procedure for every
-subreddit on your list and write down what you find. Read Cemetech's posting rules. Read
-ticalc.org's submission criteria. **Post nothing today.** This is the day that prevents the
+**Day 7 — Rules reconnaissance and the one message you send early.** Re-check the live rules
+for r/TI_Calculators, r/calculus, r/calculators and r/PhysicsStudents using §2's procedure —
+my text for the first is from a 2025 archive and the last three are sidebar-only. Read
+Cemetech's posting rules in a browser (the wall that blocked me won't block you). Read Etsy's
+current Prohibited Items Policy, which changed on 11 August 2026.
+
+Then send exactly one thing: **modmail to r/APStudents** asking permission to share the free
+bundle, per their Rule 3. Approval takes time, and the rule says posting without it earns a
+ban rather than a removal — so ask on day 7 and let it sit. Lead with the fact that you make
+no exam-legality claims. **Post nothing else today.** This is the day that prevents the
 mistakes.
 
 ### Week 2 — distribution
@@ -429,8 +611,12 @@ answer everything. Don't post anywhere else today.
 
 **Day 10 — Short-form.** Publish Scripts 1 and 2. Reply to every comment.
 
-**Day 11 — Reddit, carefully.** Only in whichever community your Day 7 research showed
-actually permits it, and only Draft A, and only in one place. Simultaneously begin the comment
+**Day 11 — Reddit, carefully, in the sanctioned slots only.** Draft A goes to
+**r/TI_Calculators** with the correct link flair — the one sub whose full rule set I read and
+which has no promotion rule at all. If r/APStudents modmail came back yes, post there too, and
+only the free bundle. Drop the free pack into the **r/learnmath resource megathread**, which
+is that sub's only legal route. r/StudyTips is optional and explicitly welcoming. Do not post
+to r/HomeworkHelp, and do not post to TI-Planet at all. Simultaneously begin the comment
 strategy: find three genuine TI-84 questions and answer them properly.
 
 **Day 12 — Tutors.** Ten personalised emails. Free complete toolkit, no conditions.

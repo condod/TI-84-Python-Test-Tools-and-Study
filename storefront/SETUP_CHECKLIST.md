@@ -126,7 +126,7 @@ Reuse the same image set across both platforms.
 in `SEO_KEYWORDS.md`. Use those rather than writing fresh copy per platform.
 
 - [ ] Every listing states the compatibility line (CE Python Edition only).
-- [ ] Every listing states the format line (plain-text `.py` in a ZIP).
+- [ ] Every listing states the format line (ready-to-install `.8xv` plus `.py` source, in a ZIP).
 - [ ] Every listing carries the exam-policy disclaimer. **Do not** write "AP-exam-legal,"
       "exam approved," "allowed on the AP exam," or anything equivalent, anywhere.
 
@@ -141,6 +141,23 @@ in `SEO_KEYWORDS.md`. Use those rather than writing fresh copy per platform.
 - [ ] Include the Press-to-Test backup warning in every listing and every ZIP README. A student
       who enters exam mode and loses the programs they just paid for is your most likely refund
       request, and it is entirely preventable with one sentence.
+
+**Four refund-prevention devices worth copying from mcstutoring**, who has been selling into
+this exact category for years and has clearly been burned into adding each of them. All four
+are visible on their live product pages:
+
+- [ ] A plain **"Digital product — no refunds"** line on every product page.
+- [ ] An explicit **incompatibility** warning, not just a compatibility one. Theirs reads
+      "NOT compatible with older TI-84 Plus black & white screen." Yours needs to be stronger,
+      because you require the **Python Edition specifically** — a narrower requirement than
+      the TI-BASIC sellers have, and therefore a bigger source of mistaken purchases.
+- [ ] A **purchase-time confirmation checkbox**: "I confirm I own a TI-84 Plus CE Python
+      Edition." Gumroad supports custom fields for this; Etsy does not, so put it as the first
+      line of the description in bold.
+- [ ] **"Try the free bundle first to confirm you can transfer files."** This is the smartest
+      one on their site. The most common refund request in this category isn't a bad product,
+      it's a buyer who can't get *anything* onto their calculator — and routing those people
+      through a free download first means they discover that before paying you.
 
 ---
 
@@ -222,8 +239,28 @@ free pack turns into revenue.
 
 ### 2.5 Gumroad policy notes for this product category
 
-- Gumroad explicitly welcomes software and educational digital products; calculator
-  programs are unremarkable there.
+**VERIFIED** against Gumroad's ["Things you can't sell"](https://gumroad.com/help/article/155-things-you-cant-sell-on-gumroad),
+read in full. **Nothing in the prohibited list touches educational or academic content.** The
+clauses that actually apply to you:
+
+- **No reselling anything you didn't create** — this covers PLR/MRR ebooks, resold software,
+  and other people's templates. You wrote the programs, so you're clear. It does mean you can
+  never fold someone else's calculator programs into a bundle.
+- **"Services that are fulfilled outside Gumroad's purview"** are prohibited. Sell files, not
+  tutoring or support-as-a-service.
+- **A product whose only delivery method is "message me elsewhere" gets blocked at publish.**
+  Attach the actual ZIP and you're fine. Mentioning your socials, newsletter or YouTube in the
+  description is explicitly permitted.
+- **Enforcement ladder, quoted:** "If your product is found to violate our Terms, the product
+  will be removed but you will still be allowed to operate the account. On the second
+  violation, you will be given a two week notice, paid out for your remaining sales, and your
+  account will be deleted."
+
+⚠️ **One thing I could not verify:** search results claim Gumroad's comprehensive list at
+`gumroad.com/about/prohibited` includes "essay mills or paper mills." **That URL 404s**, so I
+never read it. A study aid is categorically different from a paper mill, but I can't quote the
+text — treat it as an open question and keep your copy on the study-aid side of the line.
+
 - What could actually get you in trouble is marketing, not the files: framing the product
   as a way to beat an exam. Keep the honest study-aid positioning and the disclaimer.
 - Gumroad handles VAT/sales tax collection where required, but you're responsible for
@@ -326,11 +363,34 @@ discovery.
   says "practice and homework tools for the TI-84 Plus CE, check your exam's calculator
   policy" is an ordinary educational digital product. Keep the disclaimer visible in the
   listing body, not just in the ZIP.
+- **A widely repeated claim about Etsy that is false, and worth knowing before someone
+  repeats it at you:** search engines and SEO blogs will tell you Etsy "strictly prohibits
+  items that facilitate academic dishonesty, including study aids designed to enable
+  cheating." I read the Prohibited Items Policy and searched it for *academic*, *cheat*,
+  *essay*, *exam*, *study* and *tutor*. **No such prohibition exists in the text.** The nearest
+  clause is §5, "Falsified qualifications," which covers fake diplomas, professional licences,
+  bank statements and pay stubs — credential fraud, not study tools. You are not fighting a
+  policy that doesn't exist; you are managing how your copy reads.
+- **The policy that does govern you is the [Creativity Standards](https://www.etsy.com/legal/handmade/)**
+  (updated 2025-06-10), and you pass it cleanly. It permits "Original content created by the
+  seller, sold as a digital download… a seller's unique graphic design, audio, **text
+  document**…" and specifically excludes "A bundle, collection, scan, or PDF of someone else's
+  work." Two consequences: never repackage another author's calculator programs, and **if you
+  used AI assistance writing the programs, the policy requires you to disclose it in the
+  listing description.**
+- **Do not funnel Etsy buyers to Gumroad.** Etsy's [Seller Policy](https://www.etsy.com/legal/sellers)
+  (effective 2026-07-09) forbids listings that "encourage or facilitate an off-platform
+  transaction," including "offering discounts or incentives to purchase through another
+  website or channel." No coupon codes pointing off-site, no "buy direct and save." The same
+  policy excludes **services**, so keep the shop to files only — no bundled tutoring or
+  paid support.
 - Sell only your own original code. Do not include anything copied from a textbook,
   another seller's programs, or a course's materials.
 - Note that Etsy's Prohibited Items Policy was updated with an effective date of
   **11 August 2026** — re-read the current version at <https://www.etsy.com/legal/prohibited/>
-  before you publish, since the version cited here may have just been superseded.
+  before you publish. **The version quoted above is titled, in its own heading, "Effective
+  Until August 11, 2026," so it has already been superseded.** This is a real gap in my
+  research, not a formality.
 - Do not use "TI-84," "Texas Instruments" or "TI Connect" in your *shop name* — using
   another company's trademark as your brand invites an IP complaint. Using them
   descriptively in listing titles and tags ("programs for TI-84 Plus CE") is normal
