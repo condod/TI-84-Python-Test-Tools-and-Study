@@ -417,6 +417,53 @@ Recommended on eBay. Reasoning:
 | **Genuine hardware fault inside 30 days.** | Full refund including return shipping, no argument, immediately. On a used-electronics business the cost of a fast refund is always lower than the cost of a defended case. Then diagnose the unit and fix your QC. |
 | **Buyer's remorse / "I meant to buy the cheaper one."** | Accept the return, buyer pays return shipping, restock and relist. Do not fight it. |
 
+### The INAD math — why one dispute hurts far more than it looks
+
+**One not-as-described case on an $88 sale costs roughly $95**: the refund, your original shipping
+(unrecoverable), the return label you must pay for, and the packaging. Against a ~$28 net per unit,
+**a single INAD wipes out the profit on about three and a half good sales.** That asymmetry, not the
+refund itself, is why the disclosure discipline below is worth real time.
+
+**Worse, eBay's seller metrics are peer-relative and your denominator is tiny.** eBay benchmarks you
+against sellers in your category, price band, condition, and return policy rather than an absolute
+number — its own worked example shows a peer-group average INAD rate of **1.3%**, with **7.8%**
+flagged as "Very High," and its guidance elsewhere uses **0.83%** as an illustrative average.
+Critically, there is a **safe harbour: eBay does not penalise you below 1% of transactions** in most
+categories. At 10–50 units a month, **one or two disputes in a quarter can statistically flag you**
+purely because you have so few transactions to average against — and a Very High INAD rating adds
+**+5% to your fees** (§3 of [`UNIT_ECONOMICS.md`](UNIT_ECONOMICS.md)).
+(<https://www.ebay.com.au/help/policies/selling-policies/service-metrics-policy?id=4769>, accessed
+2026-08-12.) [RESEARCHED]
+
+### Money Back Guarantee mechanics — know the clocks
+
+If a case does open, the timings decide the outcome more than the merits do:
+
+1. The buyer has **30 days from delivery** to open a not-as-described return.
+2. **You must respond within 3 business days.** eBay may accept the return on your behalf if you
+   don't.
+3. For damaged, faulty, or not-as-described items, **you pay return shipping even if you offer no
+   returns.** eBay can issue the label and bill you.
+4. Once the item is back, you have **3 business days to refund**, or eBay may refund automatically.
+5. **If you provide no return method and eBay steps in, it may refund the buyer and let them keep the
+   item.** That is the worst outcome available and it is entirely self-inflicted — it only happens
+   when you don't respond.
+6. Appeals must be filed within **30 calendar days** of eBay's decision, with photos.
+
+(<https://www.ebay.com.au/help/buying/returns-refunds/ebay-money-back-guarantee-policy?id=4210>,
+accessed 2026-08-12.)
+
+**Operational rule: answer every case the same day. Never let one age.**
+
+### Always buy shipping labels through the platform
+
+This is worth a paragraph because the temptation to save a dollar at Pirate Ship is real. Buy the
+label through eBay and ship before the estimated delivery date, and eBay's Seller Protection handles
+item-not-received reports on orders up to $750 **without you refunding**, removes the defect from
+your service metrics, and removes related negative and neutral feedback.
+(<https://www.ebay.com.au/help/policies/selling-policies/seller-protection-policy?id=4345>, accessed
+2026-08-12.) **A dollar of label savings is not worth forfeiting INR protection on an $88 item.**
+
 ### Condition disclosure
 
 - Photograph **every** flaw individually (shot 11) and describe each in words as well. A flaw you

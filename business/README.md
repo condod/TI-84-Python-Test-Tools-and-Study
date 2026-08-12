@@ -15,9 +15,9 @@ operation with the software as a topping — not as a software business with a c
 
 The numbers, from [`UNIT_ECONOMICS.md`](UNIT_ECONOMICS.md): a used TI-84 Plus CE Python realistically
 costs **$30–$45** to acquire and sells refurbished-and-loaded for **$85–$95** on eBay. After fees
-(~16.5% + $0.40), shipping (~$6.50), materials (~$5.80), and a 5% returns reserve, that nets **≈$26
-per unit at $30 acquisition** and **≈$11 at $45** — against about **53 minutes** of all-in labour, so
-roughly **$30/hr in the good case and $13/hr in the typical one.** The honest software premium — what
+(~16.5% + $0.40), shipping (~$5.50), materials (~$5.15), and a 5% returns reserve, that nets **≈$28
+per unit at $30 acquisition** and **≈$13 at $45** — against about **53 minutes** of all-in labour, so
+roughly **$32/hr in the good case and $15/hr in the typical one.** The honest software premium — what
 a buyer will actually pay *because* the programs are on it — is **$5–$12, and might be $0.** I found
 no evidence of an established market paying a premium for pre-loaded calculators, and a buyer can
 always buy a bare unit plus the $35 digital toolkit and get more programs for less. Be skeptical of
@@ -26,19 +26,22 @@ anyone (including yourself) who models this higher.
 **So the software premium does not justify the labour on its own.** What does the work is buying
 well: the June-to-August price spread on used calculators is worth more per unit than the premium
 is, and it costs no labour at all. Acquisition cost is the dominant variable by a wide margin — a $5
-change in what you pay moves per-unit profit ~19%, which nothing else in the model comes close to.
+change in what you pay moves per-unit profit ~18%, which nothing else in the model comes close to.
 
 Three things sharpen the verdict:
 
 1. **Local sales beat shipped sales, badly.** A $70 Facebook Marketplace pickup nets more than a $95
-   eBay sale, because fees and shipping are ~$21 of that eBay sale and $0 locally. If you can sell
+   eBay sale, because fees and shipping are ~$20 of that eBay sale and $0 locally. If you can sell
    locally, do.
 2. **One $35 digital download nets more than one refurbished, packed, shipped calculator** — $31 vs
-   $26 — at essentially zero marginal labour. The hardware line cannot win that comparison on
+   $28 — at essentially zero marginal labour. The hardware line cannot win that comparison on
    per-transaction economics. Its real justification is that it reaches buyers the digital line
    can't, and that every box you ship puts your programs and a discount code in a student's hands.
-3. **The clock is running.** TI discontinued the TI-84 Plus CE Python on 2026-04-27 and launched the
-   TI-84 Evo the next day. Whether these programs run on the Evo is unverified. **[RESEARCHED — see
+3. **The clock is running, and the supply pool is now closed.** TI discontinued the TI-84 Plus CE
+   Python on 2026-04-27 and launched the TI-84 Evo the next day — and separately appears to have
+   **removed Python from newly manufactured plain CE units** as of early 2026. So every
+   Python-capable TI-84 CE that will ever exist was built in a 57-month window that has closed.
+   Whether these programs run on the Evo is unverified. **[RESEARCHED — see
    [`SOURCING.md`](SOURCING.md) §0.]** The 2026 back-to-school season is probably the best this line
    will ever have; from 2027 supply rises, prices fall, and margins compress.
 
@@ -95,6 +98,28 @@ calculators as a seasonal side activity that pays for itself and feeds the digit
    servicing. You may not put TI's OS, apps, or manuals on a USB stick, a website, or a download
    link — TI's licence says *"You may not sell, rent or lease copies of the Licensed Materials."*
    The only software that leaves your bench is your own. [`LISTING_AND_SUPPORT.md`](LISTING_AND_SUPPORT.md) §5.1
+
+---
+
+## Before you commit real money, verify these five things yourself
+
+Every figure in these documents is labelled `[RESEARCHED]`, `[ESTIMATE]`, or `[UNVERIFIED]`. Five of
+them are load-bearing enough that you should confirm them personally rather than trust this research,
+and each takes minutes:
+
+1. **Your actual eBay final-value-fee rate.** Third-party sources gave 12.35%, 12.7%, 13.25%, and
+   13.6% for overlapping descriptions of the same category. Pull one real payout statement and back
+   out the rate. The model uses 13.6%.
+2. **Whether eBay US has a flat 5% used/refurbished rate.** eBay's July 2026 fee restructure
+   introduced one in Europe; sources flatly contradict each other on whether it reached the US. If it
+   did, per-unit profit rises by roughly **$8** and the whole verdict above gets more favourable.
+3. **Real eBay sold comps.** Run a 90-day sold-listings or Terapeak search for "TI-84 Plus CE Python"
+   and build an actual price distribution. This replaces the single best estimate in
+   [`UNIT_ECONOMICS.md`](UNIT_ECONOMICS.md) §2 with fact, and it takes fifteen minutes.
+4. **Bulk battery pricing at 50–100 units.** The model uses $8; genuine TI cells were found at
+   **$6.95–$9.99**, and overseas bulk is plausibly $4–$6. It's your second-largest variable cost.
+5. **Whether these programs run on a TI-84 Evo.** One unit, bought once, answers whether this line
+   has a future past 2027.
 
 ---
 

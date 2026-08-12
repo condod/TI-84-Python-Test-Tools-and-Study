@@ -205,6 +205,29 @@ you ship so support is one script instead of many; it guarantees the current Pyt
 current module set; and "updated to the latest TI operating system" is a real, checkable,
 zero-cost differentiator against every other used-calculator listing on the platform.
 
+**One exception — check the "before" version before you flash.** Units still running **OS 5.5 or
+older** retain the ASM/C program capability TI removed in 5.6, and are specifically sought by the
+calculator homebrew and gaming community. Those units can be worth **more left alone** than
+updated, sold as-is to that audience with the OS version stated prominently in the title. Updating
+is irreversible in practice — TI does not support downgrading. **So: read `1:About` first, and if it
+says 5.5 or lower, stop and decide deliberately.** This is rare, but it's a genuine one-way door and
+it costs nothing to check. [RESEARCHED]
+
+### 4b-i. If a unit soft-bricks during an OS transfer
+
+An interrupted OS send can leave a unit apparently dead — blank screen, no response to `[on]`. **This
+is usually recoverable and the unit is usually not scrap.**
+
+1. Remove the battery for ~30 seconds, reinsert, and press `[on]`.
+2. If still unresponsive, press the **RESET** button in the pinhole on the back with a paperclip.
+3. If the screen shows a "Waiting… Please install operating system now" prompt or stays blank, hold
+   `[2nd]` + `[del]` while pressing **RESET** to force the boot-code recovery mode, then push the OS
+   bundle again from TI Connect CE.
+4. Only after all three fail should you grade the unit as parts.
+
+Do this before writing anything off — a unit that looks bricked mid-flash is a fifteen-minute
+recovery far more often than it is a loss. [RESEARCHED]
+
 ### 4c. Checklist step 3 — PRESS-TO-TEST CLEARED
 
 **Target: 2 minutes/unit. [ESTIMATE]**
@@ -366,7 +389,22 @@ like a scam and attracts the exact buyer who opens a return case.
 | Restore/download card with a link to **your** programs | Yes | See §5 of the listing doc for the recommended mechanism. |
 | **TI's OS file, TI's apps, or TI's manuals** | **NO — never** | Licence prohibits distributing copies. Link buyers to education.ti.com instead. |
 | Original TI retail box | Only if it came with one | Don't fake one. |
-| Packaging | Bubble wrap + a rigid 9×5×3 box, or a rigid-mailer for cost-sensitive lanes | A calculator in a poly mailer arrives with a cracked screen eventually. |
+| Packaging | **#1 (7.25×12) bubble mailer with a cut-cardboard stiffener behind the calculator** | See the weight note below — this is a real money decision, not just a packing preference. |
+
+### Weigh the finished parcel, and keep it under 12 oz
+
+A bare CE is **0.44 lb**. Packed as above — calculator, case, cable, cards, mailer, stiffener — you
+should land at **9–12 oz**. In a 9×5×3 box you land at 12–15 oz and risk crossing **1 lb**, which is
+a real price break on USPS Ground Advantage.
+
+**The stiffener is what makes the mailer safe.** A calculator in a bare poly mailer will eventually
+arrive with a cracked screen; a calculator sandwiched between the mailer's bubble layer and a piece
+of corrugated cut to the calculator's footprint will not. The stiffener costs nothing (cut it from
+inbound boxes) and it is the difference between this being a cost saving and being a false economy.
+
+**Put a scale on the bench and weigh every parcel.** On Mercari especially, rates round *up* to the
+tier ceiling — a 12.1 oz package pays the 1 lb price. The economics are in
+[`UNIT_ECONOMICS.md`](UNIT_ECONOMICS.md) §4.
 
 ---
 

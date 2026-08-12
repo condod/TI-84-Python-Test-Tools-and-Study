@@ -13,12 +13,12 @@ one or the other and is marked.
 | | |
 |---|---|
 | Realistic acquisition cost, CE Python, blended | **$30–$45** (must be ≤$30 for the model to work) |
-| Realistic sale price, refurbished + loaded, eBay | **$85–$95** |
-| Realistic net profit per unit at $30 acquisition, $88 sale | **≈ $26** |
-| Realistic net profit per unit at $45 acquisition, $88 sale | **≈ $11** |
+| Realistic sale price, refurbished + loaded, eBay | **$85–$95** (hard ceiling: the $95 Walmart back-to-school promo) |
+| Realistic net profit per unit at $30 acquisition, $88 sale | **≈ $28** |
+| Realistic net profit per unit at $45 acquisition, $88 sale | **≈ $13** |
 | All-in labour | **≈ 53 min/unit** at batch scale |
-| Effective hourly, good case | **≈ $30/hr** |
-| Effective hourly, typical case | **≈ $13–$20/hr** |
+| Effective hourly, good case | **≈ $32/hr** |
+| Effective hourly, typical case | **≈ $15–$21/hr** |
 | **Honest software premium the market will bear** | **$5–$12. Possibly $0.** |
 
 **The verdict, plainly: the software premium is thin, and it is not what makes this business work
@@ -43,13 +43,15 @@ Full channel detail is in [`SOURCING.md`](SOURCING.md). The economics summary:
 | Government/school surplus lots (GovDeals, PublicSurplus) | **$1–$25/unit** [RESEARCHED — but see caveat] | Low for *this* product | |
 
 **The surplus caveat matters and is easy to get wrong.** Government surplus calculator lots are
-genuinely cheap — an aggregator's records show a 45-unit GovDeals lot in Montvale, NJ bid at $34
-(<https://bidprowl.com/listing/lot-of-calculators-45-nj-govdeals-8869-90>, accessed 2026-08-12),
-which is well under $1/unit. But read that lot's contents: *"TI-73: 3, TI-30SLR+: 10, TI-30Xa: 2,
-TI-83: 4, TI-84 Plus (black): 25, TI-84 Plus Silver Edition: 1."* **Not one CE, and certainly not
-a CE Python.** School surplus runs a decade behind retail. You will buy monochrome TI-84 Plus units
-at pennies and you will not get the hardware this product needs. Treat surplus as a separate,
-lower-value bare-resale line, not as the supply chain for the loaded SKU.
+genuinely cheap — a 45-unit GovDeals lot in Montvale, NJ closed at **$200 after 37 bids**, about
+**$5.00/unit** including the 12.5% buyer's premium
+(<https://bidprowl.com/listing/lot-of-calculators-45-nj-govdeals-8869-90>, accessed 2026-08-12). But
+read that lot's contents: *"TI-73: 3, TI-30SLR+: 10, TI-30Xa: 2, TI-83: 4, TI-84 Plus (black): 25,
+TI-84 Plus Silver Edition: 1."* **Not one CE, and certainly not a CE Python.** School surplus runs a
+decade behind retail. The one large *CE* surplus result found — Bryan ISD, 250 units — went for
+**$4,750 + 10% ≈ $20.90/unit**, and they were **EZ-Spot school-property editions**, which carry the
+provenance and cosmetic problems described in [`SOURCING.md`](SOURCING.md). Treat surplus as a
+separate, lower-value bare-resale line, not as the supply chain for the loaded SKU.
 
 **Price anchors, for context** [RESEARCHED]:
 
@@ -60,6 +62,21 @@ lower-value bare-resale line, not as the supply chain for the loaded SKU.
   2026-08-12).
 - Walmart-marketplace third-party "Pre-Owned TI-84 Plus CE Python" **asking** prices: **$113.99–$129.99**.
   These are asking prices from marketplace resellers, not sold comps, and they are high.
+- **Amazon Renewed / Certified Refurbished CE: $105–$130**, professionally refurbished with a return
+  guarantee. This is the trust-adjusted ceiling on your own pricing — you cannot beat Amazon on buyer
+  confidence, so you must beat it on price.
+
+**The single most useful sell-side data point found** [RESEARCHED]: an eBay US multi-quantity listing
+of good-condition tested CEs — *"TESTED AND WORKING. 30 DAY WARRANTY. GOOD USED CONDITION"* — priced at
+**$79.00 with 354 units sold** and 23 still available, last revised 2025-12-28
+(<https://www.ebay.com.au/itm/395431720336>, an AU mirror of the US listing, accessed 2026-08-12).
+That is real, repeated sell-through at $79 on a **plain CE with no software**, from a seller offering
+a warranty. It is the most credible single anchor in this document, and it brackets the model: a
+loaded CE **Python** should clear above it, but not far above it.
+
+**And a hard ceiling to respect:** Walmart's back-to-school promotional pricing puts **new** CE and CE
+Python units around **$95**. When that promo is live — which is exactly your peak selling season — a
+used unit asking $95 is competing with a new one in a box. Price under it, always.
 
 **Modelled acquisition cost: $30 (good case) / $45 (typical if you buy one at a time).** [ESTIMATE]
 
@@ -84,13 +101,36 @@ lower-value bare-resale line, not as the supply chain for the loaded SKU.
   Note the base rate rose from 13.25% to 13.6% for 2026.
 - **The FVF applies to sales tax eBay collects as marketplace facilitator.** At a ~7% blended tax
   rate that's an extra ≈**0.95%** of the item price, quietly. [ESTIMATE — the 7% blend is mine.]
-- Promoted Listings: seller-set, typically **2–8%**. Practically mandatory in a competitive category
-  if you want placement. Modelled at **2%**. [ESTIMATE]
+- **Promoted Listings — and a 2026 change that makes them worse.** Ad rate is seller-set; eBay's
+  *suggested* rates run 8–15% and are optimised for eBay's revenue, while practitioner consensus for
+  electronics is **2–4%**. As of January 2026, attribution changed to **any click by any buyer within
+  30 days**, whether or not that click caused the sale. One analysis reports attribution rates
+  jumping from 30–40% to 80–90% overnight with no lift in volume
+  (<https://www.flipsail.io/blog/ebay-promoted-listings-2026>, accessed 2026-08-12). **In practice a
+  3% ad rate is now close to a flat 3% tax on nearly all your sales, not a fee on incremental ones.**
+  Start at **2%** — which is what's modelled — or skip it entirely and watch what happens to
+  impressions.
 - International fee 1.65% if applicable — not modelled; ship domestic only.
-- **Store subscription:** the Basic Store saves 0.9% of the sale. On an $88 unit that's **$0.79**,
-  so a ~$27.95/month Basic Store pays for itself at about **35 units/month**. Below that, no store.
-  [Calculation mine; the 0.9% delta is RESEARCHED, the $27.95 price point is [ESTIMATE] — verify
-  eBay's current tier pricing before subscribing.]
+- **Seller-performance surcharges are real and dangerous at low volume:** Below Standard adds **+6%**
+  (rising to +7% after four consecutive months from 2026-07-01), and a Very High INAD rate adds
+  **+5%** (rising to +6%). See §6 of [`LISTING_AND_SUPPORT.md`](LISTING_AND_SUPPORT.md) — with a small
+  denominator, one or two disputes can trip these.
+- **Store subscription:** the Basic Store saves 0.9% of the sale, at **$21.95/mo** billed annually or
+  **$27.95** month-to-month. On an $88 unit the saving is **$0.79**, so the store pays for itself at
+  about **28–35 units/month**; several independent analyses put the Basic break-even at roughly
+  **$2,440/month gross**, which agrees. **The Starter Store ($4.95–$7.95) carries no final-value-fee
+  discount at all** — it's a branding product, not a savings one. Stay on a free account with 250
+  free listings until you're consistently past ~$2,500/month.
+  (<https://www.listing-forge.com/blog/ebay-store-subscription>,
+  <https://ecomli.com/blog/ebay-store-subscription-guide>, accessed 2026-08-12.)
+- **One thing worth checking yourself before you price anything.** eBay ran a fee restructure around
+  2026-07-01 that, in the European marketplaces, introduced a **flat 5% fee on used, refurbished, and
+  reconditioned goods.** Sources disagree on whether it reached eBay US — one claims it did and then
+  reports the US rate as unchanged at 13.6%, another states plainly that US sellers *"haven't seen
+  this exact change hit"* yet (<https://beancount.io/blog/2026/07/28/ebay-seller-fee-overhaul-flat-rate-refurbished-guide>,
+  accessed 2026-08-12). **[UNVERIFIED — and it matters more than anything else on this page.]** If a
+  5% used-goods rate is live on eBay US, per-unit profit on an $88 sale rises by roughly **$8** and
+  the whole channel calculus changes. Pull one real payout statement and back out your actual rate.
 
 **Modelled eBay take: 13.6% + 2% promoted + 0.95% tax drag = 16.55% + $0.40.**
 
@@ -109,19 +149,32 @@ shipping sale at $30 acquisition:
 
 | | eBay | Mercari |
 |---|---:|---:|
-| Fees | $14.96 | $8.80 |
-| **Net** | **$26.34** | **$32.50** |
+| Platform fees | $14.96 | $8.80 |
+| Shipping label | $5.50 | $6.73 |
+| **Net** | **$27.99** | **$32.92** |
 
-**Cross-list everything, and prefer the Mercari sale when you get one** — it's about **$6/unit
-better**, roughly 23% more profit for identical work. The catch is traffic: Mercari's buyer base for
+**Cross-list everything, and prefer the Mercari sale when you get one** — it's about **$5/unit
+better**, roughly 18% more profit for identical work. The catch is traffic: Mercari's buyer base for
 a specific calculator model is much thinner than eBay's, and the "pre-loaded" story lands less well
 with a browse-driven audience. Treat eBay as the demand engine and Mercari as the margin bonus.
 
-### Facebook Marketplace [RESEARCHED, directionally]
+### Facebook Marketplace [RESEARCHED]
 
-Local, cash, in-person: **no platform fee, no shipping cost, no payment processing.** Shipping-enabled
-Facebook sales carry a selling fee and payment processing. **Local sale is by a wide margin the
-highest-margin channel per unit** — and the lowest-volume one.
+**Local pickup, cash or Venmo/Zelle: $0.00.** No listing fee, no transaction fee, no subscription.
+**Shipped through Marketplace checkout: 10% of the total** (item + shipping + tax), $0.80 minimum —
+the rate **doubled from 5% in April 2024**, so any guide still citing 5% is stale. One source adds a
+further 2.9% processing on top for ~13% all-in while others describe the 10% as inclusive; treat
+shipped FB as **10–13%** and check your payout preview. Also note Facebook **discontinued prepaid
+shipping labels for most sellers in February 2025**, so a shipped FB sale means buying your own label.
+(<https://www.underpriced.app/blog/facebook-marketplace-fees-2026> — re-verified against Meta's help
+text 2026-07-29; <https://www.listing-forge.com/blog/facebook-marketplace-fees>, accessed 2026-08-12.)
+
+**Local sale is by a wide margin the highest-margin channel per unit** — and the lowest-volume one.
+The arithmetic is striking: at $30 acquisition, **a $70 local cash sale nets ~$37 against ~$28 for an
+$88 eBay sale.** You can price 20% under the shipped market, sell faster, skip the returns risk
+entirely because the buyer inspects before paying, and still make more money. If you have access to a
+college town, a high-school parent network, or a campus Facebook group, work it hard in August and
+January.
 
 ### Etsy / Gumroad
 
@@ -139,12 +192,42 @@ Not for hardware. See [`LISTING_AND_SUPPORT.md`](LISTING_AND_SUPPORT.md) §7 and
 | New generic USB A-to-**Mini-B** cable (bulk) | $1.50 | [ESTIMATE]; connector type [RESEARCHED] |
 | Replacement slide case, ~15% incidence × ~$6 | $0.90 | [ESTIMATE] |
 | Cleaning consumables (IPA, cloths, swabs) | $0.35 | [ESTIMATE] |
-| Box, bubble, label, tape | $1.20 | [ESTIMATE] |
+| #1 (7.25×12) bubble mailer + cardboard stiffener + tape + label | $0.55 | [RESEARCHED]: kraft bubble mailers run $0.12–$0.36/unit by case size (e.g. Lavex #0 250/case at $33.99 = $0.14/unit, <https://www.webstaurantstore.com/lavex-packaging-self-sealing-kraft-bubble-mailer-0-6-x-10-case/442KBM0S.html>). Stiffener from scrap cardboard, tape ~$0.03, thermal label ~$0.02. |
 | Printed quick-start / restore card | $0.25 | [ESTIMATE] |
-| **Materials subtotal** | **$5.80** | |
-| **Shipping** — USPS Ground Advantage, ~1 lb, blended zones, eBay label | **$6.50** | [RESEARCHED]: commercial Ground Advantage ~$7.61 (near zones) to ~$10.67 (far), retail $9.55–$12.90, effective 2026-07-12; eBay label pricing runs meaningfully below commercial, ~$4.50–$6.10 for 1 lb per one reseller guide. $6.50 is a conservative blend. (<https://idshipthat.app/how-much-to-ship/1-lb-package/>, <https://atoship.com/blog/usps-ground-advantage-ebay-resellers-guide>, accessed 2026-08-12) |
+| **Materials subtotal** | **$5.15** | |
+| **Shipping** — USPS Ground Advantage, **12 oz in a bubble mailer**, eBay Labels, contiguous US | **$5.50** | See the sub-pound note below. |
 | **Returns / loss reserve** | **5% of sale price** | [ESTIMATE]. Covers INAD returns, return shipping you eat, the occasional unsellable unit, and lost-in-transit. Used electronics on eBay is a higher-return category than average, and the Money Back Guarantee means you carry the risk regardless of your stated policy. |
 | **One-time setup** | ~$140 | Cables, powered hub, light/backdrop, scale, initial consumables. [ESTIMATE] Amortises to nothing past ~6 units. |
+
+### Stay under one pound — this is worth ~$1.50/unit
+
+A bare TI-84 Plus CE is **7.59 × 3.42 × 0.8 in and 0.44 lb**. In a bubble mailer with a cable and a
+stiffener it packs at **9–12 oz**; in a 9×5×3 box it's 12–15 oz and risks crossing 1 lb. **Use the
+mailer.**
+
+The reason this matters in 2026: effective **2026-07-12**, USPS **eliminated the 4/8/12 oz tiers for
+published *commercial* Ground Advantage**, pricing all sub-pound commercial packages at the 15.999 oz
+rate — roughly an 11.8% increase. Retail prices were unchanged. (USPS Notice 123,
+<https://pe.usps.com/text/dmm300/Notice123.htm>; USPS Final Rule,
+<https://pe.usps.com/resources/Misc/Final%20Rule%20-%20July%202026%20Domestic%20Competitive%20Products.pdf>;
+analysis at <https://transimpact.com/blog/usps-rate-to-increase-ground-advantage-commercial-rates-by-11.8>.)
+
+**But eBay negotiated an exemption that works in your favour.** Per an eBay moderator post of
+2026-07-08, reported by EcommerceBytes and ValueAddedResource: the flat-per-zone treatment applies to
+rural ZIPs, Alaska, Hawaii, Puerto Rico and military addresses, and *"for the continental United
+States, the tiered-weight structure remains in place."*
+(<https://www.ecommercebytes.com/2026/07/07/usps-july-rate-changes-impact-sites-like-ebay-differently/>,
+<https://www.valueaddedresource.net/ebay-usps-ground-advantage-oz-based-rates/>, accessed 2026-08-12.)
+**So eBay Labels still gives you the cheap 8 oz and 12 oz tiers for most of your volume** —
+**[ESTIMATE] $4.50–$7.00 by zone, $5.50 blended.** Note Pirate Ship reportedly did *not* apply the
+rural exception, so it may beat eBay on some destinations and lose on others.
+
+Mercari is simpler: **flat national rates, no zones** — 8 oz $5.66, **12 oz $6.73**, 1 lb $7.48
+(Best Rate, effective 2026-01-20, <https://www.mercari.com/us/help_center/article/632/>). That's
+worse than eBay on near zones and better on far ones. Mercari **rounds up to the tier ceiling**, so a
+9 oz package pays the 12 oz price — weigh precisely.
+
+**UPS Ground is never the right answer here** — roughly $11–$15 for a 1 lb parcel.
 
 **Not in the cost stack, deliberately:** TI Connect CE (free), the OS bundle (free from TI, and
 must not be redistributed — see [`LISTING_AND_SUPPORT.md`](LISTING_AND_SUPPORT.md) §5.1), and the
@@ -207,6 +290,27 @@ software angle (<https://www.etsy.com/market/ti84_calculator>, accessed 2026-08-
 listings specifically. The absence of a visible segment is itself weak evidence — if there were an
 easy $30 premium here, this category is competitive enough that someone would already be farming it.
 
+**A second, independent research pass reached the same conclusion, and added three arguments worth
+recording.** Targeted searches for "loaded with programs," "programs installed," "preloaded formulas"
+and similar returned no marketplace listing selling a used TI-84 at a documented premium, no sold-price
+differential from any source, and no seller review or reseller guide describing preloading as a
+working margin tactic. The additional structural arguments:
+
+1. **Teachers clear memory.** Many instructors reset calculator memory before exams, which vaporises
+   the preload on day one. The value you charged for can disappear before the first test.
+2. **Modifications read as a liability to the median buyer.** One resale guide puts it directly:
+   *"Modifications are often viewed as a liability, meaning original, unmodified units consistently
+   maintain the highest resale ceiling"*
+   (<https://www.aurascience.blog/values-texas-instruments-ti83-calculator>, accessed 2026-08-12).
+3. **It raises your not-as-described exposure rather than lowering it.** A buyer who expected 30
+   programs and found 12, or whose teacher wiped them, has a ready-made INAD claim — and §6 of
+   [`LISTING_AND_SUPPORT.md`](LISTING_AND_SUPPORT.md) explains why that is disproportionately
+   expensive at low volume.
+
+**What the market does pay for is the software on its own.** mcstutoring.com's $20–$60 programs and
+$160 bundle sell to people who *already own a calculator*. That is the demonstrated business; loaded
+hardware is not.
+
 ### The arithmetic your buyer can do
 
 A buyer can purchase a bare used CE Python and the **$35** complete digital toolkit
@@ -263,32 +367,32 @@ loading and sell bare units instead.
 ## 7. Per-unit P&L
 
 **Assumptions:** eBay, free shipping to buyer (price includes shipping), no store subscription,
-2% promoted, 5% returns reserve, $5.80 materials, $6.50 shipping.
+2% promoted, 5% returns reserve, $5.15 materials, $5.50 shipping (12 oz bubble mailer, eBay Labels).
 
-Net = `P × (1 − 0.1655 − 0.05) − $0.40 − $6.50 − $5.80 − acquisition` = `0.7845 × P − 12.70 − acq`
+Net = `P × (1 − 0.1655 − 0.05) − $0.40 − $5.50 − $5.15 − acquisition` = `0.7845 × P − 11.05 − acq`
 
 ### At $45 acquisition (buying units one at a time)
 
 | Sale price | Fees | Reserve | **Net** | Margin | $/hr @0.88h |
 |---:|---:|---:|---:|---:|---:|
-| $75 | $12.81 | $3.75 | **$1.14** | 1.5% | $1.29 |
-| $85 | $14.47 | $4.25 | **$8.98** | 10.6% | $10.21 |
-| **$88** | $14.96 | $4.40 | **$11.34** | 12.9% | **$12.88** |
-| $95 | $16.12 | $4.75 | **$16.83** | 17.7% | $19.12 |
-| $105 | $17.78 | $5.25 | **$24.67** | 23.5% | $28.04 |
+| $75 | $12.81 | $3.75 | **$2.79** | 3.7% | $3.17 |
+| $85 | $14.47 | $4.25 | **$10.63** | 12.5% | $12.08 |
+| **$88** | $14.96 | $4.40 | **$12.99** | 14.8% | **$14.76** |
+| $95 | $16.12 | $4.75 | **$18.48** | 19.4% | $21.00 |
+| $105 | $17.78 | $5.25 | **$26.32** | 25.1% | $29.91 |
 
 ### At $30 acquisition (buying well — lots, local, June)
 
 | Sale price | Fees | Reserve | **Net** | Margin | $/hr @0.88h |
 |---:|---:|---:|---:|---:|---:|
-| $75 | $12.81 | $3.75 | **$16.14** | 21.5% | $18.34 |
-| $78 (bare) | $13.31 | $3.90 | **$18.49** | 23.7% | $21.01 |
-| $85 | $14.47 | $4.25 | **$23.98** | 28.2% | $27.25 |
-| **$88 (loaded)** | $14.96 | $4.40 | **$26.34** | 29.9% | **$29.93** |
-| $95 | $16.12 | $4.75 | **$31.83** | 33.5% | $36.17 |
-| $105 | $17.78 | $5.25 | **$39.67** | 37.8% | $45.08 |
+| $75 | $12.81 | $3.75 | **$17.79** | 23.7% | $20.21 |
+| $78 (bare) | $13.31 | $3.90 | **$20.14** | 25.8% | $22.89 |
+| $85 | $14.47 | $4.25 | **$25.63** | 30.2% | $29.13 |
+| **$88 (loaded)** | $14.96 | $4.40 | **$27.99** | 31.8% | **$31.80** |
+| $95 | $16.12 | $4.75 | **$33.48** | 35.2% | $38.04 |
+| $105 | $17.78 | $5.25 | **$41.32** | 39.4% | $46.96 |
 
-### Facebook Marketplace, local pickup, $30 acquisition, $3.00 materials (no shipping box or cable-in-box)
+### Facebook Marketplace, local pickup, $30 acquisition, $3.00 materials (no mailer or cable-in-box)
 
 | Sale price | **Net** |
 |---:|---:|
@@ -302,28 +406,28 @@ are zero.
 
 ### Break-even sale price
 
-`P_breakeven = (acquisition + $12.70) / 0.7845`
+`P_breakeven = (acquisition + $11.05) / 0.7845`
 
 | Acquisition | Break-even sale price |
 |---:|---:|
-| $20 | $41.68 |
-| $30 | $54.43 |
-| $45 | $73.55 |
-| $55 | $86.30 |
+| $20 | $39.58 |
+| $30 | $52.33 |
+| $45 | $71.45 |
+| $55 | $84.19 |
 
-**At $55 acquisition you need $86 just to break even on an eBay sale.** That is inside the realistic
+**At $55 acquisition you need $84 just to break even on an eBay sale.** That is inside the realistic
 range for a single-unit eBay purchase, which is why single-unit eBay sourcing is not a business —
 it's a way to be busy.
 
 ### Maximum you can pay
 
-Inverted, for the bench: `max acquisition = 0.7845 × target price − $12.70 − target profit`
+Inverted, for the bench: `max acquisition = 0.7845 × target price − $11.05 − target profit`
 
 | Target sale | Target profit $25 | Target profit $15 |
 |---:|---:|---:|
-| $85 | pay ≤ **$29** | pay ≤ **$39** |
-| $88 | pay ≤ **$31** | pay ≤ **$41** |
-| $95 | pay ≤ **$37** | pay ≤ **$47** |
+| $85 | pay ≤ **$30** | pay ≤ **$40** |
+| $88 | pay ≤ **$32** | pay ≤ **$42** |
+| $95 | pay ≤ **$38** | pay ≤ **$48** |
 
 **Print this. Do not exceed it at an auction.**
 
@@ -335,28 +439,28 @@ Net profit at a fixed $88 sale price, by acquisition cost and labour time:
 
 | Acquisition | Net/unit | $/hr @0.6h | $/hr @0.88h | $/hr @1.2h |
 |---:|---:|---:|---:|---:|
-| $20 | $36.34 | $60.56 | $41.29 | $30.28 |
-| $25 | $31.34 | $52.23 | $35.61 | $26.11 |
-| **$30** | **$26.34** | $43.89 | **$29.93** | $21.95 |
-| $35 | $21.34 | $35.56 | $24.25 | $17.78 |
-| $40 | $16.34 | $27.23 | $18.56 | $13.61 |
-| **$45** | **$11.34** | $18.89 | **$12.88** | $9.45 |
-| $50 | $6.34 | $10.56 | $7.20 | $5.28 |
+| $20 | $37.99 | $63.31 | $43.17 | $31.65 |
+| $25 | $32.99 | $54.98 | $37.48 | $27.49 |
+| **$30** | **$27.99** | $46.64 | **$31.80** | $23.32 |
+| $35 | $22.99 | $38.31 | $26.12 | $19.15 |
+| $40 | $17.99 | $29.98 | $20.44 | $14.99 |
+| **$45** | **$12.99** | $21.64 | **$14.76** | $10.82 |
+| $50 | $7.99 | $13.31 | $9.07 | $6.65 |
 
 **Ranked by how much they move the answer:**
 
-1. **Acquisition cost — dominant.** Every $5 you shave is $5 straight to net, and net is only ~$26.
-   A $5 saving is a **19%** improvement in per-unit profit. Nothing else in this business has that
+1. **Acquisition cost — dominant.** Every $5 you shave is $5 straight to net, and net is only ~$28.
+   A $5 saving is an **18%** improvement in per-unit profit. Nothing else in this business has that
    leverage. Buying in June instead of August is worth more than everything in `PREP_SOP.md`
    combined.
-2. **Labour minutes — second.** Going from 53 to 36 min/unit takes you from $30/hr to $44/hr with no
+2. **Labour minutes — second.** Going from 53 to 36 min/unit takes you from $32/hr to $47/hr with no
    change to price or cost at all. Batching is the lever: six units at a time, OS-flash and charge
    in parallel, one photo session.
 3. **The software premium — third, and the least controllable.** $10 of premium is $7.84 of net,
-   ~30% of the total. Real, but you don't control whether the market pays it, and the honest base
+   ~28% of the total. Real, but you don't control whether the market pays it, and the honest base
    case may be closer to $5.
 
-**Not on the list, and worth noting:** shipping cost and platform fees. They're large (~$21 of an
+**Not on the list, and worth noting:** shipping cost and platform fees. They're large (~$20 of an
 $88 sale) but you can't negotiate them. The only lever there is channel choice — which is why the
 local-pickup row in §7 matters so much.
 
@@ -364,28 +468,28 @@ local-pickup row in §7 matters so much.
 
 ## 9. Scale
 
-At $30 acquisition, $88 sale, $26.34 net, 0.88 h/unit:
+At $30 acquisition, $88 sale, $27.99 net, 0.88 h/unit:
 
 | Units/month | Gross | Net | Hours | Effective $/hr |
 |---:|---:|---:|---:|---:|
-| 10 | $880 | **$263** | 8.8 | $29.93 |
-| 20 | $1,760 | **$527** | 17.6 | $29.93 |
-| 30 | $2,640 | **$790** | 26.4 | $29.93 |
-| 50 | $4,400 | **$1,317** | 44.0 | $29.93 |
-| 80 | $7,040 | **$2,107** | 70.4 | $29.93 |
+| 10 | $880 | **$280** | 8.8 | $31.80 |
+| 20 | $1,760 | **$560** | 17.6 | $31.80 |
+| 30 | $2,640 | **$840** | 26.4 | $31.80 |
+| 50 | $4,400 | **$1,399** | 44.0 | $31.80 |
+| 80 | $7,040 | **$2,239** | 70.4 | $31.80 |
 
 **This scales linearly, and that is the problem.** There is essentially no operating leverage: unit
 50 costs the same labour as unit 5. Batching improves the constant a bit and then stops. The only
 step-changes available are:
 
-- **A Basic Store past ~35 units/month** (§3), worth ~$0.79/unit.
+- **A Basic Store past ~28–35 units/month** (§3), worth ~$0.79/unit.
 - **Bulk acquisition**, which is the real one — if you can find a channel that reliably delivers CE
-  Pythons at $20–25, per-unit net goes to $31–36 and the business becomes worth the trouble.
-- **Hiring**, which at $29.93/hr gross-of-your-own-labour does not work. You cannot pay someone
-  $18/hr to do 53 minutes of work that generates $26 of profit and have anything left.
+  Pythons at $20–25, per-unit net goes to $33–38 and the business becomes worth the trouble.
+- **Hiring**, which at $31.80/hr gross-of-your-own-labour does not work. You cannot pay someone
+  $18/hr to do 53 minutes of work that generates $28 of profit and have anything left.
 
 **The realistic ceiling** is what one person can source and prep seasonally: **[ESTIMATE] roughly
-30–60 units across a July–September season**, which is **$800–$1,600** of profit for 26–53 hours.
+30–60 units across a July–September season**, which is **$840–$1,680** of profit for 26–53 hours.
 Real money, but a side project, not a business.
 
 ---
@@ -396,10 +500,10 @@ Real money, but a side project, not a business.
 |---|---:|---:|
 | Revenue | $88.00 | $35.00 |
 | Platform fee | $14.96 | $3.50 (Gumroad 10%) |
-| COGS | $35.80 | $0.00 |
-| Shipping | $6.50 | $0.00 |
+| COGS | $35.15 | $0.00 |
+| Shipping | $5.50 | $0.00 |
 | Returns reserve | $4.40 | ~$0.35 |
-| **Net** | **$26.34** | **$31.15** |
+| **Net** | **$27.99** | **$31.15** |
 | **Labour per sale** | **~53 min** | **~0 min** |
 
 **One digital sale nets more than one refurbished, loaded, packed, and shipped calculator, at
@@ -452,16 +556,28 @@ Effect on the model:
 
 - **1099-K threshold, tax year 2026: more than $20,000 in gross payments AND more than 200
   transactions.** Both conditions must be met. The One Big Beautiful Bill Act (signed 2025-07-04)
-  permanently restored this; the $600 threshold never took effect.
-  (<https://jupid.com/blog/ebay-1099-k-seller-tax-guide-2026>,
-  <https://www.webgility.com/blog/ebay-tax-reporting>, accessed 2026-08-12.) [RESEARCHED]
-  Some states (e.g. Massachusetts, Virginia) have lower thresholds.
+  permanently restored this (§70432, applying retroactively "as if included in" ARPA); the announced
+  $5,000 / $2,500 / $600 phase-in never took effect. Confirmed against the IRS directly: *"third
+  party settlement organizations are not required to file Forms 1099-K unless the gross amount of
+  reportable payment transactions to a payee exceeds $20,000 and the number of transactions exceeds
+  200"* (<https://www.irs.gov/newsroom/form-1099-k-faqs-general-information>, updated 2025-10-23;
+  <https://www.irs.gov/instructions/i1099k>, accessed 2026-08-12). [RESEARCHED — primary source]
+  Four traps: platforms may issue a form anyway; several states (Maryland, Massachusetts, Vermont,
+  Virginia) use $600 or $1,000; **direct card processing through Stripe or a PayPal merchant account
+  is a merchant acquirer, not a TPSO, and has no de minimis threshold at all**; and the threshold is
+  per-platform, not aggregated.
 - **You will not hit that threshold at this volume** — 60 units at $88 is ~$5,300. **Profit is
   taxable from the first dollar regardless of whether a form is issued.** Keep per-unit acquisition
   receipts; the inventory app's cost field is your cost-basis record and it is the difference
   between paying tax on profit and paying tax on gross.
-- **Sales tax:** eBay, Mercari, and Facebook (shipping-enabled) collect and remit as marketplace
-  facilitators. Local cash sales are your own responsibility per your state's rules.
+- **Sales tax: essentially a non-issue for you.** All 45 states with a general sales tax, plus DC,
+  now have marketplace facilitator laws (Missouri was last, 2023-01-01), so eBay, Mercari, Etsy and
+  Facebook collect and remit automatically on facilitated sales
+  (<https://nexusbystate.com/guides/marketplace-facilitator-laws>, verified 2026-08-06). Direct and
+  local cash sales are your own responsibility under your home state's rules. **Get a home-state
+  seller's permit anyway** — it doubles as your resale certificate, letting you buy inventory,
+  batteries, and packaging tax-free. Note one fee interaction: eBay charges its final value fee on
+  the sales tax it collects, costing you roughly 1.4% of the tax amount.
 - Track everything in the inventory app: acquisition cost, channel, refurb spend, sale price, fees,
   shipping. The margin split the app already reports — hardware margin (baseline − acquisition) vs.
   software premium (sale − baseline) — is exactly the right instrumentation for the §6 experiment.
@@ -478,11 +594,11 @@ disciplined buying, marginally does — and the software is a worthwhile topping
 
 Concretely:
 
-- **At $45 acquisition and $88 sale, you make $11 a unit for 53 minutes. Don't do that.** That is
+- **At $45 acquisition and $88 sale, you make $13 a unit for 53 minutes. Don't do that.** That is
   below minimum wage in most states once you count sourcing time.
-- **At $30 acquisition and $88 sale, you make $26 a unit, about $30/hr.** That is a real but modest
+- **At $30 acquisition and $88 sale, you make $28 a unit, about $32/hr.** That is a real but modest
   side income, and it is contingent on buying well, not on the software.
-- **The software adds ~$8 of that $26 — if the market pays the $10 premium at all, which is
+- **The software adds ~$8 of that $28 — if the market pays the $10 premium at all, which is
   unproven.** The marginal hourly on loading is good (~$43/hr) precisely because the marginal
   labour is small; the absolute dollars are not.
 - **The highest-leverage moves, in order:** (1) buy in June, sell in August; (2) buy in lots and

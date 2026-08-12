@@ -26,7 +26,23 @@ replacement, the TI-84 Evo, on 2026-04-28.** [RESEARCHED]
   — **does not use TI Connect CE**; it connects through a web tool at `connectevo.ti.com`.
   (<https://www.cemetech.net/news/2026/4/1062/_/ti-84-evo-calculator-released-fast-graphing-new-ui-new-hardware>)
 
-**Four consequences for sourcing, and they cut both ways:**
+**A second, quieter change compounds this.** Independent of the Evo launch, TI appears to be
+**removing Python from newly manufactured TI-84 Plus CE units.** A dealer notice dated **2026-03-12**
+told customers the CE would continue but without the Python feature, and TI-Planet's OS teardown
+records boot code **5.8.4.0058** identifying the hardware as **"TI-84 Plus CE (non-Python)"**.
+[RESEARCHED, corroborated by two independent sources]
+
+That is the more important fact for you, because it means:
+
+> **The population of Python-capable TI-84 CE hardware is now closed.** Every CE Python that will
+> ever exist was built between 2021-07-27 and 2026-04-27. Nothing new is entering the pool, on either
+> the Evo side (different platform) or the CE side (Python removed). Your entire addressable supply
+> is a fixed, ageing, slowly-attriting set of units.
+
+Closed populations do two things at once: they get cheaper as institutions dump them, and they get
+scarcer as units die. Which effect dominates determines whether this line has two good years or five.
+
+**Five consequences for sourcing, and they cut both ways:**
 
 1. **Medium-term, used CE Python supply rises and prices fall.** Schools and students will migrate to
    the Evo across the next few adoption cycles and dump CE Pythons. **This is good for you as a
@@ -40,6 +56,9 @@ replacement, the TI-84 Evo, on 2026-04-28.** [RESEARCHED]
    assume your product transfers.** Before you invest heavily in inventory, get one Evo and find out.
 4. **Do not buy Evo units for this line.** Different port, different connection software, unproven
    compatibility. Bare-resale only, if at all.
+5. **Verify Python on every single unit from 2026 stock, including "new."** With TI shipping
+   non-Python CEs from early 2026, a sealed-box "TI-84 Plus CE" bought in 2026 may have no Python at
+   all. The faceplate wordmark check in §1.1 now matters for new inventory too, not just used.
 
 Net: **2026–2027 is a good window to buy and a decent window to sell. It is not a durable business
 to build on**, and the inventory you buy has a declining half-life. Buy for the season you're
@@ -76,10 +95,25 @@ Work down this list. Stop at the first one you can confirm.
 | **Faceplate wordmark** | CE Python units are labelled **"TI-84 Plus CE PYTHON"** on the front faceplate. Plain CE reads **"TI-84 Plus CE"**. This is the primary check and it is visible in any straight-on front photo. | **High** — but only if you can read the faceplate. Demand a clear front photo. |
 | **Part number** (box, label, or seller listing) | Python: **`84CEPY/...`** — e.g. `84CEPY/FC/1L1`, `84CEPY/TBL/1L1/L`. Plain CE and older: `84PL/FC/1L1` (TI-84 Plus), `84PLCE/...` (plain CE). Teacher packs use `/TPK/`. [RESEARCHED] (<https://www.aztekcomputers.com/84cepy-tbl-1l1-l-ti84-plus-ce-graph-python-texas-instruments/p>, Bach Company 2025 TI dealer catalogue) | **High** when present |
 | **On-device model name** | `[2nd]` `[MEM]` → `1:About` displays the model name. Ask the seller for this photo — it is the single most useful request you can make, because it shows model **and** OS version in one shot. | **Highest** |
-| **Python App present** | `[apps]` list contains `Python`. A screenshot of the Python App shell is conclusive. | **Highest** |
+| **Python App present** | `[apps]` list contains `Python`. | **High, but not conclusive — see below** |
 | **Manufacture date** | CE Python production ran **2021-07-27 → 2026-04-27**. A CE with a serial date code before mid-2021 is definitively **not** a Python unit. Date code on the back reads `L-MMYYR` (month, year, hardware revision letter) — e.g. `L-0620O` is June 2020, revision O. [RESEARCHED] (Cemetech, <https://www.cemetech.net/forum/viewtopic.php?t=18642>) | High as a **negative** filter, weak as a positive one — plain CE was still sold alongside |
 | **Colour** | Not reliable. Both variants shipped in many colours. Ignore colour as a signal. | None |
 | **OS version** | Not reliable on its own. Both variants run 5.x OS; a plain CE can be on 5.8.x and still have no Python. | **None — this is the classic mistake** |
+
+**Two traps in that table worth spelling out.**
+
+**The Python App can appear on hardware that cannot run Python.** Community testing has shown the
+Python App can be installed onto a non-Python CE via a certificate edit, where it appears in the
+`[apps]` menu and then fails or misbehaves because the ARM coprocessor isn't there. **So a photo of
+the app list is not proof of Python hardware.** Ask instead for the **About screen** (which reports
+the model name) or, better, a photo of the Python shell with a one-line program actually having run.
+The faceplate wordmark plus the About screen together are what you should insist on. [RESEARCHED —
+Cemetech community testing]
+
+**Part numbers are less clean than they look.** `84CEPY/...` is reliably Python. But `84PLCE/TBL/1L1`
+is used inconsistently across distributor catalogues and has been observed attached to both variants,
+so **treat a `84PLCE/` number as "not proven Python," not as "proven plain."** Only `84CEPY/` proves
+anything, and only positively.
 
 **Buying rules that follow:**
 
@@ -206,11 +240,20 @@ about $174 total before your labour — not "10 calculators."
 
 **Verdict: genuinely cheap, and almost never the right hardware.** [RESEARCHED, with caveat]
 
-Auction aggregator records show real GovDeals/PublicSurplus calculator lots at very low per-unit
-prices — e.g. a 45-unit GovDeals lot in Montvale, NJ bid at **$34** total, well under $1/unit
-(<https://bidprowl.com/listing/lot-of-calculators-45-nj-govdeals-8869-90>, accessed 2026-08-12). But
-read that lot's own contents line: *"TI-73: 3, TI-30SLR+: 10, TI-30Xa: 2, TI-83: 4, TI-84 Plus
-(black): 25, TI-84 Plus Silver Edition: 1."* **Not one CE.**
+Three verified auction results, which together tell the whole story:
+
+| Lot | Result | Per unit, incl. premium | What was actually in it |
+|---|---|---:|---|
+| GovDeals, Montvale NJ, 45 calculators | **$200** after 37 bids, +12.5% BP | **$5.00** | TI-73 ×3, TI-30SLR+ ×10, TI-30Xa ×2, TI-83 ×4, TI-84 Plus mono ×25, TI-84 Plus SE ×1. **Not one CE.** |
+| Bryan ISD, TX, **250 × TI-84 Plus CE** | **$4,750** + 10% BP | **$20.90** | CE — but **EZ-Spot school-property editions** (see §7.1) |
+| HiBid, single TI-84 Plus CE | $16 hammer + 20% BP | **$19.20** | Single consumer unit |
+
+(<https://bidprowl.com/listing/lot-of-calculators-45-nj-govdeals-8869-90>, accessed 2026-08-12.)
+
+**Read those three rows carefully.** The dirt-cheap lot was all obsolete monochrome hardware. The one
+lot that genuinely delivered CE units at ~$21 delivered *EZ-Spot* units, which §7.1 explains you
+should not build the loaded SKU on. And note the **buyer's premium ran 10–20%** across these —
+consistently higher than people assume when they bid.
 
 Aggregate government-surplus electronics medians in Texas run **$81 on GovDeals** and **$21 on
 PublicSurplus** per lot (<https://bidprowl.com/sold/electronics/texas>, accessed 2026-08-12) — cheap,
@@ -318,10 +361,10 @@ single unit, once, as R&D — not as inventory.
 
 | Check | What kills the deal |
 |---|---|
-| **Screen** | Any crack, delamination, dead line/column, or a pressure bruise larger than a fingernail. Ask for a photo with the screen **on** — a dark screen in every photo is a red flag. |
+| **Screen** | Any crack, delamination, dead line/column, or a pressure bruise larger than a fingernail. Ask for a photo with the screen **on** — a dark screen in every photo is a red flag. **There is no repair path: replacement CE screens are not sold as parts by TI or by any aftermarket supplier.** A bad screen is a permanent write-off, so this is the one defect to be ruthless about. |
 | **Charge port** | The CE family uses **USB Mini-B**, not micro-USB and not USB-C. [RESEARCHED — TI spec: *"Standard A to Mini-B USB cable included"*] Look for a bent shell, a widened opening, or a cable that hangs loose in the photo. Port damage is the most common terminal fault. |
 | **Battery** | Ask "does it hold a charge overnight?" Swelling shows as a back cover that no longer sits flush, or a slightly bowed faceplate. A dead cell is a **$8** fix (TI part **3.7L1200SPB**, 3.7 V 1200 mAh); a swollen one that has deformed the housing is a write-off. [RESEARCHED part number] |
-| **Water damage** | Corrosion crust around the port, tide-line staining under the screen, discolouration in the battery bay. **Walk away** — intermittent faults surface after the buyer has it. |
+| **Water damage** | Corrosion crust around the port, tide-line staining under the screen, discolouration in the battery bay. **Walk away** — intermittent faults surface after the buyer has it. Note there is **no documented liquid-damage indicator sticker** on the CE family, unlike phones, so visual corrosion is your only signal. Look hard at the port pins. |
 | **Missing charger** | Not a dealbreaker; a generic mini-B cable is ~$1.50. Use it as a negotiating lever, not a rejection. |
 | **Missing slide case** | ~$6 to replace. Same — negotiate. |
 | **Keypad** | Worn-off legends are a cosmetic downgrade to grade C/D. Sticky or unresponsive keys are a reject; you cannot economically fix them. |
@@ -360,7 +403,21 @@ sell singles. But:
    signal**. Decline.
 3. From a documented district surplus auction, it's legitimate — but see point 1. Value it as parts.
 
-**Rule: don't buy EZ Spot units. If one arrives inside a lot, part it out or donate it.**
+**Rule: don't buy EZ Spot units for the loaded SKU.** If one arrives inside a lot, part it out,
+donate it, or move it to the bare-resale line at a 30–50% discount with provenance disclosed in the
+listing. Sourced from a documented district surplus auction they are perfectly legal to resell —
+they're just the wrong product for a premium student-facing SKU.
+
+**The covert tell: the charging LED.** A seller can swap a yellow back cover for a standard one, but
+they can't change the board. Consumer TI-84 Plus CE units built from roughly **June 2021** (hardware
+revision T onward) **dropped the charging LED**. EZ-Spot and School Property units **kept it.** So:
+
+> **A CE with a post-2021 manufacture date code that still has a charging LED is almost certainly a
+> school unit wearing a different jacket.** Cross-check the `L-MMYYR` date code on the back against
+> the presence of the LED. [RESEARCHED — Cemetech hardware-revision documentation]
+
+This is the single most useful physical check in this section, because it defeats the one form of
+disguise a reseller can cheaply apply.
 
 ### 7.2 Other red flags
 
