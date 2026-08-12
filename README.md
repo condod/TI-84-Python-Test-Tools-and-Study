@@ -1,10 +1,14 @@
 # TI-84 Plus CE Python Edition — Study & Practice-Exam Toolkit
 
-A collection of 29 standalone TI-84 Plus CE **Python Edition** programs for
+A collection of 52 standalone TI-84 Plus CE **Python Edition** programs for
 engineering/math/science students, organized by subject area. Every program
 is a single `.py` text file you can type in on the calculator or transfer
 with TI Connect™ CE — and every program is also available as a ready-to-install
 `.8xv` Python AppVar in [`8xv/`](8xv/).
+
+> **Before you install:** the full library is about 242 KB of source and the
+> calculator holds roughly 50 KB of Python, so it is meant to be installed a
+> subject at a time. See [Storage Budget](#storage-budget-the-full-library-does-not-fit-at-once).
 
 ## 📦 Pre-Packaged Bundles Available
 
@@ -313,14 +317,162 @@ ti84-python-programs/
 | File | Description |
 |---|---|
 | `punnett_square_solver.py` | Monohybrid or dihybrid Punnett-square cross calculator: offspring genotype and phenotype ratios from parent genotypes. |
+| `hardy_weinberg.py` | Hardy-Weinberg equilibrium: allele frequencies ↔ genotype frequencies, expected counts, and a chi-square test of whether a population is actually in equilibrium. |
+| `population_growth.py` | Exponential and logistic population models: population at a time, time to reach a target, doubling time, instantaneous growth rate, and the inflection point at K/2. |
+| `dilution_calculator.py` | Solution prep: C1V1 = C2V2 solved for any variable, dilution factors, serial-dilution plans, and molarity/mass/moles conversions. |
+| `chi_square_genetics.py` | Chi-square goodness-of-fit test for genetic crosses against 3:1, 9:3:3:1, 1:1, 1:2:1, or a custom ratio, with a built-in critical-value table. |
+| `surface_area_volume.py` | Surface-area-to-volume ratios for cell and organism models, the scaling effect on SA:V, Kleiber's-law metabolic rate, and diffusion distance vs time. |
 
-**Course fit:** Intro Biology, Genetics.
+**Course fit:** Intro Biology, Genetics, AP Biology, Ecology, Lab Methods.
 
 - **`punnett_square_solver.py`** — Menu for a monohybrid cross (one gene, e.g. `Aa` x `Aa`) or a dihybrid cross
   (two independently-assorting genes, e.g. `AaBb` x `AaBb`). Enter the letter(s) used for each gene and each
   parent's genotype. Outputs every offspring genotype and phenotype with their ratios (e.g. the classic 1:2:1
   genotype / 3:1 phenotype monohybrid result, or 9:3:3:1 dihybrid phenotype result), assuming simple dominant/
   recessive inheritance where uppercase is the dominant allele.
+- **`hardy_weinberg.py`** — Three ways in: from an allele frequency `p` or `q`, from the recessive *phenotype*
+  frequency (which is `q²`, the usual exam wording), or from observed genotype counts. Outputs `p`, `q`, and the
+  `p²`/`2pq`/`q²` genotype frequencies, the carrier frequency, and expected counts for a given population size.
+  The counts path also runs a chi-square test with 1 degree of freedom against the equilibrium expectation and
+  says whether to reject equilibrium at the 0.05 level, warning when an expected count below 5 makes the test
+  unreliable.
+- **`population_growth.py`** — Exponential mode gives `N = N0·e^(rt)` with doubling time (or half-life for a
+  negative `r`), and solves for the time to reach a target population. Logistic mode gives
+  `N = K/(1 + ((K−N0)/N0)·e^(−rt))` with the percentage of carrying capacity reached, the instantaneous
+  `dN/dt = rN(1 − N/K)`, and the inflection time where growth is fastest at `N = K/2`. It refuses targets at or
+  above `K` with an explanation rather than returning a nonsense time.
+- **`dilution_calculator.py`** — Solves `C1V1 = C2V2` for whichever of the four you're missing, and for the
+  common "how much stock do I take" case also reports the diluent to add and the fold-dilution. Additional tools
+  compute a dilution factor from either volumes or concentrations, print a full serial-dilution plan (transfer
+  volume per tube and the concentration at every step), and convert between molarity, moles, and grams for a
+  known molar mass. Units only need to be self-consistent, since the relation is a ratio.
+- **`chi_square_genetics.py`** — Pick a Mendelian ratio preset (3:1, 9:3:3:1, 1:1, 1:2:1) or type a custom one
+  like `9,3,3,1`, then enter the observed count per category. Prints a per-category table of observed, expected,
+  and each contribution to χ², then the total with its degrees of freedom, and compares it against built-in
+  critical values at both the 0.05 and 0.01 levels to give a verdict. Warns when the smallest expected count
+  drops below 5.
+- **`surface_area_volume.py`** — Surface area, volume, and the SA:V ratio for a sphere, cube, cylinder, or
+  rectangular box, with a note on the shape's characteristic ratio (`3/r` for a sphere, `6/s` for a cube). The
+  scaling tool shows how scaling every length by `k` multiplies area by `k²` and volume by `k³`, dividing SA:V by
+  `k` — the reason large organisms need lungs and circulation. Also estimates basal metabolic rate from body mass
+  by Kleiber's law (`BMR = a·M^0.75`) including the mass-specific rate, and computes diffusion time from distance
+  via `t ≈ x²/(2D)`.
+
+---
+
+## Precalculus (`precalculus/`)
+
+| File | Description |
+|---|---|
+| `polynomial_analyzer.py` | Polynomial analysis (real zeros, end behavior, intercepts, turning-point count) and rational-function analysis (vertical/horizontal/oblique asymptotes, holes, intercepts). |
+| `sequences_series.py` | Arithmetic and geometric sequences and series: nth term, partial sums, common difference/ratio from two terms, infinite geometric sums, and term listings. |
+| `log_exp_solver.py` | Logarithm and exponential toolkit: change of base, solving `b^x = c` and `log_b(x) = c`, the log rules worked with your numbers, and growth/decay with half-life and doubling time. |
+
+**Course fit:** Precalculus, College Algebra, Algebra II, AP Precalculus.
+
+- **`polynomial_analyzer.py`** — Enter a degree (1–6) and the coefficients from the highest power down. For a
+  polynomial it prints the reconstructed `f(x)`, the leading coefficient, the y-intercept, the end behavior in
+  all four cases, the maximum number of zeros and turning points, and the real zeros. Zeros are located
+  numerically: the search is bounded by the Cauchy bound `1 + max|aᵢ|/|aₙ|`, sampled across that interval, and
+  each sign change is refined by bisection, with an extra check for even-multiplicity roots that touch the axis
+  without crossing it. You can then evaluate `f(x)` at any point. Rational mode takes a numerator and a
+  denominator and reports vertical asymptotes, holes where a factor cancels, the horizontal asymptote (`y = 0`
+  or the ratio of leading coefficients) or the oblique asymptote by polynomial long division when the numerator
+  is exactly one degree higher, plus both intercepts.
+- **`sequences_series.py`** — Arithmetic tools give `aₙ` and `Sₙ`, recover the common difference and first term
+  from any two known terms, and locate where a given value falls in the sequence (saying so when it isn't a term
+  at all). Geometric tools give `aₙ` and `Sₙ`, recover the ratio from two terms (flagging when the even power
+  admits a negative ratio too), sum an infinite series when `|r| < 1` and explain the divergence when it doesn't,
+  and find how many terms it takes to pass a value. A listing mode prints the first n terms alongside a running
+  sum.
+- **`log_exp_solver.py`** — Evaluates `log_b(x)` by change of base and cross-checks against `ln` and `log10`,
+  solves `b^x = c` and `log_b(x) = c`, and demonstrates the product, quotient, and power rules on numbers you
+  supply so you can see both sides agree. The growth/decay tool takes `k` directly or derives it from a half-life
+  or doubling time, then finds either the amount at a time or the time to reach an amount. Domain restrictions
+  are enforced with an explanation — a base of 1, a non-positive base, a non-positive log argument, and
+  `b^x = c` with `c ≤ 0` are all rejected in words rather than raising an error.
+
+---
+
+## Finance (`finance/`)
+
+| File | Description |
+|---|---|
+| `tvm_solver.py` | Time-value-of-money solver: give any four of PV, FV, PMT, N, and rate, and it finds the fifth, with end- or begin-of-period payments. |
+| `loan_amortization.py` | Loan amortization: level payment, full or yearly schedule of interest/principal/balance, lifetime totals, and the effect of paying extra. |
+| `compound_interest.py` | Compound growth plus APR ↔ APY conversion at any compounding frequency including continuous, and a head-to-head comparison of two accounts. |
+| `npv_irr.py` | Capital budgeting on a cash-flow stream: NPV at a chosen rate, IRR, simple and discounted payback, profitability index, and an NPV-vs-rate table. |
+| `break_even_margin.py` | Break-even units and revenue, units for a target profit, margin of safety, contribution margin, and margin ↔ markup conversion. |
+
+**Course fit:** Personal Finance, Business Math, Finance 101, Accounting, Economics, Engineering Economics.
+
+- **`tvm_solver.py`** — The standard five-variable TVM relation
+  `PV + PMT·annuity + FV·discount = 0` under the usual sign convention (cash out negative, cash in positive).
+  Pick the unknown and enter the other four; the rate is per period as a percent, and payments can be
+  end-of-period (ordinary annuity) or begin-of-period (annuity due). PV, FV, and PMT have closed forms; the
+  number of periods is solved in logs; the rate has no closed form and is found by bisection, which cannot
+  diverge the way Newton's method can on a badly-signed cash flow. Zero-rate cases are handled by their limits
+  rather than dividing by zero. A 200,000 loan at 0.5%/month for 360 months returns the textbook 1,199.10 payment.
+- **`loan_amortization.py`** — Enter the amount, annual rate, term, and payments per year to get the level
+  payment, then choose the full payment-by-payment schedule (paused every 12 rows so it doesn't scroll away), a
+  year-by-year summary, or totals only. Reports payments made, total paid, and total interest. You can also
+  substitute a payment of your own to see how paying extra shortens the loan — and if the payment doesn't cover
+  the first month's interest, it says so instead of looping forever on a growing balance.
+- **`compound_interest.py`** — Future value for any compounding frequency, with `0` meaning continuous
+  compounding, reporting the interest earned and the effective annual rate. Converts a nominal APR to APY and
+  back again, and compares two accounts by APY so different compounding frequencies can be ranked honestly —
+  showing, for instance, that 5% compounded monthly (5.11619% APY) beats 5.1% compounded annually.
+- **`npv_irr.py`** — Enter the cash flow at time 0 (an investment is negative) then each later period's, up to
+  40 flows. Reports NPV at your discount rate with an accept/reject reading, the IRR by bisection, simple and
+  discounted payback interpolated within the crossing period, and the profitability index. It counts sign changes
+  in the stream and warns when more than one means multiple IRRs may exist and NPV should be trusted instead —
+  and says plainly when a stream never changes sign and therefore has no IRR at all. An optional table sweeps NPV
+  against rate from 0% to 30%.
+- **`break_even_margin.py`** — Break-even in units and revenue from price, variable cost, and fixed costs, plus
+  the contribution margin and its ratio; the volume needed to hit a target profit; and the margin of safety
+  against expected sales with the resulting profit. A fourth tool converts between gross margin (percent of
+  price) and markup (percent of cost) in both directions — the pair students most often mix up. When price does
+  not exceed variable cost it explains that no volume ever breaks even rather than returning a negative
+  quantity.
+
+---
+
+## Thermodynamics & Materials (`thermo_materials/`)
+
+| File | Description |
+|---|---|
+| `ideal_gas_processes.py` | Work, heat, and internal-energy change for isothermal, isobaric, isochoric, and adiabatic ideal-gas processes, plus a PV = nRT state solver. |
+| `carnot_efficiency.py` | Carnot and actual heat-engine efficiency, refrigerator and heat-pump COP, a second-law sanity check, and a temperature converter. |
+| `stress_strain.py` | Axial stress, strain, Young's modulus, deformation `δ = FL/(AE)`, factor of safety, Poisson's ratio, and a material property table. |
+| `thermal_expansion.py` | Linear, area, and volume thermal expansion, thermal stress in a restrained member, expansion gaps, and bimetallic-strip mismatch. |
+
+**Course fit:** Thermodynamics, Physics II, Materials Science, Statics & Mechanics of Materials, Chemistry (gas laws).
+
+- **`ideal_gas_processes.py`** — All four standard processes in SI units, using the convention that work done *by*
+  the gas is positive and `dU = Q − W`. Isothermal uses `W = nRT·ln(V2/V1)` with `dU = 0`; isobaric uses
+  `W = P·ΔV` and derives both temperatures from the state equation; isochoric reports `W = 0` with `Q = dU`; and
+  adiabatic uses `PV^γ = const` to get `P2` and `W = (P1V1 − P2V2)/(γ − 1)` with `Q = 0`. Molar heat capacity can
+  be taken as monatomic (3/2·R), diatomic (5/2·R), or entered directly, and each result says in words whether the
+  gas expanded and did work or was compressed. A fifth menu item solves `PV = nRT` for any single variable.
+- **`carnot_efficiency.py`** — Carnot efficiency `1 − Tc/Th` with the maximum work and rejected heat for a given
+  heat input, and actual efficiency from either `Qh` and `W` or `Qh` and `Qc`. Given the reservoir temperatures
+  it compares the real cycle against the Carnot limit, reporting what fraction of the limit was reached and
+  flagging a cycle that claims to beat it as impossible. Refrigerator COP (`Tc/(Th−Tc)`) and heat-pump COP
+  (`Th/(Th−Tc)`) come with the minimum work for a given load. Temperatures must be absolute, and a converter is
+  included for Celsius and Fahrenheit.
+- **`stress_strain.py`** — Normal stress `σ = F/A`, normal strain `ε = ΔL/L0` (from either a change in length or
+  a pair of lengths, also reported in percent and microstrain), Young's modulus `E = σ/ε`, and axial deformation
+  `δ = FL/(AE)` with the resulting strain, stress, and final length. Cross-sectional area can be entered
+  directly or computed from a diameter or a width × height. Factor of safety compares a yield or ultimate
+  strength against the actual stress and interprets the result. Poisson's ratio gives the lateral strain and the
+  change in a transverse dimension. Every pressure is printed in Pa, MPa, and GPa at once, and a reference table
+  lists typical `E` and yield values for six common materials.
+- **`thermal_expansion.py`** — Linear (`ΔL = αL0ΔT`), area (`ΔA = 2αA0ΔT`, noting that holes expand exactly like
+  solid material), and volume (`ΔV = βV0ΔT` with `β = 3α` for a solid) expansion, with α entered directly or
+  picked from a built-in material list. Thermal stress in a member held between rigid supports uses
+  `σ = E·α·ΔT` — length cancels — and says whether heating puts it in compression or cooling puts it in tension,
+  optionally converting to a force on the supports. Also sizes the expansion gap needed per joint for a run of
+  rails or pipe, and computes the mismatch that makes a bimetallic strip bend, naming which way it curves.
 
 ---
 
@@ -373,3 +525,31 @@ python tools/build_bundles.py --repo .
 python tools/verify_8xv.py --src . --out ./8xv --names tools/varnames.json --name-by-var \
     --bundles ./bundles
 ```
+
+---
+
+## Quality Assurance (`qa/`)
+
+Every program in this library is checked by an automated harness that lives in
+[`qa/`](qa/). It runs on desktop Python 3 with no third-party dependencies, and
+has three layers:
+
+- **A strict TI environment simulator** (`qa/ti_runner.py`) that executes a
+  program with `math`, `random`, and `time` cut down to only the names TI's
+  build actually ships, and with the built-ins narrowed to TI's documented set.
+  A program that reaches for `math.factorial`, `math.log10`, `random.shuffle`,
+  or `str.ljust` fails here the same way it would fail on the calculator,
+  instead of quietly passing on a desktop.
+- **A static checker** (`qa/static_check.py`) that parses every file and flags
+  unavailable imports and attributes, syntax newer than the calculator's
+  CircuitPython base, direct recursion, literals or `range()` bounds above the
+  100-element cap, and reports each file's byte size and the library total.
+- **A stdin-driven functional harness** (`qa/harness.py` with `qa/cases.py` and
+  `qa/cases_new.py`) that feeds scripted keystrokes to each program inside the
+  simulator and asserts on the printed output. Expected values are hand-computed
+  and the derivation is written in a comment above each group, so the arithmetic
+  can be re-checked independently of the code it is testing.
+
+Current status: **52/52 programs load cleanly** under the simulator, **0 static
+errors**, and **212/212 functional cases pass**. See [`qa/README.md`](qa/README.md)
+for how to run it and how to add cases as the library grows.
