@@ -63,6 +63,33 @@ Three findings worth knowing even if you never sell a copy:
   (how Python programs are stored) are deleted and do not return. Back up with TI Connect™ CE
   first.
 
+## 🛒 Storefront & Go-to-Market
+
+Everything needed to actually sell these bundles lives in [`storefront/`](storefront/):
+
+- **[`index.html`](storefront/index.html)** (plus `styles.css` and `main.js`) — a self-contained,
+  mobile-responsive sales landing page: bundle lineup, price comparison table, per-bundle
+  contents, a free-starter-pack call to action, an FAQ, and the exam-policy disclaimer. No
+  build step and no dependencies beyond a CDN font. Purchase links are flagged with `BUY LINK`
+  comments and stay as placeholders until real store URLs are pasted in.
+- **[`DEPLOY.md`](storefront/DEPLOY.md)** — publishing the landing page free on GitHub Pages
+  from this repo, and pointing a custom domain at it later.
+- **[`SETUP_CHECKLIST.md`](storefront/SETUP_CHECKLIST.md)** — step-by-step Gumroad and Etsy
+  setup: accounts, listings, what assets to upload, the real (and widely misquoted) fee maths
+  on both platforms, and the policy considerations that apply to selling study tools.
+- **[`LAUNCH_PLAN.md`](storefront/LAUNCH_PLAN.md)** — a channel-by-channel traffic plan with
+  effort and impact estimates, the researched norms of the relevant student and calculator
+  communities, and a two-week launch sequence.
+- **[`DEMO_SCRIPTS.md`](storefront/DEMO_SCRIPTS.md)** — short-form video scripts, community
+  post drafts, and a three-email free-starter-pack nurture sequence.
+- **[`SEO_KEYWORDS.md`](storefront/SEO_KEYWORDS.md)** — keyword research with per-bundle Etsy
+  13-tag sets, Gumroad tags, and landing-page titles and meta descriptions.
+
+All storefront copy is written against
+[`MARKETING_CLAIMS_GUIDE.md`](MARKETING_CLAIMS_GUIDE.md): no exam-legality claims, no
+exam-brand terms in tags or metadata, no invented reviews or download numbers, and buyers are
+always directed to check their own exam's calculator policy.
+
 ## About the TI-84 Plus CE Python Environment
 
 TI-84 Plus CE Python Edition runs a restricted CircuitPython-based

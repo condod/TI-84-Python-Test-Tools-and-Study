@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!--
+     TI-84 Plus CE Python Study Toolkit - static sales page.
+     No build step. Just index.html + styles.css + main.js.
+
+     BEFORE YOU PUBLISH, DO THESE THREE THINGS:
+       1. Replace every  href="#"  on a link with class "js-buy" with the real
+          Gumroad or Etsy product URL. Each one is flagged with a "BUY LINK"
+          comment on the line above it, so search this file for: BUY LINK
+       2. Replace the form action in the "Free Starter Pack" section with your
+          real Gumroad free-product URL or email provider form endpoint.
+       3. Update the canonical URL and og:url below to your real domain.
+
+     See DEPLOY.md for hosting and SETUP_CHECKLIST.md for store setup.
+-->
+
+<title>TI-84 Plus CE Python Programs — 24-Program Study Toolkit</title>
+<meta name="description" content="24 ready-to-install Python programs for the TI-84 Plus CE Python Edition: calculus, algebra, stats, physics and chemistry. Free 3-program starter pack.">
+<meta name="author" content="TI-84 Python Study Toolkit">
+<link rel="canonical" href="https://condod.github.io/TI-84-Python-Test-Tools-and-Study/storefront/">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="TI-84 Plus CE Python Programs — 24-Program Study Toolkit">
+<meta property="og:description" content="24 ready-to-install Python programs for the TI-84 Plus CE Python Edition. Free 3-program starter pack, $14 subject bundles, $35 complete toolkit.">
+<meta property="og:url" content="https://condod.github.io/TI-84-Python-Test-Tools-and-Study/storefront/">
+<meta name="twitter:card" content="summary_large_image">
+
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%230f172a'/><text x='16' y='23' font-size='19' font-family='monospace' fill='%2338bdf8' text-anchor='middle'>&gt;_</text></svg>">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header" id="siteHeader">
+  <div class="wrap header-inner">
+    <a class="brand" href="#top">
+      <span class="brand-mark" aria-hidden="true">&gt;_</span>
+      <span class="brand-text">TI-84&nbsp;Python<span class="brand-sub">Study Toolkit</span></span>
+    </a>
+
+    <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Open menu">
+      <span></span><span></span><span></span>
+    </button>
+
+    <nav class="primary-nav" id="primaryNav" aria-label="Primary">
+      <a href="#bundles">Bundles</a>
+      <a href="#included">What's included</a>
+      <a href="#install">How it works</a>
+      <a href="#faq">FAQ</a>
+      <a class="btn btn-sm btn-primary" href="#free">Get the free pack</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero" id="top">
+    <div class="wrap hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">For the TI-84 Plus CE <strong>Python Edition</strong></p>
+        <h1>Stop re-deriving the same formula<br class="br-lg"> at 1&nbsp;a.m.</h1>
+        <p class="lede">
+          24 clean, menu-driven Python programs for your TI-84 Plus CE — numeric derivatives,
+          Simpson's rule, matrices, kinematics, RLC impedance, gas laws, pH and more.
+          Plain <code>.py</code> source you can read, edit and actually learn from.
+        </p>
+
+        <div class="hero-cta">
+          <a class="btn btn-primary btn-lg" href="#free">Download 3 programs free</a>
+          <a class="btn btn-ghost btn-lg" href="#bundles">See all bundles &amp; pricing</a>
+        </div>
+
+        <ul class="trust-row">
+          <li><strong>24</strong> programs</li>
+          <li><strong>5</strong> subject areas</li>
+          <li><strong>.py</strong> editable source</li>
+          <li><strong>$0</strong> starter pack</li>
+        </ul>
+
+        <p class="hero-note">
+          One-time purchase. No subscription, no account, no ads on your calculator.
+        </p>
+      </div>
+
+      <!-- Stylised mock of the on-calculator Python shell. Purely decorative. -->
+      <div class="hero-demo" aria-hidden="true">
+        <div class="calc-shell">
+          <div class="calc-bar">
+            <span class="calc-dot"></span><span class="calc-dot"></span><span class="calc-dot"></span>
+            <span class="calc-title">PYTHON SHELL — NEWTRAPH</span>
+          </div>
+          <pre class="calc-screen"><span class="c-dim">&gt;&gt;&gt; from NEWTRAPH import *</span>
+<span class="c-key">NEWTON-RAPHSON ROOT FINDER</span>
+f(x)? <span class="c-in">cos(x)-x</span>
+x0?   <span class="c-in">1</span>
+tol?  <span class="c-in">1e-9</span>
+
+ n      x           f(x)
+ 1   0.75036387   -0.0189
+ 2   0.73911289   -0.0000
+ 3   0.73908513    0.0000
+
+<span class="c-ok">ROOT = 0.7390851332</span>
+<span class="c-dim">3 iterations, converged</span>
+<span class="c-cursor">_</span></pre>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= VALUE PROPS ================= -->
+  <section class="section" id="why">
+    <div class="wrap">
+      <h2 class="section-title">Built for the calculator you already own</h2>
+      <p class="section-lede">
+        These aren't screenshots of a phone app. They run on the TI-84 Plus CE Python Edition
+        itself, inside TI's own Python environment, using only <code>math</code>, <code>random</code>,
+        <code>time</code> and TI's built-in modules.
+      </p>
+
+      <div class="cards cards-4">
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">⌨</div>
+          <h3>Menu-driven, not cryptic</h3>
+          <p>Every program prompts you in plain English, re-asks on bad input instead of crashing, and prints labelled results. No memorising argument order.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">{ }</div>
+          <h3>Readable source you own</h3>
+          <p>Delivered as commented <code>.py</code> text files. Open them, see the actual algorithm, change a tolerance, add your own formula. Great for actually understanding the method.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">↯</div>
+          <h3>Respects the hardware</h3>
+          <p>Written against the real limits of TI's environment — roughly 50&nbsp;KB of program space, 100-element lists, no <code>numpy</code>. No bloated code that won't fit.</p>
+        </article>
+        <article class="card">
+          <div class="card-icon" aria-hidden="true">⏱</div>
+          <h3>Shows the work</h3>
+          <p>Iteration tables, term-by-term series sums, step-by-step Euler tables. You can check your hand work against the program, which is the point.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= BUNDLES / PRICING ================= -->
+  <section class="section section-alt" id="bundles">
+    <div class="wrap">
+      <h2 class="section-title">Pick your bundle</h2>
+      <p class="section-lede">
+        Buy one subject, or take the whole library for less than the price of two and a half
+        subject bundles. Prices in USD, one-time.
+      </p>
+
+      <!-- Desktop comparison table -->
+      <div class="table-scroll">
+        <table class="pricing-table">
+          <caption class="visually-hidden">Bundle comparison: contents, price and purchase links</caption>
+          <thead>
+            <tr>
+              <th scope="col">Bundle</th>
+              <th scope="col">Programs</th>
+              <th scope="col">Best for</th>
+              <th scope="col">Price</th>
+              <th scope="col"><span class="visually-hidden">Buy</span></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row"><span class="tbl-name">Free Starter Pack</span><span class="tbl-sub">Unit converter · Quadratic solver · Stats</span></th>
+              <td>3</td>
+              <td>Trying it out on any course</td>
+              <td class="price-cell"><span class="price">Free</span></td>
+              <!-- BUY LINK: this one should point at your Gumroad $0 / "pay what you want" product,
+                   or leave it as #free to use the on-page email form below. -->
+              <td><a class="btn btn-outline js-buy" href="#free">Get it free</a></td>
+            </tr>
+            <tr>
+              <th scope="row"><span class="tbl-name">Calculus &amp; Differential Equations</span><span class="tbl-sub">Derivatives · Integrals · Series · ODEs</span></th>
+              <td>6</td>
+              <td>Calc I/II/III, intro ODEs</td>
+              <td class="price-cell"><span class="price">$14</span></td>
+              <!-- BUY LINK: paste your Gumroad product URL, e.g.
+                   https://YOURNAME.gumroad.com/l/ti84-calculus
+                   (or the Etsy listing URL if you sell it there instead) -->
+              <td><a class="btn btn-outline js-buy" href="#">Buy</a></td>
+            </tr>
+            <tr>
+              <th scope="row"><span class="tbl-name">Algebra, Linear Algebra &amp; Stats</span><span class="tbl-sub">Matrices · Systems · Stats · Probability</span></th>
+              <td>6</td>
+              <td>College algebra, linear algebra, intro stats</td>
+              <td class="price-cell"><span class="price">$14</span></td>
+              <!-- BUY LINK: https://YOURNAME.gumroad.com/l/ti84-algebra-stats -->
+              <td><a class="btn btn-outline js-buy" href="#">Buy</a></td>
+            </tr>
+            <tr>
+              <th scope="row"><span class="tbl-name">Physics &amp; Engineering</span><span class="tbl-sub">Kinematics · Circuits · Vectors · RLC</span></th>
+              <td>6</td>
+              <td>Physics I/II, statics, circuits</td>
+              <td class="price-cell"><span class="price">$14</span></td>
+              <!-- BUY LINK: https://YOURNAME.gumroad.com/l/ti84-physics -->
+              <td><a class="btn btn-outline js-buy" href="#">Buy</a></td>
+            </tr>
+            <tr>
+              <th scope="row"><span class="tbl-name">Chemistry &amp; Exam Tools</span><span class="tbl-sub">Gas laws · Stoichiometry · pH · Drills</span></th>
+              <td>6</td>
+              <td>General chemistry + study drilling</td>
+              <td class="price-cell"><span class="price">$14</span></td>
+              <!-- BUY LINK: https://YOURNAME.gumroad.com/l/ti84-chemistry -->
+              <td><a class="btn btn-outline js-buy" href="#">Buy</a></td>
+            </tr>
+            <tr class="row-featured">
+              <th scope="row">
+                <span class="tbl-name">Complete Toolkit <span class="tag tag-best">Best value</span></span>
+                <span class="tbl-sub">All 24 programs + full master reference guide</span>
+              </th>
+              <td>24</td>
+              <td>Multiple STEM courses in one semester</td>
+              <td class="price-cell"><span class="price">$35</span><span class="price-was">$56 separately</span></td>
+              <!-- BUY LINK: https://YOURNAME.gumroad.com/l/ti84-complete -->
+              <td><a class="btn btn-primary js-buy" href="#">Buy the toolkit</a></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Mobile card view of the same data -->
+      <div class="price-cards">
+        <article class="price-card">
+          <h3>Free Starter Pack</h3>
+          <p class="pc-price">Free</p>
+          <p class="pc-meta">3 programs · any course</p>
+          <p class="pc-desc">Unit converter, quadratic solver, descriptive stats.</p>
+          <!-- BUY LINK (mobile duplicate of the free pack link above) -->
+          <a class="btn btn-outline btn-block js-buy" href="#free">Get it free</a>
+        </article>
+        <article class="price-card">
+          <h3>Calculus &amp; Diff Eq</h3>
+          <p class="pc-price">$14</p>
+          <p class="pc-meta">6 programs · Calc I–III, ODEs</p>
+          <p class="pc-desc">Derivatives, Simpson's rule, Taylor series, Newton-Raphson, limits, Euler ODEs.</p>
+          <!-- BUY LINK: https://YOURNAME.gumroad.com/l/ti84-calculus -->
+          <a class="btn btn-outline btn-block js-buy" href="#">Buy</a>
+        </article>
+        <article class="price-card">
+          <h3>Algebra &amp; Stats</h3>
+          <p class="pc-price">$14</p>
+          <p class="pc-meta">6 programs · algebra, linear algebra, stats</p>
+          <p class="pc-desc">Quadratics, vertex analysis, linear systems, matrices, stats, combinatorics.</p>
+          <!-- BUY LINK: https://YOURNAME.gumroad.com/l/ti84-algebra-stats -->
+          <a class="btn btn-outline btn-block js-buy" href="#">Buy</a>
+        </article>
+        <article class="price-card">
+          <h3>Physics &amp; Engineering</h3>
+          <p class="pc-price">$14</p>
+          <p class="pc-meta">6 programs · physics, statics, circuits</p>
+          <p class="pc-desc">SUVAT, projectile motion, Ohm's law, RLC impedance, 2D statics, 3D vectors.</p>
+          <!-- BUY LINK: https://YOURNAME.gumroad.com/l/ti84-physics -->
+          <a class="btn btn-outline btn-block js-buy" href="#">Buy</a>
+        </article>
+        <article class="price-card">
+          <h3>Chemistry &amp; Exam Tools</h3>
+          <p class="pc-price">$14</p>
+          <p class="pc-meta">6 programs · gen chem + study drills</p>
+          <p class="pc-desc">Gas laws, molar mass, unit converter, formula flashcards, timer, pH/buffers.</p>
+          <!-- BUY LINK: https://YOURNAME.gumroad.com/l/ti84-chemistry -->
+          <a class="btn btn-outline btn-block js-buy" href="#">Buy</a>
+        </article>
+        <article class="price-card pc-featured">
+          <h3>Complete Toolkit <span class="tag tag-best">Best value</span></h3>
+          <p class="pc-price">$35 <span class="pc-was">$56 separately</span></p>
+          <p class="pc-meta">All 24 programs · every subject</p>
+          <p class="pc-desc">The entire library plus the full master reference guide for every program.</p>
+          <!-- BUY LINK: https://YOURNAME.gumroad.com/l/ti84-complete -->
+          <a class="btn btn-primary btn-block js-buy" href="#">Buy the toolkit</a>
+        </article>
+      </div>
+
+      <p class="fineprint">
+        Buying on Etsy instead? Etsy listings may be priced slightly differently to account for
+        that marketplace's fees. Same files either way.
+      </p>
+    </div>
+  </section>
+
+  <!-- ================= WHAT'S INCLUDED ================= -->
+  <section class="section" id="included">
+    <div class="wrap">
+      <h2 class="section-title">Every program, spelled out</h2>
+      <p class="section-lede">
+        No mystery contents. Here is exactly what lands in your download folder.
+      </p>
+
+      <div class="cards cards-2 include-grid">
+
+        <article class="card include-card">
+          <header class="include-head">
+            <h3>Calculus &amp; Differential Equations</h3>
+            <span class="pill">6 programs · $14</span>
+          </header>
+          <ul class="prog-list">
+            <li><code>derivative_numeric.py</code><span>Central-difference derivative at three step sizes so you can watch it stabilise.</span></li>
+            <li><code>simpsons_rule.py</code><span>Composite Simpson's rule definite integral, auto-corrects an odd subinterval count.</span></li>
+            <li><code>taylor_series.py</code><span>Taylor/Maclaurin terms and running partial sums for sin, cos, e^x, ln(1+x), compared to the exact value.</span></li>
+            <li><code>newton_raphson.py</code><span>Root finder with a full iteration table and numerically estimated derivative.</span></li>
+            <li><code>limit_evaluator.py</code><span>Two-sided numeric limit: evaluates f(c±ε) for shrinking ε and reports agreement.</span></li>
+            <li><code>ode_solver_euler.py</code><span>First-order dy/dx = f(x,y) by Euler's method or Improved Euler (Heun), with a step table.</span></li>
+          </ul>
+        </article>
+
+        <article class="card include-card">
+          <header class="include-head">
+            <h3>Algebra, Linear Algebra &amp; Stats</h3>
+            <span class="pill">6 programs · $14</span>
+          </header>
+          <ul class="prog-list">
+            <li><code>quadratic_solver.py</code><span>Discriminant classification plus real or complex-conjugate roots written as a ± bi.</span></li>
+            <li><code>quadratic_vertex_analyzer.py</code><span>Build a parabola from vertex + one point; returns both forms, domain/range, intercepts, behaviour.</span></li>
+            <li><code>linear_system_solver.py</code><span>2×2 or 3×3 Gaussian elimination with partial pivoting; flags inconsistent or dependent systems.</span></li>
+            <li><code>matrix_toolkit.py</code><span>Add, multiply, determinant and inverse for 2×2 and 3×3 matrices.</span></li>
+            <li><code>descriptive_stats.py</code><span>Mean, median, mode, range, and both sample and population variance/standard deviation.</span></li>
+            <li><code>combinatorics_probability.py</code><span>nPr, nCr and binomial probability from a short menu.</span></li>
+          </ul>
+        </article>
+
+        <article class="card include-card">
+          <header class="include-head">
+            <h3>Physics &amp; Engineering</h3>
+            <span class="pill">6 programs · $14</span>
+          </header>
+          <ul class="prog-list">
+            <li><code>kinematics_solver.py</code><span>SUVAT: choose the unknown of v₀, v, a, t, d, enter the rest, get the value and the formula used.</span></li>
+            <li><code>projectile_motion.py</code><span>Time of flight, range and max height, with an optional on-screen trajectory sketch via ti_plotlib.</span></li>
+            <li><code>ohms_law_circuits.py</code><span>Solve V/I/R/P from any two knowns, plus a series and parallel resistor combiner.</span></li>
+            <li><code>rlc_impedance.py</code><span>X_L, X_C, impedance magnitude, phase angle and LC resonant frequency.</span></li>
+            <li><code>statics_vectors.py</code><span>2D force resultant from magnitude/angle pairs, and torque about a point with rotation sense.</span></li>
+            <li><code>vector3d_toolkit.py</code><span>3D dot and cross products, magnitude, angle between vectors, scalar and vector projection.</span></li>
+          </ul>
+        </article>
+
+        <article class="card include-card">
+          <header class="include-head">
+            <h3>Chemistry &amp; Exam Tools</h3>
+            <span class="pill">6 programs · $14</span>
+          </header>
+          <ul class="prog-list">
+            <li><code>ideal_gas_law.py</code><span>Solve PV = nRT for any variable, plus a combined gas law state-1 → state-2 solver.</span></li>
+            <li><code>stoichiometry_molar_mass.py</code><span>Molar mass from element/count pairs using a built-in table, then mass ↔ moles.</span></li>
+            <li><code>unit_converter.py</code><span>Length, mass, pressure, temperature and energy conversions from a numbered menu.</span></li>
+            <li><code>formula_flashcards.py</code><span>Self-quiz recall drill by subject with self-graded scoring. A memorisation aid, not an answer lookup.</span></li>
+            <li><code>exam_countdown_drill.py</code><span>Countdown timer plus randomly generated arithmetic, estimation and percentage drills.</span></li>
+            <li><code>acid_base_calculator.py</code><span>pH/pOH from [H⁺] or [OH⁻] and back, plus Henderson-Hasselbalch buffer pH.</span></li>
+          </ul>
+        </article>
+
+      </div>
+
+      <div class="complete-callout">
+        <div>
+          <h3>The Complete Toolkit is all four bundles, nothing held back</h3>
+          <p>
+            All 24 programs above, plus the full master reference guide with per-program usage
+            notes, the TI Connect™ CE install walkthrough, and the exam-policy guidance.
+          </p>
+        </div>
+        <!-- BUY LINK: https://YOURNAME.gumroad.com/l/ti84-complete -->
+        <a class="btn btn-primary btn-lg js-buy" href="#">Get all 24 for $35</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FREE STARTER PACK ================= -->
+  <section class="section section-dark" id="free">
+    <div class="wrap free-grid">
+      <div>
+        <p class="eyebrow eyebrow-light">Free, no catch</p>
+        <h2>Try three programs before you spend anything</h2>
+        <p class="free-lede">
+          The starter pack is deliberately cross-subject, so it's useful whatever you're taking
+          this semester. Same code quality, same install guide, same files you'd get in a paid bundle.
+        </p>
+        <ul class="free-list">
+          <li><code>unit_converter.py</code> — length, mass, pressure, temperature, energy</li>
+          <li><code>quadratic_solver.py</code> — real and complex roots with discriminant</li>
+          <li><code>descriptive_stats.py</code> — mean, median, mode, variance, standard deviation</li>
+        </ul>
+        <p class="free-note">
+          You'll also get the TI Connect™ CE install guide. If you later buy a bundle that
+          contains one of these, it's the same file — no double-paying.
+        </p>
+      </div>
+
+      <div class="free-form-card">
+        <h3>Send me the free starter pack</h3>
+        <!--
+          WIRE THIS UP ONE OF TWO WAYS:
+          (A) Simplest — delete the <form> and replace it with a button linking to a Gumroad
+              $0 / "pay what you want" product. Gumroad collects the email at checkout and
+              you can trigger a Gumroad Workflow follow-up email. See SETUP_CHECKLIST.md.
+          (B) Email provider — set action="" to your MailerLite / Kit / Buttondown embedded
+              form endpoint and set method="post". Keep the name="email" input.
+          The form below is inert until you do one of these; main.js intercepts submission
+          and shows a "not wired up yet" message rather than silently failing.
+        -->
+        <form class="signup-form" id="signupForm" action="#" method="post" novalidate>
+          <label class="visually-hidden" for="email">Email address</label>
+          <input type="email" id="email" name="email" placeholder="you@school.edu" autocomplete="email" required>
+          <button class="btn btn-primary btn-block" type="submit">Email me the free pack</button>
+          <p class="form-status" id="formStatus" role="status" aria-live="polite"></p>
+        </form>
+        <p class="form-fineprint">
+          One email with the download link, then occasional notes when new programs ship.
+          Unsubscribe any time.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= HOW IT WORKS ================= -->
+  <section class="section" id="install">
+    <div class="wrap">
+      <h2 class="section-title">Installing takes about five minutes</h2>
+      <p class="section-lede">
+        You need a TI-84 Plus CE <strong>Python Edition</strong> (or a TI-84 Plus CE with the
+        Python App installed), a USB cable, and TI's free TI Connect™ CE software.
+      </p>
+
+      <ol class="steps">
+        <li>
+          <span class="step-num">1</span>
+          <h3>Download and unzip</h3>
+          <p>Your purchase is a ZIP of plain-text <code>.py</code> files plus a README. Nothing to install on your computer beyond TI Connect CE.</p>
+        </li>
+        <li>
+          <span class="step-num">2</span>
+          <h3>Open TI Connect™ CE</h3>
+          <p>Free from Texas Instruments. Connect the calculator by USB, open the Program Editor, create a Python program and paste in a file's contents.</p>
+        </li>
+        <li>
+          <span class="step-num">3</span>
+          <h3>Send and run</h3>
+          <p>Send it to the calculator, then open the Python App on the device, pick the program and run it. Repeat for each program you want.</p>
+        </li>
+      </ol>
+
+      <p class="install-note">
+        Prefer to type them in by hand? You can. They're readable text files, and the shorter
+        ones are only a screen or two. Keep an eye on the calculator's roughly 50&nbsp;KB /
+        100-program storage limit and archive what you're not using.
+      </p>
+    </div>
+  </section>
+
+  <!-- ================= EXAM POLICY ================= -->
+  <section class="section section-warn" id="policy">
+    <div class="wrap">
+      <div class="warn-box">
+        <h2>Read this before an exam</h2>
+        <p>
+          <strong>These are study and practice aids.</strong> Calculator and stored-program rules
+          differ sharply between exams, and it is your responsibility to check yours.
+          <strong>We make no claim that these programs are permitted on any particular exam</strong>
+          — no exam board operates an approval process for third-party calculator software.
+        </p>
+        <ul class="warn-list">
+          <li>
+            <strong>NCEES FE and PE engineering exams:</strong> the TI-84 is <strong>not an
+            approved calculator at all</strong>, whatever is stored on it. Only certain Casio,
+            HP and TI-30X/TI-36X models are permitted. These programs cannot be used there.
+          </li>
+          <li>
+            <strong>SAT®, PSAT/NMSQT® and ACT®:</strong> these require you to remove stored
+            programs and clear saved formulas before testing. Remove these programs beforehand.
+          </li>
+          <li>
+            <strong>AP® Exams:</strong> College Board's published calculator policy is more
+            permissive than most students assume, but it approves <em>calculators</em>, not
+            third-party programs. Read the current policy yourself at
+            <a href="https://apstudents.collegeboard.org/exam-policies-guidelines/calculator-policies">collegeboard.org</a>
+            and confirm with your AP coordinator.
+          </li>
+          <li>
+            <strong>IB® exams, university midterms and finals:</strong> your school, instructor
+            or exam board sets the rules, and many require a memory clear or exam mode. Ask first.
+          </li>
+        </ul>
+        <p>
+          These tools are for homework, practice problems and self-review. They must not be used
+          to gain an unfair advantage on any exam where they are not permitted. Policies change —
+          re-check before every exam, and when in doubt, delete or archive the programs first.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FAQ ================= -->
+  <section class="section section-alt" id="faq">
+    <div class="wrap wrap-narrow">
+      <h2 class="section-title">Questions people actually ask</h2>
+
+      <div class="faq">
+        <details>
+          <summary>Which calculators does this work on?</summary>
+          <div class="faq-body">
+            <p>
+              The TI-84 Plus CE <strong>Python Edition</strong>, and a TI-84 Plus CE that has TI's
+              Python App installed. That's it.
+            </p>
+            <p>
+              It does <strong>not</strong> work on the older monochrome TI-83 Plus or TI-84 Plus,
+              the TI-84 Plus Silver Edition, the TI-Nspire family, or any Casio or HP calculator.
+              Those either have no Python environment or a different one. If you're unsure, check
+              the label on your calculator's faceplate for "Python" or look for a Python App icon
+              on the home screen before buying.
+            </p>
+          </div>
+        </details>
+
+        <details>
+          <summary>How do I actually get the programs onto the calculator?</summary>
+          <div class="faq-body">
+            <p>
+              With TI Connect™ CE, Texas Instruments' free desktop software. Connect the
+              calculator over USB, open the Program Editor, create a new Python program, paste in
+              the contents of a <code>.py</code> file and send it to the device. Then run it from
+              the calculator's Python App. A step-by-step guide is included in every download,
+              free pack included.
+            </p>
+            <p>
+              You can also just type the programs in on the calculator's own Python editor if you
+              don't have a cable handy.
+            </p>
+          </div>
+        </details>
+
+        <details>
+          <summary>What file format do I receive?</summary>
+          <div class="faq-body">
+            <p>
+              A ZIP containing plain-text <code>.py</code> source files and a README. Plain text is
+              deliberate: you can read the code, check the maths, edit constants and learn from it.
+              TI Connect CE converts the text into the calculator's native Python program format
+              when you send it across.
+            </p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Can I use these on a real exam?</summary>
+          <div class="faq-body">
+            <p>
+              We can't answer that for you, and we don't claim these are approved for any exam —
+              no exam board approves third-party calculator programs in the first place.
+            </p>
+            <p>
+              What we can tell you is that the rules genuinely differ. The NCEES FE and PE exams
+              don't permit a TI-84 at all. The SAT®, PSAT/NMSQT® and ACT® require stored programs
+              and saved formulas to be removed. AP® Exams follow a different and more permissive
+              published policy, but it concerns the calculator and its memory, not third-party
+              software. Universities and individual instructors set their own rules entirely.
+            </p>
+            <p>
+              <strong>Read your own exam's current policy and ask your instructor or exam
+              administrator.</strong> See the section above for the specifics, and treat these as
+              homework, practice and revision tools.
+            </p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Will Press-to-Test or a memory reset delete these?</summary>
+          <div class="faq-body">
+            <p>
+              <strong>Almost certainly yes — back up before you enter exam mode.</strong> TI
+              documents that Press-to-Test deletes variables in RAM and archived memory including
+              AppVars, and Python programs on the CE Python are stored as Python AppVars. Unlike
+              Apps and TI-BASIC programs, they are <strong>not</strong> restored when you leave
+              exam mode. A full memory reset removes them too.
+            </p>
+            <p>
+              This is easy to work around: copy your <code>.py</code> files back to your computer
+              with TI Connect™ CE first, then re-send them after the exam. Your download stays in
+              your account either way, so you can always re-install — but backing up saves you the
+              trip. Being able to strip the calculator and restore it in two minutes is arguably a
+              feature.
+            </p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Do I need to know Python?</summary>
+          <div class="faq-body">
+            <p>
+              No. Every program runs from a numbered menu and asks for values in plain English.
+              Knowing Python only helps if you want to modify something — and since you get the
+              source, you can.
+            </p>
+          </div>
+        </details>
+
+        <details>
+          <summary>What's your refund policy?</summary>
+          <div class="faq-body">
+            <p>
+              Because these are instantly delivered digital files, all sales are final once
+              downloaded — which is also the default position for digital downloads on Etsy, where
+              non-downloaded digital items are the usual exception.
+            </p>
+            <p>
+              That said: if a program is broken, doesn't do what this page says it does, or won't
+              run on a genuine TI-84 Plus CE Python Edition, email me and I'll fix it or refund
+              you. Try the free starter pack first to confirm the install process works with your
+              setup before you buy.
+            </p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Will these fill up my calculator's memory?</summary>
+          <div class="faq-body">
+            <p>
+              The whole library is small — these are short text programs, not apps or games. The
+              device holds roughly 50&nbsp;KB of Python programs and up to 100 programs, and the
+              programs are written with those limits in mind (list inputs are capped, no huge data
+              structures). Most people install only the handful they need for the current course
+              and archive the rest.
+            </p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Do I get updates?</summary>
+          <div class="faq-body">
+            <p>
+              Yes. If a program is corrected or improved, buyers of the bundle it belongs to get
+              the updated file at no extra cost through the same download link.
+            </p>
+          </div>
+        </details>
+
+        <details>
+          <summary>Can I share these with my class?</summary>
+          <div class="faq-body">
+            <p>
+              The free starter pack — please do, share it widely. The paid bundles are licensed for
+              your personal use. If you're an instructor or a tutoring centre and want to use them
+              with a group, get in touch and we'll sort out something sensible.
+            </p>
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FINAL CTA ================= -->
+  <section class="section final-cta">
+    <div class="wrap wrap-narrow center">
+      <h2>Start with the free three</h2>
+      <p class="section-lede">
+        Install them tonight, use them on this week's problem set, and decide from there.
+      </p>
+      <div class="hero-cta center-cta">
+        <a class="btn btn-primary btn-lg" href="#free">Download the free starter pack</a>
+        <!-- BUY LINK: https://YOURNAME.gumroad.com/l/ti84-complete -->
+        <a class="btn btn-ghost btn-lg js-buy" href="#">Or get all 24 for $35</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap footer-inner">
+    <div>
+      <p class="footer-brand"><span aria-hidden="true">&gt;_</span> TI-84 Python Study Toolkit</p>
+      <p class="footer-small">
+        24 Python programs for the TI-84 Plus CE Python Edition. Study and practice aids —
+        check your own exam's calculator policy.
+      </p>
+    </div>
+    <nav class="footer-nav" aria-label="Footer">
+      <a href="#bundles">Bundles</a>
+      <a href="#included">What's included</a>
+      <a href="#free">Free pack</a>
+      <a href="#faq">FAQ</a>
+      <a href="#policy">Exam policy</a>
+      <a href="https://github.com/condod/TI-84-Python-Test-Tools-and-Study">Source repository</a>
+    </nav>
+  </div>
+  <div class="wrap footer-legal">
+    <p>
+      AP®, Advanced Placement® and SAT® are trademarks registered by the College Board, which is
+      not affiliated with, and does not endorse, this product. PSAT/NMSQT® is a registered
+      trademark of the College Board and the National Merit Scholarship Corporation, which are
+      not affiliated with, and do not endorse, this product. ACT® is a registered trademark of
+      ACT Education Corp., which is not affiliated with, and does not endorse, this product. IB®
+      and International Baccalaureate® are registered trademarks of the International
+      Baccalaureate Organization, which is not affiliated with, and does not endorse, this
+      product. NCEES® is a registered trademark of the National Council of Examiners for
+      Engineering and Surveying, which is not affiliated with, and does not endorse, this
+      product. TI-84 Plus CE Python™, TI Connect™ CE and Texas Instruments® are trademarks of
+      Texas Instruments Incorporated, which is not affiliated with, and does not endorse, this
+      product. All trademarks are the property of their respective owners. Exam policies are
+      subject to change; verify current policy with the relevant exam authority.
+    </p>
+  </div>
+</footer>
+
+<script src="main.js" defer></script>
+</body>
+</html>
