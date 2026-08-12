@@ -324,6 +324,12 @@ are shown so you can edit safely.
 toolkit now spans statistics, biology and finance as well, and `ti 84 programs` plus
 `ti 84 calculator` already cover that root.
 
+`ti connect ce` stays, and it stays deliberately CE-specific. It is the name of the desktop
+transfer tool CE owners search for, and a TI-84 Evo owner will never type it — the Evo uses
+TI's browser-based tool at `connectevo.ti.com` and cannot read the bundles' `.8xv` files at
+all. A tag that self-selects CE buyers is doing useful filtering here, not leaking traffic.
+On why `evo` is *not* in this set, see §6.1.
+
 ### 3.2 Calculus & Differential Equations ($12)
 
 | # | Tag | Chars |
@@ -479,6 +485,11 @@ sampler anyway:
 | 12 | `graphing calculator` | 19 |
 | 13 | `back to school math` | 19 |
 
+`ti connect ce` is here for the same CE-targeting reason as in §3.1. The free pack is also the
+right product to point a curious TI-84 Evo owner at — "if you have an Evo, start here and
+confirm on your own calculator before paying for anything" belongs in the *description*, not
+in a tag (§6.1).
+
 ### 3.10 Notes on these sets
 
 - **`ti 84 plus ce python` is exactly 20 characters** — it fits, with zero to spare. Do not
@@ -490,6 +501,12 @@ sampler anyway:
   matching is fairly tolerant of the `ti 84` / `ti-84` / `ti84` variation, so spending three
   separate slots on spelling variants would be wasteful. Cover the variants in the **title**,
   where they cost nothing.
+- **`ti connect ce` is a CE-only signal, and that is the point.** It appears in the Complete
+  Toolkit and Free Starter Pack sets, and `ti connect ce python` sits in tier 2. None of them
+  reach an Evo owner, who uses TI's web app instead — which is correct, because the `.8xv`
+  AppVars that make the install a drag-and-drop only work on CE hardware. Keep the tag.
+- **No `evo`, `ti 84 evo` or `ti connect evo` in any tag set yet.** Recommendation, reasoning
+  and the condition for revisiting it are in §6.1.
 - **Fill the Attributes and Materials fields too.** They're indexed and they're free.
 
 ---
@@ -573,6 +590,7 @@ primary sources. The keyword-specific consequences:
 | `fe exam`, `pe exam`, `ncees`, `engineering licensure` | The TI-84 is not an approved calculator for NCEES exams at all. This is the claim most likely to cause a buyer a real, provable loss. |
 | `exam legal`, `exam approved`, `test approved`, `proctor safe` | No exam board approves third-party calculator programs. The claim is simply false. |
 | `cheat`, `cheat sheet`, `hack`, `test hack` | Invites removal on both marketplaces, and ticalc.org explicitly rejects files "intended primarily to facilitate cheating on school assignments or tests." |
+| `evo`, `ti 84 evo`, `ti connect evo` in **tags, titles or meta description** | Not a compliance landmine like the rows above, but wrong for now on three counts — claim accuracy, trademark placement and slot economics. Full reasoning immediately below; this one is explicitly revisitable. |
 
 **✅ Action item resolved (2026-08-12):** `bundles/LISTING_COPY.md` previously listed
 `ap calculus study tool` (Calculus bundle) and `ap exam study tools` (Complete Toolkit)
@@ -600,6 +618,45 @@ TI-36X Pro" angle, which is memorable precisely because nobody else says it.
 | `ap chemistry program` | `chemistry program`, `gen chem help`, `chemistry study aid` |
 | `sat calculator program` | `math study tool`, `student calculator` |
 | `exam legal programs` | `study tool`, `homework help`, `practice problems` |
+
+### 6.1 "evo" — keep it out of tags, put it into content
+
+**Recommendation (decided 2026-08-12): no `evo` in any paid-listing tag, title or meta
+description; yes to a dedicated Evo content page.** The evidence behind the compatibility
+position is in [`../business/EVO_TRANSITION.md`](../business/EVO_TRANSITION.md).
+
+Three reasons to keep it out of the marketplace fields:
+
+1. **A tag is read as a compatibility claim, and this one isn't tested.** Etsy and Gumroad
+   shoppers treat tags as "this is for my device." Evo compatibility here is *expected* — the
+   programs import only `math`, `random` and `time`, the two TI-specific imports are guarded
+   with fallbacks, nothing depends on screen size, and TI Connect Evo converts `.py` on send —
+   but **nobody has run these on Evo hardware**, and the `.8xv` AppVars that carry half the
+   value proposition definitively do **not** work on an Evo, which uses `.8xv2`. Tagging for
+   Evo traffic buys refunds and one-star reviews from buyers who were told the product was for
+   them.
+2. **Trademark placement.** TI-84 Evo™ and TI Connect™ Evo are Texas Instruments marks.
+   [`MARKETING_CLAIMS_GUIDE.md`](../MARKETING_CLAIMS_GUIDE.md) §6.2 applies the strictest
+   published policy in the set uniformly — no third-party marks in tags, meta tags, shop names
+   or domains — and tags and meta descriptions are exactly the placements it names. Naming the
+   Evo *factually in body copy*, next to the non-affiliation footer, is fine and is already
+   done on the landing page and in every bundle README.
+3. **Slot economics.** Thirteen tags is a hard cap, and Evo owners searching for *programs*
+   barely exist yet: Cemetech's Evo Python archive held one hobby game months after launch. A
+   speculative tag would displace a proven CE term for traffic that isn't there.
+
+**Where `evo` does belong is organic content**, because a page can be accurate about
+uncertainty in a way a 20-character tag cannot. "**Do these programs work on the TI-84 Evo?**"
+is a question students will type in rising volume as Evo units reach classrooms, almost nobody
+has published an answer, and the honest answer is genuinely useful: the `.py` files are
+expected to work and transfer through `connectevo.ti.com`, the `.8xv` files do not, here is
+how to check on your own calculator, and TI-BASIC programs from other sellers need conversion
+before they will run at all. The page title is in §7 and the article is item 5 in
+[`LAUNCH_PLAN.md`](LAUNCH_PLAN.md) §6.
+
+**Revisit this the moment there is an Evo hardware test pass.** At that point `ti 84 evo`
+becomes both defensible and unusually uncontested — which is a reason to run the test, not a
+reason to pre-empt it.
 
 ---
 
@@ -631,9 +688,16 @@ and contains no trademarked exam term.
 | Simpson's rule | `TI-84 Simpson's Rule Program — Numeric Integration on the CE` |
 | Matrix tools | `TI-84 Matrix Program — Determinant, Inverse and Multiplication` |
 | Kinematics | `TI-84 Kinematics Program — SUVAT Solver for Physics 1` |
+| Evo compatibility | `Do TI-84 Plus CE Python Programs Work on the TI-84 Evo?` |
 
 Each targets a tier-2 long-tail phrase almost verbatim. They will not get much traffic
 individually; collectively, and permanently, they will.
+
+**The Evo page is the exception to "not much traffic."** Its query volume is the only one on
+this list that is *rising*, it has no good answer published anywhere, and it is how you serve
+Evo search interest without putting an untested claim in a tag (§6.1). Write it honestly —
+`.py` expected to work, `.8xv` definitely not, not yet tested on hardware — and it stays
+accurate whichever way the eventual hardware test goes.
 
 ---
 

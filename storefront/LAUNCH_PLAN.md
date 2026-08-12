@@ -331,20 +331,73 @@ software isn't ideologically banned from the *files*. The rule governs **your me
 the file's licence. They also run an "Occasions" second-hand subforum — **INFERRED:** that's
 for used hardware, and I wouldn't treat it as a way in.
 
-### The TI-84 Evo — a medium-term threat worth tracking
+### The TI-84 Evo — researched, and it lands in your favour
 
-**VERIFIED** from ticalc.org's own reporting: TI launched a **TI-84 Evo** in 2026, and
+**VERIFIED** from ticalc.org's own reporting: TI launched a **TI-84 Evo** in April 2026, and
 "TI-BASIC programs written for the TI-84 Plus CE cannot be transferred directly to the Evo"
 because of OS architecture and token changes. The Evo also has "strict protections against
 third-party assembly and C programs." A community converter by Adriweb exists for older
 84 Plus programs.
 
-**I did not establish whether Python programs port to the Evo**, and that question directly
-determines how long your addressable market keeps growing. Find out before you commit months
-to SEO. If Python carries over, the Evo is a non-event for you and a catastrophe for every
-TI-BASIC competitor — which would be a significant competitive advantage worth saying out
-loud in your copy. If it doesn't, your market is the installed base of CE Python units, which
-is large but no longer growing.
+**The question this section used to leave open — whether Python ports — has since been
+researched.** Full sourcing is in
+[`../business/EVO_TRANSITION.md`](../business/EVO_TRANSITION.md); the four findings that
+matter to a traffic plan:
+
+- **Python is on every Evo (VERIFIED).** There is no "Evo Python Edition" — Python and
+  TI-BASIC ship on all units, running natively on an ARM CPU, with what two expert sources
+  describe as the same module set. That is the *opposite* of the current CE situation, where
+  TI now sells plain CE units with no Python at all.
+- **`.py` source transfers; `.8xv` AppVars do not (VERIFIED).** Evo Python AppVars are
+  `.8xv2`, so the `8xv/` folder in every bundle is CE-only. But TI Connect Evo auto-converts
+  plain `.py` files on send, and Eddie Shore — who owns both calculators — states that
+  "Python programs can be transferred easily between the 84 Python and 84 Evo."
+- **A static audit of all 52 programs found nothing that should break.** They import only
+  `math`, `random` and `time`; the two files that touch `ti_system`/`ti_plotlib` guard them
+  with `try/except ImportError` and text fallbacks; none hardcode pixel layout, so the Evo's
+  larger 319x209 screen has nothing to break. **That is expected compatibility, not tested
+  compatibility** — nobody has run these on Evo hardware. Do not put a tested-on-Evo claim in
+  copy until somebody has.
+- **The transfer toolchain is entirely separate (VERIFIED).** The Evo uses TI's web app at
+  `connectevo.ti.com` over WebUSB — Chrome, USB-C and an internet connection — and TI Connect
+  CE will not connect to an Evo at all. Every keystroke-level instruction and screenshot you
+  produce is CE-only; the Evo's keypad was substantially rearranged.
+
+**So the strategic point this section was reaching for holds, and it is worth stating more
+sharply than before: Python carrying over makes the Evo a non-event for this product and a
+catastrophe for every TI-BASIC-based competitor.** That asymmetry is structural, not a matter
+of who works harder:
+
+- **Their library needs converting file by file through a third-party tool; ours needs
+  repackaging.** TI rewrote the *BASIC language engine*, which is why `.8xp2` exists at all,
+  and TI-Planet's converter has to insert "Evo-safe `DelVar` separators where CE programs used
+  compact syntax that no longer parses the same way." Python is a separate interpreter and was
+  not part of that rewrite. A TI-BASIC seller faces a language migration and a re-test of
+  every program; this library faces a `.py`-only bundle variant and new install instructions.
+- **C and assembly are locked out of the Evo**, so Python is the *only* third-party content
+  channel on the platform. The historic gap-filler for TI calculators — flashy ASM/C games and
+  utilities — cannot exist there.
+- **The Evo Python archives are nearly empty.** Cemetech's Evo Python section held a single
+  hobby game some three and a half months after launch, and no educational or exam-oriented
+  Evo Python library surfaced anywhere. Entry cost to being first is one calculator and a test
+  pass.
+
+**How to use that in copy while it is still untested.** Do not claim Evo support, and do not
+put "evo" in listing tags or titles — reasoning and the trademark constraint are in
+[`SEO_KEYWORDS.md`](SEO_KEYWORDS.md) §6.1. What you *can* say, because it is verifiable and it
+is a fact about file formats rather than a claim about your product: TI-BASIC programs written
+for the CE do not transfer to an Evo without conversion, while Python source does. Let the
+reader draw the conclusion. The one Evo asset worth building now is the content page in §6 —
+"do these work on the TI-84 Evo?" — which answers a question students are already typing and
+carries no claim risk if it is honest about what has and hasn't been tested.
+
+**And the market clock is longer than it looks.** The CE Python shipped for five production
+years; student calculators run 4–6 years of primary use plus a resale tail; classroom sets
+turn over on multi-year capital cycles. The CE Python installed base is
+therefore viable to roughly **2029–2030**, thinning after — not a cliff. The transition also
+pushes prior-generation units onto eBay and Mercari, which *feeds* the used-hardware channel
+rather than starving it. What genuinely changed is top-of-funnel: new buyers now default to
+the Evo, and "buy a new CE and get Python" has stopped being safe advice.
 
 ---
 
@@ -451,6 +504,13 @@ rather than starting a blog from scratch.
    limits, the AppVar storage model, the `eval()` pattern. You already know all of this from
    building the library, it's genuinely poorly documented elsewhere, and it earns links from
    the enthusiast communities.
+5. **"Do these programs work on the TI-84 Evo?"** — the only page here whose search volume is
+   *rising*, and nobody has written the answer. Say plainly what §3 establishes: the `.8xv`
+   AppVars don't transfer (the Evo uses `.8xv2`), the `.py` sources are expected to and go
+   through `connectevo.ti.com`, they have not been tested on Evo hardware yet, and here is how
+   to check on your own calculator in two minutes. This is also the honest way to capture Evo
+   search interest without putting an untested "evo" tag on a paid listing — see
+   [`SEO_KEYWORDS.md`](SEO_KEYWORDS.md) §6.1.
 
 **Where to publish:** add them as pages under `storefront/` (GitHub Pages serves them for
 free) and link them from the landing page footer. GitHub's own domain authority gives you a

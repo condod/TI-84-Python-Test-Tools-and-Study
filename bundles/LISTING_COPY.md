@@ -328,7 +328,18 @@ single payload to dump onto the device. Any one subject's set fits comfortably.
   trademark guidelines prohibit use of its marks in exactly those places, and ACT's Terms of
   Use prohibit use of ACT marks without written consent. Compliant substitutes are tabulated
   in `SEO_KEYWORDS.md` §6. This applies to tags even when the same term would be acceptable
-  in body copy as a factual, adjectival reference.
+  in body copy as a factual, adjectival reference. Every tag set above has been audited
+  against this and is clean — don't reintroduce one.
+- **No `evo` in tags either — but keep `ti connect ce`.** None of the tag sets above include
+  `evo`, `ti 84 evo` or `ti connect evo`, for three reasons: a tag reads as a compatibility
+  claim and Evo compatibility here is expected rather than tested; the `.8xv` half of every
+  bundle genuinely does not work on an Evo; and TI-84 Evo™ / TI Connect™ Evo are Texas
+  Instruments marks, which `../MARKETING_CLAIMS_GUIDE.md` §6.2 keeps out of tags and meta
+  fields. Naming the Evo factually in the body copy — as the compatibility line below does —
+  is fine and expected. Meanwhile `ti connect ce` stays in the sets that use it: it targets CE
+  owners, and CE hardware is what the `.8xv` files install on, so it filters rather than
+  leaks. Full reasoning in `../storefront/SEO_KEYWORDS.md` §6.1; revisit once the programs
+  have been run on Evo hardware.
 - **No blanket legality claims.** Never use "AP-Exam-Legal," "exam approved," "test
   approved," or "proctor safe." No exam board approves third-party calculator programs at
   all. Use language such as: *"Calculator program policies vary by exam and instructor —
@@ -342,9 +353,14 @@ single payload to dump onto the device. Any one subject's set fits comfortably.
   CE **Python Edition** (or a TI-84 Plus CE with TI's Python App installed). ⚠️ Texas
   Instruments discontinued the TI-84 Plus CE Python on 2026-04-27 and the plain TI-84 Plus
   CE now sold does not include Python — so check for 'Python' on the faceplate, or a Python
-  app in the Apps list, before buying a calculator. TI-84 Evo compatibility is not yet
-  confirmed. Not compatible with the TI-83 Plus, monochrome TI-84 Plus, TI-84 Plus Silver
-  Edition, or the TI-Nspire family."*
+  app in the Apps list, before buying a calculator. **TI-84 Evo:** the ready-to-install
+  `.8xv` files will not transfer to an Evo — it uses a newer AppVar format (`.8xv2`) and a
+  separate web-based transfer tool — but the plain `.py` sources included with every program
+  are expected to work, sent through TI's web app at connectevo.ti.com, which converts them
+  as it sends. We have not tested them on Evo hardware, so that is an expectation and not a
+  tested claim: if you are buying for an Evo, take the free starter pack first and confirm on
+  your own calculator. Not compatible with the TI-83 Plus, monochrome TI-84 Plus, TI-84 Plus
+  Silver Edition, or the TI-Nspire family."*
 - **Press-to-Test warning — required on every listing.** *"⚠️ Entering Press-to-Test (exam
   mode) deletes Python AppVars, and unlike Apps and TI-BASIC programs they are not restored
   when you exit. An All-Memory reset removes the Python App itself too. Back your files up
