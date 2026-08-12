@@ -152,7 +152,7 @@ charging for. Neutral light-grey background, diffuse daylight, no flash, no prop
 | 1 | Front, straight on, screen **on**, home screen, brightness up | Hero image. Proves it powers on. |
 | 2 | Front at a slight angle showing screen clarity and no glare | Screen condition is the #1 buyer worry. |
 | 3 | **Python App File Manager showing the loaded programs by name** | This is the shot that sells the product. Nothing else communicates "preloaded" credibly. |
-| 4 | **A program actually running with output on screen** (e.g. `QUADSOLV` showing roots) | Proof it works, not just that files exist. |
+| 4 | **A program actually running with output on screen** (e.g. `QUAD` showing roots) | Proof it works, not just that files exist. |
 | 5 | `[2nd]` `[MEM]` `1:About` screen showing model name and OS version | Proves the variant is Python **and** that the OS is current. Kills the two biggest pre-purchase questions at once. |
 | 6 | Back of unit, full, showing serial number **partially masked** | Proves you have the actual unit. Mask enough that it can't be used to impersonate your listing. |
 | 7 | Keypad close-up, raking light | Shows key legend wear honestly. |
@@ -375,7 +375,7 @@ restored in two minutes."*
 
 **Do it.** The objection — "they'll share the link and I'll lose digital sales" — does not survive
 contact with the numbers. The programs on a physical unit are a subset (8–10 of 52), they're already
-in the buyer's hands, and the person who bought a $90 calculator was never a likely $35 digital
+in the buyer's hands, and the person who bought a $90 calculator was never a likely $49 digital
 customer. Meanwhile a single prevented return is worth more than several hypothetical leaked
 downloads.
 

@@ -20,8 +20,8 @@ per unit at $30 acquisition** and **≈$13 at $45** — against about **53 minut
 roughly **$32/hr in the good case and $15/hr in the typical one.** The honest software premium — what
 a buyer will actually pay *because* the programs are on it — is **$5–$12, and might be $0.** I found
 no evidence of an established market paying a premium for pre-loaded calculators, and a buyer can
-always buy a bare unit plus the $35 digital toolkit and get more programs for less. Be skeptical of
-anyone (including yourself) who models this higher.
+always buy a bare unit plus the $49 digital toolkit and get **all 52 programs instead of 8–10.** Be
+skeptical of anyone (including yourself) who models this higher.
 
 **So the software premium does not justify the labour on its own.** What does the work is buying
 well: the June-to-August price spread on used calculators is worth more per unit than the premium
@@ -33,10 +33,14 @@ Four things sharpen the verdict:
 1. **Local sales beat shipped sales, badly.** A $70 Facebook Marketplace pickup nets more than a $95
    eBay sale, because fees and shipping are ~$20 of that eBay sale and $0 locally. If you can sell
    locally, do.
-2. **One $35 digital download nets more than one refurbished, packed, shipped calculator** — $31 vs
-   $28 — at essentially zero marginal labour. The hardware line cannot win that comparison on
-   per-transaction economics. Its real justification is that it reaches buyers the digital line
-   can't, and that every box you ship puts your programs and a discount code in a student's hands.
+2. **One $49 digital download nets far more than one refurbished, packed, shipped calculator** —
+   **$44 vs $28** — at essentially zero marginal labour. **This gap widened materially:** the complete
+   toolkit was repriced from $35 to $49 as the library grew to 52 programs, taking the digital net from
+   $31 to $44, so what used to be a $3 edge is now a **$16** one. The hardware line cannot win that
+   comparison on per-transaction economics and no longer comes close. Its real justification is that it
+   reaches buyers the digital line can't, and that every box you ship puts your programs and a discount
+   code in a student's hands — worth ~$4.36/unit at a 10% conversion, over half the net value of the
+   whole software premium.
 3. **The supply pool is closed, but the clock runs longer than it first looked.** TI discontinued the
    TI-84 Plus CE Python on 2026-04-27 and launched the TI-84 Evo the next day — and separately appears
    to have **removed Python from newly manufactured plain CE units** as of early 2026. So every
@@ -91,7 +95,7 @@ calculators as a seasonal side activity that pays for itself and feeds the digit
 | **[`SOURCING.md`](SOURCING.md)** | Where to buy units and what to pay. Channel-by-channel pricing (eBay, Facebook, OfferUp/Mercari, thrift/pawn, bulk lots, government surplus), the retail price anchors, seasonality, how to tell a CE Python from a plain CE **before** you buy, defect screening, stolen/school-property red flags, and a concrete walk-away price table. |
 | **[`UNIT_ECONOMICS.md`](UNIT_ECONOMICS.md)** | The money model. Acquisition, refurb, platform fees, shipping, labour, and a per-unit P&L at several price points and two acquisition costs. A skeptical treatment of the software premium, break-even, maximum-bid maths, sensitivity analysis on the three variables that matter, scaling, the discontinuation risk, and tax/1099-K. |
 | **[`PREP_SOP.md`](PREP_SOP.md)** | Step-by-step procedure from acquired unit to sellable unit, mapped to the app's five checklist steps. Includes the critical ordering constraint, bench setup, per-step time estimates, battery replacement, cleaning and cosmetic grading, what goes in the box, and a printable bench card. |
-| **[`LOADOUT_STRATEGY.md`](LOADOUT_STRATEGY.md)** | Which programs go on a physical unit, given the 50 KB ceiling. Seven measured loadouts with exact footprints and headroom, per-program sizes, how many SKUs to actually stock, the buyer's-choice option, the archive tier, and how physical SKUs interact with the $14/$35 digital bundles. |
+| **[`LOADOUT_STRATEGY.md`](LOADOUT_STRATEGY.md)** | Which programs go on a physical unit, given the 50 KB ceiling. Seven measured loadouts with exact footprints and headroom, per-program sizes, how many SKUs to actually stock, the buyer's-choice option, the archive tier, and how physical SKUs interact with the $12–$19 / $49 digital bundles. |
 | **[`LISTING_AND_SUPPORT.md`](LISTING_AND_SUPPORT.md)** | Marketplace titles and description templates, a 12-shot photo list, keyword do/don't, the quick-start card, the Press-to-Test warning and restore-link recommendation, how to tell the three live TI-84 variants apart, the "I have an Evo" support macro, returns policy, platform-by-platform notes, and the legal operating rules (first sale, your own software, and the absolute prohibition on redistributing TI's OS or apps). |
 | **[`EVO_TRANSITION.md`](EVO_TRANSITION.md)** | What the April 2026 TI-84 Evo launch and the CE Python discontinuation actually mean. The Evo's Python environment and module set, the `.8xv` → `.8xv2` file-format break, the `connectevo.ti.com` WebUSB transfer tool that replaces TI Connect CE, how long the CE Python installed base stays viable, the first-mover case on the Evo, an import audit of all 52 programs, and the hardware test checklist to run on the first Evo. **Read this before making any compatibility claim about either platform.** |
 

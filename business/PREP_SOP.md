@@ -332,8 +332,10 @@ buyer, **and** capture the evidence photo now while it is free to do so.
      in RAM."* An archived AppVar does not appear in the Python App's File Manager and cannot be
      run until the student moves it back — which is a support ticket you don't want. Ship
      everything RAM-resident.
-   - Confirm each file lands and the names are what you expect (e.g. `QUADSOLV.8xv` installs as
-     `QUADSOLV`).
+   - Confirm each file lands and the names are what you expect (e.g. `QUAD.8xv` installs as
+     `QUAD`). The on-calculator names were shortened in the 2026-08-12 AppVar regeneration, so check
+     the current list in [`LOADOUT_STRATEGY.md`](LOADOUT_STRATEGY.md) §2 rather than working from
+     memory.
 4. Confirm you are under budget: `[2nd]` `[MEM]` → `2:Mem Management` and, more importantly, the
    Python App's own memory behaviour. TI's documented ceiling is *"a maximum of 100 Python
    programs (PY AppVars) or 50K of memory,"* shared with the bundled modules. Every loadout in
@@ -380,11 +382,11 @@ For **every** program in the loadout:
 1. Launch it from the Python App Shell.
 2. Enter one known-answer input. Keep a printed card of one canonical input/output per program at
    the bench so this is a glance, not a calculation. Examples:
-   - `QUADSOLV`: a=1, b=-3, c=2 → roots 2 and 1.
-   - `DESCSTAT`: 1,2,3,4,5 → mean 3, sample sd ≈ 1.5811.
-   - `KINEMAT`: v0=0, a=9.81, t=2, solve d → 19.62.
-   - `UNITCONV`: 1 inch → 2.54 cm.
-   - `OHMSLAW`: V=12, R=4 → I=3, P=36.
+   - `QUAD`: a=1, b=-3, c=2 → roots 2 and 1.
+   - `STATS`: 1,2,3,4,5 → mean 3, sample sd ≈ 1.5811.
+   - `SUVAT`: v0=0, a=9.81, t=2, solve d → 19.62.
+   - `UNITS`: 1 inch → 2.54 cm.
+   - `OHMS`: V=12, R=4 → I=3, P=36.
 3. Exit cleanly back to the Shell.
 
 Anything that errors, hangs, or returns a wrong number: pull the unit from the line, don't ship.
@@ -392,7 +394,7 @@ Anything that errors, hangs, or returns a wrong number: pull the unit from the l
 ### 6b. Hardware verification
 
 - **Screen:** run a full-screen colour test (the Python Shell filled with text is adequate; a
-  `ti_plotlib` sketch from `PROJECTL` is better) and check for dead pixels and backlight
+  `ti_plotlib` sketch from `PROJ` is better) and check for dead pixels and backlight
   uniformity at max brightness.
 - **Every key:** press all 50 keys and confirm each registers. A sticky `[ENTER]` or a dead `[2nd]`
   is a return.

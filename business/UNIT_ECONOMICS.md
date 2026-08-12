@@ -313,10 +313,11 @@ hardware is not.
 
 ### The arithmetic your buyer can do
 
-A buyer can purchase a bare used CE Python and the **$35** complete digital toolkit
-(`bundles/PRICING.md`) and end up with **more programs** than any physical SKU carries. So the
-absolute ceiling on the premium is $35, and the realistic value is well below it, because what
-you're actually selling on top of the bare unit is:
+A buyer can purchase a bare used CE Python and the **$49** complete digital toolkit
+(`bundles/PRICING.md`) and end up with **all 52 programs** instead of the 8–10 a physical SKU carries.
+That puts a nominal ceiling of $49 on the premium — but **do not read the toolkit's repricing from $35
+to $49 as licence to charge more.** The ceiling was never the binding constraint; the market evidence
+above is, and it still says **$5–$12**. What you're actually selling on top of the bare unit is:
 
 - it's already installed (saves ~20 minutes and a TI Connect CE install),
 - every program was launched and checked **on that specific unit**,
@@ -496,19 +497,25 @@ Real money, but a side project, not a business.
 
 ## 10. The comparison that matters
 
-| | Loaded calculator | Digital $35 complete toolkit |
+| | Loaded calculator | Digital $49 complete toolkit |
 |---|---:|---:|
-| Revenue | $88.00 | $35.00 |
-| Platform fee | $14.96 | $3.50 (Gumroad 10%) |
+| Revenue | $88.00 | $49.00 |
+| Platform fee | $14.96 | $4.90 (Gumroad 10%) |
 | COGS | $35.15 | $0.00 |
 | Shipping | $5.50 | $0.00 |
-| Returns reserve | $4.40 | ~$0.35 |
-| **Net** | **$27.99** | **$31.15** |
+| Returns reserve | $4.40 | ~$0.49 |
+| **Net** | **$27.99** | **$43.61** |
 | **Labour per sale** | **~53 min** | **~0 min** |
 
 **One digital sale nets more than one refurbished, loaded, packed, and shipped calculator, at
 essentially zero marginal labour.** The hardware line has to justify itself against that, and on
 pure per-transaction economics it cannot.
+
+**And this gap widened sharply.** The complete toolkit was repriced from $35 to **$49** as the library
+grew to 52 programs (`bundles/PRICING.md`), which takes the digital net from $31.15 to **$43.61**. One
+digital sale now nets **~1.6× a shipped calculator** rather than roughly matching it — a $15.62 gap
+where it used to be $3.16. **Nothing about the hardware line got worse; the alternative got much
+better.** Every hour you have to allocate should feel that.
 
 It can justify itself two other ways, both real:
 
@@ -516,9 +523,10 @@ It can justify itself two other ways, both real:
    The hardware line reaches a market the digital line can't.
 2. **Customer acquisition.** Every calculator you ship puts your programs, your card, and your
    restore link in a student's hands. A discount code for the digital toolkit in the box converts
-   some fraction of hardware buyers into ~$31-net digital buyers later. **[ESTIMATE]** Even a 10%
-   conversion adds ~$3 of expected value per unit shipped — which is a third of the entire software
-   premium, earned for the cost of printing a card.
+   some fraction of hardware buyers into ~$44-net digital buyers later. **[ESTIMATE]** Even a 10%
+   conversion adds **~$4.36** of expected value per unit shipped — **more than half the net value of
+   the entire software premium** ($7.84 at the modelled $10), earned for the cost of printing a card.
+   At the new $49 toolkit price this is the strongest argument the hardware line has.
 
 ---
 
@@ -637,8 +645,9 @@ Concretely:
 - **The highest-leverage moves, in order:** (1) buy in June, sell in August; (2) buy in lots and
   locally, never one-at-a-time on eBay; (3) sell locally where you can, because $70 local beats $95
   shipped; (4) batch six units at a time; (5) put a digital discount code in every box.
-- **If you want to make more money per hour, sell more digital bundles.** One $35 download nets more
-  than one shipped calculator and takes no time at all. Treat the hardware line as a seasonal way to
+- **If you want to make more money per hour, sell more digital bundles.** One $49 download nets
+  **~$44 against ~$28** for a shipped calculator, and takes no time at all — a gap that widened when
+  the toolkit was repriced from $35 to $49. Treat the hardware line as a seasonal way to
   convert capital and spare hours into cash, and as a distribution channel for the digital product —
   not as the main event.
 - **And know the clock is running — but it is a longer clock than it first looked.** The CE Python was
