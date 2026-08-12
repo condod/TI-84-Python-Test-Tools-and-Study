@@ -33,6 +33,33 @@ and its own header/prompts repeat this same warning. When in doubt, delete
 or archive these programs (or reset your calculator to defaults) before any
 exam where their presence would violate the rules.
 
+## Exam Policy Research & Marketing Claims
+
+Two reference documents at the repo root work out, from primary sources, exactly which exams
+permit what — and, for anyone selling or sharing these bundles, exactly which claims are
+accurate:
+
+- **[`COMPLIANCE_RESEARCH.md`](COMPLIANCE_RESEARCH.md)** — the full findings, organized by exam
+  authority (College Board AP, SAT/PSAT, ACT, NCEES FE/PE, IB, CLEP, GED, university courses),
+  with the operative policy language quoted verbatim plus source URLs and access dates. Findings
+  verified from a primary source are separated from inferences, and everything that could not be
+  confirmed is flagged. Also covers what TI's Press-to-Test mode actually does to Python AppVars,
+  plus seller-side legal, platform, and trademark considerations.
+- **[`MARKETING_CLAIMS_GUIDE.md`](MARKETING_CLAIMS_GUIDE.md)** — a practical "safe to say / do NOT
+  say" claims guide, per-exam nuance, ready-to-paste storefront and bundle-README disclaimer text,
+  and a trademark / non-affiliation footer.
+
+Three findings worth knowing even if you never sell a copy:
+
+- **AP Exams:** the TI-84 Plus CE Python is named on College Board's approved calculator list, and
+  College Board states that *"You don't need to clear your calculators' memories before or after
+  the exam."*
+- **NCEES FE/PE:** the TI-84 is **not** an approved calculator in any form — only Casio fx-115/
+  fx-991, HP 33s/35s, and TI-30X/TI-36X models are permitted.
+- **Press-to-Test deletes Python programs.** It disables Apps and TI-BASIC programs, but AppVars
+  (how Python programs are stored) are deleted and do not return. Back up with TI Connect™ CE
+  first.
+
 ## About the TI-84 Plus CE Python Environment
 
 TI-84 Plus CE Python Edition runs a restricted CircuitPython-based
