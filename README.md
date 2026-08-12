@@ -1,11 +1,18 @@
-# TI-84-Python-Test-Tools-and-Study
-# TI-84 Plus CE Python Edition Study Tools
+# TI-84 Plus CE Python Edition — Study & Practice-Exam Toolkit
 
-A growing collection of Python-powered study tools, utilities, and academic resources designed specifically for the **Texas Instruments TI-84 Plus CE Python Edition**.
+A collection of 23 standalone TI-84 Plus CE **Python Edition** programs for
+engineering/math/science students, organized by subject area. Every program
+is a single `.py` text file you can type in on the calculator or transfer
+with TI Connect™ CE.
 
-This repository contains course-specific programs that provide quick access to formulas, reference material, calculators, problem-solving tools, and other utilities intended to help students study more efficiently. Each subject has its own dedicated tool, making it easy to install only the resources you need for your classes.
+## 📦 Pre-Packaged Bundles Available
 
-This project began as a collection of programs I built for my own coursework and has gradually expanded into a larger library for other students. It remains an active side project, with new features, subjects, and improvements added over time.
+Ready-to-sell/ready-to-share ZIP bundles of these programs — organized by subject, plus a
+free starter pack and a complete all-in-one toolkit — live in [`bundles/`](bundles/). Each
+ZIP includes its own install guide and repeats the exam policy disclaimer below. The
+`bundles/` folder also includes suggested USD pricing per bundle (see
+[`bundles/PRICING.md`](bundles/PRICING.md)) and ready-to-paste store listing copy for
+Gumroad/Etsy-style storefronts (see [`bundles/LISTING_COPY.md`](bundles/LISTING_COPY.md)).
 
 ## ⚠️ Exam Policy Disclaimer — Read This First
 
@@ -25,16 +32,6 @@ in particular is a self-quiz memorization drill, not an answer-lookup tool,
 and its own header/prompts repeat this same warning. When in doubt, delete
 or archive these programs (or reset your calculator to defaults) before any
 exam where their presence would violate the rules.
-
-## Current Features
-
-* Course-specific study tools
-* Formula and equation references
-* Interactive calculators
-* Step-by-step problem-solving utilities
-* Graphing and visualization tools (where applicable)
-* Menu-driven interfaces optimized for the TI-84 Plus CE Python Edition
-* Lightweight programs designed to run efficiently on calculator hardware
 
 ## About the TI-84 Plus CE Python Environment
 
@@ -72,8 +69,8 @@ against the confirmed, currently-documented constraints of that environment:
 ## Folder Structure
 
 ```
-.
-├── README.md
+ti84-python-programs/
+├── README.md                     (this file)
 ├── calculus/
 ├── differential_equations/
 ├── algebra_linear_stats/
@@ -129,7 +126,7 @@ against the confirmed, currently-documented constraints of that environment:
 | File | Description |
 |---|---|
 | `quadratic_solver.py` | Quadratic equation solver with discriminant classification and real/complex roots. |
-| `quadratic_vertex_analyzer.py` | Finds and fully analyzes a quadratic from its vertex and one other point. |
+| `quadratic_vertex_analyzer.py` | Derives a quadratic from its vertex plus one other point, then reports vertex/standard form, domain/range, intercepts, and behavior. |
 | `linear_system_solver.py` | 2x2 or 3x3 linear system solver via Gaussian elimination with partial pivoting. |
 | `matrix_toolkit.py` | Matrix add, multiply, determinant, and inverse for 2x2/3x3 matrices you enter. |
 | `descriptive_stats.py` | Mean, median, mode, sample/population variance & standard deviation from a data list. |
@@ -139,9 +136,10 @@ against the confirmed, currently-documented constraints of that environment:
 
 - **`quadratic_solver.py`** — Prompts for `a`, `b`, `c`. Outputs the discriminant, its classification, and either
   two real roots, one repeated root, or a complex conjugate pair written as `a ± bi`.
-- **`quadratic_vertex_analyzer.py`** — Prompts for the vertex `(h, k)` and one other point `(x, y)`. Outputs
-  vertex and standard equation forms, domain, range, axis of symmetry, opening direction, minimum/maximum,
-  x- and y-intercepts, and increasing/decreasing behavior.
+- **`quadratic_vertex_analyzer.py`** — Prompts for a vertex `(h, k)` and one other point `(x, y)` on the parabola
+  (two arbitrary points don't uniquely determine a quadratic, so the vertex supplies the missing condition).
+  Outputs vertex form, standard form, domain/range, axis of symmetry, min/max, intercepts, and increasing/
+  decreasing behavior.
 - **`linear_system_solver.py`** — Prompts for system size (2 or 3) then each equation's coefficients and constant.
   Outputs the solved variables, or a message if the system is inconsistent/dependent.
 - **`matrix_toolkit.py`** — Menu for add/multiply/determinant/inverse; prompts for matrix size and entries.
@@ -223,19 +221,3 @@ against the confirmed, currently-documented constraints of that environment:
 
 Keep an eye on the ~50 KB / 100-program on-device storage limit; archive or delete programs you're not actively
 using to free up space, per the on-calculator memory management prompts.
-
-## Project Goals
-
-* Create useful tools for a wide variety of high school and college courses.
-* Improve usability through intuitive menus and navigation.
-* Keep programs fast, reliable, and easy to install.
-* Continue expanding the library with new subjects and features based on personal use and community feedback.
-
-## Planned / Future Subjects
-
-* Precalculus
-* Biology
-* Finance
-* Additional STEM and business courses
-
-Contributions, suggestions, bug reports, and feature requests are always welcome as the project continues to grow.
