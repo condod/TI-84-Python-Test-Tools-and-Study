@@ -28,7 +28,7 @@ well: the June-to-August price spread on used calculators is worth more per unit
 is, and it costs no labour at all. Acquisition cost is the dominant variable by a wide margin — a $5
 change in what you pay moves per-unit profit ~18%, which nothing else in the model comes close to.
 
-Three things sharpen the verdict:
+Four things sharpen the verdict:
 
 1. **Local sales beat shipped sales, badly.** A $70 Facebook Marketplace pickup nets more than a $95
    eBay sale, because fees and shipping are ~$20 of that eBay sale and $0 locally. If you can sell
@@ -37,13 +37,28 @@ Three things sharpen the verdict:
    $28 — at essentially zero marginal labour. The hardware line cannot win that comparison on
    per-transaction economics. Its real justification is that it reaches buyers the digital line
    can't, and that every box you ship puts your programs and a discount code in a student's hands.
-3. **The clock is running, and the supply pool is now closed.** TI discontinued the TI-84 Plus CE
-   Python on 2026-04-27 and launched the TI-84 Evo the next day — and separately appears to have
-   **removed Python from newly manufactured plain CE units** as of early 2026. So every
+3. **The supply pool is closed, but the clock runs longer than it first looked.** TI discontinued the
+   TI-84 Plus CE Python on 2026-04-27 and launched the TI-84 Evo the next day — and separately appears
+   to have **removed Python from newly manufactured plain CE units** as of early 2026. So every
    Python-capable TI-84 CE that will ever exist was built in a 57-month window that has closed.
-   Whether these programs run on the Evo is unverified. **[RESEARCHED — see
-   [`SOURCING.md`](SOURCING.md) §0.]** The 2026 back-to-school season is probably the best this line
-   will ever have; from 2027 supply rises, prices fall, and margins compress.
+   **[RESEARCHED — see [`SOURCING.md`](SOURCING.md) §0.]** The 2026 back-to-school season is probably
+   the best this line will ever have, and from 2027 supply rises, prices fall, and margins compress.
+   But this is **not a two-season business**: five production years at TI-84 scale is a very large
+   installed base, student hardware lives 4–6 years and then gets handed down, and school refresh runs
+   on multi-year capital cycles, so the CE Python base stays viable **into roughly 2029–2030**. The
+   transition also *feeds* the used-resale channel this business buys from rather than starving it.
+   **[RESEARCHED — see [`EVO_TRANSITION.md`](EVO_TRANSITION.md) Q4.]**
+4. **The library is not stranded on the CE, which was the one genuinely existential question.** It is
+   now largely answered, and answered favourably. The `.8xv` AppVars **definitely do not** transfer to
+   an Evo (Python AppVars there are `.8xv2`), but the **`.py` sources are expected to** — TI Connect
+   Evo auto-converts them on send — and an audit of all 52 programs found they import only `math`,
+   `random`, and `time`, with the two TI-proprietary imports guarded by `try/except ImportError` and
+   working text fallbacks. **An "Evo edition" is a packaging change plus one hardware verification
+   pass, not a port.** Every Evo ships with Python (there is no separate Python edition any more) and
+   C/assembly are locked out, so Python is the *only* third-party content channel on the new platform
+   and the Evo Python archives are nearly empty. **[RESEARCHED — see
+   [`EVO_TRANSITION.md`](EVO_TRANSITION.md) Q1, Q2, Q5.]** Do not make a public Evo compatibility
+   claim until we have tested one.
 
 **Recommended shape of the business:**
 
@@ -56,9 +71,13 @@ Three things sharpen the verdict:
   [`UNIT_ECONOMICS.md`](UNIT_ECONOMICS.md) §6 (ten matched pairs, bare vs loaded) and let the data
   decide, rather than assuming the premium exists.
 - **Put marginal effort into the digital line.** It's higher margin, infinitely scalable, has no
-  shipping, no returns, no battery swaps, and no discontinued-hardware risk.
-- **Buy one TI-84 Evo as R&D.** Whether the `.8xv` format and these programs work on it determines
-  whether any of this has a future past 2027.
+  shipping, no returns, no battery swaps, and — because the `.py` sources are platform-portable — the
+  least discontinued-hardware risk of anything here.
+- **Buy one TI-84 Evo as R&D — as an option purchase, not a threat assessment.** The question is no
+  longer "does the product survive." It's "how cheaply can we open a second market where every unit is
+  Python-capable and nobody is publishing yet." One unit at ~$160 converts nearly every remaining
+  unknown in [`EVO_TRANSITION.md`](EVO_TRANSITION.md) to verified. **Do not stock Evo units for
+  resale** until that test pass is done.
 
 If the goal is maximum money per hour, the honest answer is: **sell digital bundles, and treat
 calculators as a seasonal side activity that pays for itself and feeds the digital funnel.**
@@ -73,16 +92,21 @@ calculators as a seasonal side activity that pays for itself and feeds the digit
 | **[`UNIT_ECONOMICS.md`](UNIT_ECONOMICS.md)** | The money model. Acquisition, refurb, platform fees, shipping, labour, and a per-unit P&L at several price points and two acquisition costs. A skeptical treatment of the software premium, break-even, maximum-bid maths, sensitivity analysis on the three variables that matter, scaling, the discontinuation risk, and tax/1099-K. |
 | **[`PREP_SOP.md`](PREP_SOP.md)** | Step-by-step procedure from acquired unit to sellable unit, mapped to the app's five checklist steps. Includes the critical ordering constraint, bench setup, per-step time estimates, battery replacement, cleaning and cosmetic grading, what goes in the box, and a printable bench card. |
 | **[`LOADOUT_STRATEGY.md`](LOADOUT_STRATEGY.md)** | Which programs go on a physical unit, given the 50 KB ceiling. Seven measured loadouts with exact footprints and headroom, per-program sizes, how many SKUs to actually stock, the buyer's-choice option, the archive tier, and how physical SKUs interact with the $14/$35 digital bundles. |
-| **[`LISTING_AND_SUPPORT.md`](LISTING_AND_SUPPORT.md)** | Marketplace titles and description templates, a 12-shot photo list, keyword do/don't, the quick-start card, the Press-to-Test warning and restore-link recommendation, returns policy, platform-by-platform notes, and the legal operating rules (first sale, your own software, and the absolute prohibition on redistributing TI's OS or apps). |
+| **[`LISTING_AND_SUPPORT.md`](LISTING_AND_SUPPORT.md)** | Marketplace titles and description templates, a 12-shot photo list, keyword do/don't, the quick-start card, the Press-to-Test warning and restore-link recommendation, how to tell the three live TI-84 variants apart, the "I have an Evo" support macro, returns policy, platform-by-platform notes, and the legal operating rules (first sale, your own software, and the absolute prohibition on redistributing TI's OS or apps). |
+| **[`EVO_TRANSITION.md`](EVO_TRANSITION.md)** | What the April 2026 TI-84 Evo launch and the CE Python discontinuation actually mean. The Evo's Python environment and module set, the `.8xv` → `.8xv2` file-format break, the `connectevo.ti.com` WebUSB transfer tool that replaces TI Connect CE, how long the CE Python installed base stays viable, the first-mover case on the Evo, an import audit of all 52 programs, and the hardware test checklist to run on the first Evo. **Read this before making any compatibility claim about either platform.** |
 
 ---
 
 ## The four things you must not get wrong
 
-1. **Only the CE Python runs Python.** A plain TI-84 Plus CE cannot be upgraded — the Python
-   interpreter needs an ARM coprocessor the plain CE doesn't have. Verify the variant from the
+1. **Among CE units, only the CE Python runs Python.** A plain TI-84 Plus CE cannot be upgraded — the
+   Python interpreter needs an ARM coprocessor the plain CE doesn't have. Verify the variant from the
    faceplate, the `84CEPY/…` part number, or an on-device `About` screenshot **before every
    purchase**. OS version proves nothing. [`SOURCING.md`](SOURCING.md) §1.1
+   **The Evo inverts this** — every TI-84 Evo has Python built in and there is no separate Python
+   edition — which is exactly why the model name is no longer a reliable compatibility unit. Sell
+   against "does it have the Python app," not against a model number
+   ([`LISTING_AND_SUPPORT.md`](LISTING_AND_SUPPORT.md) §1).
 
 2. **Load the programs LAST.** A full memory reset, entering Press-to-Test, and sending an OS bundle
    all destroy Python AppVars — and the memory reset also removes the Python App itself. The order is
@@ -118,8 +142,13 @@ and each takes minutes:
    [`UNIT_ECONOMICS.md`](UNIT_ECONOMICS.md) §2 with fact, and it takes fifteen minutes.
 4. **Bulk battery pricing at 50–100 units.** The model uses $8; genuine TI cells were found at
    **$6.95–$9.99**, and overseas bulk is plausibly $4–$6. It's your second-largest variable cost.
-5. **Whether these programs run on a TI-84 Evo.** One unit, bought once, answers whether this line
-   has a future past 2027.
+5. **Whether these programs actually run on a TI-84 Evo.** The desk research says they very probably
+   do, unchanged — but that is inference plus one expert's general statement, and **"we tested all 52
+   on an Evo" is a different and far more defensible claim than "they should work."** One unit, bought
+   once, converts it. Start with `help('modules')` in the Evo Python shell, then send one `.py` via
+   `connectevo.ti.com`, then try sending all 52 at once — that last one is the real unknown for a
+   pre-loaded-hardware business. Full checklist in [`EVO_TRANSITION.md`](EVO_TRANSITION.md),
+   "Strategy" §4.
 
 ---
 
@@ -145,7 +174,8 @@ affiliated with, and does not endorse, this product. IB® and International Bacc
 registered trademarks of the International Baccalaureate Organization, which is not affiliated with,
 and does not endorse, this product. NCEES® is a registered trademark of the National Council of
 Examiners for Engineering and Surveying, which is not affiliated with, and does not endorse, this
-product. TI-84 Plus CE Python™, TI-84 Evo™, TI Connect™ CE, and Texas Instruments® are trademarks of
-Texas Instruments Incorporated, which is not affiliated with, and does not endorse, this product. All
+product. TI-84 Plus CE Python™, TI-84 Evo™, TI Connect™ CE, TI Connect™ Evo, and Texas Instruments®
+are trademarks of Texas Instruments Incorporated, which is not affiliated with, and does not endorse,
+this product. All
 trademarks are the property of their respective owners. Exam policies are subject to change; verify
 current policy with the relevant exam authority.

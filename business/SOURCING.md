@@ -41,28 +41,71 @@ That is the more important fact for you, because it means:
 
 Closed populations do two things at once: they get cheaper as institutions dump them, and they get
 scarcer as units die. Which effect dominates determines whether this line has two good years or five.
+**[RESEARCHED — see [`EVO_TRANSITION.md`](EVO_TRANSITION.md) Q4] The answer is closer to five.** Five
+production years at TI-84 scale is a very large base, a graphing calculator bought in grade 9 is
+typically used through grade 12 and often into first-year college, and school refresh runs on
+multi-year capital cycles. Units sold in the final production year are in active primary use into
+roughly **2030**. Treat the CE Python line as a harvest asset with a **3-5 year runway**, thinning
+from about 2030 — not a cliff.
 
 **Five consequences for sourcing, and they cut both ways:**
 
 1. **Medium-term, used CE Python supply rises and prices fall.** Schools and students will migrate to
    the Evo across the next few adoption cycles and dump CE Pythons. **This is good for you as a
    buyer** and it is the strongest structural argument for building inventory in 2026–2027.
+   Note the direction of this carefully: **the transition feeds the resale channel this business buys
+   from rather than starving it.** New-model launches push prior-generation inventory into
+   eBay/Mercari/Facebook, so **[ESTIMATE]** the discontinuation plausibly *increases* the volume of CE
+   Python units changing hands over the next 2-3 years, even as per-unit prices soften.
 2. **Short-term, new retail stock is draining.** Once channel inventory clears, the "just buy it new
    for $95 on sale" alternative disappears, which supports used prices for a while. **[ESTIMATE]**
    Expect the used market to be firm through the 2026 back-to-school season and to soften from 2027.
-3. **The programs are CE-Python-specific.** The `.8xv` Python AppVar format and the TI Connect CE
-   workflow are the CE platform. Whether they carry to the Evo is **[UNVERIFIED]** — one write-up
-   says the Evo's new OS architecture is not natively backward compatible with CE programs. **Do not
-   assume your product transfers.** Before you invest heavily in inventory, get one Evo and find out.
-4. **Do not buy Evo units for this line.** Different port, different connection software, unproven
-   compatibility. Bare-resale only, if at all.
+3. **The `.8xv` files are CE-only; the `.py` sources are the part that carries forward.** This was
+   the open question in the first pass and it is now largely settled — see
+   [`EVO_TRANSITION.md`](EVO_TRANSITION.md) Q2. Both halves matter:
+   - **The `.8xv` AppVars definitely do not transfer to an Evo. [RESEARCHED]** TI's own knowledge
+     base now lists a parallel, incompatible extension for every file type on the Evo, and Python
+     AppVars there are **`.8xv2`**
+     (<https://education.ti.com/en/customer-support/knowledge-base/ti-83-84-plus-family/product-usage/29430>).
+     TI-Toolkit, who maintain the reference `tivars` libraries, state the Evo format is "entirely new
+     & non-backwards compatible." Hand an Evo owner the `8xv/` folder and they get nothing.
+   - **The `.py` sources very likely do transfer. [RESEARCHED, pending our own hardware test]**
+     Eddie Shore, who owns both calculators: *"Python programs can be transferred easily between the
+     84 Python and 84 Evo."* TI Connect Evo auto-converts `.py` files on send, exactly as TI Connect
+     CE does. So no `.8xv2` writer and no format reverse-engineering are needed on our side.
+
+   The practical upshot for a buyer of inventory: **the library is not stranded on the CE.** A static
+   audit of all 52 programs found they import only `math`, `random`, and `time`, with the only
+   TI-proprietary imports wrapped in `try/except ImportError` and working text fallbacks, so an "Evo
+   edition" looks like a packaging change plus one hardware verification pass rather than a port
+   ([`EVO_TRANSITION.md`](EVO_TRANSITION.md) Q5). **Do not make a public Evo compatibility claim
+   until that test pass exists** — the evidence is strong but it is still inference plus one expert's
+   general statement.
+4. **Do not *stock* Evo units — but do buy exactly one, now, as R&D.** These are two different
+   decisions and the first pass ran them together. For **inventory**: different port, different
+   connection software, no validated loadout, and no proven demand for a pre-loaded Evo. Stay out;
+   bare-resale only, if at all. For **R&D**: one unit at ~$160 converts nearly every remaining
+   unknown in [`EVO_TRANSITION.md`](EVO_TRANSITION.md) from inferred to verified, and it is the
+   highest information-per-dollar purchase available to this business. Buying one is how
+   "unproven compatibility" stops being a reason to avoid the platform.
 5. **Verify Python on every single unit from 2026 stock, including "new."** With TI shipping
    non-Python CEs from early 2026, a sealed-box "TI-84 Plus CE" bought in 2026 may have no Python at
    all. The faceplate wordmark check in §1.1 now matters for new inventory too, not just used.
 
-Net: **2026–2027 is a good window to buy and a decent window to sell. It is not a durable business
-to build on**, and the inventory you buy has a declining half-life. Buy for the season you're
+Net: **2026–2027 is a good window to buy and a decent window to sell, and the runway behind it is
+longer than a discontinuation notice makes it feel — comfortably through 2029–2030.** That is not the
+same as durable. The inventory you buy still has a declining half-life, so buy for the season you're
 selling into, not for a warehouse.
+
+**The genuine headwinds, stated plainly** (all from [`EVO_TRANSITION.md`](EVO_TRANSITION.md) Q4):
+new-buyer share shifts to the Evo immediately; with TI shipping Python-less plain CE units, "buy a
+new CE and get Python" is no longer safe advice, so the top of the funnel erodes starting now; and
+TI's Evo-T product sheet marks **"Continued OS support" as an Evo feature and leaves it blank for the
+CE-T Python Edition** (<https://justmore.dk/images/media/ProductsDocs/TI10014_PRODUCTSHEET.pdf>).
+**[INFERRED]** CE OS updates are ending, so 5.8.5 is likely the terminal CE release. That cuts both
+ways: it freezes the compatibility target you're building against, but "we update it to the latest
+OS" stops being an evolving value-add, and TI's CE download pages may eventually be retired — worth
+archiving the `.b84` bundle locally ([`PREP_SOP.md`](PREP_SOP.md) §1).
 
 ---
 
@@ -349,9 +392,22 @@ maths in [`UNIT_ECONOMICS.md`](UNIT_ECONOMICS.md) §7.
 
 ### TI-84 Evo
 
-**Do not buy for this line.** Different port, different connection software (`connectevo.ti.com`,
-not TI Connect CE), and program compatibility with the CE `.8xv` format is **[UNVERIFIED]**. Buy one
-single unit, once, as R&D — not as inventory.
+**Do not stock for this line. Buy exactly one, once, as R&D.**
+
+| Purpose | Verdict | Why |
+|---|---|---|
+| **Inventory / resale prep** | **No** | Different port (USB-C), different connection software (`connectevo.ti.com`, not TI Connect CE), no validated loadout, and no proven demand for a pre-loaded Evo. Bare-resale only, if at all. |
+| **One R&D unit** | **Yes, buy it now** | ~$160 retail [RESEARCHED — Eddie Shore]. Settles the module list, the `.py` transfer path, batch-transfer ergonomics, and exam-mode behaviour in a single purchase. |
+
+On compatibility, be precise rather than vague: the CE **`.8xv` AppVars do not work on an Evo** —
+Python AppVars there are **`.8xv2`** [RESEARCHED, TI KB 29430] — while the **`.py` sources are
+expected to transfer**, because TI Connect Evo auto-converts them on send [RESEARCHED, pending our own
+hardware test]. Full evidence and the test checklist are in
+[`EVO_TRANSITION.md`](EVO_TRANSITION.md).
+
+**Do not buy Evo units in quantity for resale prep until that test pass is done**, and keep sourcing
+CE Python either way: that is the market with proven demand, proven tooling, and a validated
+52-program library today.
 
 ---
 
@@ -467,7 +523,7 @@ AFTER BUYING
 ---
 
 AP®, SAT®, and ACT® are trademarks registered by their respective owners, none of which are
-affiliated with, or endorse, this product. TI-84 Plus CE Python™, TI Connect™ CE, and Texas
-Instruments® are trademarks of Texas Instruments Incorporated, which is not affiliated with, and
-does not endorse, this product. All trademarks are the property of their respective owners. Nothing
+affiliated with, or endorse, this product. TI-84 Plus CE Python™, TI-84 Evo™, TI Connect™ CE,
+TI Connect™ Evo, and Texas Instruments® are trademarks of Texas Instruments Incorporated, which is
+not affiliated with, and does not endorse, this product. All trademarks are the property of their respective owners. Nothing
 in this document is legal advice.

@@ -45,7 +45,16 @@ TI-84 Plus CE Python Calculator - Engineering Programs Loaded, Tested, w/ Cable
 
 Words that earn their place: **Python** (this is the variant distinction most buyers search and
 most sellers get wrong), **tested**, **wiped**, **preloaded**, **new battery** if true, **case**,
-**cable**. Words to avoid: "cheat," "hack," "exam-legal," "AP," "SAT," "ACT," "guaranteed."
+**cable**. Words to avoid: "cheat," "hack," "exam-legal," "AP," "SAT," "ACT," "guaranteed," "Evo."
+
+> **On "Latest OS 5.8.5."** Still literally true, and now likely to stay true permanently: with the CE
+> Python discontinued and TI marking "Continued OS support" as an Evo-only feature, **[INFERRED]**
+> 5.8.5 is probably the final CE release ([`PREP_SOP.md`](PREP_SOP.md) §1). The wording is safe as
+> written, but "Latest" reads as a perishable freshness claim on a frozen platform. **Once TI's end of
+> CE OS support is actually confirmed** — it has not been announced, only inferred from a product
+> sheet — switch to **"OS 5.8.5 (final CE release)"**, which is both more honest and a stronger
+> reassurance: the buyer will never be told their calculator is out of date. Do not make that change
+> before there is something to cite.
 
 ### Mercari (80-character limit, more casual)
 
@@ -83,10 +92,52 @@ Fill every one. eBay's search demonstrably favours completeness.
 
 TI replaced the CE Python with the **TI-84 Evo** in April 2026 ([`SOURCING.md`](SOURCING.md) §0).
 Buyers will increasingly search "Evo," and some will land on your listing by mistake. Don't chase
-that traffic — never put "Evo" in a CE Python title, since it isn't one and the mismatch is an
-"item not as described" case waiting to happen. If you want to address it, do it in the description:
-one honest line noting this is the TI-84 Plus CE Python, the model the Evo replaced, and that it uses
-TI Connect CE and a Mini-B cable.
+that traffic — **never put "Evo" in a CE Python title**, since it isn't one and the mismatch is an
+"item not as described" case waiting to happen. Keep "evo" out of tags, keywords, and item specifics
+too, for the same reason.
+
+Address it in the **description** instead, and address the part that actually generates disputes.
+The first version of this note suggested mentioning TI Connect CE and the Mini-B cable, which is
+true but incomplete: **an Evo owner cannot use the program files at all.** Python AppVars on the Evo
+use a different extension (`.8xv2`) and the Evo rejects legacy files outright
+([`EVO_TRANSITION.md`](EVO_TRANSITION.md) Q2). That is the fact a mistaken buyer needs before they
+pay, not after.
+
+**Recommended description line** — honest, short, and it doubles as a filter:
+
+```
+NOTE ON THE TI-84 EVO: this is the TI-84 Plus CE Python Edition, the model the
+TI-84 Evo replaced in 2026. It is not an Evo. It charges and connects with the
+included USB Mini-B cable and TI Connect CE (free from TI). If you specifically
+own or need a TI-84 Evo, this is not the right listing for you - the Evo uses a
+different cable, different connection software, and a different program file
+format, so the preloaded programs would not transfer to it.
+```
+
+### Telling the three live variants apart — put this in front of the buyer
+
+**Stop treating the model name as the compatibility unit.** There are now three things on the market
+that a buyer might call "a TI-84 CE," and the model name no longer determines whether your programs
+run. The determinant is simply **"does this calculator have the Python app."**
+
+| Variant | Runs Python? | Runs *these* programs? | How the buyer identifies it |
+|---|---|---|---|
+| **TI-84 Plus CE Python Edition** (what you sell) | Yes | **Yes** | Faceplate reads "TI-84 Plus CE **PYTHON**". Mini-B charge port. |
+| **Plain TI-84 Plus CE** | **No**, and cannot be upgraded | No | Faceplate reads "TI-84 Plus CE" with no PYTHON wordmark. Note TI began shipping *new* CE units without Python in early 2026, so "recently bought" proves nothing. |
+| **TI-84 Evo** | Yes — **every** Evo has Python, there is no separate Python edition | **Not yet supported.** The `.py` sources are expected to work; the `.8xv` files definitely do not. | USB-**C** port. Icon-based UI. Connects at `connectevo.ti.com`, not TI Connect CE. |
+
+**Give buyers a calculator-side self-check rather than a model number.** One line in the listing turns
+the most likely refund cause into a pre-sale filter:
+
+```
+NOT SURE IF YOUR CALCULATOR CAN RUN THESE? Press [prgm] and look for a Python
+app in the list. If there's no Python app, the programs will not run on it.
+```
+
+State supported hardware explicitly as the **CE Python family** — TI-84 Plus CE Python Edition,
+TI-84 Plus CE-T Python Edition, TI-83 Premium CE Edition Python — and name the **Evo as not yet
+supported**. Never write a bare "TI-84 family," and **never claim tested Evo compatibility until it
+has actually been tested on an Evo.** No "should work."
 
 ---
 
@@ -235,6 +286,10 @@ position (§3.4) and it is correct.
 any use of its marks without written consent, and the cheating terms are what get a listing pulled
 and an account flagged.
 
+**Also never use, for a different reason:** `evo`, `TI-84 Evo`. Not a compliance problem — an accuracy
+one. While the product is CE-only, Evo search traffic is traffic you cannot serve, and every mistaken
+buyer it brings in is a return. Revisit only if an Evo edition actually ships.
+
 ---
 
 ## 4. The quick-start card (goes in every box)
@@ -319,7 +374,7 @@ restored in two minutes."*
 ### Recommendation: ship a restore link with every unit. Yes, definitely.
 
 **Do it.** The objection — "they'll share the link and I'll lose digital sales" — does not survive
-contact with the numbers. The programs on a physical unit are a subset (8–10 of 29), they're already
+contact with the numbers. The programs on a physical unit are a subset (8–10 of 52), they're already
 in the buyer's hands, and the person who bought a $90 calculator was never a likely $35 digital
 customer. Meanwhile a single prevented return is worth more than several hypothetical leaked
 downloads.
@@ -382,6 +437,59 @@ The clean framing: **you are servicing a device, not distributing software.** Up
 you own before selling it is ordinary refurbishment. The moment a TI file leaves your bench on
 anything other than a calculator, you've crossed the line.
 
+### 5.2 The "I have an Evo" support answer
+
+You will get this message, and increasingly often: someone bought the digital bundle, or was gifted a
+new calculator, and now owns a **TI-84 Evo**. Have the answer ready. It costs nothing to write once and
+it prevents both a bad review and a refund.
+
+**The three facts to convey, in this order** (evidence in [`EVO_TRANSITION.md`](EVO_TRANSITION.md)):
+
+1. **The `.8xv` files will not work.** This is definite, not a maybe. Python AppVars on the Evo use a
+   new `.8xv2` extension and the Evo rejects legacy TI-84 files outright.
+2. **The `.py` files are expected to work, and that is what they should send.** TI Connect Evo
+   auto-converts `.py` on send. Say "expected," not "will" — we have not tested it on hardware.
+3. **The transfer tool is different.** `connectevo.ti.com` in Chrome over USB-C, not TI Connect CE.
+   TI Connect CE will not connect to an Evo at all.
+
+**Support macro, ready to send:**
+
+```
+Thanks for writing - and good news, mostly.
+
+The .8xv files in the bundle are for the TI-84 Plus CE Python and will NOT
+transfer to a TI-84 Evo. TI changed the file format on the Evo (Python files
+there use a .8xv2 extension), and the Evo rejects the older files. So please
+ignore the 8xv folder entirely.
+
+What you want are the .py files, which are the same programs in plain Python
+source. Texas Instruments' own transfer tool for the Evo converts .py files
+automatically when you send them, so those should work as-is:
+
+  1. Open Chrome and go to connectevo.ti.com  (no install, no sign-in)
+  2. Connect the calculator with a USB-C cable
+  3. Choose Send Files, pick the .py files, and send
+  4. Open the Python app on the calculator to run them
+
+One honest caveat: I have not yet tested this library on physical Evo hardware,
+so I can't promise it end to end - I'm telling you what TI's documentation and
+the transfer tool's behaviour say. If anything doesn't work, tell me exactly
+what happened and I'll either fix it or refund you. I'd genuinely like the
+report.
+
+Note that TI Connect CE (the desktop app for the older calculators) will not
+connect to an Evo at all, so don't spend time on that.
+```
+
+**Two rules on this macro.** Never upgrade "expected to work" to "works" until the hardware test pass
+in [`EVO_TRANSITION.md`](EVO_TRANSITION.md) is done — the offer to refund is what makes the honest
+version safe to send. And never send an Evo owner the `8xv/` folder as though it might work; that is
+the version of this conversation that ends in a dispute.
+
+**For a hardware buyer who turns out to want an Evo,** the answer is shorter: this is a CE Python, it
+is not an Evo, the programs won't transfer to one, and if they haven't bought yet they should not.
+Take the pre-sale loss; it is far cheaper than the return.
+
 Two further notes:
 
 - **Do not use "refurbished by Texas Instruments," "TI Certified," "factory refurbished," or any
@@ -409,13 +517,14 @@ Recommended on eBay. Reasoning:
 - Free 30-day returns is the safest possible policy but adds a return-shipping liability against a
   thin per-unit margin. Not recommended until the volume supports it.
 
-### The three specific return scenarios, and what to do
+### The four specific return scenarios, and what to do
 
 | Scenario | Response |
 |---|---|
 | **"The programs disappeared."** Almost always Press-to-Test or a memory reset. | Never treat as a defect. Reply within a day with the restore link and a two-line explanation, and offer to walk them through it on a call. This should close ~90% of these without a return. **[ESTIMATE]** This is also why the warning has to be prominent in the *listing*, not just the box — a buyer who was warned reads it as their mistake; one who wasn't reads it as your defect. |
 | **Genuine hardware fault inside 30 days.** | Full refund including return shipping, no argument, immediately. On a used-electronics business the cost of a fast refund is always lower than the cost of a defended case. Then diagnose the unit and fix your QC. |
 | **Buyer's remorse / "I meant to buy the cheaper one."** | Accept the return, buyer pays return shipping, restock and relist. Do not fight it. |
+| **"I wanted / already have a TI-84 Evo."** | Accept the return without argument — this one is partly on the listing, and fighting it looks bad in a category where the variants genuinely confuse people. Then fix the cause: the Evo note and the `[prgm]` self-check in §1 exist precisely to catch this buyer *before* they pay. If you see this twice, your description is at fault, not the buyer. For a **digital** customer in this position, don't refund reflexively — send the §5.2 macro first; the `.py` files may well solve it. |
 
 ### The INAD math — why one dispute hurts far more than it looks
 
@@ -529,6 +638,10 @@ physical units.
 - [ ] Photo 3 (File Manager) and photo 5 (About screen) are present — these two do the most work.
 - [ ] Every flaw photographed **and** described in words.
 - [ ] Variant stated unambiguously as Python Edition, and true.
+- [ ] Supported hardware named as the **CE Python family**; no bare "TI-84 family."
+- [ ] The TI-84 Evo note and the `[prgm]` Python self-check are in the description (§1).
+- [ ] No "Evo" anywhere in the title, tags, keywords, or item specifics.
+- [ ] No claim, hedged or otherwise, that the programs work on a TI-84 Evo.
 - [ ] Return policy stated.
 - [ ] Nothing anywhere sells concealment, evasion, or "beating" an exam.
 - [ ] Nothing in the box or on the restore page is TI's software.
@@ -543,7 +656,8 @@ not affiliated with, and does not endorse, this product. IB® and International 
 registered trademarks of the International Baccalaureate Organization, which is not affiliated
 with, and does not endorse, this product. NCEES® is a registered trademark of the National Council
 of Examiners for Engineering and Surveying, which is not affiliated with, and does not endorse,
-this product. TI-84 Plus CE Python™, TI Connect™ CE, and Texas Instruments® are trademarks of Texas
-Instruments Incorporated, which is not affiliated with, and does not endorse, this product. All
-trademarks are the property of their respective owners. Exam policies are subject to change; verify
-current policy with the relevant exam authority. Nothing in this document is legal advice.
+this product. TI-84 Plus CE Python™, TI-84 Evo™, TI Connect™ CE, TI Connect™ Evo, and Texas
+Instruments® are trademarks of Texas Instruments Incorporated, which is not affiliated with, and does
+not endorse, this product. All trademarks are the property of their respective owners. Exam policies
+are subject to change; verify current policy with the relevant exam authority. Nothing in this
+document is legal advice.

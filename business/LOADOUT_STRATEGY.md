@@ -1,11 +1,25 @@
 # Loadout Strategy — What Actually Goes On A Physical Unit
 
-The library is **29 programs, 106,409 bytes (103.9 KB)** of `.8xv` AppVars. The calculator's Python
-environment holds **50 KB**. The whole library does not fit, and no amount of format tinkering
-changes that. Deciding what goes on a unit is therefore a product decision, not a packing decision.
+The library is **52 programs, 252,889 bytes (247 KB) of `.py` source.** The calculator's Python
+environment holds **50 KB**. The whole library misses the ceiling by roughly **5×**, and no amount of
+format tinkering changes that. Deciding what goes on a unit is therefore a product decision, not a
+packing decision.
+
+**Two counts, and the difference matters for this document.** All 52 programs exist as `.py` source.
+Only **29 of them currently have a generated `.8xv` AppVar** (`8xv/`, **106,409 bytes / 103.9 KB**),
+because the `.8xv` converter has not been re-run across the newer additions — finance, geometry,
+astronomy, thermo/materials, and the rest. **Every measured loadout in §§2–3 below is drawn from those
+29**, since those are the only programs with a measured on-calculator footprint. The other 23 are
+listed in §3.1 as candidates. This is a bookkeeping gap in the repo, not a product limit: `.py` files
+send to a CE Python perfectly well and TI Connect CE builds the AppVar itself
+([`PREP_SOP.md`](PREP_SOP.md) §5).
 
 This document defines the physical SKUs, their measured footprints, and how many of them you should
 actually stock.
+
+> **Basis: measured 2026-08-12** — 52 `.py` files (excluding `tools/` and `qa/`) and 29 `.8xv` files.
+> The repo is actively growing and the `8xv/` folder is actively being reconciled, so **re-measure
+> before each production batch** (commands in §2).
 
 ---
 
@@ -21,7 +35,7 @@ accessed 2026-08-12):
 
 Two things follow that most people get wrong:
 
-1. **The program-count limit is not the binding one.** 100 programs is far more than 29. Bytes are
+1. **The program-count limit is not the binding one.** 100 programs is far more than 52. Bytes are
    the constraint, every time.
 2. **TI's bundled modules eat into the same 50 KB.** So the usable figure for *your* payload is
    less than 50 KB, by an amount TI doesn't publish. This is why the loadouts below target ≤ 34 KB
@@ -47,9 +61,39 @@ Python space stays empty for the student's own programs and class work. A calcul
 your own homework program to is a worse calculator, and "no memory left" is a support ticket and a
 one-star review. This policy is why no SKU below exceeds ~67% utilisation.
 
+### The Evo's memory picture is different, and cannot be sized yet
+
+**Everything in this document is a CE Python constraint.** The 50 KB / 100-program ceiling is a limit
+TI documents specifically for the **CE** Python App, and it exists partly because that Python
+environment ran on a separate 48 MHz ARM coprocessor bolted to an eZ80. The Evo has no coprocessor —
+Python runs natively on a 156 MHz ARM CPU — so there is no reason to assume the same number applies.
+
+What [`EVO_TRANSITION.md`](EVO_TRANSITION.md) actually establishes, and nothing beyond it:
+
+- **[RESEARCHED]** Total device memory is **3.5 MB on the Evo vs 3 MB on the CE** (TI product sheet,
+  corroborated by Eddie Shore and ti84evo.com). This is the *device* figure, not a Python-environment
+  figure.
+- **[RESEARCHED, expert]** Available Python memory improved. Adriweb, TI-Planet administrator, asked
+  directly what changed on the Evo: *"Performance et mémoire disponible"* — performance and available
+  memory.
+- **[NOT ESTABLISHED]** **No source gives an Evo equivalent of the 50 KB / 100-program Python ceiling.**
+  TI-Planet's Python review episode was still unpublished as of June 2026. **Do not size an Evo loadout
+  against any number until it is read off hardware.** "More than the CE" is all that is currently
+  supportable, and "more" is not a budget.
+
+One thing that *is* settled and does affect packaging: **an Evo loadout ships as `.py` files, not
+`.8xv`.** Python AppVars on the Evo are `.8xv2` and the CE `.8xv` files are rejected outright, but
+TI Connect Evo auto-converts `.py` on send. So the loadout *definitions* below carry over unchanged to
+an Evo edition; only the payload format and the byte budget would need revisiting.
+
+**Add reading the real ceiling to the Evo test checklist.** The existing checklist
+([`EVO_TRANSITION.md`](EVO_TRANSITION.md), "Strategy" §4) covers sending all 52 `.py` files at once,
+which would answer the capacity question indirectly — but it does not ask for the documented limit.
+Get it explicitly, on hardware, before sizing a single Evo loadout.
+
 ---
 
-## 2. Per-program footprint
+## 2. Per-program footprint — the 29 programs with a generated AppVar
 
 | Program | Bytes | KB | Subject |
 |---|---:|---:|---|
@@ -82,24 +126,39 @@ one-star review. This policy is why no SKU below exceeds ~67% utilisation.
 | `QUADVERT` | 4,992 | 4.9 | Algebra |
 | `OBLIQUE` | 5,361 | 5.2 | Trig |
 | `PUNNETT` | 5,391 | 5.3 | Biology |
-| **All 29** | **106,409** | **103.9** | — |
+| **These 29** | **106,409** | **103.9** | — |
+| **All 52 (`.py` source)** | **252,889** | **247** | — |
 
-Median program: ~3.7 KB. Practical rule of thumb: **a physical loadout is 8–10 programs.** Twelve
-is already crowding the headroom policy; fifteen breaks it.
+Median AppVar: ~3.7 KB. Median `.py` across all 52: ~4.3 KB. Practical rule of thumb: **a physical
+loadout is 8–10 programs.** Twelve is already crowding the headroom policy; fifteen breaks it.
 
-> **Measurement basis, and drift.** These sizes were measured from the `8xv/` directory as it stood
-> on 2026-08-12 (29 AppVars, 106,409 bytes). The repo is actively growing — the `.py` source tree
-> already carries programs (geometry, fluid mechanics, orbital mechanics, reaction kinetics,
-> confidence intervals) that have no regenerated `.8xv` yet. **Re-run the measurement before each
-> production batch:**
+> **Measurement basis, and drift.** These sizes were measured on **2026-08-12** from the `8xv/`
+> directory (29 AppVars, 106,409 bytes) and the `.py` source tree (52 programs, 252,889 bytes,
+> excluding `tools/` and `qa/`). **Both are moving:** the library is still growing, and the `8xv/`
+> folder is being reconciled against it, so the 29 should rise toward 52. **Re-run the measurement
+> before each production batch:**
 >
 > ```powershell
+> # AppVar footprints, smallest first
 > Get-ChildItem -Recurse -File -Filter *.8xv |
->   Select-Object Name, Length | Sort-Object Length
+>   ForEach-Object { "$($_.Name) $($_.Length)" }
+>
+> # Program count and total source size
+> $py = Get-ChildItem -Recurse -File -Filter *.py |
+>   Where-Object { $_.FullName -notmatch '\\tools\\|\\qa\\' }
+> $py.Count; ($py | Measure-Object Length -Sum).Sum
 > ```
 >
 > New programs are candidates for the loadouts below, but every substitution must keep the loadout
 > under the headroom policy. Adding without removing is how you end up shipping a full calculator.
+>
+> **`.py` byte count is a safe proxy for AppVar size when no `.8xv` exists yet.** Across the 29
+> programs where both exist, the AppVar is **never more than ~3% larger** than its source and is often
+> smaller — occasionally much smaller (`COMBPROB` is 24% under its `.py`), because the converter drops
+> some source text while adding only ~74 bytes of TI wrapper. **So sizing a candidate from its `.py`
+> size over-estimates rather than under-estimates**, which is the direction you want when you're
+> protecting a headroom policy. Still, do not *publish* a loadout footprint that was only estimated
+> this way — measure the real AppVar first.
 
 ---
 
@@ -176,6 +235,46 @@ they cost nothing to offer and they make the "you pick" option feel genuinely cu
 
 ---
 
+## 3.1 The 23 programs with no AppVar yet — candidates, not SKUs
+
+Of the 52 programs, **23 have no generated `.8xv`** and so appear in no loadout above. They are real,
+shipping `.py` programs; they simply have no measured on-calculator footprint yet. By subject:
+
+| Area | Programs without an AppVar |
+|---|---|
+| **Finance** (5) | `tvm_solver`, `loan_amortization`, `npv_irr`, `compound_interest`, `break_even_margin` |
+| **Thermo / materials** (4) | `carnot_efficiency`, `ideal_gas_processes`, `stress_strain`, `thermal_expansion` |
+| **Biology** (5) | `chi_square_genetics`, `dilution_calculator`, `hardy_weinberg`, `population_growth`, `surface_area_volume` |
+| **Precalculus** (3) | `polynomial_analyzer`, `sequences_series`, `log_exp_solver` |
+| Stats (1) | `confidence_interval_hypothesis_test` |
+| Trig (1) | `unit_circle_reference` |
+| Chemistry (1) | `reaction_kinetics` |
+| Physics/Eng (1) | `fluid_mechanics_solver` |
+| Geometry (1) | `shape_geometry_solver` |
+| Astronomy (1) | `orbital_mechanics_calculator` |
+
+**Three things to take from this table.**
+
+1. **The newer programs are substantially larger.** These 23 average roughly **6.0 KB** of `.py`
+   source against a **~3.6 KB** average for the 29 measured AppVars, and `polynomial_analyzer` alone is
+   **9.8 KB** — more than twice the library median. **Swapping a new program into an existing loadout is
+   not size-neutral.** Re-check the headroom policy on every substitution rather than assuming a
+   one-for-one trade.
+2. **Finance is now a five-program subject area with no SKU at all**, and it is the only area in the
+   library aimed at a course sequence that isn't already covered. Worth considering as an eighth
+   loadout once the AppVars exist — but note it is also the area least likely to be the reason someone
+   buys a *graphing* calculator, so treat it as build-to-order at best.
+3. **The 2027 College Board biology restriction now bears on six programs, not one.** The biology
+   cluster is a poor fit for a physical SKU aimed at exam-season buyers for exactly the reason
+   `PUNNETT` was excluded. It is a much better fit for the digital bundles, where storage rules are the
+   buyer's problem rather than a returns liability.
+
+Until the converter is re-run, treat all 23 as **buyer's-choice swap-ins sent as `.py`** (§4). That
+works today — TI Connect CE converts on send ([`PREP_SOP.md`](PREP_SOP.md) §5) — but **do not publish a
+loadout footprint for them until a real AppVar has been measured.**
+
+---
+
 ## 4. Buyer's-choice loadout
 
 Offer it, on one SKU only, with tight rules:
@@ -231,14 +330,17 @@ Python App's File Manager and can't be run until the student moves them back
 (`[2nd]` `[MEM]` → `2:Mem Management/Delete…` → `B:Var App…` → `[enter]` toggles). Flash archive on
 the CE is several megabytes, so space there is not the constraint.
 
-This creates a tempting product: **"all 29 programs on the calculator" — ~10 in RAM, the other ~19
+This creates a tempting product: **"all 52 programs on the calculator" — ~10 in RAM, the other ~42
 in Archive.** It is a genuinely better story than "10 programs," and it's the only way the
 "complete library on a physical unit" claim is even arguably true.
 
-**Do not ship it as the default, for three reasons:**
+**Do not ship it as the default, for three reasons — and the first one got worse as the library grew:**
 
 1. **[INFERRED, not verified]** Whether archived AppVars fully escape the 50 KB Python budget is not
-   something TI states unambiguously. If they don't, a 104 KB archive tier simply fails.
+   something TI states unambiguously. If they don't, the archive tier simply fails — and the tier is
+   now **~247 KB** of source rather than the ~104 KB it was when this section was first written, so it
+   overshoots the budget by roughly 5× instead of 2×. The bigger the library gets, the more this option
+   depends on an untested inference.
 2. It converts a zero-touch product into a two-step one. Every buyer who can't find a program is a
    support message, and some fraction of those become returns.
 3. It is fragile in exactly the way this product is already fragile: a memory reset or Press-to-Test
@@ -259,7 +361,9 @@ a free 3-program starter bundle. The physical units have to be priced and framed
 because a buyer can see both.
 
 **The honest arithmetic a buyer can do:** a bare used CE Python plus the $35 complete digital
-toolkit gets them *more programs* than any physical SKU, for the bare price plus $35. So the
+toolkit gets them *more programs* than any physical SKU — **52 against 8–10** — for the bare price
+plus $35. The gap has widened as the library grew, so this comparison is less favourable to the
+loaded SKU than it was, not more. So the
 physical premium can only be justified by what the digital bundle can't deliver: it's already
 installed, the OS is current, every program has been launched and checked on that specific unit, and
 the buyer never has to install TI Connect CE. That is a **convenience and assurance** premium, not a
@@ -295,12 +399,15 @@ Three rules that follow:
 | P6 STEM Sampler | 10 | 35,015 | 33.5 KB | 66.9% | 16.5 KB | **Yes (default)** |
 | P7 DiffEq/Numerical | 9 | 29,132 | 27.8 KB | 55.6% | 22.2 KB | To order |
 | Buyer's choice | ≤10 | ≤36,864 | — | ≤72% | ≥14 KB | Option on flagship |
-| Full Library (archive tier) | 29 | 106,409 | — | see §6 | — | Experimental only |
+| Full Library (archive tier) | 52 | 252,889 (`.py` source) | — | see §6 | — | Experimental only |
+
+The seven measured SKUs draw from the **29 programs with a generated `.8xv`**; the remaining **23** are
+`.py`-only swap-ins (§3.1). Re-measure before each batch — both counts are moving.
 
 ---
 
 AP®, Advanced Placement®, and SAT® are trademarks registered by the College Board, which is not
-affiliated with, and does not endorse, this product. TI-84 Plus CE Python™, TI Connect™ CE, and
-Texas Instruments® are trademarks of Texas Instruments Incorporated, which is not affiliated with,
-and does not endorse, this product. All trademarks are the property of their respective owners.
-Policies subject to change.
+affiliated with, and does not endorse, this product. TI-84 Plus CE Python™, TI-84 Evo™,
+TI Connect™ CE, TI Connect™ Evo, and Texas Instruments® are trademarks of Texas Instruments
+Incorporated, which is not affiliated with, and does not endorse, this product. All trademarks are
+the property of their respective owners. Policies subject to change.

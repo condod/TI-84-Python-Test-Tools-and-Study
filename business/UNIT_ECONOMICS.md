@@ -525,30 +525,63 @@ It can justify itself two other ways, both real:
 ## 10.5 Platform risk: the CE Python was discontinued in April 2026
 
 This is not priced into anything above, and it should shape how much inventory you're willing to
-hold. **[RESEARCHED — see [`SOURCING.md`](SOURCING.md) §0 for sources.]**
+hold. **[RESEARCHED — see [`SOURCING.md`](SOURCING.md) §0 and
+[`EVO_TRANSITION.md`](EVO_TRANSITION.md) for sources.]**
 
 TI discontinued the TI-84 Plus CE Python on **2026-04-27** and launched the **TI-84 Evo** on
-**2026-04-28**. The Evo has Python, but it uses USB-C instead of Mini-B, does not use TI Connect CE
-(it connects via a web tool), and its compatibility with CE `.8xv` Python AppVars is
-**[UNVERIFIED]**.
+**2026-04-28**. The Evo uses USB-C instead of Mini-B and does not use TI Connect CE — it connects
+through a web app at `connectevo.ti.com`.
 
-Effect on the model:
+**The compatibility question this section used to hang on is now largely resolved, and resolved in
+the product's favour.** Two findings, both [RESEARCHED]:
+
+- **The CE `.8xv` AppVars do not work on an Evo.** Python AppVars there are **`.8xv2`** (TI KB 29430),
+  and TI-Toolkit describe the Evo container as "entirely new & non-backwards compatible."
+- **The `.py` sources are expected to transfer fine**, because TI Connect Evo auto-converts `.py` on
+  send. Eddie Shore, who owns both calculators: *"Python programs can be transferred easily between
+  the 84 Python and 84 Evo."* And a static audit of all 52 programs found imports of only `math`,
+  `random`, and `time`, with the two TI-proprietary imports guarded by `try/except ImportError` and
+  working text fallbacks.
+
+So the phrase that mattered here — "unless the programs are ported" — is the wrong frame. **An "Evo
+edition" is hours of packaging plus one hardware verification pass, not a rewrite.** The residual
+unknown is narrow: our own test pass on real hardware. Until that exists, make no public Evo
+compatibility claim.
+
+Revised effect on the model:
 
 | Horizon | Acquisition cost | Sale price | Net effect |
 |---|---|---|---|
-| **2026 season (now)** | Flat to slightly up — new stock is draining, so the "just buy new on sale" alternative is weakening | Firm | **Best season this business will have.** Sell into it. |
-| **2027** | **Down** — schools and students migrate to the Evo and dump CE Pythons | Down, probably faster than acquisition | Margins compress. Volume may rise. |
-| **2028+** | Down sharply; surplus channels finally fill with CE Pythons | Down sharply | Bare-resale commodity business. The software line probably doesn't survive it unless the programs are ported. |
+| **2026 season (now)** | Flat to slightly up — new stock is draining, so the "just buy new on sale" alternative is weakening | Firm | **Best season this line will have.** Sell into it. |
+| **2027–2028** | **Down** — schools and students migrate to the Evo and dump CE Pythons | Down, probably faster than acquisition | Margins compress per unit, **but transaction volume rises**: the transition feeds the used channel this business buys from. Net effect on total profit is ambiguous, not clearly negative. |
+| **2029–2030** | Down further; surplus channels finally fill with CE Pythons | Down further | Thinning, harvest-mode. Increasingly a bare-resale commodity business at the hardware end. |
+| **Beyond ~2030** | — | — | CE installed base is genuinely shrinking by now. **The software line survives this if it wants to**, because the `.py` sources are platform-portable and the Evo's entire installed base is Python-capable. |
 
-**Two decisions follow:**
+Note what did **not** change: **no figure in §§1–10 above was hedged for Evo risk**, so nothing in the
+P&L, break-even, or maximum-bid tables moves. What changes is the *holding-period* judgement and the
+verdict language, not the arithmetic.
 
-1. **Do not stockpile.** Buy for the season you're selling into. Inventory in this category now has a
-   declining half-life, and the June-buy/August-sell cycle in [`SOURCING.md`](SOURCING.md) §4 is
-   short enough to be safe.
-2. **Find out whether the programs run on the Evo, soon.** If they do, the product has a future and
-   the whole thesis extends. If they don't, the hardware line has roughly a two-season runway and
-   the digital line needs a port. One Evo, bought as R&D, answers this — and it is the highest-value
-   $160 you can spend on this business.
+**One number that does move, in the right direction:** the useful life of the compatibility target.
+TI's Evo-T product sheet marks "Continued OS support" as an Evo feature and leaves it blank for the
+CE-T Python Edition, so **[INFERRED]** 5.8.5 is likely the terminal CE release. A frozen platform
+means the thing your programs must work against stops moving — which slightly *reduces* long-run
+support cost per unit sold, at the price of "we update it to the latest OS" ceasing to be an evolving
+differentiator.
+
+**Three decisions follow:**
+
+1. **Do not stockpile — but for inventory-turn reasons, not existential ones.** Buy for the season
+   you're selling into. The June-buy/August-sell cycle in [`SOURCING.md`](SOURCING.md) §4 is short
+   enough to be safe, and capital tied up in calculators earns nothing while prices drift down.
+2. **Buy one Evo as R&D, and treat it as an option purchase rather than a threat assessment.** The
+   question is no longer "does the product survive." It is "how cheaply can we open a second market
+   where every unit is Python-capable, the archives are nearly empty, and C/assembly are locked out so
+   Python is the only third-party content channel." That is a **$160 call option on a first-mover
+   position**, and it is still the highest-value $160 available to this business.
+3. **Lead with the `.py` sources, not the `.8xv` AppVars, everywhere they are described.** The `.py`
+   files are the durable, forward-compatible asset and the honest basis for any future Evo claim; the
+   `.8xv` files are a CE-specific convenience layer. This costs nothing and it is what keeps the
+   digital line's addressable market from being pinned to discontinued hardware.
 
 ---
 
@@ -608,7 +641,10 @@ Concretely:
   than one shipped calculator and takes no time at all. Treat the hardware line as a seasonal way to
   convert capital and spare hours into cash, and as a distribution channel for the digital product —
   not as the main event.
-- **And know the clock is running.** The CE Python was discontinued in April 2026 (§10.5). This is
-  probably the best season this line will ever have.
+- **And know the clock is running — but it is a longer clock than it first looked.** The CE Python was
+  discontinued in April 2026 (§10.5), and 2026 is probably the best *season* this line will ever have.
+  It is not a two-season business, though: the installed base runs to roughly 2030, the transition
+  actually pushes more used units through the channel you buy from, and the `.py` sources are portable
+  to the Evo without a rewrite. Sell hard into this August; don't write the line off for 2028.
 
 The recommendation in [`README.md`](README.md) follows from this section.

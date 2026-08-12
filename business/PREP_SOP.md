@@ -5,6 +5,12 @@
 This maps onto the five checklist steps tracked per unit in the inventory app:
 **wiped → OS updated → Press-to-Test cleared → programs loaded → device verified.**
 
+> **Scope: this SOP is for TI-84 Plus CE Python hardware, and every procedure in it assumes
+> TI Connect™ CE over a Mini-B cable.** That is correct for the units this business actually buys and
+> resells. It is **wrong for a TI-84 Evo**, which uses a browser-based tool over USB-C and a different
+> file format — TI Connect CE will not connect to an Evo at all. If an Evo enters inventory, read
+> **§1.1** first. See [`EVO_TRANSITION.md`](EVO_TRANSITION.md) for the full evidence.
+
 > **The single most important thing in this document:** the five steps are in that order for a
 > reason, and **programs are loaded LAST**. Every step before "programs loaded" destroys Python
 > AppVars. Load first and you will ship an empty calculator. See §0.
@@ -71,13 +77,35 @@ Practical consequence for this SOP: a plain CE that lands in your inventory goes
 | Windows or Mac computer with **TI Connect™ CE** (6.0.3, 2025-03-26) | Free from TI. Install **before** first connecting a calculator so drivers are in place. |
 | 2–4 × USB **Standard-A to Mini-B** cables | The CE family uses a **Mini-B** port, not micro-USB and not USB-C. TI's spec sheet: "Standard A to Mini-B USB cable included." Cheap generic mini-B cables work for data + charge. |
 | Powered USB hub or multi-port wall charger | You will be charging 4–10 units at once. Charging from a laptop port is slow and laptop sleep kills the charge. |
-| Current **TI-84 Plus CE OS and Apps Bundle** (`.b84`), downloaded once from TI | Latest as of research date: **5.8.5 (April 2026)**; TI's US download page still listed 5.8.4 (2025-09-02) at time of writing. Verify at education.ti.com before each batch. |
+| Current **TI-84 Plus CE OS and Apps Bundle** (`.b84`), downloaded once from TI | Latest as of research date: **5.8.5 (April 2026)**; TI's US download page still listed 5.8.4 (2025-09-02) at time of writing. **5.8.5 is probably the last CE release there will ever be — see the note below.** |
 | Local folder with your `8xv/` payloads, organised by loadout | See [`LOADOUT_STRATEGY.md`](LOADOUT_STRATEGY.md). |
 | 70–91% isopropyl alcohol, microfibre cloths, cotton swabs, plastic spudger, soft brush | |
 | Small Phillips #00 driver | Back cover / battery access |
 | Spare batteries (TI part **3.7L1200SPB**, 3.7 V 1200 mAh) | Buy in 10-packs. |
 | Spare slide cases and mini-B cables | The two most commonly missing accessories. |
 | Camera / phone on a small light tent | Same background and framing every time — see [`LISTING_AND_SUPPORT.md`](LISTING_AND_SUPPORT.md) §2. |
+
+### Archive the `.b84` bundle locally, and relax the per-batch version check
+
+The CE Python is discontinued, and TI's Evo-T product sheet marks **"Continued OS support" as an Evo
+feature while leaving it blank for the CE-T Python Edition**
+(<https://justmore.dk/images/media/ProductsDocs/TI10014_PRODUCTSHEET.pdf>). **[INFERRED, not
+announced]** CE OS development has ended and **5.8.5 is the effective terminal release.**
+
+Two practical changes follow:
+
+- **"Verify at education.ti.com before each batch" can relax to a periodic check** — quarterly is
+  plenty. A new CE OS is unlikely to appear, and re-checking before every batch is wasted bench time.
+- **Keep your own archived copy of the `.b84` bundle**, because TI's CE download pages may eventually
+  be retired and you would then have no way to restore the Python App on a wiped unit (§0). TI's
+  licence explicitly permits **one backup copy on your computer** — see the rule below. Store it with
+  the version number in the filename. Do **not** confuse this with redistribution: the archive lives on
+  your bench and never ships.
+
+It also means "updated to the latest TI operating system" is likely to stay true indefinitely rather
+than being a perishable claim — but the end of CE OS support has been **inferred, not announced**, so
+don't yet advertise 5.8.5 as "final." See [`LISTING_AND_SUPPORT.md`](LISTING_AND_SUPPORT.md) §1 for the
+wording and the trigger for changing it.
 
 ### The OS licence rule — non-negotiable
 
@@ -92,6 +120,47 @@ stick in the box, host them on your own site, or include them in any download li
 buyer. **The only software you ever distribute is your own.** If a buyer needs the OS, you link
 them to TI's own download page. This is expanded in
 [`LISTING_AND_SUPPORT.md`](LISTING_AND_SUPPORT.md) §5.
+
+---
+
+## 1.1 If a TI-84 Evo enters inventory — a separate, non-overlapping toolchain
+
+Nothing in the rest of this SOP applies to an Evo unit. **Do not try to unify the two flows**;
+document and run them separately. All of the following is [RESEARCHED] from TI and TI-Planet unless
+marked otherwise — sources in [`EVO_TRANSITION.md`](EVO_TRANSITION.md) Q2 and Q3.
+
+| | CE Python (this SOP) | TI-84 Evo |
+|---|---|---|
+| Transfer software | **TI Connect™ CE** desktop app | **TI Connect™ Evo**, a web app at **`connectevo.ti.com`** — no install, no sign-in |
+| Cable | USB Standard-A to **Mini-B** | **USB-C** (box includes USB-C to USB-A; a C-to-C cable is needed for a USB-C-only computer) |
+| Python payload | `.8xv` AppVars, or `.py` converted on send | **`.py` only** — the Evo's Python AppVar extension is **`.8xv2`** and our `.8xv` files are rejected outright |
+| Requirements | Local install, works offline | **Active internet connection and WebUSB.** Windows 11 64-bit, macOS 15/26, or ChromeOS 143+ |
+| Browser | n/a | **Chrome.** TI-Planet found only Chrome worked in their tests; WebUSB is unsupported in Safari and Firefox. **[UNVERIFIED]** whether Edge works, though as Chromium it likely does |
+| Functions available | Full explorer, OS/bundle send, batch exam-mode exit | Capture Screen, Send Files, Install OS, Exit Test Mode |
+
+**The three consequences that actually change how you'd work:**
+
+1. **Send `.py`, never `.8xv`.** TI Connect Evo auto-converts `.py` files on send and builds the
+   `.8xv2` itself. This is the whole reason no new converter is needed — **do not** build an `.8xv2`
+   writer or try to reverse-engineer the format; TI-Toolkit, who are best equipped to, have not
+   documented it. The `8xv/` folder is a CE-only artifact.
+2. **The offline prep bench stops working.** The CE flow runs entirely local; **every Evo unit you
+   flash needs live internet and a Chrome session.** For volume work that is a real operational
+   regression and it is the least obvious consequence of the transition. Budget for it before
+   committing to any Evo batch.
+3. **[UNVERIFIED] Bulk-loading ergonomics are unknown.** The documented Evo flow is a file-picker
+   "SEND TO CALCULATOR." Whether multi-selecting ~52 files is practical at volume has not been tested
+   by anyone. **Make it an explicit test item on the first unit** — it is the single biggest unknown
+   for a pre-loaded-hardware business on this platform.
+
+**Also invalidated for an Evo unit, and easy to miss:** every keystroke sequence and screenshot in
+this document. The Evo's keypad was substantially remapped — the arithmetic keys all shifted up a row,
+`[apps]` was replaced by a fraction template, `matrix` moved, and `[x^-1]` became `[x^n]`. And the
+mini-B cable stock in the prep kit is CE-only.
+
+**Current policy: do not stock Evo units** ([`SOURCING.md`](SOURCING.md) §5). This section exists so
+that if one arrives inside a lot — or once the R&D unit is on the bench — nobody follows a CE
+procedure and concludes the calculator is broken.
 
 ---
 
@@ -271,19 +340,27 @@ buyer, **and** capture the evidence photo now while it is free to do so.
    `LOADOUT_STRATEGY.md` is sized to sit at or under ~34 KB so the student has real working room.
 5. Tick **programs loaded**.
 
-### `.8xv` vs `.py` — which to send, and an honest caveat
+### `.8xv` vs `.py` — send `.py` by default
 
-The repo ships both. **For the first production units, send the `.py` files and let TI Connect CE
-do the conversion.** Reason: the repo's own README states the `.8xv` AppVars are generated by this
-project's converter, not by TI's software, and **"have not been tested on physical hardware."**
-You now have physical hardware. Use the first few units as the hardware validation the repo has
-been missing:
+The repo ships both. **Default: send the `.py` files and let TI Connect CE do the conversion.** There
+are now two independent reasons, and the second one is new:
+
+1. **It's the validated path.** The repo's own README states the `.8xv` AppVars are generated by this
+   project's converter, not by TI's software, and **"have not been tested on physical hardware."**
+   Letting TI's software build the AppVar removes our converter from the trust chain entirely.
+2. **It's the forward-compatible path.** TI Connect Evo also auto-converts `.py` on send, so `.py` is
+   the one payload format that works on both platforms. The `.8xv` files are a CE-only convenience
+   layer — the Evo's Python AppVar extension is `.8xv2` and will not accept them
+   ([`EVO_TRANSITION.md`](EVO_TRANSITION.md) Q2, §1.1 above). **`.py` is the durable asset; treat it as
+   the product and `.8xv` as a shortcut.**
+
+You now have physical hardware, so still run the validation the repo has been missing — the result is
+worth feeding back to `bundles/FILE_FORMAT_NOTES.md` either way:
 
 1. On unit #1, send **one** `.8xv` and one `.py`. Open both in the Python App. Confirm both appear
    in File Manager, both open in the Editor with correct source, and both run.
-2. If the `.8xv` behaves identically, switch to `.8xv` for all subsequent units (it's faster, and
-   the name is deterministic) and record that hardware validation happened — that finding is worth
-   feeding back to the repo's `bundles/FILE_FORMAT_NOTES.md`.
+2. If the `.8xv` behaves identically, you may switch to `.8xv` for CE units where the extra speed and
+   the deterministic on-calc name are worth it. Record that hardware validation happened.
 3. If it doesn't, stay on `.py` permanently. It costs a few extra seconds per unit and nothing else.
 
 Either way, **never ship a unit whose programs you have not personally launched** (§6).
@@ -440,6 +517,8 @@ worse fast — it is the single most sensitive input in the model.
 
 ```
 CANDIDATE?      Faceplate must read "TI-84 Plus CE PYTHON". Plain CE = bare resale only.
+                A TI-84 EVO IS NOT A CANDIDATE. Nothing below applies to it -> see SOP 1.1
+                (connectevo.ti.com in Chrome, USB-C, .py only - TI Connect CE will not connect)
 
 1  WIPE         [2nd][MEM] 7:Reset  [>][>]  1:All Memory  2:Reset    -> "Mem cleared"
                 (this also deletes the Python App - expected)
@@ -454,6 +533,7 @@ CANDIDATE?      Faceplate must read "TI-84 Plus CE PYTHON". Plain CE = bare resa
                 *** LAST MOMENT EXAM MODE IS SAFE ***
 
 4  PROGRAMS     TI Connect CE > Calculator Explorer > drag loadout > destination RAM
+                Send the .py files (TI Connect CE converts) - .py works on CE AND Evo
 
 5  VERIFY       Launch EVERY program, one known-answer input each.
                 All keys. Screen. Charge port. Battery hold overnight.
