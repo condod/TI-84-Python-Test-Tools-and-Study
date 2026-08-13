@@ -400,20 +400,40 @@ guaranteed return plus a bad review, and it costs more than the unit's entire ma
    [`AB_TEST_PROTOCOL.md`](AB_TEST_PROTOCOL.md) §3.2: **bare does not mean unprepared**, or you are
    testing refurbishment instead of software.
 
-### 7.4 The Evo R&D unit — the highest-value $130–160 available
+### 7.4 The Evo R&D unit — the highest-value ~$160 available, but not in week 1
 
 Not bench kit, but it belongs in a spending plan.
 [`../UNIT_ECONOMICS.md`](../UNIT_ECONOMICS.md) §10.5 calls it *"the highest-value $160 you can spend
-on this business"*, and that is right: whether the `.8xv` programs run on the Evo is **[UNVERIFIED]**
-and it determines whether this product line has a two-season runway or a future.
+on this business"*, and that is right.
 
-**But sequence it after the A/B test, not before.** If the test says "stop loading," Evo
-compatibility stops mattering for the hardware line and becomes a question for the digital product
-only. Spending $160 to answer a question that a $0 decision might moot is the wrong order. **Buy the
-Evo the same week you decide "keep loading."**
+> **Correction to an earlier version of this section.** It said "whether the `.8xv` programs run on
+> the Evo is **[UNVERIFIED]** and it determines whether this product line has a two-season runway or
+> a future." **Both halves of that are wrong**, and
+> [`../EVO_TRANSITION.md`](../EVO_TRANSITION.md) is the better-sourced document on it:
+>
+> - **The `.8xv` AppVars definitively do not run on an Evo. [RESEARCHED]** Python AppVars there are
+>   `.8xv2` and the format is *"entirely new & non-backwards compatible"* (TI KB 29430, TI-Toolkit).
+>   That is settled, not unverified. The genuinely open question is whether the **`.py` sources**
+>   transfer — and the evidence says they very probably do, unchanged, because TI Connect Evo
+>   auto-converts `.py` on send ([`../SOURCING.md`](../SOURCING.md) §0).
+> - **The CE Python line does not have a two-season runway.** Five production years at TI-84 scale
+>   keeps the installed base viable **into roughly 2029–2030**
+>   ([`../EVO_TRANSITION.md`](../EVO_TRANSITION.md) Q4).
 
-Note it needs its own USB-C cable and the `connectevo.ti.com` web tool, so budget **$140–$170** all
-in and expect **none** of the CE workflow to transfer.
+**Sequencing, restated honestly.** The older docs say *buy one now*
+([`../SOURCING.md`](../SOURCING.md) §0 point 4, [`../README.md`](../README.md)); this folder said
+*wait for the A/B result*. **The conditional framing was the weaker argument** — the Evo unit is
+justified by the digital line on its own, and the digital line is where
+[`../UNIT_ECONOMICS.md`](../UNIT_ECONOMICS.md) §10 says the money is, so a "stop loading" verdict
+would not moot it.
+
+**What survives is a cash-timing point, and it is a good one:** week 1 is a **~$380** budget and $160
+of Evo is 42% of it, spent on a question that has no bearing on whether you can ship a CE Python. So
+**buy the Evo when cash allows — after the pilot pairs ship, not before them** — and do not let this
+section be read as a reason to skip it.
+
+It needs its own USB-C cable and the `connectevo.ti.com` web tool, so budget **$140–$170** all in and
+expect **none** of the CE workflow to transfer.
 
 ---
 

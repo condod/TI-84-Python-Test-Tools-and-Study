@@ -78,6 +78,18 @@ loaded CE **Python** should clear above it, but not far above it.
 Python units around **$95**. When that promo is live — which is exactly your peak selling season — a
 used unit asking $95 is competing with a new one in a box. Price under it, always.
 
+> **The ceiling is promo-dependent, and the promo was not visible on re-check.** A second sweep of the
+> same retailers on 2026-08-12 found the cheapest **new** CE Python at **$129.98**, a Walmart listing
+> at **$134.00** (was $149.00), and the Aztek dealer's new unit **out of stock** [RESEARCHED —
+> [`hardware-launch/SOURCING_SHORTLIST.md`](hardware-launch/SOURCING_SHORTLIST.md) §3.2]. New supply
+> is draining exactly as [`SOURCING.md`](SOURCING.md) §0 predicted, and the $93.99 promo above may
+> simply be gone.
+>
+> **Keep $95 as the operating ceiling anyway.** A promo that lapsed once can return overnight, the
+> whole point of a ceiling is that it is conservative, and nothing in the sell-side model needs the
+> extra room. Treat the loosening as a reason to expect fewer new-in-box competitors on your listing
+> page, **not** as licence to raise prices.
+
 **Modelled acquisition cost: $30 (good case) / $45 (typical if you buy one at a time).** [ESTIMATE]
 
 > **The CE Python constraint is the whole sourcing problem.** Only the Python variant runs Python —
@@ -264,12 +276,23 @@ calculator because it has your programs on it?**
 calculator listings across marketplaces and found no established market segment with observable
 premium pricing. What I did find, repeatedly, is the counter-argument, stated plainly by
 third-party guides: TI publishes free program libraries, ticalc.org hosts tens of thousands of
-community programs, and *"a student can load a polynomial solver, a Riemann sum visualizer, or a
-unit converter in about two minutes with a USB cable"*
-(<https://storycircuit.us/blog/ti-84-plus-ce-comparison/>, accessed 2026-08-12). A refurb guide's
-framing is that condition, accessories, and battery health drive used-calculator price; bundled
-software is listed as something that *"can justify"* a higher price, with no figure attached
+community programs, and a student can load a solver or a unit converter in a couple of minutes with a
+USB cable. A refurb guide's framing is that condition, accessories, and battery health drive
+used-calculator price; bundled software is listed as something that *"can justify"* a higher price,
+with no figure attached
 (<https://production.matthewmarks.com/refurbished-ti-84-graphing-calculator/>, accessed 2026-08-12).
+
+> **A source removed from this paragraph, and why.** The "two minutes with a USB cable" phrasing was
+> previously quoted from `storycircuit.us/blog/ti-84-plus-ce-comparison/`. **That source has been
+> retired across `business/`** — the same article claims Python can be added to a base TI-84 Plus CE
+> via a *"$30 add-on module,"* which is false; that adapter is a **TI-83 Premium CE** accessory
+> ([`SOURCING.md`](SOURCING.md) §2 has the citations). An article that is wrong about whether the
+> base CE can run Python is not a source this document should lean on for anything.
+>
+> **The argument is unaffected**, which is why the sentence stays: that loading programs yourself is
+> easy and free is common knowledge, is directly observable in TI's and ticalc.org's own libraries,
+> and is corroborated below by mcstutoring's own buyer instructions, which tell purchasers to
+> *"transfer files using TI Connect CE"* themselves.
 
 **The most telling evidence is what the closest competitor doesn't do.** mcstutoring.com — the
 established TI-84 program seller this repo already benchmarks against in `bundles/PRICING.md`, run by

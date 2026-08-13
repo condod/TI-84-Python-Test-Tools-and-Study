@@ -176,9 +176,20 @@ procedure and concludes the calculator is broken.
 3. Record the **serial number** (back of unit, and via `[2nd]` `[MEM]` `1:About`). The app tracks
    this per unit. It is your warranty/dispute anchor and your defence against "this isn't the one
    you sent me" claims.
-4. **Confirm variant.** Faceplate reads "TI-84 Plus CE **PYTHON**" on Python units. Cross-check
-   on-device: `[2nd]` `[MEM]` `1:About` shows the model name, and the Python App appears in
-   `[apps]`. Record variant in the app. If it's a plain CE, reroute to the bare-resale flow.
+4. **Confirm variant — and confirm it by running code, not by looking at the app list.** Faceplate
+   reads "TI-84 Plus CE **PYTHON**" on Python units, and `[2nd]` `[MEM]` `1:About` shows the model
+   name. Then **open the Python app, type `print(1+1)`, and press Run.**
+   - Returns **`2`** → genuine CE Python. Record the variant and continue.
+   - Returns **`Run and Shell are not available right now`** → this is a **plain CE with an edited
+     certificate**, not a Python unit. The Python App installs on non-Python hardware and the editor
+     opens normally; the interpreter lives on a coprocessor that isn't there, so only *running* code
+     exposes it ([`SOURCING.md`](SOURCING.md) §1.1). Reroute to the bare-resale flow, and if it was
+     sold to you as a Python unit, open a not-as-described case immediately — you have the photo
+     evidence and the clock is running.
+
+   **Do this before anything else touches the unit.** It is the same test §1.1 tells you to ask a
+   seller for pre-purchase; running it again at intake is the backstop for every unit that arrived
+   without one, and it costs fifteen seconds. Record the variant *and how it was confirmed* in the app.
 5. **Reject/part-out screen.** Do not spend labour on a unit that fails any of these:
    - Cracked or delaminated LCD, dead columns/rows, or a pressure bruise larger than a fingernail.
    - Mini-B port physically loose, bent, or not retaining a cable.
@@ -187,7 +198,12 @@ procedure and concludes the calculator is broken.
    - Swollen battery **bulging the back cover** — the cell is replaceable, but a swell that has
      deformed the housing usually means the housing is done too.
    - School asset engraving that cannot be removed without visible damage — see
-     [`SOURCING.md`](SOURCING.md) §6.
+     [`SOURCING.md`](SOURCING.md) §7.
+
+   **A rejected unit is stock, not rubbish.** Because TI sells no CE screens, faceplates, keys or key
+   membranes as parts, the repair community pays **[ESTIMATE] $30–$40** for a broken CE Python —
+   frequently more than it cost you as a share of a lot ([`SOURCING.md`](SOURCING.md) §5). List it
+   honestly as **"for parts / not working,"** never as working, and never ship a swollen cell.
 6. **Battery and charge check.** Plug in. Confirm the charge LED behaves, then leave the unit on
    the hub. Full first charge from flat is 4–6 hours per TI's own charging FAQ; plan an overnight
    soak for a batch. Next morning, unplug and check `[2nd]` `[MEM]` `1:About` / the battery icon
@@ -211,7 +227,7 @@ Purpose: remove the previous owner's data completely, and start from a known sta
    somebody's personal notes, contact details, or photos as Pic/Image vars. You are about to
    delete them, which is correct — but note in the record that the unit came with prior-owner
    data, because a unit stuffed with a school's programs is a signal about provenance
-   ([`SOURCING.md`](SOURCING.md) §6).
+   ([`SOURCING.md`](SOURCING.md) §7.2).
 3. Perform the full reset, per TI's Exam Prep Guide:
 
    ```
@@ -519,6 +535,10 @@ worse fast — it is the single most sensitive input in the model.
 
 ```
 CANDIDATE?      Faceplate must read "TI-84 Plus CE PYTHON". Plain CE = bare resale only.
+                PROVE IT: Python app > type print(1+1) > Run.
+                  2                                     -> genuine, proceed
+                  "Run and Shell are not available..."  -> FAKED CERT, plain CE. Bare resale.
+                The app list and the OS version prove NOTHING. Only running code does.
                 A TI-84 EVO IS NOT A CANDIDATE. Nothing below applies to it -> see SOP 1.1
                 (connectevo.ti.com in Chrome, USB-C, .py only - TI Connect CE will not connect)
 

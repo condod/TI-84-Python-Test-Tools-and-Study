@@ -281,39 +281,48 @@ Turn the buyer's-choice option ([`../LOADOUT_STRATEGY.md`](../LOADOUT_STRATEGY.m
 the duration. It is a real conversion feature and you should ship it later — but it introduces
 per-unit variation in what the buyer receives, and variation is the enemy here.
 
-> ### ⚠️ Contradiction with `LOADOUT_STRATEGY.md` — re-derived P6 contents
+> ### ✅ Resolved 2026-08-13 — P6 re-derived, and now adopted upstream
 >
-> [`../LOADOUT_STRATEGY.md`](../LOADOUT_STRATEGY.md) was written against a **29-program, 106,409-byte**
-> library and specifies P6 as `QUADSOLV · LINSOLVE · DESCSTAT · UNITCONV · DERIVNUM · SIMPSON ·
-> KINEMAT · OHMSLAW · IDEALGAS · OBLIQUE` at 35,015 B.
+> **This is no longer a contradiction.** [`../LOADOUT_STRATEGY.md`](../LOADOUT_STRATEGY.md) now
+> specifies exactly the loadout below, and that document is the authority; this table is retained as
+> the derivation.
 >
-> **As of 2026-08-12 the library is 52 programs, 249,322 bytes, and every one of those filenames has
-> changed.** Measured directly from `8xv/` today. The old P6 spec cannot be loaded as written — the
-> files do not exist under those names. I have not edited that document (another agent may be working
-> in it); the re-derivation is here, and §9 lists it as a contradiction to resolve.
+> Two corrections to what this section previously claimed, for the record. First,
+> `LOADOUT_STRATEGY.md` had **already** been re-measured against the 52-program / 249,322-byte library
+> before this folder was written — the `QUADSOLV`/`DESCSTAT`-era filenames were gone from it, and its
+> P6 read `QUAD · LINSOLV · STATS · UNITS · DERIV · SIMPSON · SUVAT · OHMS · GASLAW · TRIG` at
+> **35,080 B**, which is the renamed old set. So the "cannot be loaded as written" framing was
+> overstated: the files existed, the total was just at the wrong end of the headroom policy.
 >
-> **P6 STEM Sampler, re-derived — 10 programs, 33,956 B / 33.2 KB · 66.3% of 50 KB · 16.8 KB free**
+> Second, **the 35,080 B set was compliant on that document's published `Free` column** (16.5 KB,
+> computed on-calc) and non-compliant only against the conservative **34,816 B file-byte gate** this
+> protocol checks. That ambiguity has been resolved in `LOADOUT_STRATEGY.md` §1: the file-byte gate
+> wins where the two readings disagree, which is what makes the substitution below correct rather
+> than merely tidy.
 >
-> | Program | Bytes | Subject | Was |
-> |---|---:|---|---|
-> | `QUAD` | 2,033 | Algebra | `QUADSOLV` |
-> | `LINSOLV` | 2,638 | Linear systems | `LINSOLVE` |
-> | `STATS` | 3,859 | Statistics | `DESCSTAT` |
-> | `UNITS` | 4,422 | Cross-subject | `UNITCONV` |
-> | `DERIV` | 2,441 | Calculus | `DERIVNUM` |
-> | `SIMPSON` | 2,645 | Calculus | `SIMPSON` |
-> | `SUVAT` | 3,523 | Physics | `KINEMAT` |
-> | `OHMS` | 3,375 | Circuits | `OHMSLAW` |
-> | `PH` | 3,659 | Chemistry | *(swap: was `IDEALGAS`)* |
-> | `TRIG` | 5,361 | Trigonometry | `OBLIQUE` |
-> | **Total** | **33,956** | | |
+> **P6 STEM Sampler, as adopted — 10 programs, 33,956 B / 33.2 KB · 66.3% of 50 KB · 16.8 KB free**
+> (17.6 KB free on the on-calc convention). Re-measured from `8xv/` on 2026-08-13, unchanged.
 >
-> One substantive change beyond renaming: **`PH` (3,659 B) replaces the chemistry slot** instead of
-> `GASLAW` (4,783 B, formerly `IDEALGAS`). A direct rename of the old set totals 35,080 B, which
-> leaves only 15.7 KB free and **breaks the document's own ≥16 KB headroom policy**. Swapping in the
-> smaller chemistry program restores compliance and costs nothing pedagogically — acid/base and pH
-> is at least as commonly used in intro chemistry as the ideal gas law. `GASLAW` is the first
-> swap-in if you ever want it back.
+> | Program | Bytes | Subject |
+> |---|---:|---|
+> | `QUAD` | 2,033 | Algebra |
+> | `LINSOLV` | 2,638 | Linear systems |
+> | `STATS` | 3,859 | Statistics |
+> | `UNITS` | 4,422 | Cross-subject |
+> | `DERIV` | 2,441 | Calculus |
+> | `SIMPSON` | 2,645 | Calculus |
+> | `SUVAT` | 3,523 | Physics |
+> | `OHMS` | 3,375 | Circuits |
+> | `PH` | 3,659 | Chemistry — **the one change from the previous P6** |
+> | `TRIG` | 5,361 | Trigonometry |
+> | **Total** | **33,956** | |
+>
+> One substantive change: **`PH` (3,659 B) takes the chemistry slot** instead of `GASLAW` (4,783 B).
+> The `GASLAW` version totals 35,080 B, which leaves 15.7 KB free on the file-byte reading and
+> **breaks the ≥16 KB headroom policy**. Swapping in the smaller chemistry program restores
+> compliance with 1.1 KB to spare and costs nothing pedagogically — acid/base and pH is at least as
+> commonly used in intro chemistry as the ideal gas law. `GASLAW` is the first swap-in if you ever
+> want it back, at the cost of the headroom.
 >
 > **Re-measure before the batch** (`../LOADOUT_STRATEGY.md` §2 says to, and it was right):
 >
@@ -742,33 +751,37 @@ binom.test(sum(w$sold.LOADED & !w$sold.BARE),
 
 ## 9. Contradictions with existing docs
 
-Flagged here rather than edited, per the scope constraint on this folder. Each needs resolving in
-the owning document by whoever is editing it.
+**Resolved 2026-08-13.** These were originally flagged rather than edited, per the scope constraint on
+this folder. They have since been worked through in the owning documents; the status of each is
+recorded below so nobody re-opens a settled question.
 
-### 9.1 The digital bundle lineup has moved — three docs and the app disagree
+### 9.1 The digital bundle lineup — ✅ already current, this entry was wrong
 
 | Source | Says | Status |
 |---|---|---|
-| `bundles/PRICING.md` (current) | **52 programs**; 7 subject bundles at **$12/$15/$19**; Complete Toolkit **$49**; free starter **5 programs** | ✅ Current |
-| `../UNIT_ECONOMICS.md` §6, §10 | "**$35** complete digital toolkit", "the absolute ceiling on the premium is $35" | ❌ Stale |
-| `../LOADOUT_STRATEGY.md` §7 | "**$14** per subject bundle / **$35** complete toolkit", "free **3-program** starter" | ❌ Stale |
-| App `ProgramBundle` enum | 6 values: `FREE_STARTER, CALCULUS, ALGEBRA_LINEAR_STATS, PHYSICS_ENGINEERING, CHEMISTRY_EXAM_TOOLS, COMPLETE_TOOLKIT` | ❌ Missing `BIOLOGY`, `FINANCE`, `STATISTICS_PROBABILITY`; two names drifted |
+| `bundles/PRICING.md` | **52 programs**; 7 subject bundles at **$12/$15/$19**; Complete Toolkit **$49**; free starter **5 programs** | ✅ Current |
+| `../UNIT_ECONOMICS.md` §6, §10 | **$49** complete digital toolkit; explicitly warns against reading the $35→$49 repricing as licence to charge more | ✅ Current — **this row previously said "$35, stale." It was not.** |
+| `../LOADOUT_STRATEGY.md` §7 | **$12–$19** per subject bundle / **$49** complete toolkit; free **5-program** starter | ✅ Current — **same correction** |
+| App `ProgramBundle` enum | 6 values: `FREE_STARTER, CALCULUS, ALGEBRA_LINEAR_STATS, PHYSICS_ENGINEERING, CHEMISTRY_EXAM_TOOLS, COMPLETE_TOOLKIT` | ❌ Still missing `BIOLOGY`, `FINANCE`, `STATISTICS_PROBABILITY`; two names drifted. **The only genuine gap here** — spec at §10.2 #14 |
 
-**Effect on this test — genuinely favourable, and worth noting.** The economics doc argues the
-premium is capped by what a buyer pays for the software separately: *"a buyer can purchase a bare
-used CE Python and the $35 complete digital toolkit … so the absolute ceiling on the premium is
-$35."* That reference price is **now $49**, so the arithmetic ceiling has risen from $35 to $49.
+**What happened:** this folder was drafted against a snapshot of `business/` taken before the pass
+that reconciled those two documents to the 52-program library. Both had already been updated. The
+lesson is worth keeping — **re-read the owning document before recording a contradiction against it**.
 
-**Do not read that as good news about the premium.** The binding constraint was never the ceiling —
-it was the observed willingness to pay, which no evidence supports at any level. A higher ceiling
-changes nothing about the $5–$12 estimate. The $12 test differential stands.
+**The substantive point still stands and is unchanged.** The arithmetic ceiling on the premium is
+$49, not $35, but the binding constraint was never the ceiling — it was observed willingness to pay,
+which no evidence supports at any level. **The $12 test differential stands.**
 
-### 9.2 `LOADOUT_STRATEGY.md` P6 cannot be loaded as written
+### 9.2 `LOADOUT_STRATEGY.md` P6 — ✅ resolved, P6 changed
 
-Covered in §3.4. The library is 52 programs / 249,322 bytes, not 29 / 106,409, and **every filename
-has changed**. The re-derived P6 is in §3.4. Note also that a literal rename of the old P6 comes to
-35,080 B, which **violates that document's own ≥16 KB headroom policy** — so the substitution is
-required, not cosmetic.
+Covered in §3.4. The re-derived 10-program / **33,956 B** P6 (`PH` in the chemistry slot instead of
+`GASLAW`) has been adopted in `../LOADOUT_STRATEGY.md`, which is now the authority for it. That
+document also resolves the underlying ambiguity that produced the disagreement: the ≥16 KB headroom
+policy is enforced against **file bytes** (≤34,816 B), not the on-calc figure, wherever the two
+readings disagree.
+
+Note the original framing here was overstated — the filenames in that document were *already* current;
+only the byte total was at the wrong end of the policy.
 
 ### 9.3 `UNIT_ECONOMICS.md` §6 asks for "$10–$15 apart"; this test uses $12
 

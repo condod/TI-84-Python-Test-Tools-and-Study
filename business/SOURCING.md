@@ -26,11 +26,28 @@ replacement, the TI-84 Evo, on 2026-04-28.** [RESEARCHED]
   — **does not use TI Connect CE**; it connects through a web tool at `connectevo.ti.com`.
   (<https://www.cemetech.net/news/2026/4/1062/_/ti-84-evo-calculator-released-fast-graphing-new-ui-new-hardware>)
 
-**A second, quieter change compounds this.** Independent of the Evo launch, TI appears to be
-**removing Python from newly manufactured TI-84 Plus CE units.** A dealer notice dated **2026-03-12**
-told customers the CE would continue but without the Python feature, and TI-Planet's OS teardown
-records boot code **5.8.4.0058** identifying the hardware as **"TI-84 Plus CE (non-Python)"**.
-[RESEARCHED, corroborated by two independent sources]
+**A second, quieter change compounds this.** Independent of the Evo launch, TI is
+**removing Python from newly manufactured TI-84 Plus CE units.** Underwood Distributing, a US
+instructional dealer, states it directly [RESEARCHED]
+(<https://underwooddistributing.com/blogs/calculators/ti-84-plus-ce-python-update>, accessed
+2026-08-12):
+
+> *"As of early 2026, Texas Instruments has informed us that Python functionality on the Ti-84 Plus
+> CE will be phased out on new calculators manufactured. The TI-84 Plus CE will still be sold;
+> however, it will no longer include Python… **There will be no price changes related to the
+> switch.** … If purchasing your Ti-84 Plus CE from an alternative retailer, we recommend reaching out
+> to them to clarify whether the Ti-84 Plus CE you will receive includes python or not."*
+
+That supersedes the unnamed dealer notice this section previously cited, and TI-Planet's OS teardown
+corroborates it independently: boot code **5.8.4.0058** identifies the hardware as
+**"TI-84 Plus CE (non-Python)"**. [RESEARCHED, two independent sources]
+
+**Note the "no price change" line — it is the operationally important part.** A 2026 retail CE costs
+the same whether or not it has Python, so buying new is a coin flip between variants at identical
+cost. Amazon's plain-CE listing (ASIN `B00TFYYWQA`) says the quiet part out loud: *"Customers may
+receive python version while supplies last."* [RESEARCHED]
+(<https://www.amazon.com/Texas-Instruments-TI-84-Graphing-Calculator/dp/B00TFYYWQA>, accessed
+2026-08-12.) **Do not source new stock.**
 
 That is the more important fact for you, because it means:
 
@@ -137,26 +154,70 @@ Work down this list. Stop at the first one you can confirm.
 |---|---|---|
 | **Faceplate wordmark** | CE Python units are labelled **"TI-84 Plus CE PYTHON"** on the front faceplate. Plain CE reads **"TI-84 Plus CE"**. This is the primary check and it is visible in any straight-on front photo. | **High** — but only if you can read the faceplate. Demand a clear front photo. |
 | **Part number** (box, label, or seller listing) | Python: **`84CEPY/...`** — e.g. `84CEPY/FC/1L1`, `84CEPY/TBL/1L1/L`. Plain CE and older: `84PL/FC/1L1` (TI-84 Plus), `84PLCE/...` (plain CE). Teacher packs use `/TPK/`. [RESEARCHED] (<https://www.aztekcomputers.com/84cepy-tbl-1l1-l-ti84-plus-ce-graph-python-texas-instruments/p>, Bach Company 2025 TI dealer catalogue) | **High** when present |
-| **On-device model name** | `[2nd]` `[MEM]` → `1:About` displays the model name. Ask the seller for this photo — it is the single most useful request you can make, because it shows model **and** OS version in one shot. | **Highest** |
-| **Python App present** | `[apps]` list contains `Python`. | **High, but not conclusive — see below** |
-| **Manufacture date** | CE Python production ran **2021-07-27 → 2026-04-27**. A CE with a serial date code before mid-2021 is definitively **not** a Python unit. Date code on the back reads `L-MMYYR` (month, year, hardware revision letter) — e.g. `L-0620O` is June 2020, revision O. [RESEARCHED] (Cemetech, <https://www.cemetech.net/forum/viewtopic.php?t=18642>) | High as a **negative** filter, weak as a positive one — plain CE was still sold alongside |
+| **On-device model name** | `[2nd]` `[MEM]` → `1:About` displays the model name. Worth asking for, because it shows model **and** OS version in one shot. | **High** — but it reports what the certificate claims, so it does not defeat a faked unit |
+| **Python Shell actually runs a line** | Ask the seller to type `print(1+1)` in the Python app and press Run. See the test below. | **Conclusive — the only remote check that is** |
+| **Python App present** | `[apps]` list contains `Python`. | **Not conclusive, and this is the trap — see below** |
+| **Manufacture date** | CE Python production ran **2021-07-27 → 2026-04-27**. A CE with a serial date code before mid-2021 is definitively **not** a Python unit. Date code on the back reads `L-MMYYR` (month, year, hardware revision letter) — e.g. `L-0620O` is June 2020, revision O. [RESEARCHED] (Cemetech, <https://www.cemetech.net/forum/viewtopic.php?t=18642>) | High as a **negative** filter; **moderate as a positive one for US-market units** — see below |
 | **Colour** | Not reliable. Both variants shipped in many colours. Ignore colour as a signal. | None |
 | **OS version** | Not reliable on its own. Both variants run 5.x OS; a plain CE can be on 5.8.x and still have no Python. | **None — this is the classic mistake** |
 
-**Two traps in that table worth spelling out.**
+**Three traps in that table worth spelling out.**
 
-**The Python App can appear on hardware that cannot run Python.** Community testing has shown the
-Python App can be installed onto a non-Python CE via a certificate edit, where it appears in the
-`[apps]` menu and then fails or misbehaves because the ARM coprocessor isn't there. **So a photo of
-the app list is not proof of Python hardware.** Ask instead for the **About screen** (which reports
-the model name) or, better, a photo of the Python shell with a one-line program actually having run.
-The faceplate wordmark plus the About screen together are what you should insist on. [RESEARCHED —
-Cemetech community testing]
+#### The faked Python unit, and the exact test that defeats it
 
-**Part numbers are less clean than they look.** `84CEPY/...` is reliably Python. But `84PLCE/TBL/1L1`
-is used inconsistently across distributor catalogues and has been observed attached to both variants,
-so **treat a `84PLCE/` number as "not proven Python," not as "proven plain."** Only `84CEPY/` proves
-anything, and only positively.
+**The Python App can appear on hardware that cannot run Python**, and a faked unit is convincing
+right up to the moment code executes. Cemetech, *"I installed Python on a non-Python TI-84 Plus CE"*
+[RESEARCHED] (<https://www.cemetech.net/forum/viewtopic.php?t=18856>, accessed 2026-08-12):
+
+> *"the Python App only needs two things to install: 1. A supported OS version… 2. A 'P' in the
+> certificate at field 43. This marks the calculator as a 'Python Edition'… I was able to send the
+> Python App over. I ran the app and it seemed to function just fine. I even wrote a Hello World
+> program. However, when I tried to run the code, I got an error that simply said **"Run and Shell
+> are not available right now"**… the extra Python co-processor included in Python Editions is
+> physically absent in non-Python Editions."*
+
+A reply in the same thread sharpens it: the certificate edit installs the Python **editor**, while
+the interpreter lives on the coprocessor. So the app list shows Python, the editor opens, and a
+program can be typed and saved. **Only running it fails.** A photo of the app list is therefore not
+proof of anything — it is precisely the check a faked unit passes.
+
+> **The one request to make of every seller, and the most effective message in this document:**
+>
+> *"Please open the Python app, type `print(1+1)`, and press the Run key. Send me a photo of the
+> screen."*
+>
+> - Shows **`2`** → genuine CE Python. Conclusive.
+> - Shows **`Run and Shell are not available right now`** → **a plain CE with an edited certificate.
+>   Walk away, and consider reporting the listing.**
+> - Seller won't or can't → price it as a plain CE and be pleasantly surprised.
+>
+> It costs the seller thirty seconds and it is strictly better than the App-list photo. Where you can
+> only get one thing, get this; where you can get two, get this and the faceplate.
+
+#### The date code is a better *positive* filter than it looks, for US units only
+
+Wikipedia's TI-84 Plus CE series article states that *"In the North American market, the TI-84 Plus CE
+Python replaced the existing TI-84 Plus CE in 2021."* [RESEARCHED]
+(<https://en.wikipedia.org/wiki/TI-84_Plus_CE_series>, accessed 2026-08-12.) So for a **US-market**
+unit, a date code between **07/21 and 12/25** makes Python *probable*, not merely "not excluded."
+
+Two limits, both real. It does **not** hold for 2026 stock, because TI began shipping Python-less
+plain CEs in early 2026 (§0). And it is still weaker than the faceplate or the `print(1+1)` test.
+**Treat it as a tiebreaker that justifies bidding, never as a substitute for a positive check.**
+
+#### Part numbers are less clean than they look
+
+`84CEPY/...` is reliably Python. But `84PLCE/TBL/1L1` is used inconsistently across distributor
+catalogues and has been observed attached to both variants, so **treat a `84PLCE/` number as "not
+proven Python," not as "proven plain."** Only `84CEPY/` proves anything, and only positively. The
+muddle runs all the way back to the manufacturer's identifiers: UPC `033317209101` appears on two
+different-coloured `84CEPY/` part numbers, and Amazon's ASIN `B096NJHL8M`, which carries that UPC,
+lists its Model as `84PLCE/TBL/1L1/ZL`. [RESEARCHED]
+(<https://www.aztekcomputers.com/84cepy-tbl-1l1-l-ti84-plus-ce-graph-python-texas-instruments/p>,
+<https://www.amazon.com/Python-Graphing-Calculator-Positive-Coral-ation/dp/B096NJHL8M>, accessed
+2026-08-12.) eBay's own `Model` aspect has the same problem — the catalogue entry for the *Python*
+product (ePID `19048297204`) lists its Model as "TI-84 PLUS CE" — so **no marketplace aspect filter
+isolates the variant.** [RESEARCHED]
 
 **Buying rules that follow:**
 
@@ -164,6 +225,9 @@ anything, and only positively.
   faceplate, or the About screen.
 - Treat a listing that says "TI-84 Plus CE" in the title and "Python" nowhere else as a plain CE
   until proven otherwise. Many sellers don't know the difference; a few exploit it.
+- **Ask for the `print(1+1)` photo on any unit you are paying Python money for.** The About screen
+  and the faceplate both establish what the unit *claims* to be; only running code establishes what
+  it *is*.
 - If a seller can't or won't send an About-screen photo, price the unit as a plain CE and be
   pleasantly surprised.
 
@@ -183,12 +247,43 @@ New retail, as of 2026-08-12 [RESEARCHED]:
 | TI-84 Evo (the replacement), Walmart | **$160.00** | walmart.com |
 | "Pre-Owned TI-84 Plus CE Python," Walmart marketplace **asking** | **$113.99 – $129.99** | walmart.com — **asking prices from resellers, not sold comps. Ignore as a valuation signal.** |
 
-Third-party used-market commentary [RESEARCHED, secondary source, treat as indicative]:
-<https://storycircuit.us/blog/ti-84-plus-ce-comparison/> (accessed 2026-08-12) reports used CE units
-in good condition at **$80–$110**, cosmetically worn at **$60–$80**, and broken/parts at **$30–$50**,
-and a new-price floor that *"rarely dips below $110"* with the Python version at *"$140–$160."*
-Those figures skew high relative to what an actual eBay sold comp will show for a private-seller
-used unit, but they bracket the retail end correctly.
+### Used-market bands — **[ESTIMATE], and the source they came from has been retired**
+
+Earlier drafts of this section reported used bands of **$80–$110** (good), **$60–$80** (worn) and
+**$30–$50** (parts) as [RESEARCHED], citing
+`storycircuit.us/blog/ti-84-plus-ce-comparison/`. **That citation has been withdrawn**, for a reason
+that goes to the heart of what this business is:
+
+> The same article states that the plain CE's *"Programming support: TI-BASIC only (**add-on module
+> for Python**)"* and that *"Python support requires add-on module (extra $30) on base CE."*
+> **That is false for the TI-84 Plus CE.** The TI-Python adapter is an accessory for the **TI-83
+> Premium CE**, the European model — TI's own adapter guide describes it exclusively as *"an
+> accessory to TI-83 Premium CE graphing calculator."* [RESEARCHED]
+> (<https://education.ti.com/-/media/9D0F92A32BFE460CAE00C7D2AF732171>,
+> <https://www.hackster.io/news/you-ll-be-able-to-run-adafruit-s-circuitpython-on-the-new-ti-83-premium-ce-calculator-7d86a55bd3f0>,
+> both accessed 2026-08-12.)
+
+The article is therefore **wrong on precisely the variant question this entire business turns on**,
+and it cannot be treated as a reliable source on used CE pricing either. **This does not weaken §1 —
+it confirms it.** A plain CE cannot run Python, there is no $30 module that changes that, and
+Cemetech's teardown of the faked-Python trap says the same thing from the hardware side: *"the extra
+Python co-processor included in Python Editions is physically absent in non-Python Editions."*
+
+**What survives.** The three bands above are retained as **[ESTIMATE]** and nothing more, because they
+remain the only condition-tiered used figures on file and they are directionally consistent with the
+retail anchors in the table above. **Do not cite them, do not build a model on them, and replace them
+at the first opportunity** with your own median-by-condition-tier from eBay Terapeak — free with any
+seller account, eBay's own data rather than a scrape, and a fifteen-minute job. The routine is in
+[`hardware-launch/SOURCING_SHORTLIST.md`](hardware-launch/SOURCING_SHORTLIST.md) §2. Note in
+particular that the **parts band no longer applies at all** for this variant: broken CE Pythons sell
+at **$40+** (§5), not $30–$50.
+
+**A related trap worth naming, because it will mislead you.** General calculator-flipping guides quote
+wonderful economics — *"Graphing Calculators | Avg Buy $3-$10 | Avg Sell $45-$80 | Margin 85-95%"*
+[RESEARCHED] (<https://www.underpriced.app/blog/flipping-electronics-for-profit-complete-guide-2026>,
+accessed 2026-08-12). **Those figures are for the monochrome TI-84 Plus at thrift stores.** They do
+not apply to the CE Python at any channel. Your acquisition cost is **$25–$40**, not $3–$10, and that
+single difference is why [`UNIT_ECONOMICS.md`](UNIT_ECONOMICS.md) §12 is as cautious as it is.
 
 **What this means for you as a buyer:** anything at or above ~$60 is not a sourcing opportunity, it
 is retail. Your target is **$25–$40**.
@@ -207,7 +302,7 @@ you will later sell to, which caps your discount.
 | "Tested, working, w/ charger" BIN | $55–$75 [ESTIMATE] | No margin. Skip. |
 | Auction, ends at an odd hour, poor photos | $40–$55 [ESTIMATE] | Where the deals are. |
 | "Untested / as-is / no charger" | $35–$50 [ESTIMATE] | Your bread and butter, with real risk. |
-| "For parts / not working" | $20–$35 [ESTIMATE] | Only worth it if you can diagnose; most are dead batteries or dirty ports, both fixable. |
+| "For parts / not working" | **$40+ [RESEARCHED] — see §5** | **Not a bargain tier for this variant.** Only worth it if the fault is a dead battery or a dirty port *and* the price is somehow below $32. |
 | Multi-unit lots (5–20) | $35–$50/unit [ESTIMATE] | **Read the model list.** Most "TI-84 lots" are monochrome. |
 
 **Tactics that actually move the price:**
@@ -358,7 +453,8 @@ starting the last week of May, prep through July, and list from the last week of
 ## 5. What to pay — the table
 
 Print this. All figures **[ESTIMATE]**, derived from the retail anchors in §2 and the break-even
-maths in [`UNIT_ECONOMICS.md`](UNIT_ECONOMICS.md) §7.
+maths in [`UNIT_ECONOMICS.md`](UNIT_ECONOMICS.md) §7 — **except the broken/parts tier, which is
+[RESEARCHED] and is the one row here with a citation behind it.**
 
 ### TI-84 Plus CE **Python** (the product)
 
@@ -371,9 +467,37 @@ maths in [`UNIT_ECONOMICS.md`](UNIT_ECONOMICS.md) §7.
 | **Untested / unknown** | **$25** | $18 | Assume 25% are unsellable. |
 | Dead battery, otherwise fine | **$28** | $20 | ~$8 fix. Often the best-value listing on the page. |
 | Won't charge (port suspect) | **$15** | $10 | Frequently just a dirty port. Real risk. |
-| Cracked screen / water damage | **$8** | $5 | **Parts only. Do not attempt to sell as working.** |
+| **In Press-to-Test** | **$34** | $27 | **Price it as working.** A ~2-minute fix (§6). Genuine information edge. |
+| Cracked screen / water damage | **do not buy — see below** | — | **Parts only. Never sell as working.** |
 | Lot of 5–10, mixed condition, verified Python | **$32/unit** | $25/unit | |
 | Lot of 10+, mixed **models** | value each unit by variant | — | See §3.5 |
+
+> ### ⚠️ There is no cheap-broken tier for the CE Python. This table used to say $8; that was wrong.
+>
+> Earlier versions priced *"cracked screen / water damage"* at an **$8** walk-away and *"for parts /
+> not working"* (§3.1) at **$20–$35**, on the general assumption that broken electronics are cheap.
+> **For this variant that assumption fails, and it fails in the expensive direction.** Cemetech,
+> in a thread from a parent trying to repair a CE Python [RESEARCHED]
+> (<https://www.cemetech.net/forum/viewtopic.php?t=17536>, accessed 2026-08-12):
+>
+> > *"The only way I'm aware of to get these parts is to buy a broken calculator off of Ebay.
+> > Unfortunately, broken TI-84 Plus CEs (**especially Python Editions since they're so new**) are
+> > rare to come by and **often far more expensive than they [have] any right to be ($40+)**."*
+>
+> The same thread confirms TI sells no faceplates, keys, or key membranes as parts — which extends
+> §6's "no repair path for screens" finding to the whole chassis, and is exactly why the repair
+> community bids broken units up.
+>
+> **Two consequences, and the second one is money:**
+>
+> 1. **Broken units are not an acquisition channel. Delete the idea.** At $40+ a cracked-screen CE
+>    Python costs more than your $32 target for a *working* one. If you see one priced at $8, the
+>    likely explanations are that it is a plain CE, or that the listing is wrong — check the variant
+>    before you get excited.
+> 2. **When a dud arrives inside a lot, sell it as parts rather than eating it.** A
+>    cosmetically-destroyed or screen-cracked CE Python is worth **[ESTIMATE] $30–$40** to the repair
+>    community — plausibly more than it cost you as a share of the lot. List it honestly as "for parts
+>    / not working," never as working. See §6 for what this does to the write-off assumption.
 
 ### Plain TI-84 Plus CE (bare-resale line only — no Python, no loaded SKU)
 
@@ -415,6 +539,16 @@ CE Python either way: that is the market with proven demand, proven tooling, and
 
 ### Before you buy (photos / in person)
 
+> **Run the variant test first, before any of the condition checks below.** Ask the seller to open
+> the Python app, type `print(1+1)`, press Run, and photograph the screen. `2` means genuine CE
+> Python; **`Run and Shell are not available right now`** means a plain CE with an edited certificate
+> (§1.1). Condition is irrelevant on the wrong variant, and this is the one screen that a faked unit
+> cannot pass — the app list, the OS version, and even the Python editor all can.
+>
+> **And know what a broken one is actually worth before you bid.** Broken CE Pythons sell at **$40+**
+> because no parts supply exists for them (§5). There is no cheap-broken tier here, so a "cheap"
+> damaged unit is either mispriced, mislabelled, or the wrong variant.
+
 | Check | What kills the deal |
 |---|---|
 | **Screen** | Any crack, delamination, dead line/column, or a pressure bruise larger than a fingernail. Ask for a photo with the screen **on** — a dark screen in every photo is a red flag. **There is no repair path: replacement CE screens are not sold as parts by TI or by any aftermarket supplier.** A bad screen is a permanent write-off, so this is the one defect to be ruthless about. |
@@ -431,8 +565,15 @@ CE Python either way: that is the market with proven demand, proven tooling, and
 
 Run [`PREP_SOP.md`](PREP_SOP.md) §2. The reject criteria there are the ones that matter.
 
-**[ESTIMATE] Budget a 10–20% write-off rate on untested purchases.** If you're not occasionally
-buying a dud, you're bidding too conservatively and leaving volume on the table.
+**[ESTIMATE] Budget a 10–20% dud rate on untested purchases.** If you're not occasionally buying a
+dud, you're bidding too conservatively and leaving volume on the table.
+
+**But a dud is not a write-off, and the earlier wording overstated the loss.** Because there is no
+parts supply for this variant, the repair community pays **[ESTIMATE] $30–$40** for a broken CE
+Python (§5) — a real resale floor at roughly what you paid for a working one. So model the 10–20% as
+a *rate of units that fail intake*, not as a 10–20% loss of capital: a dud recovered at $30–$40
+against a $32 acquisition is close to break-even, and inside a lot it can be profitable. **Part them
+out through the same channels you buy from, listed honestly as "for parts / not working."**
 
 ---
 
@@ -504,7 +645,9 @@ disguise a reseller can cheaply apply.
 ```
 BEFORE BUYING
 [ ] Confirmed CE PYTHON: faceplate wordmark, 84CEPY part number, or About-screen photo
-    (OS version alone proves NOTHING)
+    (OS version alone proves NOTHING. App-list photo proves NOTHING - faked certs exist)
+[ ] BEST TEST: asked seller to run print(1+1) in the Python app and photograph it.
+    Returns 2 = genuine. "Run and Shell are not available right now" = faked. Walk.
 [ ] Screen photographed ON, no cracks/dead lines/bruises
 [ ] Mini-B port intact in photo
 [ ] Asked: does it hold a charge? Any water exposure?

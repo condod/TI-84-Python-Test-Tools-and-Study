@@ -55,6 +55,18 @@ Python space stays empty for the student's own programs and class work. A calcul
 your own homework program to is a worse calculator, and "no memory left" is a support ticket and a
 one-star review. This policy is why no SKU below exceeds ~67% utilisation.
 
+**Which of the two figures the policy is measured on, because it matters at the margin.** The `Free`
+column throughout this document is computed from the **on-calculator** figure against 51,200 bytes —
+that is the convention, and it is the one the per-SKU headings use. But the ~74 bytes per file you
+save by measuring on-calc is small next to the unpublished space TI's own bundled modules take out of
+the same 50 KB, so **the number to check at the bench is the conservative one: total `.8xv` file bytes
+≤ 34,816** (50 KB less 16 KB). It needs no arithmetic, it is what
+[`hardware-launch/AB_TEST_PROTOCOL.md`](hardware-launch/AB_TEST_PROTOCOL.md) §3.4 and
+[`hardware-launch/PREP_BENCH.md`](hardware-launch/PREP_BENCH.md) gate on, and every SKU below clears
+it except **P4, which sits 9 bytes above it** — compliant on the published `Free` column at 16.6 KB,
+but the reason P4 must not grow by even one program. Where the two readings disagree, use the file-byte
+one.
+
 ### The Evo's memory picture is different, and cannot be sized yet
 
 **Everything in this document is a CE Python constraint.** The 50 KB / 100-program ceiling is a limit
@@ -156,8 +168,8 @@ and more than double the median. The 23 programs added most recently skew large:
 loadout already near the ceiling. Re-check the arithmetic on every substitution.
 
 > **Measurement basis, and drift.** These sizes were measured on **2026-08-12** from `8xv/` (52 AppVars,
-> 249,322 bytes). The library is still growing, so **re-run the measurement before each production
-> batch:**
+> 249,322 bytes) and **re-verified unchanged on 2026-08-13**. The library is still growing, so
+> **re-run the measurement before each production batch:**
 >
 > ```powershell
 > # AppVar footprints, smallest first
@@ -244,14 +256,25 @@ it fits: swapping it in for `CARDS` lands at 30.7 KB on-calc / **19.3 KB free**.
 buyer that is a better loadout than the one above, and it is the single best-value substitution
 available across all seven SKUs.
 
-### P6 — STEM Sampler (general-purpose) · 10 programs · 35,080 B / 34.3 KB · ~33.5 KB on-calc · **16.5 KB free (67.1% used)**
+### P6 — STEM Sampler (general-purpose) · 10 programs · 33,956 B / 33.2 KB · ~32.4 KB on-calc · **17.6 KB free (64.9% used)**
 
-`QUAD` · `LINSOLV` · `STATS` · `UNITS` · `DERIV` · `SIMPSON` · `SUVAT` · `OHMS` · `GASLAW` · `TRIG`
+`QUAD` · `LINSOLV` · `STATS` · `UNITS` · `DERIV` · `SIMPSON` · `SUVAT` · `OHMS` · `PH` · `TRIG`
 
 One program from each of the core STEM subject areas — algebra, stats, calculus, physics, chemistry,
 trig, plus the unit converter. This is the SKU for a buyer who doesn't know what they need: a parent
-buying for a kid, or a student taking four different STEM classes. It is at the headroom ceiling; do
-not add to it.
+buying for a kid, or a student taking four different STEM classes.
+
+> **The chemistry slot changed, and this is the operative definition.** This loadout previously
+> carried `GASLAW` (4,783 B) in the chemistry slot, which put the total at **35,080 B** — inside the
+> published `Free` column at 16.5 KB, but **above the 34,816 B file-byte gate** the bench and the A/B
+> protocol actually check against. Swapping in `PH` (3,659 B) drops 1,124 B and clears both readings
+> with room to spare. It costs nothing pedagogically: acid/base and pH is at least as commonly reached
+> for in intro chemistry as the ideal gas law, and `GASLAW` remains the first swap-in if a buyer wants
+> it back (doing so returns the loadout to 35,080 B and the ceiling problem with it).
+> Re-derived and byte-verified against `8xv/` on 2026-08-13.
+
+Even at 17.6 KB free this SKU **cannot take an eleventh program.** The smallest AppVar not already on
+it is `RLC` at 2.3 KB, which would leave 15.3 KB — under the policy. Substitute, never add.
 
 ### P7 — Differential Equations & Numerical Methods Unit · 9 programs · 30,425 B / 29.7 KB · ~29.1 KB on-calc · **20.9 KB free (58.1% used)**
 
@@ -297,7 +320,9 @@ Offer it, on one SKU only, with tight rules:
 
 - Available on the flagship listing only, as a **free option**, not a paid upgrade. Charging for it
   invites a "you gave me the wrong ones" dispute over money.
-- **Cap: 10 programs, 36 KB.** Publish both numbers in the listing. If a buyer picks a set that
+- **Cap: 10 programs, 34 KB (34,816 B).** Publish both numbers in the listing. The cap used to read
+  36 KB, which quietly allowed a buyer's-choice set to land at ~14 KB free and break the headroom
+  policy the seven stocked SKUs all respect. If a buyer picks a set that
   exceeds it, you load the first ten by their stated priority and say so in the shipping note.
 - Collected as a message after purchase, with a **48-hour deadline**, after which you ship P6
   (STEM Sampler). Never hold inventory waiting on a buyer to answer; it wrecks your handling-time
@@ -414,15 +439,23 @@ Three rules that follow:
 | P3 Chemistry | 8 | 33,543 | 32.2 KB | 64.4% | 17.8 KB | To order |
 | P4 Precalc/Trig | 9 | 34,825 | 33.4 KB | 66.7% | 16.6 KB | To order |
 | P5 Stats/Algebra | 8 | 29,848 | 28.6 KB | 57.1% | 21.4 KB | To order |
-| P6 STEM Sampler | 10 | 35,080 | 33.5 KB | 67.1% | 16.5 KB | **Yes (default)** |
+| P6 STEM Sampler | 10 | 33,956 | 32.4 KB | 64.9% | 17.6 KB | **Yes (default)** |
 | P7 DiffEq/Numerical | 9 | 30,425 | 29.1 KB | 58.1% | 20.9 KB | To order |
-| Buyer's choice | ≤10 | ≤36,864 | — | ≤72% | ≥14 KB | Option on flagship |
+| Buyer's choice | ≤10 | ≤34,816 | ≤33.3 KB | ≤66.6% | ≥16.7 KB | Option on flagship |
 | Full Library (archive tier) | 52 | 249,322 | — | see §6 | — | Experimental only |
 
-**Every row recomputed 2026-08-12** against the regenerated 52-AppVar set; the AppVar names also changed,
-so check §2 before building a loadout from an older list. All seven SKUs still satisfy the 16 KB headroom
-policy, but **P4 and P6 are now at the ceiling** — neither can take an addition. The seven SKUs use 27 of
-the 52 programs; the other 25 are swap-ins.
+**Every row re-verified 2026-08-13** by re-measuring `8xv/` (52 AppVars, 249,322 bytes — unchanged from
+the 2026-08-12 measurement) and re-adding each loadout program by program. **P1, P2, P3, P4, P5 and P7
+were confirmed correct as published**: every program they name exists under that name in `8xv/`, and
+every total matches to the byte. **Only P6 changed** — `PH` replaces `GASLAW`, taking it from 35,080 B
+to 33,956 B; see the note under P6.
+
+All seven SKUs satisfy the 16 KB headroom policy on the `Free` column, and all but one also clear the
+conservative 34,816 B file-byte gate (§1). **P4 is the exception, by 9 bytes**, which is the reason it
+must not grow. **P4 and P6 both remain closed to additions** — P4 because it is over the gate already,
+P6 because the smallest available AppVar (`RLC`, 2.3 KB) would push it under 16 KB free. Substitutions
+only, and re-check the arithmetic on every one. The seven SKUs use 27 of the 52 programs; the other 25
+are swap-ins.
 
 ---
 

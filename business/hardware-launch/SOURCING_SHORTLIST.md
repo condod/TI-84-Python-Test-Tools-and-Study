@@ -49,11 +49,12 @@ and I stopped retrying rather than burn more time or start guessing.**
    [`../UNIT_ECONOMICS.md`](../UNIT_ECONOMICS.md) §7, not from fresh comps.** They are labelled
    **[DERIVED]** wherever that's the case. They are internally consistent with the rest of `business/`
    and with the retail anchors I *could* verify today — but they are not observed transactions.
-4. **The genuinely new material in this document is the verification research, not the pricing.** §4
-   and §5 contain three findings that materially improve on the existing docs, all independently
-   sourced: an exact on-device test string that defeats faked Python units, a positive date-code
-   filter that is stronger than the existing doc allows, and evidence that the "buy broken units
-   cheap" tier does not exist for this variant.
+4. **The genuinely new material in this document is the verification research, not the pricing.**
+   §1.4, §1.5 and §3.3 contain three findings that materially improved on the existing docs, all
+   independently sourced: an exact on-device test string that defeats faked Python units, a positive
+   date-code filter that is stronger than the existing doc allowed, and evidence that the "buy broken
+   units cheap" tier does not exist for this variant. **All three were adopted into
+   [`../SOURCING.md`](../SOURCING.md) on 2026-08-13** — see §8 for how each was resolved.
 
 > **TODO — the one thing this document is missing.** Run §2's manual comp routine and paste the
 > results into §3 as a `[RESEARCHED 2026-08-__]` table: median sold price by condition tier, sample
@@ -184,8 +185,9 @@ list; stop at the first confirmation.
 | Colour | Both variants shipped in every colour | **None** |
 | OS version | A plain CE can run 5.8.x with no Python | **None — the classic mistake** |
 
-> **The date code is a stronger *positive* filter than [`../SOURCING.md`](../SOURCING.md) §1.1 says.**
-> That document calls manufacture date "weak as a positive one — plain CE was still sold alongside."
+> **The date code is a stronger *positive* filter than [`../SOURCING.md`](../SOURCING.md) §1.1 used
+> to say.** ✅ **Now adopted there.** That document called manufacture date "weak as a positive one —
+> plain CE was still sold alongside."
 > For the **US market that is not quite right**: Wikipedia's TI-84 Plus CE series article states
 > *"In the North American market, the TI-84 Plus CE Python replaced the existing TI-84 Plus CE in
 > 2021."* **[RESEARCHED]** (<https://en.wikipedia.org/wiki/TI-84_Plus_CE_series>, accessed
@@ -198,9 +200,11 @@ list; stop at the first confirmation.
 
 ### 1.5 The faked-Python trap, and the exact test that defeats it
 
-[`../SOURCING.md`](../SOURCING.md) §1.1 warns that the Python App can be installed on non-Python
-hardware via a certificate edit. **That is correct, and I found the specific mechanism and the exact
-failure string** — which turns a vague warning into a test you can ask a seller to run.
+[`../SOURCING.md`](../SOURCING.md) §1.1 warned that the Python App can be installed on non-Python
+hardware via a certificate edit. **That is correct, and the specific mechanism and exact failure
+string turn a vague warning into a test you can ask a seller to run.** ✅ **Now adopted** — this test
+is in `../SOURCING.md` §1.1, §6 and the §8 checklist, and in [`../PREP_SOP.md`](../PREP_SOP.md) §2
+step 4 and on the printable bench card.
 
 Cemetech, *"I installed Python on a non-Python TI-84 Plus CE"* **[RESEARCHED]**
 (<https://www.cemetech.net/forum/viewtopic.php?t=18856>, accessed 2026-08-12):
@@ -234,8 +238,9 @@ shows Python. The editor opens. You can type a program. Only *running* it fails.
 ### 1.6 2026 stock needs checking too, including "new"
 
 TI began removing Python from newly-manufactured plain CE units in early 2026. A US dealer states it
-plainly — **a better citation than the unnamed dealer notice in
-[`../SOURCING.md`](../SOURCING.md) §0** **[RESEARCHED]**
+plainly — a better citation than the unnamed dealer notice
+[`../SOURCING.md`](../SOURCING.md) §0 used to carry, and ✅ **now quoted there directly**
+**[RESEARCHED]**
 (<https://underwooddistributing.com/blogs/calculators/ti-84-plus-ce-python-update>, accessed
 2026-08-12):
 
@@ -317,7 +322,7 @@ of used-calculator volume moves via Best Offer, so your comp set will be noisier
 | Dead battery, otherwise fine | **$28** | $20 | [DERIVED]. ~$8 fix. Often the best-value listing on the page |
 | **In Press-to-Test** | **$34** | $27 | **Price it as working.** A ~2-minute fix (`../PREP_SOP.md` §4a) that many sellers think is a fault. Genuine information edge |
 | Won't charge (port suspect) | **$15** | $10 | [DERIVED]. Frequently a dirty port. Real risk |
-| Cracked screen / water damage | **see §3.3 — the existing figure looks wrong** | — | **Parts only. Never sell as working** |
+| Cracked screen / water damage | **do not buy — §3.3** | — | **Parts only. Never sell as working.** Broken units go for $40+ |
 | Lot of 5–10, mixed condition, verified Python | **$32/unit** | $25/unit | [DERIVED] |
 | Lot of 10+, mixed **models** | value each unit by variant | — | `../SOURCING.md` §3.5 |
 
@@ -349,7 +354,8 @@ These I could verify. They bracket the top of the market and set the ceiling you
    [`../SOURCING.md`](../SOURCING.md) §0 predicted. **This is mildly good news for your sell-side
    pricing** — but do not raise prices on it. One retailer's promo can reappear overnight, and the
    $90 loaded / $78 bare test prices in [`LISTING_TEMPLATES.md`](LISTING_TEMPLATES.md) are set by
-   the experiment, not by the ceiling.
+   the experiment, not by the ceiling. ⚖️ **Resolved this way**: `UNIT_ECONOMICS.md` §2 now records
+   the observation and **keeps $95 as the operating ceiling** on exactly that reasoning.
 2. **A pre-owned *plain* CE asks $76.98 at Walmart while a pre-owned *Python* asks $113.99.** A ~$37
    asking-price spread between variants from the same retailer. Asking prices, not comps — but it is
    the clearest single indication that the Python variant genuinely commands more, which is what
@@ -357,11 +363,14 @@ These I could verify. They bracket the top of the market and set the ceiling you
 3. **Amazon Renewed sells a *monochrome* TI-84 Plus for $89.99.** Your loaded CE Python at $90 is a
    dramatically better object at the same price. Worth remembering when a buyer haggles.
 
-### 3.3 ⚠️ Contradiction — the "buy broken units cheap" tier does not exist for this variant
+### 3.3 ✅ Resolved — the "buy broken units cheap" tier does not exist for this variant
 
-[`../SOURCING.md`](../SOURCING.md) §5 prices *"Cracked screen / water damage"* at a **$8** walk-away
-max and *"For parts / not working"* at **$20–$35**. **For the CE Python specifically, that appears to
-be wrong by a wide margin, and in the direction that costs you nothing but is worth knowing.**
+**[`../SOURCING.md`](../SOURCING.md) §5 and §3.1 were corrected on 2026-08-13 and now carry this
+finding.** That document is the authority; what follows is the evidence behind it.
+
+It previously priced *"Cracked screen / water damage"* at an **$8** walk-away max and *"For parts /
+not working"* at **$20–$35**. **For the CE Python specifically that was wrong by a wide margin, in
+the direction that costs you nothing but is worth knowing.**
 
 Cemetech, in a thread from a parent trying to repair a CE Python **[RESEARCHED]**
 (<https://www.cemetech.net/forum/viewtopic.php?t=17536>, accessed 2026-08-12):
@@ -380,17 +389,28 @@ repair community bids broken units up. That extends
    Python is more expensive than your $32 target for a *working* one. The tier is a trap.
 2. **When a dud arrives inside a lot, sell it as parts rather than eating it.** A cosmetically
    destroyed or screen-cracked CE Python is worth **[ESTIMATE] $30–$40** to the repair community —
-   plausibly more than you paid for it as part of a lot. **[`../SOURCING.md`](../SOURCING.md) §6's
-   "budget a 10–20% write-off rate on untested purchases" may be too pessimistic for this variant**,
-   because the write-offs have a real resale floor. List them honestly as "for parts / not working,"
-   never as working.
+   plausibly more than you paid for it as part of a lot. **[`../SOURCING.md`](../SOURCING.md) §6 has
+   been reworded accordingly:** the 10–20% figure is now stated as a *dud rate*, not a write-off
+   rate, because the duds have a real resale floor at roughly what a working unit costs. List them
+   honestly as "for parts / not working," never as working.
+   [`../PREP_SOP.md`](../PREP_SOP.md) §2 step 5 carries the same instruction at the bench.
 
-### 3.4 ⚠️ Source-quality warning on the used-price bands in the existing docs
+### 3.4 ✅ Resolved — source-quality warning on the used-price bands
 
-Both [`../SOURCING.md`](../SOURCING.md) §2 and [`../UNIT_ECONOMICS.md`](../UNIT_ECONOMICS.md) §2 cite
-`storycircuit.us/blog/ti-84-plus-ce-comparison/` for used bands of **$80–$110** (good), **$60–$80**
-(worn), **$30–$50** (parts). Both already flag it as a secondary source that "skews high." **It is
-worse than that: the same article contains a demonstrable hardware error.**
+**[`../SOURCING.md`](../SOURCING.md) §2 was rewritten on 2026-08-13: the citation is withdrawn and
+the three bands are relabelled [ESTIMATE] with the provenance stated.**
+[`../UNIT_ECONOMICS.md`](../UNIT_ECONOMICS.md) §6 also dropped its quote from the same article and
+records why.
+
+One correction to what this section originally said, because it matters if you go looking:
+**`UNIT_ECONOMICS.md` never cited that article for used-price bands.** Its single reference was in
+**§6**, not §2, and it was a qualitative quote about how easily a student can load programs
+themselves — an argument that stands on other evidence and survived the removal. Only
+`SOURCING.md` §2 rested a price figure on it.
+
+The article's used bands were **$80–$110** (good), **$60–$80** (worn), **$30–$50** (parts), already
+flagged as a secondary source that "skews high." **It is worse than that: the same article contains a
+demonstrable hardware error.**
 
 It states the plain CE's *"Programming support: TI-BASIC only (**add-on module for Python**)"* and
 *"Python support requires add-on module (extra $30) on base CE."* **That is false for the TI-84 Plus
@@ -637,19 +657,22 @@ August is worth more than everything in [`../PREP_SOP.md`](../PREP_SOP.md) combi
 
 ---
 
-## 8. Contradictions with existing docs
+## 8. Contradictions with existing docs — all resolved 2026-08-13
 
-Flagged rather than edited, per the scope constraint on this folder.
+Originally flagged rather than edited, per the scope constraint on this folder. **Every row has since
+been worked through in the owning document.** Where the resolution went the other way — the older doc
+was right and this one was wrong — that is recorded too.
 
-| # | Existing doc says | This document finds | Severity |
+| # | Existing doc said | This document found | Resolution |
 |---|---|---|---|
-| 1 | `../SOURCING.md` §5: cracked screen walk-away **$8**; for-parts **$20–$35** | Broken CE Pythons sell at **$40+** because no parts supply exists (§3.3). The cheap-broken tier does not exist for this variant — and your own duds have a **$30–$40** resale floor | **Material.** Changes both a buy rule and a write-off assumption |
-| 2 | `../SOURCING.md` §1.1: date code is "weak as a positive" filter | For **US-market** units, CE Python *replaced* plain CE in 2021, so a 07/21–12/25 date code is *probable* Python (§1.4). Not for 2026 stock | Moderate. Adds a usable tiebreaker |
-| 3 | `../SOURCING.md` §1.1: "a photo of the app list is not proof" | Correct, and now testable: the exact failure string on faked units is **"Run and Shell are not available right now"** (§1.5) | Improvement, not a conflict |
-| 4 | `../UNIT_ECONOMICS.md` §2: hard ceiling is the **$95** Walmart promo; new CE Python **$93.99** | Cheapest new CE Python found today is **$129.98**; the $150 dealer unit is out of stock (§3.2). New supply is draining | Moderate. Ceiling has loosened; **do not** re-price the test on it |
-| 5 | `../SOURCING.md` §2 and `../UNIT_ECONOMICS.md` §2 both cite storycircuit.us for used bands | That article contains a false hardware claim (a "$30 add-on module" for Python on the base CE, which is a **TI-83 Premium CE** accessory). Bands should carry less weight (§3.4) | Moderate. Source quality, not direction |
-| 6 | `../SOURCING.md` §6: budget **10–20%** write-off on untested buys | Possibly too pessimistic here, since duds resell for parts at $30–$40 (§3.3) | Minor, favourable |
-| 7 | `../SOURCING.md` §0 cites an unnamed "dealer notice dated 2026-03-12" for the non-Python CE transition | Now citable to a named US dealer, with the added detail that **there is no price change** between variants (§1.6) | Improvement |
+| 1 | `../SOURCING.md` §5: cracked screen walk-away **$8**; §3.1 for-parts **$20–$35** | Broken CE Pythons sell at **$40+** because no parts supply exists (§3.3). Your own duds have a **$30–$40** resale floor | ✅ **This doc won.** Both rows in `SOURCING.md` corrected; the tier is now marked "do not buy" with the Cemetech citation, and §6's write-off wording is fixed |
+| 2 | `../SOURCING.md` §1.1: date code is "weak as a positive" filter | For **US-market** units, CE Python *replaced* plain CE in 2021, so a 07/21–12/25 date code is *probable* Python (§1.4). Not for 2026 stock | ✅ **This doc won.** Added to `SOURCING.md` §1.1 with the Wikipedia citation and both caveats |
+| 3 | `../SOURCING.md` §1.1: "a photo of the app list is not proof" | Correct, and now testable: the exact failure string on faked units is **"Run and Shell are not available right now"** (§1.5) | ✅ **Improvement adopted.** The `print(1+1)` test is now in `SOURCING.md` §1.1, §6 and §8, and in `../PREP_SOP.md` §2 step 4 and the bench card |
+| 4 | `../UNIT_ECONOMICS.md` §2: hard ceiling is the **$95** Walmart promo; new CE Python **$93.99** | Cheapest new CE Python found today is **$129.98**; the $150 dealer unit is out of stock (§3.2) | ⚖️ **Split.** The observation is recorded in `UNIT_ECONOMICS.md` §2, but **$95 stays the operating ceiling** — a lapsed promo can return, and a ceiling is meant to be conservative. Do not re-price on it |
+| 5 | `../SOURCING.md` §2 and `../UNIT_ECONOMICS.md` §2 both cite storycircuit.us for used bands | That article contains a false hardware claim (a "$30 add-on module" for Python on the base CE, which is a **TI-83 Premium CE** accessory) | ⚖️ **Mostly this doc, with a correction.** Citation withdrawn in both documents. But **`UNIT_ECONOMICS.md` never used it for price bands** — its one reference was a qualitative quote in §6, not §2. See §3.4 |
+| 6 | `../SOURCING.md` §6: budget **10–20%** write-off on untested buys | Possibly too pessimistic here, since duds resell for parts at $30–$40 (§3.3) | ✅ **This doc won, in wording not number.** The 10–20% is kept as a **dud rate**; what changed is that a dud is no longer modelled as a total loss |
+| 7 | `../SOURCING.md` §0 cites an unnamed "dealer notice dated 2026-03-12" for the non-Python CE transition | Now citable to a named US dealer, with the added detail that **there is no price change** between variants (§1.6) | ✅ **This doc won.** `SOURCING.md` §0 now quotes Underwood Distributing directly and draws the "buying new is a coin flip" conclusion |
+| 8 | `../LOADOUT_STRATEGY.md`: P6 STEM Sampler at 35,080 B | Re-derived at **33,956 B** with `PH` replacing `GASLAW` ([`AB_TEST_PROTOCOL.md`](AB_TEST_PROTOCOL.md) §3.4) | ✅ **This doc won on the number, lost on the framing.** P6 adopted upstream. But that document's filenames were *already* current — the "cannot be loaded as written" claim was overstated |
 
 ---
 
