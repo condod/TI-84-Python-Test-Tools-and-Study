@@ -57,7 +57,10 @@ separate, lower-value bare-resale line, not as the supply chain for the loaded S
 
 - New TI-84 Plus CE Python at Walmart, 2026: listings from **$93.99** (promo, was $149.00) to
   **$149.95**; a plain CE promo at **$87.68** (was $139.00)
-  (<https://www.walmart.com/ip/.../55586377>, accessed 2026-08-12).
+  (<https://www.walmart.com/ip/.../55586377>, accessed 2026-08-12). **Re-checked 2026-08-13:** the
+  Python-labelled Walmart SKUs now run **$129.98–$149.95**, and the plain-CE promo is still
+  **$87.68**. The cheapest new in-stock CE anywhere in the sweep is **$94.99 at Target** — see the
+  resolved note below.
 - Amazon TI-84 Plus CE listing at **$117.50** (<https://www.amazon.com/dp/B01FY73EI8>, accessed
   2026-08-12).
 - Walmart-marketplace third-party "Pre-Owned TI-84 Plus CE Python" **asking** prices: **$113.99–$129.99**.
@@ -78,17 +81,39 @@ loaded CE **Python** should clear above it, but not far above it.
 Python units around **$95**. When that promo is live — which is exactly your peak selling season — a
 used unit asking $95 is competing with a new one in a box. Price under it, always.
 
-> **The ceiling is promo-dependent, and the promo was not visible on re-check.** A second sweep of the
-> same retailers on 2026-08-12 found the cheapest **new** CE Python at **$129.98**, a Walmart listing
-> at **$134.00** (was $149.00), and the Aztek dealer's new unit **out of stock** [RESEARCHED —
-> [`hardware-launch/SOURCING_SHORTLIST.md`](hardware-launch/SOURCING_SHORTLIST.md) §3.2]. New supply
-> is draining exactly as [`SOURCING.md`](SOURCING.md) §0 predicted, and the $93.99 promo above may
-> simply be gone.
+> ### ✅ Resolved 2026-08-13 — the $95 ceiling is confirmed by a live listing, not a lapsed promo
 >
-> **Keep $95 as the operating ceiling anyway.** A promo that lapsed once can return overnight, the
-> whole point of a ceiling is that it is conservative, and nothing in the sell-side model needs the
-> extra room. Treat the loosening as a reason to expect fewer new-in-box competitors on your listing
-> page, **not** as licence to raise prices.
+> **This entry previously said the ceiling was "promo-dependent" and might be gone. It is not.** The
+> apparent contradiction — $93.99 here versus a $129.98–$134.00 sweep of the same retailers on the
+> same day in [`hardware-launch/SOURCING_SHORTLIST.md`](hardware-launch/SOURCING_SHORTLIST.md) §3.2 —
+> **was real but was not a disagreement about price. Both figures were correct and were measuring
+> different SKUs.**
+>
+> **The $130+ figures were all Python-*labelled* listings. The sub-$95 figures are plain-CE-*labelled*
+> listings — which, per their own buyers, frequently ship as Python units.**
+>
+> **A new TI-84 Plus CE, in a box, in stock at Target for `$94.99`** (reg $110.59), accessed
+> 2026-08-13 [RESEARCHED —
+> <https://www.target.com/p/texas-instruments-84-plus-ce-graphing-calculator-black/-/A-82545755>]. The
+> listing is not labelled Python and Target's support rep says it isn't — but **four separate
+> customers on that page report receiving the Python variant**, one stating plainly that it *"is being
+> sold online & instores as Ti-84CE (but it's a python model)."* That is consistent with
+> [`SOURCING.md`](SOURCING.md)'s finding that TI's retail channel no longer separates the variants
+> cleanly. Full sweep, including the retailers that were bot-gated or out of stock, in
+> `SOURCING_SHORTLIST.md` **§3.2a**.
+>
+> **So `$95` stays, and the reason is now evidence rather than caution.** The old justification was
+> *"a promo that lapsed once can return overnight."* The new one is *"there is a live, in-stock,
+> $94.99 new-in-box listing that has repeatedly shipped Python units."* **When that is what a buyer
+> sees, a used unit asking $95 is competing with a new one — exactly as this section always said.**
+>
+> **And note what this rules out.** If new really were ~$130, there would be unclaimed headroom above
+> the $95 ceiling and the sell-side model would be leaving money on the table. **There isn't.** At the
+> A/B test's $90 loaded ask you are already within $5 of new-in-box. No unit-economics figure in this
+> document changes, because none of them were relying on the extra room — but the **$18 differential**
+> floated for a follow-up test in
+> [`hardware-launch/AB_TEST_PROTOCOL.md`](hardware-launch/AB_TEST_PROTOCOL.md) §1.3 would put a
+> *used* unit at $96, **above a new one.** Do not run that without re-checking this price first.
 
 **Modelled acquisition cost: $30 (good case) / $45 (typical if you buy one at a time).** [ESTIMATE]
 

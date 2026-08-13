@@ -72,8 +72,16 @@ Four things sharpen the verdict:
   barely clears break-even.
 - Keep the loaded SKU, because the **marginal** return on loading (~$43/hr on ~11 extra minutes) is
   better than the average return on the unit — but **run the A/B test** in
-  [`UNIT_ECONOMICS.md`](UNIT_ECONOMICS.md) §6 (ten matched pairs, bare vs loaded) and let the data
-  decide, rather than assuming the premium exists.
+  [`hardware-launch/AB_TEST_PROTOCOL.md`](hardware-launch/AB_TEST_PROTOCOL.md) (**twelve** matched
+  pairs, bare vs loaded, tracked in
+  [`hardware-launch/AB_TEST_LOG.csv`](hardware-launch/AB_TEST_LOG.csv)) and let the data decide,
+  rather than assuming the premium exists. **Read §6 of the protocol before you interpret the
+  result** — twelve pairs cannot resolve the $5–$12 premium the model expects, and the protocol says
+  so plainly.
+- **Before you load the second unit, run the hardware gate**
+  ([`hardware-launch/AB_TEST_PROTOCOL.md`](hardware-launch/AB_TEST_PROTOCOL.md) §3.5). The `.8xv`
+  AppVars have never been executed on a physical calculator. That gate is blocking, and it is the
+  cheapest insurance in the whole plan.
 - **Put marginal effort into the digital line.** It's higher margin, infinitely scalable, has no
   shipping, no returns, no battery swaps, and — because the `.py` sources are platform-portable — the
   least discontinued-hardware risk of anything here.
@@ -98,6 +106,7 @@ calculators as a seasonal side activity that pays for itself and feeds the digit
 | **[`LOADOUT_STRATEGY.md`](LOADOUT_STRATEGY.md)** | Which programs go on a physical unit, given the 50 KB ceiling. Seven measured loadouts with exact footprints and headroom, per-program sizes, how many SKUs to actually stock, the buyer's-choice option, the archive tier, and how physical SKUs interact with the $12–$19 / $49 digital bundles. |
 | **[`LISTING_AND_SUPPORT.md`](LISTING_AND_SUPPORT.md)** | Marketplace titles and description templates, a 12-shot photo list, keyword do/don't, the quick-start card, the Press-to-Test warning and restore-link recommendation, how to tell the three live TI-84 variants apart, the "I have an Evo" support macro, returns policy, platform-by-platform notes, and the legal operating rules (first sale, your own software, and the absolute prohibition on redistributing TI's OS or apps). |
 | **[`EVO_TRANSITION.md`](EVO_TRANSITION.md)** | What the April 2026 TI-84 Evo launch and the CE Python discontinuation actually mean. The Evo's Python environment and module set, the `.8xv` → `.8xv2` file-format break, the `connectevo.ti.com` WebUSB transfer tool that replaces TI Connect CE, how long the CE Python installed base stays viable, the first-mover case on the Evo, an import audit of all 52 programs, and the hardware test checklist to run on the first Evo. **Read this before making any compatibility claim about either platform.** |
+| **[`hardware-launch/`](hardware-launch/README.md)** | **The tactical layer — start here if you are actually buying units.** A dated, six-week sequence for the 24-unit launch: what to buy and by when, the blocking hardware validation gate, the 12-pair A/B protocol with its pre-committed randomisation and decision rule, paste-ready listing copy, the prep bench, and the committed tracking spreadsheet. Everything above is strategy; this folder is the calendar. |
 
 ---
 

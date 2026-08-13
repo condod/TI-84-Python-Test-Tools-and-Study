@@ -87,7 +87,7 @@ $10–$15 apart"). Expected net at $30 acquisition: **$20.14 bare / ~$29.6 loade
 ### 1.2 Why fixed price + Best Offer, and not auction
 
 Reasoning is in [`AB_TEST_PROTOCOL.md`](AB_TEST_PROTOCOL.md) §2.3, in one line: **auction variance
-is far too large to learn anything from 10 pairs**, and a fixed differential tests the actual
+is far too large to learn anything from 12 pairs**, and a fixed differential tests the actual
 decision you face when listing. Best Offer keeps genuine price discovery without the variance.
 
 ⚠️ **TEST CONSTRAINT — set the auto-accept and auto-decline thresholds in eBay itself, not in your

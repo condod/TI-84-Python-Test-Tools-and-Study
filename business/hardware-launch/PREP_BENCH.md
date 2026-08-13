@@ -427,10 +427,23 @@ justified by the digital line on its own, and the digital line is where
 [`../UNIT_ECONOMICS.md`](../UNIT_ECONOMICS.md) §10 says the money is, so a "stop loading" verdict
 would not moot it.
 
-**What survives is a cash-timing point, and it is a good one:** week 1 is a **~$380** budget and $160
-of Evo is 42% of it, spent on a question that has no bearing on whether you can ship a CE Python. So
-**buy the Evo when cash allows — after the pilot pairs ship, not before them** — and do not let this
-section be read as a reason to skip it.
+**What survives is a cash-timing point, and it is a good one:** $160 of Evo is spent on a question
+that has no bearing on whether you can ship a CE Python this season. So **buy the Evo when cash
+allows** — and do not let this section be read as a reason to skip it.
+
+> **⚠️ Re-timed 2026-08-13: the week of Sep 14.** This paragraph previously said *"after the pilot
+> pairs ship."* **There are no pilot pairs** — the owner is buying all 24 units up front, so that
+> phrase no longer maps to anything on the calendar.
+>
+> The cash argument is now sharper, not weaker. **$875–$1,115 leaves in the Aug 13–24 window**
+> ([`README.md`](README.md)), and $160 inside that window is 4–5 calculators — roughly **two matched
+> pairs**, which costs the experiment more than a two-week delay costs the Evo research. The **week of
+> Sep 14** is when the first eBay payouts realistically clear, which funds the Evo from revenue rather
+> than from the launch budget, and it is comfortably ahead of the **Oct 21** decision.
+>
+> **One override:** if the hardware gate ([`AB_TEST_PROTOCOL.md`](AB_TEST_PROTOCOL.md) §3.5) **fails on
+> both payload formats**, buy the Evo immediately. The `.py`-as-portable-payload question stops being
+> next season's research and becomes this season's blocker.
 
 It needs its own USB-C cable and the `connectevo.ti.com` web tool, so budget **$140–$170** all in and
 expect **none** of the CE workflow to transfer.

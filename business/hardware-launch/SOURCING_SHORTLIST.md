@@ -348,20 +348,83 @@ These I could verify. They bracket the top of the market and set the ceiling you
 
 **Three things to take from that table:**
 
-1. **The `$95` hard ceiling in [`../UNIT_ECONOMICS.md`](../UNIT_ECONOMICS.md) §2 has loosened.** The
-   cheapest *new* CE Python I found today is **$129.98**, not the $93.99 promo that document cites,
-   and the Aztek new unit is **out of stock**. New supply is draining exactly as
-   [`../SOURCING.md`](../SOURCING.md) §0 predicted. **This is mildly good news for your sell-side
-   pricing** — but do not raise prices on it. One retailer's promo can reappear overnight, and the
-   $90 loaded / $78 bare test prices in [`LISTING_TEMPLATES.md`](LISTING_TEMPLATES.md) are set by
-   the experiment, not by the ceiling. ⚖️ **Resolved this way**: `UNIT_ECONOMICS.md` §2 now records
-   the observation and **keeps $95 as the operating ceiling** on exactly that reasoning.
+1. ~~**The `$95` hard ceiling in [`../UNIT_ECONOMICS.md`](../UNIT_ECONOMICS.md) §2 has loosened.**~~
+   **⚠️ Superseded by §3.2a below — the ceiling did not loosen, and this row was measuring the wrong
+   thing.** The reasoning survives and was right about one thing: *do not raise prices on a supply
+   observation.* The conclusion — that new CE Python starts at ~$130 — turned out to be an artefact of
+   searching only **Python-labelled** SKUs. See §3.2a.
 2. **A pre-owned *plain* CE asks $76.98 at Walmart while a pre-owned *Python* asks $113.99.** A ~$37
    asking-price spread between variants from the same retailer. Asking prices, not comps — but it is
    the clearest single indication that the Python variant genuinely commands more, which is what
    makes the variant discipline in §1 worth the effort.
 3. **Amazon Renewed sells a *monochrome* TI-84 Plus for $89.99.** Your loaded CE Python at $90 is a
    dramatically better object at the same price. Worth remembering when a buyer haggles.
+
+### 3.2a ✅ Resolved — the $95 ceiling stands, and here is the listing that proves it **[RESEARCHED 2026-08-13]**
+
+**The §3.2 sweep and [`../UNIT_ECONOMICS.md`](../UNIT_ECONOMICS.md) §2 appeared to contradict each
+other — $93.99 versus $129.98 for a "new CE Python" on the same day. Both were correct. They were
+measuring different SKUs**, and the distinction turns out to matter more for pricing than either
+figure does.
+
+| Retailer | Item | Price | Status | Source, accessed 2026-08-13 |
+|---|---|---:|---|---|
+| **Target** | "TI-84 Plus CE Graphing Calculator — Black" (**not** labelled Python) | **$94.99** (reg $110.59, 14% off) | **In stock** | <https://www.target.com/p/texas-instruments-84-plus-ce-graphing-calculator-black/-/A-82545755> |
+| **Walmart** | "CE Color Graphing Calculator — Scientific, **Python** — Black" | **$129.98** | listed | <https://www.walmart.com/ip/Texas-Instruments-TI-84-Plus-CE-Graphing-Calculator-Impact-Resistant-Cover-Clock-Date-Time-Display-3-MB-154-KB-ROM-RAM-Battery-Powered-Space-Gray/55586377> |
+| **Walmart** | CE Python `84CEPYTBL1L1H` | **$134.00** (was $149.00) | listed | same |
+| **Walmart** | CE Python Galaxy Gray | **$139.99** (was $149.00) | listed | same |
+| **Walmart** | CE Python Enhanced — White | **$149.95** | listed | same |
+| **Walmart** | Plain CE promo | **$87.68** (was $139.00) | listed | same |
+| **Best Buy** | Python-capable `84+CE` / `84CEPY` SKUs | **$142.66 – $169.99** | listed | <https://www.bestbuy.com/product/texas-instruments-ti-84-ce-graphing-calculator-black/J73SSTJ3HT> |
+| **Staples** | CE **with Python** `84PLCE/RLP/1L1` | **no usable price** | **out of stock** | <https://www.staples.com/texas-instruments-ti-84-plus-ce-with-python-10-digits-battery-powered-graphing-calculator-black-84plce-rlp-1l1/product_24561818> |
+| **TI direct** | `ti.com/product/TI-84-PLUS-CE-PYTHON` | — | **404 Not Found** | no consumer price captured |
+| Amazon | plain CE — carried forward from §3.2 / economics §2, **not re-fetched today** | $117.50 | — | previously recorded 2026-08-12 |
+
+**Honest notes on the sweep**, per this folder's labelling discipline:
+
+- **Staples' scraped price fields were garbage** ($1,849.99 and $299.99 on a $150 calculator — page
+  artefacts from unrelated products). The *stock status* was legible and the price was not, so **no
+  price is recorded.** Not estimated, not inferred.
+- **Best Buy's page carried stale delivery dates** ("Get it by Wed, May 13"), which means cached
+  content. The $142.66–$169.99 band is directionally reliable and well above anything that binds on
+  us, so it was not worth re-fetching.
+- **TI's own product URL 404s.** No direct-from-TI consumer price was obtained. Not fabricated.
+- **Amazon was not re-fetched this pass** — the existing anchor is 2026-08-12 and Amazon is bot-gated.
+  Flagged rather than refreshed.
+
+#### The finding that actually matters: Target ships Python units on a plain-CE listing
+
+The **$94.99 Target listing is not labelled a Python model** — its title and description say plain CE,
+and Target's own support rep says in the Q&A that it *"is the standard TI84 Plus CE which will not
+support Python."* **Four separate customers on that same page say otherwise** [RESEARCHED — Target
+Q&A, same URL, accessed 2026-08-13]:
+
+> *"Why was I given the Texas Instruments 84 Plus CE Graphing Calculator Python ver instead of the
+> normal one?"* — and the answers: *"Same as me."* · *"I too, was given the Python instead of the
+> normal Ti-84CE. On Target's product description it does not say it's a Python. **This is being sold
+> online & instores as Ti-84CE (but it's a python model).**"* · *"Just had the same experience. I
+> specifically did not want the Python version but that is indeed what it is."* · *"the problem is when
+> you pick it up it is the 84 plus ce python"*
+
+Those complaints span roughly five months to a year and all run the same direction: buyers who wanted
+the **plain** CE were shipped the **Python**. That is consistent with
+[`../SOURCING.md`](../SOURCING.md)'s finding that TI's retail channel no longer cleanly separates the
+variants, and with the Amazon listing that warns customers may receive either version.
+
+**So the resolution is the opposite of "there is pricing headroom":**
+
+1. **A new CE, in a box, in stock, at $94.99 today** — and per its own buyers, *sometimes a Python*.
+2. **Therefore $95 is not a lapsed promo. It is a live price.** The §3.2 conclusion that new starts at
+   ~$130 was true of Python-*labelled* SKUs and false of the shelf a shopper actually reaches.
+3. **The ceiling stands, and its justification is now stronger than before.** It used to rest on *"a
+   promo that lapsed once could return."* It now rests on *"here is the listing, in stock, at
+   $94.99."*
+4. **There is no unclaimed headroom to raise the loaded price into.** At a $90 ask the loaded arm is
+   already within $5 of a new-in-box unit — which is exactly where the ceiling says it should sit, and
+   an argument for *not* testing an $18 differential later without re-checking this first.
+
+**Nothing in the test prices changes.** Bare $78 / loaded $90 in
+[`LISTING_TEMPLATES.md`](LISTING_TEMPLATES.md) are set by the experiment, not by the ceiling.
 
 ### 3.3 ✅ Resolved — the "buy broken units cheap" tier does not exist for this variant
 
@@ -544,9 +607,11 @@ most likely to be migrating to the Evo now. Concretely:
 At $30 acquisition, **a $70 local cash sale nets ~$37 against ~$28 for an $88 eBay sale**
 ([`../UNIT_ECONOMICS.md`](../UNIT_ECONOMICS.md) §7). Zero fees, zero shipping, no returns risk.
 
-⚠️ **But not with the 20 A/B test units.** [`AB_TEST_PROTOCOL.md`](AB_TEST_PROTOCOL.md) §2.1 requires
-all 20 on eBay, same format, same week. Sell your spares and rejects locally; leave the test units
-alone.
+⚠️ **But not with the A/B test units.** [`AB_TEST_PROTOCOL.md`](AB_TEST_PROTOCOL.md) §2.1 requires
+every paired unit on eBay, same format, same hour. Sell your **duds, rejects, and any unpairable
+survivors** locally — at 24 units bought that is expected to be 3–5 calculators
+([`AB_TEST_PROTOCOL.md`](AB_TEST_PROTOCOL.md) §3.1), and local cash is the best channel for exactly
+those. Leave the paired units alone.
 
 ---
 
@@ -616,37 +681,58 @@ PRICE
 [ ] NO-GO if it costs more than $40 landed, whatever the photos look like
 
 === AFTER YOU BUY ===
-[ ] Logged in the inventory app: cost, channel, date, serial, variant,
-    and how the variant was confirmed
+[ ] Logged in AB_TEST_LOG.csv the DAY you buy: cost, channel, date. Then
+    serial, variant, and how the variant was confirmed, on arrival
 [ ] Photographed as-received, all six faces, BEFORE cleaning
 [ ] Run ../PREP_SOP.md from section 2
-[ ] For A/B test units: pair and arm assigned from the pre-generated
-    randomisation sequence BEFORE prep begins (AB_TEST_PROTOCOL.md 2.4)
+[ ] Grade, colour, case, battery, screen recorded BEFORE you look at the
+    arm column - that is the safeguard (AB_TEST_PROTOCOL.md 2.4 stage 2)
+[ ] Pairs formed on matching rules only, then numbered by lowest serial.
+    The arm is READ from the committed sequence, never chosen
+[ ] Is this the FIRST unit? -> run the hardware gate before loading
+    anything else (AB_TEST_PROTOCOL.md 3.5). BLOCKING.
 ```
 
 ---
 
-## 7. Recommended first purchase
+## 7. The purchase plan — ⚠️ superseded 2026-08-13: all 24 up front
 
-**Buy 6 units, not 24.** You have never prepped or shipped one of these.
+> ### The owner has decided to buy the full 24 units in this window
+>
+> **This section's original recommendation was 6 units first. That is no longer the plan**, and the
+> sequence in [`README.md`](README.md) is now the authority for what to buy and when. The original
+> reasoning is retained below because **the risk it identified did not go away — it was reassigned.**
 
 | | |
 |---|---|
-| **Quantity** | **6 units** |
-| **Pay** | **≤$32/unit target, $40 hard ceiling.** Budget **$180–$240** |
-| **Mix** | 4 matched (2 pilot pairs) + 2 spares/expected rejects |
+| **Quantity** | **24 units**, all inside the Aug 13–24 window |
+| **Pay** | **≤$32/unit target, $40 hard ceiling.** Budget **$720–$960** |
+| **Yield** | **9–11 matched pairs**, not 12 ([`AB_TEST_PROTOCOL.md`](AB_TEST_PROTOCOL.md) §3.1) |
+| **Buy FIRST, and buy LOCAL** | **One gate unit.** Facebook Marketplace / OfferUp / thrift, so it lands in 1–2 days rather than 3–7 |
+| **Effective deadline for drop 1** | **~Aug 19–20 for online orders**, not Aug 24 — see [`README.md`](README.md) |
 | **Channel priority** | Facebook Marketplace local → eBay auctions ending overnight → eBay untested/as-is |
-| **Purpose** | Process shakedown, **not** the experiment. Marked `arm = PILOT`, excluded from analysis |
-| **Then** | Only after 2 pilot pairs list, sell, and ship cleanly, commit ~$500–$600 for the remaining 18 |
 
-**Why 6 and not 24.** The full test needs 20 units plus write-off allowance, or **$720–$960 at
-risk** ([`AB_TEST_PROTOCOL.md`](AB_TEST_PROTOCOL.md) §3.1). Committing that before you have shipped a
-single calculator means discovering your packaging, your photo setup, or your `.8xv` loading workflow
-is wrong across 24 units instead of 4. The pilot pairs also validate the one genuinely untested thing
-in the whole stack — **the repo's own README says the `.8xv` AppVars "have not been tested on physical
-hardware"** ([`../PREP_SOP.md`](../PREP_SOP.md) §5). Find that out on unit 1, not unit 20.
+**What replaced the pilot's protection.** The original argument was sound: committing $720–$960 before
+shipping a single calculator means discovering that your packaging, your photo setup, or your `.8xv`
+loading workflow is wrong across 24 units instead of 4. The most serious version of that is the
+untested software — **the repo's own README says the `.8xv` AppVars "have not been tested on physical
+hardware"** ([`../PREP_SOP.md`](../PREP_SOP.md) §5).
 
-⚠️ **Timing, stated honestly.** It is **2026-08-12** and peak sell-side runs to mid-September
+**That specific risk is now handled by the blocking hardware gate in
+[`AB_TEST_PROTOCOL.md`](AB_TEST_PROTOCOL.md) §3.5**, which is arguably stronger than the pilot was: it
+is a defined pass/fail on all ten P6 programs, and **only one unit gets loaded until it passes.** Find
+it out on unit 1 exactly as before — you just own the other 23 already.
+
+**The parts that were not fully replaced, stated plainly:**
+
+- **The process shakedown is gone.** No throwaway units. Mitigation in [`README.md`](README.md): prep
+  one pair slowly, weigh the parcel, build both listings as unpublished drafts, fix what's wrong.
+- **The pricing risk got sharper, and it lands on §2 of this document.** You are committing the whole
+  budget in twelve days against **price bands this document labels as derived from repo baselines
+  rather than observed 2026-08 comps** (§0). **Run the §2 manual comp routine today, before the third
+  purchase.** Under the pilot plan a bad price band cost you 6 units of exposure; now it costs 24.
+
+⚠️ **Timing, stated honestly.** It is **2026-08-13** and peak sell-side runs to mid-September
 ([`../SOURCING.md`](../SOURCING.md) §4). The ideal buy window — late May to June, 20–35% below
 annual average — **is gone for this year.** You are buying in the expensive month and selling into
 the tail of the good one. Two consequences: expect to pay toward the top of the $25–$40 band, and
