@@ -404,12 +404,47 @@ better than the average return on the whole unit (~$30/hr).** If you're already 
 calculator, loading it is worth doing. What the premium does **not** do is turn a marginal refurb
 business into a good one. It is a topping, not the meal.
 
-### How to actually find out
+### How to actually find out — ⚠️ **corrected 2026-08-13: you cannot, not at this scale**
 
-Stop guessing and run the test. **List matched pairs:** same grade, same photos, same week — one
-bare, one loaded, priced $10–$15 apart. Ten pairs gives you a real answer. If loaded units sell no
-faster and no dearer, you've learned the most valuable thing in this document, and you should stop
-loading and sell bare units instead.
+**The design in this section is right and the claim about it was wrong.** It used to end: *"Ten pairs
+gives you a real answer."* **Ten pairs does not, and neither does twelve.** The matched-pair design was
+built, pre-registered and costed in
+[`hardware-launch/AB_TEST_PROTOCOL.md`](hardware-launch/AB_TEST_PROTOCOL.md), and computing its power
+properly is what overturned the claim:
+
+| | |
+|---|---:|
+| Minimum detectable effect at **10 pairs** | **$11.94** |
+| Minimum detectable effect at **12 pairs** | **$10.66** |
+| **Maximum per-unit difference the design can physically produce** — every unit in both arms selling at full ask | **$10.37** |
+| Pairs needed to detect the **$5–$12** premium above at 80% power | **~48** |
+
+**The detection floor sits above the design's own ceiling.** And the arms cannot be spread further
+apart to fix it: a new CE is in stock at **$94.99** today and its own buyers report being shipped Python
+units (§2 above), so a *used* loaded unit asking much over $90 is competing with new-in-box.
+
+**Three things follow, and none of them is "don't run the test":**
+
+1. **The $5–$12 range in this section stays [ESTIMATE], and its "$0 is genuinely plausible" row stays
+   too.** Nothing available this season can promote it to a measurement. Plan against it; do not expect
+   to confirm it.
+2. **The test has been re-purposed rather than cancelled.** It is now a **harm screen**: its job is to
+   catch the loaded arm doing *worse*, and it is genuinely well-powered for that — roughly **80%
+   sensitivity against harm of about −$10** at a 5.8% false-stop rate, because **harm is not capped the
+   way benefit is.** An unsold loaded unit costs its pair −$61.49 against a +$10.37 upside ceiling.
+   §6.3a of the protocol has the derivation.
+3. **The decision rule survives untouched, and this section is why.** Its thresholds — **keep loading at
+   ≥ +$6, stop at ≤ −$2** — come from **the marginal labour table immediately above**: 11 minutes at $6
+   is $32.7/hr, matching the ~$31.80/hr the rest of the refurb work earns; $2 is $10.9/hr, below any
+   sensible floor. **Not one term in that derivation involves the sample size or what the test can
+   detect.** A rule grounded in opportunity cost does not need rebuilding when the instrument measuring
+   it turns out to be blunt.
+
+**So the honest version of this section's advice:** run the matched pairs — same grade, same photos,
+same week, one bare, one loaded, **$12 apart** — and read the result as *"is loading hurting me?"*, never
+as *"the premium is $X."* **Because loading costs only ~11 marginal minutes, the rational default is to
+keep loading unless the data shows harm.** The burden of proof is on stopping, and that is the entire
+design.
 
 ---
 
@@ -669,10 +704,26 @@ differentiator.
   the sales tax it collects, costing you roughly 1.4% of the tax amount.
 - Track everything in the inventory app: acquisition cost, channel, refurb spend, sale price, fees,
   shipping. The margin split the app already reports — hardware margin (baseline − acquisition) vs.
-  software premium (sale − baseline) — is exactly the right instrumentation for the §6 experiment.
-  **Set `baselinePrice` to your honest bare-unit comp for that grade, and let the app tell you
-  whether the premium is real.** After 20 units you'll have a better answer than any research I can
-  do.
+  software premium (sale − baseline) — is the right instrumentation for the §6 question **in the long
+  run**. **Set `baselinePrice` to your honest bare-unit comp for that grade.**
+
+  > **⚠️ Corrected 2026-08-13. This bullet used to end: *"let the app tell you whether the premium is
+  > real. After 20 units you'll have a better answer than any research I can do."* The second sentence
+  > is false, and the arithmetic that shows it is now written down.**
+  >
+  > [`hardware-launch/AB_TEST_PROTOCOL.md`](hardware-launch/AB_TEST_PROTOCOL.md) §6 computes it
+  > exactly: **20 units is 10 matched pairs, whose minimum detectable effect is $11.94** — and even the
+  > *randomised, matched-pair* version at 12 pairs only reaches **$10.66**, which **exceeds the $10.37
+  > maximum difference the design can physically produce.** Measuring a $5–$12 premium at 80% power
+  > needs roughly **48 pairs** (§6.4). **An un-randomised running tally in an app is strictly weaker
+  > than that**, because it has no control arm at all — every difference in grade, season, photo quality
+  > and buyer confounds the comparison.
+  >
+  > **So the honest instruction is: track it, and do not expect it to answer the question.** The A/B
+  > test has been **demoted to a harm screen** for exactly this reason (§0 of that protocol), and the
+  > premium range in §6 below stays **[ESTIMATE]** — including its explicit allowance that it may be
+  > **$0** — because nothing available this season can move it. **What the app's tally is genuinely good
+  > for is spotting a *collapse*, which is the same thing the A/B test is now for.**
 
 ---
 

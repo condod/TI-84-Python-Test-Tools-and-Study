@@ -5,7 +5,19 @@
 tactical layer: exact queries, exact walk-away prices, and the verification tests to run before money
 changes hands.
 
-Research date: **2026-08-12.** Prices re-verify weekly in August.
+Research date: **2026-08-12**, with additions on **2026-08-13**. Prices re-verify weekly in August.
+
+> ## 🔴 If you are reading this on Aug 13, go to §7 first
+>
+> **[§7 is a same-day, in-person playbook for buying one unit today](#7-same-day-local-playbook--buying-the-gate-unit-in-person-today-new-2026-08-13)** —
+> the hardware-gate unit. Added 2026-08-13 for the owner's decision to gate **before** the online orders
+> go out rather than on the first shipment to arrive.
+>
+> It covers **which local channels can actually produce a unit today**, the
+> **[point-of-sale variant test](#73-the-point-of-sale-variant-test--the-whole-reason-to-buy-locally)**
+> that proves a unit is genuinely Python **before you pay**, what to pay in cash versus the online bands
+> in §3, what to bring, and the five walk-aways. **§6.2 still applies — §7 is what changes when you are
+> standing in front of the thing.**
 
 **Labelling convention, matching the rest of `business/`:** **[RESEARCHED]** = a figure with a
 citable source, given inline. **[ESTIMATE]** = modelling, not a researched figure.
@@ -54,7 +66,7 @@ and I stopped retrying rather than burn more time or start guessing.**
    independently sourced: an exact on-device test string that defeats faked Python units, a positive
    date-code filter that is stronger than the existing doc allowed, and evidence that the "buy broken
    units cheap" tier does not exist for this variant. **All three were adopted into
-   [`../SOURCING.md`](../SOURCING.md) on 2026-08-13** — see §8 for how each was resolved.
+   [`../SOURCING.md`](../SOURCING.md) on 2026-08-13** — see §9 for how each was resolved.
 
 > **TODO — the one thing this document is missing.** Run §2's manual comp routine and paste the
 > results into §3 as a `[RESEARCHED 2026-08-__]` table: median sold price by condition tier, sample
@@ -532,6 +544,12 @@ OfferUp and Craigslist are similar. **So this is a manual discipline, and
 inspect-before-paying, and typical negotiated prices of **$30–$50** (**$25–$40** in June)
 **[ESTIMATE, inherited]**.
 
+> **§5 is the week-long version of local buying. §7 is the *today* version.** This section sets up the
+> saved searches, the WANTED post and the classroom-liquidation conversations that pay off over days —
+> **do all of it, it takes twenty minutes** — but do not sit waiting on it on Aug 13. **§7.2 is the
+> channel list ordered by what can put a unit in your hand this afternoon**, which is a different
+> question with a different answer (pawn shops and repair shops, mostly).
+
 ### 5.1 Set it up once — 20 minutes
 
 ```
@@ -645,12 +663,15 @@ Using [`../UNIT_ECONOMICS.md`](../UNIT_ECONOMICS.md) §7's inversion,
 === BEFORE YOU BID OR OFFER ===
 
 VARIANT  (get ONE of these or treat it as a plain CE)
+[ ] ** IN PERSON: YOU ran print(1+1) yourself and it returned 2 **  <- STRONGEST
+    ** Section 7.3. Do not accept a photo when you are holding the unit. **
 [ ] Faceplate photo of the ACTUAL unit reads "TI-84 Plus CE PYTHON"
 [ ] About-screen photo ([2nd][MEM] 1:About) shows the Python model name
-[ ] Seller ran print(1+1) in the Python app and it returned 2      <- best test
+[ ] Seller ran print(1+1) in the Python app and it returned 2   <- best REMOTE test
 [ ] Part number 84CEPY/... visible on box or label
     !! OS version proves NOTHING. App list proves NOTHING (faked certs exist).
     !! Date code before 07/2021 = definitively NOT Python. Hard stop.
+    !! "Run and Shell are not available right now" = faked certificate. WALK.
 
 CONDITION
 [ ] Screen photographed ON. No crack, delamination, dead line or column
@@ -670,6 +691,8 @@ PROVENANCE
 
 PRICE
 [ ] Total landed cost (item + shipping + tax) is at or under the 6.1 number
+    (LOCAL, cash: use the section 7.4 column instead - it is lower, because
+     there is no shipping and no fees)
 [ ] Adjusted DOWN for missing case (~$6) and missing cable (~$1.50)
 [ ] Adjusted UP only for a confirmed-Python, tested, complete unit
 [ ] If untested: paid the untested price ($25 max), not the working price
@@ -689,13 +712,236 @@ PRICE
     arm column - that is the safeguard (AB_TEST_PROTOCOL.md 2.4 stage 2)
 [ ] Pairs formed on matching rules only, then numbered by lowest serial.
     The arm is READ from the committed sequence, never chosen
-[ ] Is this the FIRST unit? -> run the hardware gate before loading
-    anything else (AB_TEST_PROTOCOL.md 3.5). BLOCKING.
+[ ] Is this the GATE UNIT (the one bought locally on Aug 13)?
+       -> run the hardware gate TONIGHT, before you place ANY online order
+          (AB_TEST_PROTOCOL.md 3.5). BLOCKING.
+       -> TRIG's expected value is in HW_VALIDATION.md 3.0, not in qa/
+       -> record the result in HW_VALIDATION.md and in the CSV
 ```
 
 ---
 
-## 7. The purchase plan — ⚠️ superseded 2026-08-13: all 24 up front
+## 7. Same-day local playbook — buying the gate unit in person, today **[NEW 2026-08-13]**
+
+> ### Why this section exists, and why it is today's job
+>
+> **The owner decided on 2026-08-13 to buy the hardware-gate unit locally, in person, before the online
+> orders go out.** The gate ([`AB_TEST_PROTOCOL.md`](AB_TEST_PROTOCOL.md) §3.5) is what finds out
+> whether this repository's `.8xv` AppVars run on a real calculator — **they never have** — and under
+> the old schedule it ran on the first shipment to arrive, i.e. **after $875–$1,115 was already
+> committed.** One unit bought locally today moves that answer to *before* the money.
+>
+> **And local buying has one advantage over every online channel that this document has been
+> under-selling: you can run the variant test yourself, before you pay.** §7.3. That is not a
+> marginally better version of the seller-photo request in §1.5 — it is a categorically stronger test,
+> and it is the reason a small premium on this unit is rational (§7.4).
+>
+> [`README.md`](README.md) has the calendar. This section is what to do between now and tonight.
+
+### 7.1 What to bring
+
+```
+[ ] CASH, in small bills. Two amounts in separate pockets: your target (~$32)
+    and your ceiling (~$45 for THIS unit only - see 7.4). Cash closes deals
+    that "I can Venmo you" does not, and it caps what you can talk yourself into
+[ ] A CHARGED PHONE, with section 6.2 and section 7.3 open in a browser tab.
+    Do not rely on memory for the failure string
+[ ] A USB MINI-B CABLE  <-- mini-B, NOT micro-USB, NOT USB-C (section 4)
+       Not to test with - you cannot flash anything in a shop - but so that a
+       unit sold "as-is, no charger, might just be flat" can be ruled in or out
+       from a power bank instead of guessed at
+[ ] A POWER BANK, if you have one. A dead battery is a $8 fix and a $10-$20
+    discount; a dead MAINBOARD is a write-off. This is the cheapest way to
+    tell them apart at a counter
+[ ] Something to write on. Channel, price paid, and the seller's answer about
+    provenance go into AB_TEST_LOG.csv the same day (section 6.2)
+```
+
+> **A note on the charged-unit check, because it is the one people get backwards.** *You* are not
+> bringing a charged calculator — **the seller's unit needs to power on.** If it will not, that is not
+> automatically a walk-away: plug your cable and power bank in, give it two minutes, and see whether it
+> boots. A unit that boots on external power with a dead battery is a **$28 walk-away / $20 target**
+> buy (§3.1) and a perfectly good gate unit. **A unit that shows nothing on external power is a
+> write-off — walk away, today of all days.** You cannot run the gate on a calculator that will not
+> turn on, and you do not have time to gamble the schedule on a repair.
+
+### 7.2 The channels, by what they can realistically deliver *today*
+
+**Written as channel types rather than named stores, because the right answer depends entirely on where
+you live.** Work down the table — it is ordered by *probability of a unit in your hand today*, not by
+price. **[ESTIMATE]** throughout: these are channel characteristics from
+[`../SOURCING.md`](../SOURCING.md) §3 and §7 applied to a same-day constraint, not measured
+conversion rates.
+
+| Channel | Same-day? | Typical price posture | What to expect |
+|---|---|---|---|
+| **Pawn shops** | **Yes — the best same-day bet** | **Asks high, negotiates hard.** Expect a sticker at $50–$70 and a real price well below it | They buy calculators constantly and price them as generic electronics. **They will not know or care about the Python variant**, which cuts both ways: you can find one mislabelled cheap, and you must assume nothing. Cash, in person, walk-out-the-door — ideal for today. **Call first and ask "do you have any graphing calculators in?"** — five phone calls beats five drives |
+| **Facebook Marketplace / OfferUp / Craigslist, local pickup** | **Yes, if a listing is already live and local.** No, if you are waiting for one to appear | **Best prices of any channel.** [`../SOURCING.md`](../SOURCING.md) §3.2: **$30–$50** negotiated, $0 fees | **Today this is a search of existing listings, not a strategy.** §5's saved searches and WANTED post are how this channel pays off over a week — set them up (they take 20 minutes) but do not sit waiting on them today. Message every live local listing within minutes and offer to collect immediately; "I can be there in an hour with cash" wins against a higher offer that involves shipping |
+| **Independent electronics / phone repair shops** | **Sometimes, and badly under-rated** | Unpredictable — often $20–$40, occasionally free-with-a-favour | They accumulate un-collected repair drop-offs and trade-ins, and calculators are not their business, so they are not priced as inventory. **Also the one channel where the staff can competently answer "does this power on?"** Worth two phone calls |
+| **Thrift and charity resale** | **Yes, but it is a lottery** | **Cheapest possible — $5–$25** when it happens | High variance and no way to check stock remotely. Worth a stop **only if one is on your route to somewhere else.** Note that the "avg buy $3–$10" figures in the flipping guides (§3.4) are for **monochrome TI-84s at thrift stores** — do not plan the day around finding a $10 CE Python |
+| **School / university surplus, student sale boards, campus "free & for sale" groups** | **Rarely same-day — usually a few days**, and it is August, so timing is wrong-ish | **Best per-unit price in quantity.** [`../SOURCING.md`](../SOURCING.md) §3.5 calls classroom liquidation the best source of CE Pythons at volume | **This is your channel for the other 23, not for today.** Surplus offices work on their own schedule and student boards need a reply. Start the conversations today (§5.4) and expect units next week. **One exception worth ten minutes: a university surplus store with walk-in retail hours can absolutely produce a unit today** |
+| **Big-box retail** | Yes | **$94.99 new and up** (§3.2a) | ⛔ **Not a sourcing channel.** Three times your target, and per §1.6 a new CE is a **coin flip between variants at identical cost.** Listed here only so you don't rationalise it at 6 PM. If the day fails, it fails — see [`README.md`](README.md)'s fallback |
+
+**The efficient version of today, if you have two hours:** phone every pawn shop and repair shop within
+range first (**"any graphing calculators?"**), message every live local marketplace listing, *then*
+drive to the two or three that said yes. **Phone calls are free and driving is not.**
+
+### 7.3 The point-of-sale variant test — **the whole reason to buy locally**
+
+**This is the strongest form of the check in §1.5, and it is available only in person.**
+
+[`../SOURCING.md`](../SOURCING.md) §1.1 establishes the mechanism (the Python App installs on plain-CE
+hardware via a certificate edit, but the interpreter lives on a coprocessor that is **physically
+absent**), and §6 puts the test at the top of the pre-purchase checklist. **That material is not
+repeated here — read those two sections once, then use this.** What follows is only the adaptation to a
+shop counter.
+
+#### Why doing it yourself is categorically better, not just more convenient
+
+| | Seller photo (§1.5) | **You, at the counter** |
+|---|---|---|
+| Proves the *variant* | Yes | Yes |
+| Proves it is **this** unit | **No.** A photo can be of any calculator, including a genuine one the seller also owns | **Yes** |
+| Proves it powers on **now** | Weakly | **Yes** |
+| Lets you check screen, keys, port in the same minute | No | **Yes** |
+| Seller can decline | **Often, and most private sellers can't manage it** | Not really — you are holding it |
+| Costs | A message and a wait | **90 seconds** |
+
+**The seller-photo request exists because online you have no alternative.** In person, accepting a
+photo instead of pressing the keys yourself throws away the only real edge local buying has.
+
+#### The 90-second sequence
+
+```
+1. Look at the FACEPLATE first.  It must read  "TI-84 Plus CE PYTHON".
+   Plain CE reads "TI-84 Plus CE".  If the wordmark is absent, you are almost
+   certainly done - but keep going anyway, because a swapped faceplate is a
+   thing and the Shell test is the one that decides.
+
+2. Power on.  [on]
+
+3. [apps]                       -> the application list
+4. Scroll to  Python  -> [enter]
+       ** If Python is NOT in the list, it is not a Python unit and there is
+          nothing further to test.  Offer plain-CE money (section 3) or walk. **
+
+5. You are now in the Python App's FILE MANAGER.  The bottom row of the screen
+   shows menu labels; the graph keys [y=] .. [graph] underneath select them.
+   Choose the  Shell  label.
+
+6. At the  >>>  prompt, enter:      print(1+1)
+       Use the on-screen  Fns...  menu to insert  print(  rather than typing it
+       letter by letter on the alpha keyboard - it is much faster and you are
+       standing in a shop.
+       [DERIVED shortcut] If you just want the fastest possible check, entering
+       1+1 alone at the >>> prompt also requires the interpreter.  print(1+1)
+       is the form the rest of this repo documents, so prefer it if in doubt.
+
+7. Press [enter].  READ THE SCREEN.
+```
+
+| What the screen shows | What it means | What you do |
+|---|---|---|
+| **`2`** | **Genuine TI-84 Plus CE Python.** The interpreter ran. Conclusive — nothing fakes this | **Buy it**, subject to §6.2's condition and provenance checks and §7.4's price |
+| **`Run and Shell are not available right now`** | **A plain CE with an edited certificate.** The app installed; the coprocessor is not there. **[RESEARCHED]** — the exact string, from the Cemetech thread quoted in §1.5 | **Walk away.** Do not "negotiate down to plain-CE money" on a unit whose certificate has been tampered with — you do not know what else was done to it, and you cannot use it as the gate unit |
+| A `SyntaxError`, or a traceback | You mistyped. `print` is case-sensitive and the brackets matter | Retype it. This is not a unit failure |
+| Python is absent from `[apps]` | Not a Python unit (or the app was removed — see §3.5.2's note that an All-Memory reset deletes it) | Plain-CE money or walk. **Not a gate unit either way** — you cannot install the app in a shop |
+| It won't power on | Unknown | Try your cable and power bank (§7.1). Boots on external power → dead battery, buy at the §3.1 dead-battery price. Nothing at all → **walk** |
+
+> **Say what you are doing, out loud, before you do it.** *"Mind if I turn it on and check the Python
+> works? Takes a minute."* Nobody refuses that, and a seller who does has told you something. It also
+> removes the "you broke it" argument later.
+
+### 7.4 What to pay locally, and the one place a premium is justified
+
+**Local prices are the *Target* column of §3.1, not the walk-away column.** The walk-away numbers in
+§3.1 and §6.1 are for **eBay, landed** — item plus shipping plus tax. In person there is no shipping,
+no fees, and no return risk, which is precisely why [`../SOURCING.md`](../SOURCING.md) §3.2 rates local
+as the best channel. **[DERIVED]** from §3.1:
+
+| Condition | Online walk-away (landed) | **Pay locally, in cash** |
+|---|---:|---:|
+| Grade B, working, with cable — **the standard buy** | $40 | **$32**, and open at $25 |
+| Grade B/C, working, no cable or case | $34 | **$27** |
+| Grade C, cosmetically rough but working | $28 | **$22** |
+| Untested / unknown | $25 | **$18** |
+| Dead battery, otherwise fine | $28 | **$20** |
+| In Press-to-Test | $34 | **$27** — and say nothing; it is a 2-minute fix (§3.1) |
+
+> ### The gate unit is worth a small premium, and here is the exact size of it
+>
+> **This unit's job is information, not margin.** It is the only unit whose *purchase* buys you an
+> answer — whether ten programs run on real hardware — and that answer gates **$690–$920** of ordering
+> ([`README.md`](README.md)). A unit that does not materialise today does not cost you $32 of margin;
+> **it costs you the ability to place next week's orders against a known result.**
+>
+> **So: pay up to $45 for a variant-confirmed, powers-on, screen-clean unit today, rather than go home
+> empty-handed.** That is above the $32 target and above the $40 standard ceiling, and it is
+> deliberate — **for this one unit only.**
+>
+> **It is still inside the documented ceiling, which is the constraint that actually matters.** §6.1's
+> table already prices a **grade-A complete unit at a $45 walk-away**, and §3.1 does too. **$45 is not
+> a new number and it is not the $95 retail ceiling being tested** (§3.2a) — it is the top of the
+> existing band, applied to a unit that has an extra job.
+>
+> **What the premium does NOT license:**
+>
+> - ⛔ **Not $60, not $70, not "it's only $25 more."** Above $45 you are paying retail-adjacent money
+>   for a used calculator, and §6.1 is blunt about the arithmetic: at $45 acquisition and an $88 sale
+>   you earn **$13 for 53 minutes.** The premium is a $5–$13 concession, not a suspension of the rules.
+> - ⛔ **Not on an unconfirmed variant.** The premium exists *because* you verified the variant at the
+>   counter. Paying it on a maybe inverts the entire logic.
+> - ⛔ **Not on a cracked screen, a school unit, or a no-boot** — §7.5. Those are walk-aways at any
+>   price, and today's schedule pressure is exactly the mood in which someone talks themselves past one.
+>
+> **And note the gate unit stays inside the experiment.** It is unit 1 of 24, graded and paired like
+> any other ([`AB_TEST_PROTOCOL.md`](AB_TEST_PROTOCOL.md) §3.5.2), so overpaying for it also raises
+> your average acquisition cost. **$45 is affordable once. It is not a new target.**
+
+**One negotiation note that is worth more than the price table.** In a pawn shop, the sticker is an
+opening position and the manager expects an offer. **Offer your target price in cash, in hand,
+visible.** If the answer is no, the counter is *"what's the best you can do?"* — and then either accept
+it if it is under your ceiling or leave a phone number. **Do not name your ceiling out loud, ever.**
+
+### 7.5 Walk-away conditions — memorise these five
+
+**§6.2 is the full checklist and it still applies in person.** These five are the ones that end the
+conversation regardless of price, and they are the ones schedule pressure will tempt you past:
+
+```
+1. NO BOOT on external power.
+      Not a discount. A write-off, and useless as a gate unit.
+
+2. ANY SCREEN CRACK, delamination, or dead line/column.
+      There is NO repair path - no screens, faceplates, keys or membranes
+      exist as parts (section 3.3, section 4). And per section 3.3 a broken
+      CE Python costs $40+ from the repair community, so this tier is a trap,
+      not a bargain.
+
+3. THE FAILURE STRING:  "Run and Shell are not available right now"
+      A tampered certificate. Walk - do not renegotiate to plain-CE money.
+
+4. ANY SCHOOL MARKING.  "SCHOOL PROPERTY" faceplate, yellow EZ-Spot back,
+   engraving, district asset tag - or the covert tell from ../SOURCING.md
+   section 7.1: a post-2021 date code that ALSO still has a charging LED.
+      Unsellable at your price point regardless of legality.
+
+5. OVER $45 LANDED, or over $40 for anything that is not today's gate unit.
+      Section 6.1: above this you are working for free.
+
+   Plus the two that are always true: visible liquid corrosion, and sticky
+   or dead keys.  Both unfixable, both cheap to spot, both listed in section 4.
+```
+
+> **The thing to hold onto when a shop has one unit and it fails a check: there will be another unit.**
+> Missing today costs you a day, and [`README.md`](README.md) has an explicit fallback — keep trying
+> Aug 14–16, and if it still hasn't happened, **place the online orders on Aug 14–15 anyway and gate
+> the first arrival.** Buying a cracked-screen unit because you drove forty minutes costs you the unit,
+> the drive, *and* the gate. **Walking away is the cheap option every single time.**
+
+---
+
+## 8. The purchase plan — ⚠️ superseded 2026-08-13: all 24 up front
 
 > ### The owner has decided to buy the full 24 units in this window
 >
@@ -705,12 +951,13 @@ PRICE
 
 | | |
 |---|---|
-| **Quantity** | **24 units**, all inside the Aug 13–24 window |
-| **Pay** | **≤$32/unit target, $40 hard ceiling.** Budget **$720–$960** |
+| **Quantity** | **24 units** — **1 locally on Aug 13, then 23 online Aug 14–20** |
+| **Pay** | **≤$32/unit target, $40 hard ceiling.** Budget **$720–$960**. The gate unit may go to **$45** — §7.4, once |
 | **Yield** | **9–11 matched pairs**, not 12 ([`AB_TEST_PROTOCOL.md`](AB_TEST_PROTOCOL.md) §3.1) |
-| **Buy FIRST, and buy LOCAL** | **One gate unit.** Facebook Marketplace / OfferUp / thrift, so it lands in 1–2 days rather than 3–7 |
-| **Effective deadline for drop 1** | **~Aug 19–20 for online orders**, not Aug 24 — see [`README.md`](README.md) |
-| **Channel priority** | Facebook Marketplace local → eBay auctions ending overnight → eBay untested/as-is |
+| **Buy FIRST, IN PERSON, TODAY** | **One gate unit.** ⚠️ **Revised 2026-08-13 (second pass): §7 is now a full same-day playbook, and the gate runs before the online orders rather than on the first arrival.** |
+| **Hard deadline for drop 1** | **Aug 19–20 for online orders.** Aug 24 closes the window but is **not a usable order date** — see [`README.md`](README.md) |
+| **Channel priority, today** | Pawn shops and repair shops by phone → live local marketplace listings → thrift if it's on your route. **§7.2** |
+| **Channel priority, the other 23** | Facebook Marketplace local → eBay auctions ending overnight → eBay untested/as-is → school/tutoring-centre liquidation (§5.4) |
 
 **What replaced the pilot's protection.** The original argument was sound: committing $720–$960 before
 shipping a single calculator means discovering that your packaging, your photo setup, or your `.8xv`
@@ -719,18 +966,33 @@ untested software — **the repo's own README says the `.8xv` AppVars "have not 
 hardware"** ([`../PREP_SOP.md`](../PREP_SOP.md) §5).
 
 **That specific risk is now handled by the blocking hardware gate in
-[`AB_TEST_PROTOCOL.md`](AB_TEST_PROTOCOL.md) §3.5**, which is arguably stronger than the pilot was: it
-is a defined pass/fail on all ten P6 programs, and **only one unit gets loaded until it passes.** Find
-it out on unit 1 exactly as before — you just own the other 23 already.
+[`AB_TEST_PROTOCOL.md`](AB_TEST_PROTOCOL.md) §3.5**, which is a defined pass/fail on all ten P6
+programs, and **only one unit gets loaded until it passes.**
+
+> **✅ And as of the second 2026-08-13 revision, the gate is now unambiguously *stronger* than the
+> pilot was.** The sentence this paragraph used to end with — *"you just own the other 23 already"* —
+> was the honest weak point, and it has been fixed rather than argued away. **The gate unit is bought
+> locally today and the other 23 are ordered afterwards**, so the gate reports with **~$75 committed
+> instead of ~$900.** The pilot risked ~$38 and took a week; this risks one unit and takes an evening.
+> **§7 is the playbook.**
 
 **The parts that were not fully replaced, stated plainly:**
 
-- **The process shakedown is gone.** No throwaway units. Mitigation in [`README.md`](README.md): prep
-  one pair slowly, weigh the parcel, build both listings as unpublished drafts, fix what's wrong.
+- **The process shakedown is still gone.** No throwaway units. It is smaller than it was: the gate unit
+  now arrives a week ahead of everything else, so it doubles as a shakedown for wipe / OS+Apps / load /
+  photograph — **you just can't throw it away afterwards.** Mitigation in [`README.md`](README.md):
+  prep one pair slowly, weigh the parcel, build both listings as unpublished drafts, fix what's wrong.
 - **The pricing risk got sharper, and it lands on §2 of this document.** You are committing the whole
-  budget in twelve days against **price bands this document labels as derived from repo baselines
-  rather than observed 2026-08 comps** (§0). **Run the §2 manual comp routine today, before the third
-  purchase.** Under the pilot plan a bad price band cost you 6 units of exposure; now it costs 24.
+  budget in **seven days** against **price bands this document labels as derived from repo baselines
+  rather than observed 2026-08 comps** (§0). **Run the §2 manual comp routine today, before the *first*
+  purchase** — the day-0 change moved that from "before the third purchase" to "before you leave the
+  house," because there is now a purchase happening today. Under the pilot plan a bad price band cost
+  you 6 units of exposure; now it costs 24.
+- **And one genuinely new exposure, named honestly: today's unit is bought before the comps exist.**
+  You are walking into a shop with §3.1's **[DERIVED]** bands and no observed 2026-08 transactions
+  behind them. **That is accepted deliberately** — §7.4 explains why an information-buying unit
+  tolerates a wider price band than an inventory unit does — but it is a real cost of the day-0
+  decision and it should not be glossed over.
 
 ⚠️ **Timing, stated honestly.** It is **2026-08-13** and peak sell-side runs to mid-September
 ([`../SOURCING.md`](../SOURCING.md) §4). The ideal buy window — late May to June, 20–35% below
@@ -743,7 +1005,7 @@ August is worth more than everything in [`../PREP_SOP.md`](../PREP_SOP.md) combi
 
 ---
 
-## 8. Contradictions with existing docs — all resolved 2026-08-13
+## 9. Contradictions with existing docs — all resolved 2026-08-13
 
 Originally flagged rather than edited, per the scope constraint on this folder. **Every row has since
 been worked through in the owning document.** Where the resolution went the other way — the older doc

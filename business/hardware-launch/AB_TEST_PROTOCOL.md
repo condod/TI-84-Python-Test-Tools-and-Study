@@ -1,32 +1,70 @@
-# A/B Test Protocol — Is The Software Premium Real?
+# A/B Test Protocol — A Catastrophe Screen On The Loaded Arm
 
-**Pre-registered design for a 12-matched-pair test of loaded vs. bare TI-84 Plus CE Python units.**
+**Pre-registered design for a 12-matched-pair screen of loaded vs. bare TI-84 Plus CE Python
+units.** Its job is to catch the loaded arm doing **harm**. It is not, and cannot be, a measurement
+of the software premium.
 
-Written 2026-08-12. **Revised 2026-08-13** for the owner's decision to buy all 24 units up front
-rather than run a 6-unit pilot first. This document is the pre-registration. **The decision rule and
-the randomisation sequence are now filled in and committed** — see §2.4 and §7 — and they do not
-change after listings go live. Changing a decision rule after seeing data is the single easiest way
-to fool yourself, and it is the failure mode this whole document exists to prevent.
+Written 2026-08-12. Revised 2026-08-13 for the 24-unit up-front buy. **Revised again 2026-08-13
+(second pass)** for the owner's decision to **demote this test from a measurement to a screening
+rule.** This document is still the pre-registration: the decision rule and the randomisation
+sequence are filled in and committed (§2.4, §7) and they do not change after listings go live.
+Changing a decision rule after seeing data is the single easiest way to fool yourself, and it is the
+failure mode this whole document exists to prevent.
 
-> ### What the 2026-08-13 revision changed, and what it deliberately did not
+> ### ⚠️ Read this before anything else: what this test is *for*
 >
-> **Changed.** The design is now **12 pairs / 24 units** bought in one window instead of 10 pairs
-> behind a 6-unit pilot. Randomisation is **pre-committed for all 12 pairs at once** with a recorded
-> seed and hash (§2.4) — it can no longer be generated as units trickle in. Drops are **6 pairs
-> each** (§2.5). §6 is recomputed from scratch at n=12. A **blocking hardware validation gate**
-> (§3.5) replaces the protection the pilot used to provide. §8 now points at a **committed
-> spreadsheet**, and §10's app spec is marked **deferred**.
+> **It is a catastrophe screen. It is not a measurement, and a positive Δ̂ measures nothing.**
+>
+> The first revision established the killing fact and it has not been softened — it has been
+> *acted on*. At 12 pairs the **minimum detectable effect is $10.66** (§6.2, base-case variance),
+> while the **maximum per-unit difference this design can physically produce is $10.37** (§4.2 —
+> every unit in both arms selling at full ask). **The detection floor sits above the design's own
+> ceiling.** And the arms cannot be spread further apart, because a new CE is in stock at Target
+> today for **$94.99** and its own buyers report being shipped Python units
+> ([`SOURCING_SHORTLIST.md`](SOURCING_SHORTLIST.md) §3.2a, **[RESEARCHED 2026-08-13]**), which caps
+> what a *used* loaded unit can credibly ask. Measuring the premium would take **~48 pairs** (§6.4).
+> This season cannot supply them.
+>
+> **So the owner has chosen the only honest remaining use for the design, and it is a good one.**
+> Loading costs ~11 marginal minutes per unit, so the rational default is **keep loading unless the
+> data shows the loaded arm doing worse.** The design is genuinely well-suited to that question —
+> see **§6.3a**, which is new — because harm is not capped at $10.37. A loaded unit that fails to
+> sell while its matched bare partner sells costs the pair **−$61.49**, so the harm side of the
+> attainable range is about **five times** the size of the benefit side. **A design that cannot
+> reach 80% power against any attainable benefit reaches 80% power against harm of about −$10.**
+>
+> **Nothing statistical has been deleted.** §6.2–§6.6 are unchanged and still correct; the work was
+> hard-won and it is the reason this reframing is defensible rather than a rationalisation. What
+> changed is which section is the headline (**§6.3a**), which endpoint is primary (**§4.1**), and
+> the standing of Δ̂ (**§4.2** — recorded, reported with its interval, never called a result).
+
+> ### What the two 2026-08-13 revisions changed, and what they deliberately did not
+>
+> **First pass (24-unit buy).** The design became **12 pairs / 24 units** bought in one window
+> instead of 10 pairs behind a 6-unit pilot. Randomisation is **pre-committed for all 12 pairs at
+> once** with a recorded seed and hash (§2.4). Drops are **6 pairs each** (§2.5). §6 was recomputed
+> from scratch at n=12 with exact noncentral-*t*. A **blocking hardware validation gate** (§3.5)
+> replaced the protection the pilot used to provide. §8 points at a **committed spreadsheet**, and
+> §10's app spec is **deferred**.
+>
+> **Second pass (this one — the demotion).** §0, §1 and §4 are rewritten so the **harm side is the
+> primary endpoint** and Δ̂ is explicitly descriptive. **§6.3a is new**: the design's power against
+> the harm thresholds it is now being used to detect, by the same exact noncentral-*t* and exact
+> enumeration methods the first pass introduced. §6.6, §6.7 and §6.8 gained the findings that came
+> out of that computation — including one genuinely new trap (§6.8, the sign test) that the previous
+> framing would never have surfaced. §7 is unchanged in substance and now says why.
 >
 > **Not changed, on purpose.** The **decision thresholds are still +$6 / +$2 / −$2 with the
-> ≥3-unit sell-through override.** §7.3 is a new section that re-derives them at n=12 and explains
-> why moving them would be wrong. Going from 10 pairs to 12 does not buy enough resolution to
-> justify touching a pre-registered rule, and the thresholds were never derived from *n* in the
-> first place — they come from the marginal labour rate.
+> ≥3-unit sell-through override**, and the **randomisation is still the committed sequence** (seed
+> `20260813`, 6/6 balance, SHA-256 `a6fc5cea…`). §7.3's re-derivation is the reason the rule
+> survives the demotion: **its thresholds come from the marginal labour rate, not from *n* and not
+> from what the test can detect.** A rule that was never a significance test does not need
+> rebuilding when you stop pretending it was one. **Demoting the test does not license post-hoc
+> assignment either** — §2.4's audit trail stands exactly as written.
 >
-> **The headline honesty finding is unchanged and, if anything, sharper:** see §6.3. **12 pairs
-> still cannot detect the $5–$12 premium that [`../UNIT_ECONOMICS.md`](../UNIT_ECONOMICS.md) §6
-> expects.** Buying 24 units up front does not fix that, because it was never a sample-size problem
-> you could solve at this scale.
+> **The headline honesty finding is unchanged:** see §6.3. **12 pairs cannot detect the $5–$12
+> premium that [`../UNIT_ECONOMICS.md`](../UNIT_ECONOMICS.md) §6 expects.** That is now the
+> *premise* of the design rather than a caveat buried at the end of it.
 
 **Labelling convention, matching the rest of `business/`:** **[RESEARCHED]** = a figure with a
 citable source. **[ESTIMATE]** = my modelling assumption. Statistical results below are computed,
@@ -48,40 +86,58 @@ compute the verdict by hand. [`HW_VALIDATION.md`](HW_VALIDATION.md) records the 
 
 | | |
 |---|---|
-| **Question** | Does a used CE Python loaded with my Python study programs realise more net revenue than an identical bare one? |
+| **Question it answers** | **Is loading the units actively hurting them?** Specifically: does asking $12 more for a loaded unit cost enough sell-through to make loading a mistake? |
+| **Question it does NOT answer** | *"How big is the software premium?"* That needs ~48 pairs (§6.4) and is off the table for 2026. **Do not report Δ̂ as an estimate of it.** |
 | **Design** | **12 matched pairs. 24 units.** Within each pair, one unit is loaded, one is bare, from an arm sequence **committed for all 12 pairs before any unit was in hand** (§2.4). |
 | **Realistic yield** | **24 units bought is 9–11 pairs delivered, not 12** — the dud rate and unpairable survivors eat 2–3 pairs. §3.1. Plan the analysis for **10**. |
-| **Price differential** | Bare listed at **$78**, loaded at **$90**. A **$12** gross differential. |
+| **Price differential** | Bare listed at **$78**, loaded at **$90**. A **$12** gross differential, and it **cannot widen** — a new CE is $94.99 in stock (`SOURCING_SHORTLIST.md` §3.2a). |
 | **Platform** | eBay, fixed price with Best Offer, 30-day GTC. Both arms identical format. |
-| **Blocking gate** | **§3.5. No loaded unit past the first gets programs until every P6 program has run correctly on real hardware.** This is the only thing standing where the pilot used to stand. |
-| **Primary endpoint** | Realised **net revenue per unit listed** = `sale price − platform fees − shipping label`, counted as **$0 if unsold at day 45**. |
-| **Decision statistic** | `mean(loaded) − mean(bare)`, paired within pair. |
+| **Blocking gate** | **§3.5. Every P6 program must run correctly on real hardware before a second unit is loaded — and, as of 2026-08-13, before the online orders are placed at all.** It runs **day 0, Aug 13, on a unit bought locally in person.** This is the only thing standing where the pilot used to stand, and moving it to day 0 makes it stronger than the pilot was. |
+| **Primary endpoint** | **Harm, on the paired sell-through gap** (§4.1): `sold(bare) − sold(loaded)` across pairs, with the ≥3-unit override as the firing rule. |
+| **Recorded, not primary** | Realised **net revenue per unit listed** = `sale price − platform fees − shipping label`, **$0 if unsold at day 45**, and `Δ̂ = mean(loaded) − mean(bare)` with its 95% CI. **Descriptive. Never a result.** §4.2. |
 | **Decide at** | Day 45 after the last pair is listed. Not before. **2026-10-21.** |
-| **Keep loading if** | ≥ **+$6.00**/unit |
-| **Stop loading if** | ≤ **+$2.00**/unit |
-| **Otherwise** | Inconclusive → keep loading, stop planning around a premium |
+| **Default action** | **Keep loading.** It costs ~11 min/unit, so continuing needs no evidence. §7. |
+| **Stop loading if** | The sell-through override fires (≥3 units, or ≥30 points), **or** Δ̂ ≤ **−$2.00**. |
+| **Keep-loading band** | Δ̂ ≥ +$6.00 reads **KEEP LOADING** — but that is the rule confirming the default, **not** a finding that the premium is ≥$6. |
 | **Where it's logged** | [`AB_TEST_LOG.csv`](AB_TEST_LOG.csv), committed and pre-filled. **A spreadsheet is the primary and only supported path** — the app work in §10 is deferred and is not being built. |
-| **Honest power** | At n=12 this test **cannot** distinguish a $0 premium from a $10 one. It *can* detect a ≥$15 premium (~98%) and it *can* detect the loaded arm actively underperforming. Going from 10 pairs to 12 moved the minimum detectable effect from **$11.94 to $10.66** — a $1.28 improvement, not a change of category. See §6. |
+| **Honest power, benefit side** | **None worth having.** MDE $10.66 against a $10.37 ceiling (§6.3). Power at the +$6 threshold is **35%**. This is why the test was demoted. |
+| **Honest power, harm side** | **The combined stop rule reaches 80%** against harm of about **−$10** (26 points of sell-through loss), at a **5.8%** false-stop rate. 53% at the −$2 threshold, 95% by −$27. **§6.3a.** |
 
 **The most important sentence in this document:** because loading a unit costs only ~11 extra
 minutes ([`../UNIT_ECONOMICS.md`](../UNIT_ECONOMICS.md) §6), the rational default is **keep loading
-unless the test shows harm.** The burden of proof belongs on *stopping*, not on continuing. Design
-the test to catch a disaster, not to precisely measure a small win you can't afford to measure.
+unless the test shows harm.** The burden of proof belongs on *stopping*, not on continuing — and
+that is now the design, not a consolation. The test was built to catch a disaster; §6.3a confirms
+it can, and §6.3 confirms it was never going to measure the small win instead.
+
+> **The one sentence you must not write on 2026-10-21.** *"The test found a premium of $X."* It
+> found no such thing, at any value of X. What it can find is whether loading did harm. If you catch
+> yourself reaching for the first sentence, re-read §4.2 and the worked example in
+> [`TRACKING_SHEET_NOTES.md`](TRACKING_SHEET_NOTES.md) §4.5 — where a **KEEP LOADING** verdict comes
+> off a +$7.67 point estimate whose confidence interval runs from **−$37 to +$52.**
 
 ---
 
 ## 1. Hypothesis, and what would actually change the business
 
-### 1.1 The hypotheses, stated formally
+### 1.1 The hypotheses, stated formally — and which of them this design can address
 
 Let *Δ* be the true mean difference in realised net revenue per unit listed, loaded minus bare, at a
 $12 list-price differential.
 
-- **H₀:** *Δ* = 0. The market pays nothing for pre-loaded programs; the loaded arm's higher price is
-  fully offset by worse sell-through or more discounting.
-- **H₁:** *Δ* > 0. The market pays something.
-- **H₋ (the outcome that matters most):** *Δ* < 0. Pricing $12 higher costs you more in lost and
-  delayed sales than the premium earns. **This is the result that changes behaviour immediately.**
+| | Hypothesis | Can this design address it? |
+|---|---|---|
+| **H₋** | *Δ* < 0. Pricing $12 higher costs more in lost and delayed sales than the premium earns. | **Yes — this is the design's job.** §6.3a: 80% power at Δ ≈ −$10, and harm reaches −$52. |
+| **H₀** | *Δ* = 0. The market pays nothing; the higher price is fully offset by worse sell-through or more discounting. | **Only as "not distinguishable from harm-free."** A null here is *absence of evidence*, never evidence of absence (§6.3). |
+| **H₁** | *Δ* > 0. The market pays something. | **No.** The whole *Δ* > 0 range the business expects sits below the detection floor (§6.3). This design is not evidence about H₁ at any observed value. |
+
+**Read the third row as a design constraint, not a disappointment.** Two of the three hypotheses are
+addressable and one is not, so the protocol is written around the two that are. The asymmetry is not
+an accident of sample size — it is structural, and §6.3a shows exactly why: *Δ* > 0 is capped at
++$10.37 by the price differential, while *Δ* < 0 is not capped at all.
+
+> **This is what "demoted to a screening rule" means in one line.** The design tests **H₋ against
+> everything else.** It does not partition H₀ from H₁, and no amount of careful reading of Δ̂ will
+> make it do so.
 
 ### 1.2 The prior, from the existing research
 
@@ -98,6 +154,10 @@ confound before you believe it.
 
 ### 1.3 What each result changes
 
+**Read this table as a set of screening bands on the point estimate, not as inferences.** Landing in
+a row tells you which action the pre-registered rule prescribes. It does not tell you that *Δ* is in
+that row's range — §6.5's intervals are wide enough that most rows overlap each other.
+
 | Result | Business decision | What changes in practice |
 |---|---|---|
 | *Δ* ≥ **+$6** | **Keep loading. Make it the default SKU.** | Every prepped CE Python gets P6 loaded before listing. Continue to a 20–30 pair cumulative estimate to tighten the number. Consider testing a *higher* differential ($18) on the next batch. |
@@ -110,8 +170,15 @@ confound before you believe it.
 
 Be clear about the boundaries so you don't over-read it:
 
+- **It does not measure the software premium, and this is the first item on the list for a reason.**
+  Not "measures it imprecisely" — *does not measure it.* The minimum effect detectable at 80% power
+  ($10.66) exceeds the maximum effect the design can produce ($10.37), so there is no attainable
+  outcome the test is adequately powered to establish (§6.3). A Δ̂ of +$9 and a Δ̂ of +$1 are the same
+  evidence about the premium: none.
 - It tests **one differential ($12) on one platform (eBay) in one season (late 2026)**. It does not
-  produce a demand curve.
+  produce a demand curve. **And the differential cannot be widened** to buy resolution — the $94.99
+  in-stock new CE ([`SOURCING_SHORTLIST.md`](SOURCING_SHORTLIST.md) §3.2a) caps the loaded ask, which
+  is why "just spread the arms further apart" is not an available fix.
 - It does not test the **digital** product. That business is separately established and better
   (§10 of the economics doc: one $49 toolkit download nets more than one shipped calculator).
 - It does not test **Mercari or local**, where both the fee structure and the buyer are different.
@@ -340,7 +407,7 @@ no premium."
 
 | | |
 |---|---|
-| Units purchased | **24**, all in the Aug 13–24 window |
+| Units purchased | **24** — **1 locally on Aug 13** (the gate unit), **23 online by Aug 19–20** |
 | Nominal design | **12 pairs** — 24 units ÷ 2 |
 | **Realistic delivered design** | **9–11 pairs.** See the yield table below. **Plan on 10.** |
 | Target acquisition | **≤$32/unit** ([`../UNIT_ECONOMICS.md`](../UNIT_ECONOMICS.md) §7 max-pay table, $88 target / $25 target profit) |
@@ -503,8 +570,14 @@ MicroPython on a calculator.
 The 6-unit pilot existed to find this out on unit 1 for ~$38 of exposure. **Buying 24 units up front
 deletes that protection unless loading is sequenced.** Twelve loaded units prepped in a batch, all
 carrying the same broken payload, is a twelve-unit recall — plus the returns, the negative feedback,
-and the loss of the experiment. This gate restores the pilot's protective function at zero cost: it
-does not delay the buy, it delays only *the second loaded unit*.
+and the loss of the experiment.
+
+> **Revised 2026-08-13 (second pass).** This paragraph used to end *"it does not delay the buy, it
+> delays only the second loaded unit."* **That is no longer the design, and the change is an
+> improvement, not a compromise.** Sequencing loading protects you from the recall but not from the
+> *spend* — it reports on units you have already paid for. Running the gate on **one locally-bought unit
+> on day 0** protects both: it recovers the pilot's full protective function, because the ~$875 of
+> online orders is still uncommitted when the answer arrives. §3.5.2 has the timing.
 
 > **The gate is not part of the experiment. It is a precondition for it.** A failure here is a
 > **product bug**, and it must never be written up as an A/B result. If the gate fails, the correct
@@ -512,11 +585,31 @@ does not delay the buy, it delays only *the second loaded unit*.
 
 ### 3.5.2 When the gate runs
 
-**On the first unit that arrives and passes SOP §2 intake triage** — whichever unit that is,
-regardless of which pair it will eventually join. It does not have to be a loaded-arm unit; the gate
-is about the payload, not about the arm. Run it before any pairing is finalised.
+> **Revised 2026-08-13 (second pass): the gate now runs on day 0, on a unit bought locally in person,
+> *before the online orders are placed.*** The owner's decision. It is a strict improvement and the
+> reason is in §3.5.1's own argument: the gate exists to stop a twelve-unit recall, and it can only do
+> that if it resolves **before the money is committed.** Waiting for the first shipment to arrive meant
+> the gate would report on **$875+ of units that were already bought and non-returnable.** Buying one
+> unit locally today converts the open question — *have these AppVars ever run on real hardware?* —
+> into something answerable within a day, at the cost of one unit's purchase price.
+>
+> [`SOURCING_SHORTLIST.md`](SOURCING_SHORTLIST.md) §7 is the same-day local playbook, and
+> [`README.md`](README.md) has the revised calendar and the fallback if no local unit turns up today.
+
+**On one unit acquired locally on Aug 13**, ahead of the online buy. Failing that (§7 of the shortlist
+has the walk-away conditions), on the first unit that arrives and passes SOP §2 intake triage —
+whichever unit that is, regardless of which pair it will eventually join. It does not have to be a
+loaded-arm unit; the gate is about the payload, not about the arm. Run it before any pairing is
+finalised.
 
 That unit is the **gate unit**. Mark it in the CSV with `hw_gate_unit = TRUE`.
+
+**The gate unit is inside the experiment.** It is unit 1 of 24, it gets graded and paired like any
+other, and its arm is read off §2.4 like any other. Two consequences worth stating: run the gate
+**before** grading it, so the gate work does not contaminate the blind-grading rule in §2.4; and
+**pay for information, not margin** — a small premium over the target price is rational for this one
+unit, because a unit that never materialises today costs the whole schedule. Keep it inside the
+documented ceiling.
 
 ```
 BLOCKING RULE, stated once, unambiguously:
@@ -530,9 +623,12 @@ BLOCKING RULE, stated once, unambiguously:
     until hw_gate_status = PASS is recorded.
 ```
 
-This costs you nothing on the schedule. Loading is 4–5 min/unit and it is the *last* prep step
-anyway; everything upstream of it parallelises and can run on all 24 units while the gate is
-resolved on one. See [`README.md`](README.md) for how this sits in the calendar.
+**The freeze costs you nothing on the schedule** — loading is 4–5 min/unit and it is the *last* prep
+step anyway, so everything upstream of it parallelises across all 24 units while the gate resolves on
+one. **The day-0 sequencing costs you at most a few days of the order window**, which is the price of
+the protection and is affordable only because the window is tight rather than closed: orders must land
+by **Aug 19–20**, so a gate resolved Aug 13–14 leaves five or six usable ordering days. See
+[`README.md`](README.md) for how this sits in the calendar and what happens if no local unit turns up.
 
 ### 3.5.3 What "pass" means, per program
 
@@ -562,17 +658,28 @@ label is cited so you can find the derivation comment above it.
 | 7 | `SUVAT` | `physics_engineering/kinematics_solver.py` | `2` (solve v), `0`, `9.81`, `2` | `19.62` | `qa/cases.py` — *kinematics solve v* |
 | 8 | `OHMS` | `physics_engineering/ohms_law_circuits.py` | `1`, `1`, `2`, `5` | `10.0` | `qa/cases.py` — *ohms law V = I*R* |
 | 9 | `PH` | `chemistry_and_exam_tools/acid_base_calculator.py` | `1`, `1`, `0.001` | `pH  = 3.0`, `pOH = 11.0`, "acidic" | `qa/cases.py` — *pH from [H+] = 0.001* |
-| 10 | `TRIG` | `trigonometry/oblique_triangle_solver.py` | `2` (SAS), `3`, `4`, `90` | `Side c (opposite C) = 5.0` | **No `qa/` case exists** — from [`LISTING_TEMPLATES.md`](LISTING_TEMPLATES.md) §7.2 |
+| 10 | `TRIG` | `trigonometry/oblique_triangle_solver.py` | `2` (SAS), `5`, `8`, `60` | `Side c (opposite C) = 7.0`, `Angle A (opposite a) = 38.2132 deg`, `Angle B (opposite b) = 81.7868 deg` | **No `qa/` case exists.** Derived by hand in [`HW_VALIDATION.md`](HW_VALIDATION.md) §3.0 — **[DERIVED 2026-08-13]** |
 
 Three notes on that table, because the details matter:
 
-- **`TRIG` is the one program with no automated coverage.** It is not in `qa/cases.py` or
-  `qa/cases_new.py` — the trigonometry case there covers `UNITCIRC`
-  (`unit_circle_reference.py`), a different program. `TRIG` is
-  `oblique_triangle_solver.py`. Its known answer is the 3-4-5 right triangle from
-  `LISTING_TEMPLATES.md` §7.2, entered through the **SAS** branch, and it is arithmetically
-  unambiguous (c² = 9 + 16 − 2·3·4·cos 90° = 25). **Treat `TRIG` as the highest-risk program in P6**
-  — largest file at 5,361 B and the only one with no desktop test.
+- **`TRIG` is the one program with no automated coverage, and its fixture is now stated explicitly.**
+  It is not in `qa/cases.py` or `qa/cases_new.py` — the trigonometry cases there cover `UNITCIRC`
+  (`unit_circle_reference.py`), a different program. `TRIG` is `oblique_triangle_solver.py`.
+  **Treat `TRIG` as the highest-risk program in P6** — largest file at 5,361 B and the only one with
+  no desktop test.
+
+  > **Changed 2026-08-13 (second pass): the input is now `5, 8, 60`, not `3, 4, 90`.** The old fixture
+  > was the 3-4-5 right triangle from `LISTING_TEMPLATES.md` §7.2, and **it could not fail.** At
+  > C = 90° the Law of Cosines term `−2ab·cos C` vanishes (`cos(radians(90))` = 6.12×10⁻¹⁷), so
+  > `c = 5.0` comes out right even if the calculator's `cos` were broken or the program dropped the
+  > term. It tested Pythagoras on the highest-risk program in the gate.
+  >
+  > **`5, 8, 60` keeps the exact-integer answer — `c = 7` — and makes the cosine term carry −40 of the
+  > 49.** The derivation, three independent cross-checks, the SSS/SSA follow-ups, and a note on
+  > MicroPython float formatting are in [`HW_VALIDATION.md`](HW_VALIDATION.md) §3.0. **`qa/` was not
+  > modified** — it is read-only for this work, so the fixture lives where the gate uses it.
+  > `LISTING_TEMPLATES.md` §7.2 keeps 3-4-5 for the photo card; that is a different job, and a
+  > recognisable triangle is the right choice there.
 - **Two entries deliberately differ from `LISTING_TEMPLATES.md` §7.2.** For `SIMPSON`, §7.2 uses
   ∫₀¹x² dx = 0.3333, but the `qa/` case uses ∫₀³x² dx = **9.0 exactly** — Simpson's rule is exact for
   quadratics, so an exact integer is a far better verification target than a repeating decimal you
@@ -664,18 +771,83 @@ that tick is real.
 
 ---
 
-## 4. Metrics
+## 4. Endpoints
 
-### 4.1 Primary endpoint
+**The hierarchy changed on 2026-08-13 and the order below is the change.** Harm detection is the
+primary endpoint; net revenue and Δ̂ are recorded and reported but are not the result. If you read
+only one subsection, read §4.1 — and if you are tempted to skip to Δ̂, that is exactly the reader
+§4.2 is written for.
+
+### 4.1 Primary endpoint — harm, on the paired sell-through gap
+
+> **The paired sell-through gap**
+> `gap = (number of pairs where the BARE unit sold and the loaded one did not)`
+> `    − (number of pairs where the LOADED unit sold and the bare one did not)`
+> measured at **day 45**, over the delivered pairs.
+>
+> **The rule fires at `gap ≥ 3` on 12 pairs, or `gap / n ≥ 0.30` on fewer** (§7.1, §7.3).
+
+**Why this is the primary endpoint and not the mean.** Three reasons, in order of weight:
+
+1. **It is the one thing the design is well-powered to catch.** §6.3a computes it exactly: the
+   override alone reaches 80% trigger probability at 35 points of sell-through loss, and combined
+   with the Δ̂ ≤ −$2 band the stop rule reaches **80% at Δ ≈ −$10** with a **5.8%** false-stop rate.
+   Nothing on the benefit side comes close to those numbers, and nothing can (§6.3).
+2. **It is the harm that actually costs money.** A mean that looks tolerable while inventory sits is
+   hiding a carrying cost the mean does not price, in a seasonal business where unsold stock in
+   October is worth less than unsold stock in August. §7.1 has applied the override *before* the mean
+   since the first draft; what changed is that it is now labelled as the primary endpoint rather than
+   as an override on one.
+3. **It does not suffer the variance blow-up that wrecks the mean.** This is the subtle one. The
+   mechanism that produces harm — a loaded unit going unsold while its matched partner sells — swings
+   that pair's dollar difference by $61–$72, so **the harm signal and the noise that hides it are the
+   same event.** §6.3a shows σ_d climbing from ~$21 to ~$33 as harm grows, which is why the paired
+   *t*-test on Δ̂ has only **5.4%** power at the −$2 threshold. A count-based rule is immune to that:
+   discordance *is* the signal, and counting it does not amplify it.
+
+**Analysed as:** the raw gap against the §7.1 threshold, which is the firing rule; plus the exact
+two-sided McNemar / binomial *p* on the discordant pairs (§6.6) **reported for the record only.**
+Note the ordering — the gap is the decision, McNemar is the description. §6.3a shows the significance
+test is much the weaker of the two (1.4% vs 32.6% at the −$2 harm level), because it needs at least
+six discordant pairs before *any* split can reach *p* ≤ 0.05.
+
+> **What a null result on this endpoint means.** "No harm detected," and nothing more. It is not
+> evidence that loading is beneficial, it is not evidence that the premium is real, and it is not
+> even strong evidence that harm is absent — §6.3a shows the rule misses 47% of the harm sitting at
+> the −$2 threshold. **Absence of evidence is not evidence of absence**, and the default action on a
+> null is to keep loading *because loading is cheap*, not because the test endorsed it.
+
+### 4.2 The recorded statistic — net revenue per unit listed, and Δ̂
 
 > **Realised net revenue per unit listed**
 > `net = sale_price − platform_fees − shipping_label_cost`
 > **`net = 0` if the unit has not sold by day 45.** A returned unit is `net = 0` and the return
 > costs are logged separately.
 
-**Decision statistic:** `Δ̂ = mean(net_loaded) − mean(net_bare)`, computed on the within-pair
+**Recorded statistic:** `Δ̂ = mean(net_loaded) − mean(net_bare)`, computed on the within-pair
 differences — 12 of them if all 12 pairs are delivered, and however many you actually have if not
-(§3.1 expects 9–11).
+(§3.1 expects 9–11) — **always with its 95% confidence interval and the observed σ_d.**
+
+> ### Δ̂ is descriptive. It is not a result. Three rules, and they are not negotiable.
+>
+> 1. **Never report Δ̂ without its interval.** §6.5 shows why: at realistic variance a *statistically
+>    significant* Δ̂ = +$10 still spans [+$2.4, +$17.6], and the worked example in
+>    [`TRACKING_SHEET_NOTES.md`](TRACKING_SHEET_NOTES.md) §4.5 produces a **KEEP LOADING** verdict off
+>    +$7.67 with an interval from **−$37 to +$52** — wider than the entire range of outcomes the
+>    design can produce. A sheet that prints the verdict and hides the interval is worse than no
+>    sheet.
+> 2. **Never describe a positive Δ̂ as a measured premium, a realised premium, or an estimate of one.**
+>    Acceptable phrasing: *"the point estimate was +$7.67 (95% CI −$37 to +$52); the pre-registered
+>    screening rule reads KEEP LOADING, which was also the default."* Unacceptable: *"loading earned
+>    $7.67 per unit."*
+> 3. **σ_d is the genuinely valuable output.** It is the one number no amount of reasoning could have
+>    supplied in advance, every future power calculation depends on it, and §6.2's whole dollar table
+>    is currently an **[ESTIMATE]** waiting for it. **Report it even if you report nothing else.**
+
+**Why keep the endpoint at all, if it decides nothing?** Because it is the only quantity that folds
+price and sell-through into one number, it is what the Δ̂ ≤ −$2 harm band is computed from, and it
+produces σ_d. Deleting it would cost the harm screen one of its two firing rules and would throw away
+the variance measurement. **Demoting a statistic is not the same as discarding it.**
 
 Three deliberate choices worth defending:
 
@@ -700,21 +872,38 @@ promoted, $5.50 label):
 | | | | | **+$10.37** | if every unit sells at ask in both arms |
 
 So the **maximum** *Δ* this design can produce is about **+$10.4**, and only if the market pays the
-full $12 with no sell-through penalty. Note what that means: **the decision threshold of +$6 is 58%
-of the maximum possible result.** The test is asking "does the market pay at least 58% of the asked
-premium?" — a reasonable question, but be aware the ceiling is low and the resolution (§6) is
-coarse.
+full $12 with no sell-through penalty. **This is the number that killed the measurement**: §6.2 puts
+the minimum detectable effect at $10.66, which is above it. The ceiling is not a modelling
+pessimism — it is arithmetic on the $12 differential, and the differential cannot widen
+([`SOURCING_SHORTLIST.md`](SOURCING_SHORTLIST.md) §3.2a).
 
-### 4.2 Secondary endpoints
+**Now look at the same table read downwards, which is the reframing in one row.** The harm side has
+no equivalent ceiling:
+
+| Scenario | Loaded net | Bare net | Pair difference |
+|---|---:|---:|---:|
+| Both sell at ask — **the best case** | $71.86 | $61.49 | **+$10.37** |
+| Both go unsold | $0 | $0 | $0 |
+| Loaded sells, bare doesn't | $71.86 | $0 | +$71.86 |
+| **Bare sells, loaded doesn't — the harm case** | **$0** | **$61.49** | **−$61.49** |
+
+**+$10.37 up, −$61.49 down.** At the 85% bare sell-through this plan models, a total loaded-arm
+failure lands *Δ* at **−$52.27**, which is **5.0×** the benefit ceiling **[COMPUTED 2026-08-13]**.
+That asymmetry is the entire reason a design that cannot measure a $6 win can still catch a $10 loss,
+and it is worked through properly in **§6.3a**.
+
+### 4.3 Secondary endpoints
+
+**Sell-through at 45 days was promoted out of this table** — it is the primary endpoint now (§4.1).
+What remains here is genuinely secondary.
 
 | Metric | Definition | Why | Analysis |
 |---|---|---|---|
-| **Sell-through at 45 days** | Sold / listed, per arm | The metric with the most decision value at this n (§6.6). Slow inventory in a seasonal business is a real cost. | Discordant pairs, exact binomial (McNemar) |
-| **Days-to-sale** | `sold_at − listed_at`, in days, sold units only | Leading indicator of demand at the asked price. Censored at 45 for unsold. | Wilcoxon signed-rank on pairs where both sold; report the censoring |
-| **Realised price, conditional on sale** | `sale_price` for sold units | Shows how much of the $12 survived Best Offer haggling | Paired t / Wilcoxon on pairs where both sold. **Do not use as the primary endpoint** — it conditions on the outcome |
-| **Sell-through at 30 days** | Sold / listed | Interim only. **Look at it, do not decide on it** (§5.3) | Descriptive |
+| **Days-to-sale** | `sold_at − listed_at`, in days, sold units only | Leading indicator of demand at the asked price. Censored at 45 for unsold. **A widening gap is the early shape of harm** — it precedes the sell-through gap. | Wilcoxon signed-rank on pairs where both sold; report the censoring |
+| **Realised price, conditional on sale** | `sale_price` for sold units | Shows how much of the $12 survived Best Offer haggling | Paired t / Wilcoxon on pairs where both sold. **Never an endpoint** — it conditions on the outcome, and conditioning on the sale is exactly how a sell-through catastrophe disguises itself as a pricing win |
+| **Sell-through at 30 days** | Sold / listed | Interim only, and the input to the §5.3 safety stop. **Look at it, do not decide on it** beyond that one pre-defined stop | Descriptive |
 
-### 4.3 Leading indicators — collect them, don't decide on them
+### 4.4 Leading indicators — collect them, don't decide on them
 
 | Metric | When | Source |
 |---|---|---|
@@ -744,12 +933,14 @@ September**, and it is already 2026-08-12.
 
 | Phase | Dates | What happens |
 |---|---|---|
-| **Buy** | Aug 13 – Aug 24 | Acquire 24 units per [`SOURCING_SHORTLIST.md`](SOURCING_SHORTLIST.md). Log every purchase. **Anything bought after ~Aug 20 online will not make drop 1** — see [`README.md`](README.md) for the arrival maths. |
-| **Hardware gate** | On first unit's arrival | **§3.5. Blocking.** Ten programs, both payload formats, on one unit. No other unit gets programs until it passes. |
+| **Day 0 — buy the gate unit locally** | **Aug 13, in person** | **Revised 2026-08-13 (second pass).** One unit, bought locally, variant-tested at the counter before paying. [`SOURCING_SHORTLIST.md`](SOURCING_SHORTLIST.md) §7 is the playbook. |
+| **Hardware gate** | **Aug 13–14, on that unit** | **§3.5. Blocking, and now it runs *before* the money is committed.** Ten programs, both payload formats, on one unit. |
+| **Buy the other 23** | **Aug 14 – Aug 20** | Only after the gate result is known. Acquire per [`SOURCING_SHORTLIST.md`](SOURCING_SHORTLIST.md). Log every purchase. **Aug 19–20 is the hard online order deadline** — see [`README.md`](README.md) for the arrival maths. |
 | **Intake + grade** | as units arrive | SOP §2 triage, grade, serial, photos-as-received. Fill the CSV's intake columns **before reading the arm column** (§2.4). |
 | **Pair + bind** | by **Aug 26** | Apply §2.4 stage 2: match into pairs, number by serial, read arms off the committed table. |
 | **Freeze** | **Aug 23** | Template, photos, prices, thresholds and loadout **locked**. The arm sequence was already locked on Aug 13. Nothing changes after this date. |
 | **Prep** | Aug 20 – Sep 4 | Two batches of 12. SOP §10 timings — ~13.4 bench hours total for 24 units. Fits; see [`README.md`](README.md). |
+| **Order deadline** | **Aug 19–20** | **Hard.** A unit ordered Aug 24 arrives ~Aug 31 and cannot be graded, paired, prepped and listed for the Aug 30 drop. Aug 24 closes the window; it is not a usable order date. |
 | **Drop 1** | Sun **Aug 30**, 7–9 PM ET | Pairs `P01`–`P06`. 12 listings. |
 | **Drop 2** | Sun **Sep 6**, 7–9 PM ET | Pairs `P07`–`P12`. 12 listings. |
 | **Observation** | to **Oct 21** | 45 days after drop 2. Collect data weekly. Change nothing. |
@@ -819,7 +1010,20 @@ a bigger test, and you should let it.
 
 **Recomputed from scratch on 2026-08-13 for n=12.** Not scaled from the old n=10 figures — the
 critical values, the noncentral-*t* power integrals and the exact binomial tests were all
-re-evaluated. Method and a note on why some old numbers moved are in §6.8.
+re-evaluated. Method and a note on why some old numbers moved are in §6.7.
+
+> **Reading order changed on 2026-08-13 (second pass), and nothing below it was deleted.**
+> §6.2–§6.6 are unchanged and were re-verified figure by figure against the same exact methods
+> (§6.7). What changed is where the emphasis sits:
+>
+> - **§6.2 and §6.3 are why the measurement is impossible.** They are still correct and they are
+>   still the reason this test was demoted. Read them as the *premise*, not the caveat.
+> - **§6.3a is new, and it is the section that justifies running the test at all.** It computes power
+>   against the harm thresholds — the endpoint that is now primary (§4.1) — because §6.3's tables
+>   report power only against *positive* effects and therefore said nothing about the design's actual
+>   job.
+> - **§6.6 gained a correction** about *which* sell-through test carries the power, and §6.8 gained a
+>   trap that only became visible once harm was modelled properly.
 
 ### 6.1 The design
 
@@ -833,40 +1037,67 @@ not 12. The n=9 and n=11 columns are shown throughout so you can find your real 
 
 ### 6.2 What n=12 can detect **[COMPUTED]**
 
-For a two-sided paired *t*-test at α = 0.05 with 80% power and n = 12 (df = 11):
+For a two-sided paired *t*-test at α = 0.05 with 80% power and n = 12 (df = 11), solving the
+**noncentral-*t*** power equation for the noncentrality parameter:
 
 ```
-required standardised effect  d_z = (t₀.₀₂₅,₁₁ + t₀.₂₀,₁₁) / √n
-                                  = (2.2010 + 0.8755) / √12
-                                  = 3.0765 / 3.4641
-                                  = 0.8881
+solve for d_z:   P(T'(df=11, ncp = d_z*sqrt(12)) > t_0.025,11)
+               + P(T'(df=11, ncp = d_z*sqrt(12)) < -t_0.025,11)  =  0.80
+
+               d_z = 0.8887
 ```
 
 So the **minimum detectable effect is about 0.89 × the standard deviation of the pair differences**,
-down from 0.99 at n=10. The same calculation across the plausible yield range:
+down from 1.00 at n=10. The same calculation across the plausible yield range:
 
-| n (pairs) | df | t₀.₀₂₅ | t₀.₂₀ | **d_z at 80% power** | CI half-width multiplier |
+| n (pairs) | df | t₀.₀₂₅ | **d_z at 80% power, exact** | *(t + t)/√n approx, for contrast* | CI half-width multiplier |
 |---:|---:|---:|---:|---:|---:|
-| 9 | 8 | 2.3060 | 0.8889 | **1.0650** | 0.7687 × σ_d |
-| 10 | 9 | 2.2622 | 0.8834 | **0.9947** | 0.7154 × σ_d |
-| 11 | 10 | 2.2281 | 0.8791 | **0.9369** | 0.6718 × σ_d |
-| **12** | **11** | **2.2010** | **0.8755** | **0.8881** | **0.6354 × σ_d** |
+| 9 | 8 | 2.3060 | **1.0670** | *1.0650* | 0.7687 × σ_d |
+| 10 | 9 | 2.2622 | **0.9960** | *0.9947* | 0.7154 × σ_d |
+| 11 | 10 | 2.2281 | **0.9377** | *0.9369* | 0.6718 × σ_d |
+| **12** | **11** | **2.2010** | **0.8887** | *0.8881* | **0.6354 × σ_d** |
+
+> **⚠️ Corrected 2026-08-13 (second pass) — the residual approximation the §6.7 audit was looking
+> for, and this was the only one.** This table previously computed `d_z` as
+> **`(t₀.₀₂₅,df + t₀.₈₀,df) / √n`**, shown above in the italic column. That is the **central-*t*
+> approximation**, not the noncentral-*t* calculation §6.7 requires — it treats the test statistic's
+> distribution under the alternative as a shifted central *t*, which it is not, because the sample
+> standard deviation in the denominator is itself random.
+>
+> **It is a small error and it went the wrong way**, understating the required effect by **0.06% at
+> n=12 rising to 0.19% at n=9** — i.e. claiming very slightly more sensitivity than the design has.
+> **Every load-bearing number in this document survives it**, because the n=12 figures are unchanged
+> at two decimal places: **$5.33, $10.66 and the $10.66-vs-$10.37 comparison all stand exactly as
+> published.** What moved is one to four cents in the n=9 and n=10 columns, listed below.
+>
+> **Worth stating what this is *not*.** It is **not** the normal approximation. That would give
+> `d_z = 2.8016/√n` = 0.8088 at n=12 — a **9% understatement** and a materially dishonest $9.71 MDE.
+> The previous pass's move to *t*-based figures did the heavy lifting; this pass closes the last
+> 0.2%. **The distinction matters because a 9% error would have changed the conclusion and a 0.2%
+> error does not.**
 
 Everything then hinges on σ_d — which you do not know yet, and which this test will measure as a
 by-product. In dollars, at 80% power:
 
 | σ_d scenario | Plausible if… | MDE at n=9 | MDE at n=10 | **MDE at n=12** |
 |---|---|---:|---:|---:|
-| **$6** | Tight matching, fixed price, most units sell, little haggling | $6.39 | $5.97 | **$5.33** |
-| **$12** | Realistic base case — some haggling, 1–2 unsold per arm | $12.78 | $11.94 | **$10.66** |
-| **$20** | Loose matching, or 3+ unsold units per arm swinging pairs by $60+ | $21.30 | $19.89 | **$17.76** |
+| **$6** | Tight matching, fixed price, most units sell, little haggling | $6.40 | $5.98 | **$5.33** |
+| **$12** | Realistic base case — some haggling, 1–2 unsold per arm | $12.80 | $11.95 | **$10.66** |
+| **$20** | Loose matching, or 3+ unsold units per arm swinging pairs by $60+ | $21.34 | $19.92 | **$17.77** |
+
+> **Three cells moved by one to four cents** in the 2026-08-13 correction above ($6.39→$6.40,
+> $5.97→$5.98, $12.78→$12.80, $11.94→$11.95, $21.30→$21.34, $19.89→$19.92, $17.76→$17.77). **The
+> n=12 σ_d=$12 cell — the one every conclusion rests on — did not move.** The $17.77 and $26.66
+> figures quoted in §6.3a were already the exact values, so §6.2 and §6.3a now agree to the cent.
 
 **[ESTIMATE]** — the σ_d values are my modelling, not measured. There is no published variance
 figure for this. Report your observed σ_d in the write-up; it is the most valuable number the test
-produces, because it tells you how many pairs a *real* measurement would need.
+produces, because it tells you how many pairs a *real* measurement would need. **§6.3a step 2 gives
+the first quantitative reason to expect σ_d in the $20–$40 range rather than $12** — read the $20
+column as the realistic one.
 
-**What the extra two pairs bought you: $1.28.** At the base-case σ_d = $12 the minimum detectable
-effect went from **$11.94 to $10.66.** That is the entire statistical return on adding 4 units to the
+**What the extra two pairs bought you: $1.29.** At the base-case σ_d = $12 the minimum detectable
+effect went from **$11.95 to $10.66.** That is the entire statistical return on adding 4 units to the
 design. It is not nothing, but it does not change what the test can conclude, and it is worth knowing
 before you interpret a result as though 24 units bought you a real measurement.
 
@@ -900,7 +1131,7 @@ across that range runs from **26% at $5 to 88% at $12**, and the bottom two-thir
 $5 through $10 — sits at **26%–75%**, i.e. more likely to be missed than found for most of it. The
 conclusion of the original n=10 analysis survives the extra pairs intact.
 
-**And there is a sharper version of the problem that the larger sample makes visible.** §4.1 computes
+**And there is a sharper version of the problem that the larger sample makes visible.** §4.2 computes
 this design's **maximum attainable** Δ: if every unit in both arms sells at full ask, the difference
 in net revenue is **+$10.37**. Put that next to the base-case MDE:
 
@@ -920,6 +1151,140 @@ That is not a reason to skip the test, and it is not a reason to buy more units 
 "more" would have to mean. It is a reason to know in advance what a "not significant" result means:
 **absence of evidence, not evidence of absence.** And it is the reason §7.3 concludes the decision
 rule should be read as a **screening rule on the point estimate**, not as a significance test.
+
+**As of the 2026-08-13 second pass, that conclusion is the design rather than a footnote to it.**
+Everything above establishes what this test *cannot* do. §6.3a establishes what it can.
+
+### 6.3a Power against harm — the endpoint this design is actually for **[COMPUTED 2026-08-13]**
+
+**This section exists because §6.3 answers the wrong question.** Its tables report power against
+Δ > 0 only, so when the test was demoted to a harm screen (§0, §4.1) the design's power against its
+own primary endpoint was undocumented. It is computed here by the **same exact methods** §6.7
+specifies — noncentral-*t* for the continuous endpoint, exact enumeration for the count-based rules.
+**No normal approximations were introduced, and none were found lurking** (see §6.7's audit).
+
+#### The structural fact everything else follows from: harm is not capped, benefit is
+
+| Direction | What bounds it | Attainable extreme |
+|---|---|---:|
+| **Benefit** | The $12 price differential, minus fees. And the differential cannot widen — a new CE is in stock at $94.99 (`SOURCING_SHORTLIST.md` §3.2a) | **+$10.37** |
+| **Harm** | Nothing. An unsold loaded unit is $0 against its partner's $61.49 | **−$61.49** per pair; **−$52.27** as a design mean at 85% bare sell-through |
+
+**The harm side of the attainable range is 5.0× the benefit side.** That single ratio is why a design
+whose detection floor ($10.66) exceeds its benefit ceiling ($10.37) can still be a competent harm
+detector: the floor sits *above* everything on the right and *well inside* the range on the left.
+
+#### Step 1 — the naive reading, which is correct as far as it goes
+
+A two-sided *t*-test's power depends on |Δ|, not its sign, so **at equal σ_d every figure in §6.3
+reads backwards unchanged.** Stated explicitly so nobody has to trust that it does:
+
+| \|Δ\| | σ_d = $6 | σ_d = $12 | σ_d = $20 | σ_d = $30 |
+|---:|---:|---:|---:|---:|
+| $2 | 18.4% | 8.3% | 6.2% | 5.5% |
+| $6 | 88.3% | **35.3%** | 15.8% | 9.7% |
+| $10.37 | 100% | **77.8%** | 37.5% | 19.5% |
+| $15 | 100% | **97.5%** | 65.8% | 35.3% |
+| $20 | 100% | 99.9% | 88.3% | 55.8% |
+| $30 | 100% | 100% | 99.7% | 88.3% |
+| $52 | 100% | 100% | 100% | 100% |
+
+**MDE, exact noncentral-*t* at n=12:** ±$5.33 at σ_d=$6, **±$10.66** at $12, ±$17.77 at $20,
+±$26.66 at $30.
+
+So on this reading the design has ≥80% power against any harm worse than **−$10.66** — which covers
+roughly **80% of the attainable harm range** and **0% of the attainable benefit range.** That
+asymmetry is real and it is the honest headline.
+
+#### Step 2 — the correction that makes it harder, and it goes against interest
+
+**Step 1 holds σ_d fixed, and harm does not.** The mechanism that produces harm is a loaded unit
+going unsold while its matched partner sells — which moves that pair's difference by **−$61.49.**
+**The harm signal and the noise that conceals it are the same event.** So σ_d is a function of the
+harm level, and modelling it properly is the difference between a flattering table and a usable one.
+
+**The model.** Bare sell-through `p_B`; the loaded arm loses `d_st` percentage points; a small
+`p10 = 5%` baseline rate of pairs where the loaded unit happens to sell and the bare one does not.
+The pair difference then takes four values — **+$10.37** (both sell), **+$71.86** (loaded only),
+**−$61.49** (bare only), **$0** (neither) — and Δ, σ_d and every trigger probability follow exactly.
+
+**Inputs are [ESTIMATE]** (`p_B = 85%` from this plan's own sell-through assumption, `p10 = 5%`);
+**the arithmetic on them is [COMPUTED]** and exact. **The model carries no haggling variance**, so
+every σ_d below is a *lower* bound and **every power figure below is an upper bound.**
+
+| Sell-through lost | Loaded | Δ | σ_d | d_z | paired *t* | **override** | McNemar |
+|---:|---:|---:|---:|---:|---:|---:|---:|
+| 0 pts (no harm) | 85% | +$8.81 | $21.34 | 0.413 | 25.8% | 1.3% | 0.0% |
+| 5 pts | 80% | +$5.22 | $26.26 | 0.199 | 9.7% | 7.5% | 0.0% |
+| 10 pts | 75% | +$1.63 | $29.97 | 0.054 | 5.3% | 18.7% | 0.3% |
+| **15 pts** | **70%** | **−$1.96** | **$32.87** | 0.060 | **5.4%** | **32.6%** | 1.4% |
+| 20 pts | 65% | −$5.56 | $35.17 | 0.158 | 7.9% | 47.1% | 3.7% |
+| 25 pts | 60% | −$9.15 | $36.99 | 0.247 | 12.3% | 60.4% | 8.0% |
+| 30 pts | 55% | −$12.74 | $38.38 | 0.332 | 18.3% | 71.7% | 14.4% |
+| 40 pts | 45% | −$19.93 | $40.07 | 0.497 | 35.0% | 87.3% | 32.0% |
+| 50 pts | 35% | −$27.12 | $40.43 | 0.671 | 56.3% | 95.2% | 51.9% |
+| 60 pts | 25% | −$34.30 | $39.51 | 0.868 | 78.2% | 98.5% | 69.4% |
+| 70 pts | 15% | −$41.49 | $37.20 | 1.115 | 93.9% | 99.6% | 82.5% |
+
+**Three things to take from that table, and the second is the important one.**
+
+1. **σ_d is nowhere near the $12 base case under harm — it runs $21–$40.** §6.2's dollar figures were
+   always labelled **[ESTIMATE]**; this is the first quantitative reason to think the realistic value
+   is at or beyond the **$20** column rather than the $12 one. **Budget accordingly, and treat the
+   observed σ_d as the single most valuable number the test produces (§4.2).**
+2. **The paired *t*-test on Δ̂ is not the harm detector. It has 5.4% power at the −$2 threshold** —
+   indistinguishable from the 5% you get for free from the α level. It does not clear 80% until harm
+   reaches about **−$35**. **This is a decisive argument for §4.1's promotion of the count-based
+   endpoint**, and it would have been invisible under the old framing, which only ever computed power
+   at fixed σ_d.
+3. **The sell-through override is roughly six times better powered** at the harm level that matters
+   (32.6% vs 5.4% at −$2), because counting discordance does not amplify it.
+
+#### Step 3 — the number that actually answers the question
+
+The §7.1 rule is not a significance test, so its power is not a significance calculation. It is a
+**screening rule**, and a screening rule's sensitivity is `P(the rule says STOP)`. Computed exactly
+by enumerating the multinomial over the four pair outcomes, override applied first as §7.1 requires:
+
+| Truth | Δ | STOP via override | STOP via Δ̂ ≤ −$2 | **P(STOP either way)** | NULL | LEAN KEEP | KEEP |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| **No harm** | +$8.81 | 1.3% | 4.5% | **5.8%** ← false-stop rate | 4.8% | 19.1% | 70.2% |
+| 5 pts lost | +$5.22 | 7.5% | 12.1% | **19.6%** | 8.9% | 23.3% | 48.2% |
+| 10 pts | +$1.63 | 18.7% | 17.8% | **36.5%** | 10.5% | 20.6% | 32.3% |
+| **15 pts** | **−$1.96** | 32.6% | 20.3% | **52.9%** | 10.2% | 15.8% | 21.2% |
+| 20 pts | −$5.56 | 47.1% | 19.8% | **66.8%** | 8.7% | 10.9% | 13.5% |
+| **26.3 pts** | **−$10.08** | 63.4% | 16.6% | **80.0%** ← the honest harm MDE | 6.5% | 6.2% | 7.4% |
+| 30 pts | −$12.74 | 71.7% | 13.9% | **85.6%** | 5.2% | 4.1% | 5.1% |
+| 40 pts | −$19.93 | 87.3% | 7.3% | **94.6%** | 2.6% | 1.1% | 1.7% |
+| 50 pts | −$27.12 | 95.2% | 3.1% | **98.2%** | 1.1% | 0.2% | 0.5% |
+| 60 pts | −$34.30 | 98.5% | 1.0% | **99.5%** | 0.3% | 0.0% | 0.1% |
+
+> ### The honest one-line answer, and it is a good one
+>
+> **The pre-registered stop rule reaches 80% sensitivity against harm of about −$10 — 26 points of
+> lost sell-through — at a 5.8% false-stop rate. It is at 53% at the −$2 threshold and above 95% by
+> −$27.** Against *benefit* it reaches 80% power at no attainable value whatsoever.
+>
+> **That is a well-designed catastrophe screen and a useless measuring instrument, which is exactly
+> what the owner has now decided to use it as.** The reframing is not a rationalisation of a weak
+> test; it is the correct reading of a test that is strong on one side and hopeless on the other.
+
+**At the realistic yield of 9–11 pairs it degrades gently, which is worth knowing.** At **n=10**: the
+false-stop rate is **6.0%** (essentially unchanged), 15 points gives **49.0%**, 25 points **72.5%**,
+30 points **80.7%**, 50 points **96.7%**. **The harm screen loses about 5 percentage points of
+sensitivity for two lost pairs** — far less than the benefit side would have lost, because count-based
+rules degrade slowly. **[COMPUTED]** Do not let a 10-pair yield talk you out of applying the rule.
+
+#### Two limits on the above, stated because they are real
+
+1. **Every figure is an upper bound.** No haggling variance, no returns, no listing-quality drift,
+   independence across pairs (§2.6 says within-seller interference violates that, in the direction
+   that makes harm look *larger* than it is). Read 80% as "80% under a model kinder than reality."
+2. **The §5.3 safety stop is not part of this.** It is a *day-30* early-stop requiring loaded ≤1/12
+   while bare ≥7/12, and it is deliberately near-unreachable: **0.1%** at 30 points of harm, 4.2% at
+   50, 44.3% at 70. **[COMPUTED]** It is a circuit breaker for a total loaded-arm failure, not a
+   detector, and it adds nothing to the day-45 sensitivities above. That is by design — an early stop
+   should be hard to trip — but do not count it as harm-detection capability.
 
 ### 6.4 How many pairs a real measurement would take **[COMPUTED]**
 
@@ -985,6 +1350,11 @@ has clean small-sample properties. Exact two-sided *p*-values:
 And on the simple "which arm sold more" sign test over all 12 pairs: **12–0 gives *p* = 0.0005,
 11–1 gives *p* = 0.006, 10–2 gives *p* = 0.039, and 9–3 gives *p* = 0.146.**
 
+> ⚠️ **That second line is about the *sell-through* counts. Do not carry it across to the dollar
+> differences.** A sign test on the net-revenue differences looks like the same arithmetic and is a
+> **trap** — §6.8's eighth row, added 2026-08-13, quantifies it at a **34% chance of significance in
+> the wrong direction** at exactly the harm level the −$2 threshold exists to catch.
+
 **This is where the extra two pairs actually helped.** At n=10 you needed 9 of 10 in one direction
 (*p* = 0.021) for significance and 8 of 10 was not enough (*p* = 0.11). At n=12 **10 of 12 clears it**
 (*p* = 0.039) — so the binary endpoint gained a genuine tolerance for one discordant pair that the
@@ -997,6 +1367,29 @@ will break it in most pairs, and this test will see it.** That asymmetry is the 
 about the design: it is well-powered against disaster and poorly powered against a small win. Given
 that loading costs 11 minutes and the default is to keep doing it, **being well-powered against
 disaster is the correct thing to be well-powered against.**
+
+> ### ⚠️ Correction added 2026-08-13: this section named the right endpoint and the wrong test
+>
+> **The conclusion above is right — sell-through is the better-powered endpoint, and it is now the
+> primary one (§4.1). But the power does not live in the exact McNemar test this section leads with.**
+> §6.3a computed both under a proper harm model and the gap is large:
+>
+> | At harm of −$1.96 (15 points of sell-through lost) | Trigger probability |
+> |---|---:|
+> | Exact McNemar significance, *p* ≤ 0.05 | **1.4%** |
+> | The §7.1 **≥3-unit override**, which is a raw count | **32.6%** |
+>
+> **The reason is in this section's own table.** Look at the top row: with **fewer than 6 discordant
+> pairs no split can reach *p* ≤ 0.05 at all** — 5–0 gives *p* = 0.0625. Moderate harm produces two or
+> three discordant pairs, not six, so the significance route is dead on arrival at exactly the harm
+> levels worth catching. The override does not have that floor: three discordant pairs in one
+> direction is all it needs.
+>
+> **So the table above is retained as the reference it always was** — it is what you report, and
+> `TRACKING_SHEET_NOTES.md` §4.3 cross-checks against it — **but it is not the firing rule and it was
+> never a good candidate for one.** §4.1 makes the count the decision and McNemar the description.
+> This is the one place where the demotion of the test genuinely changed a technical conclusion rather
+> than just its framing.
 
 ### 6.7 Method, and why two old numbers moved **[COMPUTED]**
 
@@ -1018,12 +1411,52 @@ Stated so the arithmetic can be checked rather than trusted:
 > noncentral-*t* values are **22%** and **65%**. The old figures came from a normal approximation,
 > which understates power at small df. The like-for-like comparison — exact against exact — is
 > therefore **22% → 26%** at $5 and **65% → 75%** at $10 going from 10 pairs to 12. The old n=10 MDE
-> of "≈$12" was right: it is $11.94.
+> of "≈$12" was right: it is **$11.95** (stated as $11.94 until the second pass took §6.2's `d_z`
+> column off the central-*t* approximation — see the correction box there).
 >
 > This is recorded rather than quietly fixed because the direction matters. **The test is very
 > slightly better than the previous section claimed, and still not good enough to measure the effect
 > we expect.** Correcting a number in the direction you'd like it to go, and finding the conclusion
 > unchanged, is the outcome you want from a re-derivation.
+
+#### Residual-approximation audit, 2026-08-13 (second pass) **[COMPUTED]**
+
+The instruction for this pass was to compute harm power by the same exact methods **and to say
+whether any normal-approximation numbers were left over from before the first pass corrected them.**
+Every published figure in §6 and §7.3 was independently recomputed and checked against what is
+printed. **The audit found one real approximation and two rounding slips. All three are now fixed in
+place, and none of them changes a conclusion.**
+
+| Checked | Result |
+|---|---|
+| §6.2 critical values (t₀.₉₇₅ and t₀.₈₀ at df 8–11) | **Reproduce to 4 dp.** Exact *t* quantiles |
+| **§6.2's `d_z` column and MDE table** | **⚠️ FOUND ONE.** It was computing `d_z = (t₀.₀₂₅ + t₀.₈₀)/√n` — the **central-*t* approximation**, matching the printed column to 4 dp, so this is what it was, not a coincidence. **Replaced with exact noncentral-*t* inversion.** Understated MDE by 0.06% (n=12) to 0.19% (n=9); **six cells moved by $0.01–$0.04, and the load-bearing n=12/σ=$12 cell did not move.** Correction box in §6.2 |
+| §6.3 power table, all 8 effect sizes × 4 sample sizes | **All 32 cells reproduce**, including the 77.8% ceiling and 35.3% threshold figures |
+| §6.4 pairs-needed table, all 9 cells | **All 9 reproduce.** 48 pairs to detect $5 at σ_d=$12 confirmed |
+| §6.6 exact binomial *p*-values, all 14 splits | **All 14 reproduce** |
+| §7.3 false-trigger rates, 12 cells | **11 of 12 reproduce.** `n=10 / 30% discordance / gap ≥3` is **7.1%**, printed as 7.2%. Corrected in place |
+| §4.2's $61.49 / $71.86 / +$10.37 fee arithmetic | **Reproduces exactly** at the 13.6% + $0.40 + $5.50 stack §4.2 states. **Note it deliberately excludes the 5% returns reserve and 2% promoted** that `../UNIT_ECONOMICS.md` §7 applies — correctly so, because a *ceiling* argument must use the arm-difference-maximising stack. On the fuller 0.7845 factor the ceiling would be **$9.41**, i.e. **$1.25 further below the $10.66 detection floor.** The published figure is the generous one |
+| §5.3 safety-stop probabilities | **Reproduce** (0.1% / 4.2% / 44.3% at 30/50/70 points of harm) |
+| §6.3a, every cell in all three step tables | **Reproduce**, except the 80%-crossing row, which is at **26.3** points of lost sell-through, not 26. Printed as 26 with the −$10.08 mean that belongs to 26.3. **Row relabelled 26.3 pts** |
+
+**So: no normal-approximation leftovers, but not a clean audit either.** The one approximation found
+was *t*-based rather than normal — the first pass's substantive fix did hold — and it is now gone.
+**Stating the size of the thing that was wrong is the point:** a central-*t* shortcut costs 0.2%,
+where the normal approximation §6.7 corrected above cost **9%** and would have printed a $9.71 MDE,
+which is *below* the $10.37 ceiling and would have inverted the document's central conclusion.
+
+**Method for the new §6.3a**, stated to the same standard:
+
+- **Continuous endpoint:** exact noncentral-*t*, `P(|T'(df, ncp)| > t₀.₀₂₅,df)` with
+  `ncp = (Δ/σ_d)·√n`. Identical to the first pass's method.
+- **Override, safety stop, and the §7.1 screening rule:** **exact enumeration**, not simulation. The
+  four pair-outcome cells are enumerated over all `C(n+3,3)` compositions and each outcome is scored
+  against the rule as written, override first. No sampling error.
+- **McNemar under harm:** exact, by conditioning on the discordant count and summing the binomial
+  splits whose two-sided *p* ≤ 0.05.
+- **σ_d under harm** is derived from the four-cell distribution rather than assumed, which is the
+  substantive methodological change in this pass and the reason §6.3a reaches a different conclusion
+  about the *t*-test than a fixed-σ_d reading would.
 
 ### 6.8 Seven ways to fool yourself, and the countermeasure for each
 
@@ -1036,11 +1469,43 @@ Stated so the arithmetic can be checked rather than trusted:
 | **Unequal effort** | Answering the loaded arm's messages faster; holding out on offers | Auto-accept/decline thresholds (§2.3); template replies; a 24-hour response standard on both arms |
 | **Reputation drift** | Later listings sell better as feedback accumulates | Both arms of a pair always list in the same hour |
 | **Reading noise as signal** | "Loaded sold in 4 days, bare took 19 — huge!" | n=1 is an anecdote. Report the CI (§6.5), not the best pair |
+| **⚠️ Sign-testing the dollar differences** — added 2026-08-13 | "8 of 11 pairs favoured loaded, *p* < 0.05, so loading wins" | **Do not run a sign test or Wilcoxon on `net_revenue` differences as a check on harm.** See below — it points the wrong way on purpose |
 
-**The eighth, and the hardest: you want the premium to be real.** You wrote the programs. Every
+#### The eighth trap, and it is new **[COMPUTED 2026-08-13]**
+
+**A sign test on the net-revenue differences will tell you loading is winning at exactly the moment
+it is losing.** This came out of §6.3a's harm model and it is worth stating in full, because both this
+document (§8.2's `wilcox.test`) and [`TRACKING_SHEET_NOTES.md`](TRACKING_SHEET_NOTES.md) §4.3 offer
+the construction as a "sanity check."
+
+The endpoint is **asymmetric in magnitude and symmetric in sign**: a pair where both units sell scores
+**+$10.37**, and a pair where only the bare unit sells scores **−$61.49.** A sign test throws the
+magnitude away and counts them equally. So at 15 points of sell-through harm — true Δ = **−$1.96**,
+the level the −$2 threshold exists to catch:
+
+| | |
+|---|---:|
+| Pairs with a **positive** difference | **70%** |
+| Pairs with a **negative** difference | **20%** |
+| **P(sign test reaches *p* ≤ 0.05 pointing at LOADED)** | **34.1%** |
+| P(sign test reaches *p* ≤ 0.05 pointing at BARE) | ~0% |
+
+**One pair in five is losing you sixty dollars, and the sign test reports a significant win a third of
+the time.** The mean is negative and the median is positive, and both are correct — they are different
+questions. The rank and sign tests are therefore **valid tests of their own null and useless as harm
+checks on this endpoint.**
+
+**What to do instead:** the count-based endpoint in §4.1, which counts the *right* thing (discordance
+in the harm direction) rather than the sign of a magnitude-asymmetric difference. §8.2's `wilcox.test`
+line and §4.3's rank tests on days-to-sale stay — they are fine for what they are — but they are now
+explicitly labelled as robustness descriptions, never as evidence about harm.
+
+**The ninth, and the hardest: you want the premium to be real.** You wrote the programs. Every
 unconscious thumb on the scale points the same way. That is precisely why the thresholds, the
 randomisation sequence, and the offer-acceptance rules must all be written down *before* the first
-unit is listed — so that on Oct 21 you are reading a rule, not making a decision.
+unit is listed — so that on Oct 21 you are reading a rule, not making a decision. **And it is why
+§4.2 forbids the phrase "measured premium" outright**: the trap is not that you would lie about the
+number, it is that a $7.67 point estimate reads like a finding when it is noise.
 
 ---
 
@@ -1051,26 +1516,47 @@ unit is listed — so that on Oct 21 you are reading a rule, not making a decisi
 
 ### 7.1 Primary rule
 
-Compute `Δ̂ = mean(net_loaded) − mean(net_bare)` over all delivered pairs, unsold = $0, and its 95%
-CI. Step-by-step spreadsheet arithmetic is in
+**The rule is unchanged from the pre-registration. Only the order it is written in has changed**, so
+that it now reads in the order it is applied — and in the order §4 ranks the endpoints.
+
+#### Step 0 — the prerequisite. Check this before computing anything.
+
+If `hw_gate_status` is not `PASS` or `PASS_AFTER_SUBSTITUTION` (§3.5), **there is no verdict, and
+there is no Δ̂.** The experiment did not run; the treatment never worked. **Do not compute Δ̂ at all** —
+not as a curiosity, not "for the record." A Δ̂ from an experiment whose treatment was never delivered
+measures nothing, and having the number written down anywhere is how it ends up quoted. §3.5.4 is
+explicit: `excluded = TRUE`, `exclusion_reason = HW_GATE_FAILED` on every row, and the write-up says
+**the test did not run**, not that the premium is zero.
+
+#### Step 1 — the primary endpoint. The sell-through gap. **[decides the outcome]**
+
+If **loaded sell-through is ≥3 units below bare** on 12 pairs — e.g. bare 10/12, loaded 7/12 — or
+**≥30 percentage points** if you delivered fewer than 12 pairs (§7.3), the verdict is
+**STOP LOADING AT $12**, regardless of Δ̂. Retest at a $6 differential or not at all.
+
+Rationale, unchanged: a mean that looks acceptable while inventory sits is hiding a carrying-cost
+problem the endpoint doesn't price, and this is a seasonal business where unsold stock in October is
+worth less than unsold stock in August. **§6.3a is why this step is first**: it carries roughly six
+times the harm sensitivity of the Δ̂ test at the harm levels worth catching.
+
+#### Step 2 — the secondary screen. The Δ̂ bands. **[only if step 1 did not fire]**
+
+Compute `Δ̂ = mean(net_loaded) − mean(net_bare)` over all delivered pairs, unsold = $0, **and its 95%
+CI, which is reported with it always** (§4.2). Step-by-step spreadsheet arithmetic is in
 [`TRACKING_SHEET_NOTES.md`](TRACKING_SHEET_NOTES.md) §4.
 
 | Condition | Verdict | Action |
 |---|---|---|
-| `Δ̂ ≥ +$6.00` | **KEEP LOADING** | P6 becomes the default on every prepped CE Python. List at bare + $12. |
+| `Δ̂ ≥ +$6.00` | **KEEP LOADING** | P6 becomes the default on every prepped CE Python. List at bare + $12. **This confirms the default; it does not establish a $6 premium** (§4.2). |
 | `+$2.00 ≤ Δ̂ < +$6.00` | **INCONCLUSIVE — LEAN KEEP** | Keep loading. Drop the differential to **+$8**. Stop treating the premium as a planning input. **Do not fund another 12 pairs to resolve this band** — §6.4 prices that at ~48 pairs. |
-| `−$2.00 < Δ̂ < +$2.00` | **INCONCLUSIVE — NULL** | Keep loading (11 min, listing differentiation) but **price at the bare comp**. Set `baseline_price = list_price`. Stop modelling a premium. Redirect effort to acquisition cost. |
+| `−$2.00 < Δ̂ < +$2.00` | **INCONCLUSIVE — NULL** | Keep loading (11 min, listing differentiation) but **price at the bare comp**. Stop modelling a premium. Redirect effort to acquisition cost. |
 | `Δ̂ ≤ −$2.00` | **STOP LOADING FOR PRICE** | Sell bare at the bare comp. Push the digital bundles instead; put the discount card in every box. |
 
-**Overriding condition, applied first:** if **loaded sell-through is ≥3 units below bare**
-(e.g. bare 10/12, loaded 7/12), the verdict is **STOP LOADING AT $12** regardless of `Δ̂`. Retest at
-a $6 differential or not at all. Rationale: a mean that looks acceptable while inventory sits is
-hiding a carrying-cost problem the endpoint doesn't price, and this is a seasonal business where
-unsold stock in October is worth less than unsold stock in August.
-
-**Prerequisite, applied before either of the above:** if `hw_gate_status` is not `PASS` or
-`PASS_AFTER_SUBSTITUTION` (§3.5), **there is no verdict.** The experiment did not run. Do not compute
-`Δ̂`.
+> **The three keep-rows all say "keep loading," and that is not a defect.** Loading costs ~11
+> minutes, so continuing requires no evidence at all — the burden of proof is on stopping (§0). What
+> distinguishes the rows is **how much you are allowed to price around it**, which descends from
+> "+$12 differential" to "bare comp" as the point estimate falls. **Read the table as a pricing
+> instruction, not as a set of conclusions about *Δ*.**
 
 ### 7.2 Why the thresholds are $6 and $2
 
@@ -1092,6 +1578,31 @@ rather than to a confident decision.
 **Yes. Nothing here changes.** This section exists because the instruction was to re-examine the
 thresholds at the new sample size rather than assume they carry over, and the re-examination is worth
 recording — but the honest answer is that the rule stays exactly as pre-registered.
+
+> ### Why this section is now load-bearing rather than merely diligent
+>
+> **Added 2026-08-13 (second pass).** When the test was demoted from a measurement to a screening rule
+> (§0), the obvious worry was that the decision rule went with it — that thresholds derived for a
+> measuring instrument would be meaningless on a screen. **They are not, and the reason is the
+> derivation recorded below.**
+>
+> The two dollar thresholds come from **§7.2's marginal labour arithmetic**: 11 minutes per unit,
+> $32.7/hr at $6, $10.9/hr at $2, against a $31.80/hr blended refurb rate. **Not one term involves the
+> sample size, the variance, or what the test can detect.** They are statements about *when loading is
+> worth your time*. That was true when the document was pretending to measure a premium and it is
+> equally true now that it admits it cannot. **A rule that was never a significance test does not need
+> rebuilding when you stop calling it one.**
+>
+> **This is the connection to make explicit, because it is what saved the rule:** the first pass
+> concluded (below) that the primary rule "should be read as a screening rule on the point estimate,
+> not as a significance test." The second pass simply **took that conclusion at face value and
+> rewrote the surrounding document to match.** The rule survives the reframing because the reframing
+> is *what the rule already was.* Had the thresholds been set to the detectable effect — the
+> temptation resisted below — the demotion would have invalidated every one of them.
+>
+> **And the override needed no change either.** It is a raw count on the primary endpoint, and §6.3a
+> shows it is the part of the rule that carries the harm sensitivity. The one threshold that *is* a
+> function of n was already checked properly, and it held.
 
 #### Why the two dollar thresholds are not functions of n at all
 
@@ -1126,8 +1637,14 @@ False-trigger rate under H₀, by enumeration over discordant pairs **[COMPUTED]
 | Discordance rate | n=10, gap ≥3 | **n=12, gap ≥3** | n=12, gap ≥4 |
 |---:|---:|---:|---:|
 | 20% | 3.6% | **5.0%** | 1.2% |
-| 30% | 7.2% | **9.1%** | 3.1% |
+| 30% | 7.1% | **9.1%** | 3.1% |
 | 40% | 10.4% | **12.6%** | 5.4% |
+
+> **All twelve cells re-verified 2026-08-13 by independent exact enumeration.** Eleven reproduced
+> exactly; the `n=10 / 30%` cell is **7.1%** and was printed as 7.2%, corrected above. See §6.7's
+> residual-approximation audit. **And the missing half of this table now exists:** §6.3a computes the
+> *true*-trigger rate — the same rule's probability of firing when harm is genuinely present — which is
+> what makes these false-trigger numbers interpretable rather than merely alarming.
 
 Moving from 10 to 12 pairs raises the false-trigger rate from roughly 4–10% to roughly 5–13%. That is
 a real loosening, and the obvious fix — raise the override to ≥4 units — would push it back down to
@@ -1155,33 +1672,48 @@ constant instead of letting it drift with the yield.
 
 #### Summary of the re-examination
 
-| Threshold | At n=10 | **At n=12** | Changed? |
-|---|---|---|---|
-| Keep loading | ≥ +$6.00 | **≥ +$6.00** | **No** — derived from labour cost, not from n |
-| Stop loading | ≤ −$2.00 | **≤ −$2.00** | **No** — same reason |
-| Inconclusive band | −$2 to +$6 | **−$2 to +$6** | **No** |
-| Sell-through override | ≥3 of 10 | **≥3 of 12, or ≥30 pts** | **No** — threshold held; proportional form added for partial yields |
-| Safety stop (§5.3) | ≤1/10 vs ≥6/10 | **≤1/12 vs ≥7/12** | **Rescaled only** — same 50-point gap |
+| Threshold | At n=10 | **At n=12** | Changed? | Survived the demotion to a screen? |
+|---|---|---|---|---|
+| Keep loading | ≥ +$6.00 | **≥ +$6.00** | **No** — derived from labour cost, not from n | **Yes** — labour cost is unaffected by what the test can detect |
+| Stop loading | ≤ −$2.00 | **≤ −$2.00** | **No** — same reason | **Yes** — same reason. Now step 2 of the rule rather than step 1 |
+| Inconclusive band | −$2 to +$6 | **−$2 to +$6** | **No** | **Yes**, and it is now honestly labelled: the band is a *pricing* instruction, not a conclusion |
+| Sell-through override | ≥3 of 10 | **≥3 of 12, or ≥30 pts** | **No** — threshold held; proportional form added for partial yields | **Yes — and promoted.** It is the primary endpoint's firing rule now (§4.1, §6.3a) |
+| Safety stop (§5.3) | ≤1/10 vs ≥6/10 | **≤1/12 vs ≥7/12** | **Rescaled only** — same 50-point gap | **Yes**, unchanged. §6.3a notes it is near-unreachable by design and is not counted as detection capability |
+
+**Nothing in the rule was rebuilt for the demotion, and nothing needed to be.** That is the strongest
+available evidence that the thresholds were derived properly in the first place: a rule grounded in
+opportunity cost is indifferent to whether the instrument measuring it turned out to be sharp.
 
 ### 7.4 What to report alongside the verdict
 
-Non-negotiable, because a verdict without these is not auditable:
+Non-negotiable, because a verdict without these is not auditable. **Ordered to match §4's endpoint
+hierarchy — the primary endpoint is reported first, and item 11 is new.**
 
-1. `Δ̂` and its **95% CI**.
-2. The observed **σ_d** — the input every future power calculation needs.
-3. **Sell-through, both arms**, at 30 and 45 days.
-4. **Median days-to-sale**, both arms, with the censoring stated.
-5. **Realised price conditional on sale**, both arms, and how much of the $12 survived Best Offer.
-6. The **actual eBay fee rate** backed out of a real payout statement — settles the open
+1. **The paired sell-through gap** and the override's status: fired or not fired, with the counts.
+   **This is the primary endpoint** (§4.1) and it leads the write-up.
+2. **Sell-through, both arms**, at 30 and 45 days, with the discordant-pair breakdown and the exact
+   McNemar *p* **reported for the record** (§6.6 — it is the description, not the decision).
+3. `Δ̂` **and its 95% CI, never one without the other** (§4.2), and explicitly labelled as descriptive.
+4. The observed **σ_d** — the input every future power calculation needs, and per §6.3a the number most
+   likely to overturn §6.2's **[ESTIMATE]** base case.
+5. **Median days-to-sale**, both arms, with the censoring stated.
+6. **Realised price conditional on sale**, both arms, and how much of the $12 survived Best Offer.
+7. The **actual eBay fee rate** backed out of a real payout statement — settles the open
    [`../UNIT_ECONOMICS.md`](../UNIT_ECONOMICS.md) §3 question about the 5% used-goods rate.
-7. Every **exclusion**, with the reason and date.
-8. **The delivered number of pairs**, and the dud/unpairable count behind it. §3.1 predicts 9–11 from
+8. Every **exclusion**, with the reason and date.
+9. **The delivered number of pairs**, and the dud/unpairable count behind it. §3.1 predicts 9–11 from
    24 units; the actual figure is a genuinely useful input to next season's buy.
-9. **The hardware gate result** (§3.5) and which `payload_format` shipped.
-10. **Stated limitations**, minimum: within-seller interference (§2.6), the post-peak tail (§5.2),
+10. **The hardware gate result** (§3.5) and which `payload_format` shipped.
+11. **A sentence, in these words or equivalent, stating what the test was:** *"This was a harm screen,
+    not a measurement. The design's minimum detectable effect ($10.66) exceeds its maximum attainable
+    effect ($10.37), so Δ̂ is reported as a descriptive statistic and is not an estimate of the software
+    premium."* **Added 2026-08-13.** Without it, a reader six months from now will treat Δ̂ as a
+    measurement — which is exactly what happened to this document's own first draft.
+12. **Stated limitations**, minimum: within-seller interference (§2.6), the post-peak tail (§5.2),
     single platform, single loadout, no pilot shakedown (§5.1), and n=12 power (§6) — including the
     fact from §6.3 that **the minimum detectable effect exceeds the design's maximum attainable
-    effect** at the base-case variance.
+    effect** at the base-case variance, and the fact from §6.3a that **the harm screen itself misses
+    roughly half the harm sitting at the −$2 threshold.**
 
 ---
 
@@ -1193,7 +1725,7 @@ Non-negotiable, because a verdict without these is not auditable:
 >
 > **[`AB_TEST_LOG.csv`](AB_TEST_LOG.csv)** is in this folder, **pre-filled with all 24 rows**, the
 > committed arm assignments from §2.4, and every constant that is known in advance. It is a
-> **70-column** extension of the schema below.
+> **66-column** extension of the schema below.
 >
 > **[`TRACKING_SHEET_NOTES.md`](TRACKING_SHEET_NOTES.md)** is the companion: which columns to fill at
 > which moment, and the exact spreadsheet formulas that compute `Δ̂`, σ_d, the 95% CI, sell-through
@@ -1210,8 +1742,57 @@ The `App field` column records where each value *would* live in the inventory ap
 **reference only** — the app cannot run this experiment and §10 is deferred.
 
 ```csv
-pair_id,unit_slot,arm,drop,publish_first,arm_assigned_at,arm_seed,arm_seq_sha256,unit_id,app_sku,acquisition_date,acquisition_channel,acquisition_cost,extra_costs,variant,variant_confirmed_by,serial_last4,os_version_before,os_version_after,cosmetic_grade,colour,case_included,cable_included,battery_replaced,screen_notes,defects,loadout_sku,payload_format,program_count,payload_bytes,hw_gate_unit,hw_gate_status,hw_gate_date,bundles_loaded,prep_wiped,prep_os_updated,prep_p2t_cleared,prep_programs_loaded,prep_device_verified,prep_minutes,baseline_price,list_price,listing_platform,listing_format,listing_url,listed_at,photo_count,promoted_rate,views_d7,watchers_d7,views_d21,watchers_d21,offers_received,best_offer_amount,questions_about_programs,price_changes,sold_at,sale_price,platform_fees,shipping_label_cost,net_revenue,days_to_sale,sold,unsold_at_30d,unsold_at_45d,returned_at,return_reason,excluded,exclusion_reason,notes
+pair_id,unit_slot,arm,drop,publish_first,arm_assigned_at,arm_seed,arm_seq_sha256,unit_id,app_sku,acquisition_date,acquisition_channel,acquisition_cost,extra_costs,variant,variant_confirmed_by,serial_last4,os_version_before,os_version_after,cosmetic_grade,colour,case_included,cable_included,battery_replaced,screen_notes,defects,loadout_sku,payload_format,program_count,payload_bytes,hw_gate_unit,hw_gate_status,hw_gate_date,bundles_loaded,prep_wiped,prep_os_updated,prep_p2t_cleared,prep_programs_loaded,prep_device_verified,prep_minutes,list_price,listing_platform,listing_format,listing_url,listed_at,photo_count,views_d7,watchers_d7,offers_received,best_offer_amount,questions_about_programs,price_changes,sold_at,sale_price,platform_fees,shipping_label_cost,net_revenue,days_to_sale,sold,unsold_at_30d,unsold_at_45d,returned_at,return_reason,excluded,exclusion_reason,notes
 ```
+
+#### The four columns removed on 2026-08-13 (second pass), and why **[COMPUTED]**
+
+The demotion in §0 means some of this schema was collecting data **to support a measurement the
+design cannot make.** Four columns were removed on that test and nothing else was.
+
+| Removed | Was | Why it went |
+|---|---|---|
+| `baseline_price` | `78.00` on all 24 rows | It existed to express *"the premium over the honest bare comp"* — a measurement quantity. It was constant across every row and identical to `list_price` on all 12 bare rows. The bare comp is documented in §2.2 and [`../UNIT_ECONOMICS.md`](../UNIT_ECONOMICS.md); it does not need 24 identical cells and a spreadsheet column |
+| `promoted_rate` | `0` on all 24 rows | Held at zero by protocol. It existed so a premium estimate could be adjusted for ad spend. **Nothing in the screening rule reads it**, and "we ran no promoted listings" is a protocol constant, not data |
+| `views_d21` | manual, weekly | The day-21 traffic snapshot. Its only consumer was §4.4, and §4.4's own text says these are for *diagnosing why a premium did or didn't appear* — the question that no longer has an answerable form. `views_d7` is retained: one snapshot still answers *"was the loaded listing seen at all,"* which is a real diagnostic |
+| `watchers_d21` | manual, weekly | Same, and worse: §4.4 already records that **watchers track low price**, so the bare arm wins them by construction. Two snapshots of a known-confounded quantity is one and a half too many |
+
+**That is 48 fewer cells to fill by hand across nine weekly Seller Hub sessions**, and no loss to the
+primary endpoint. **70 columns → 66.**
+
+**What was deliberately *not* removed, in each case because the screening rule or the pairing needs it:**
+
+- **`listed_at`** — days-to-sale, sell-through at 30/45 days, and the day-45 decision date are all
+  uncomputable without it, and it cannot be reconstructed in October. **The single most irreplaceable
+  field in the file.**
+- **`cosmetic_grade`** — pairs cannot be formed without it (§2.1), and it is the field that must be
+  filled *before* the arm column is read (§2.4). Removing it would destroy the design, not simplify it.
+- **`sold`, `sold_at`, `unsold_at_30d`, `unsold_at_45d`** — these *are* the primary endpoint (§4.1).
+  The override is a count over `sold`.
+- **`prep_minutes`** — **promoted in importance, not demoted.** §7.3 is now the load-bearing
+  justification for the whole decision rule, and it rests on the 11-minute marginal figure. This
+  column is the only thing in the kit that will ever check it.
+- **`views_d7`, `watchers_d7`, `questions_about_programs`, `offers_received`, `best_offer_amount`** —
+  one traffic snapshot and the interaction counts. Cheap, and they are how you tell a *"nobody wanted
+  it at $90"* null apart from a *"nobody ever saw it"* null.
+- **`program_count` / `payload_bytes`** — constant, like the two columns that were dropped, but they
+  are the **treatment definition**. A harm screen needs to know exactly what shipped; it does not need
+  to know what you didn't spend on ads.
+
+> **The committed SHA-256 did not move, and could not have.** It is computed over the
+> `pair_id,unitA_arm,unitB_arm,publish_first,drop` block (§2.4), **not over the file**, so dropping
+> unrelated columns leaves it at `a6fc5cea…`. Re-verified after the edit by recomputing from the
+> rewritten CSV: **`a6fc5ceaa00ba1516adc936b09c10e1b7fbcfaa5e0917fa36d2ada1c5b11dc50`.** Arm balance
+> (12/12), pair integrity (12 pairs, one of each arm, slots A and B, `publish_first` consistent within
+> pair), drop allocation (`P01`–`P06` → 1, `P07`–`P12` → 2) and `unit_id` completeness (`X01`–`X24`)
+> were all re-checked mechanically on the rewritten file and all hold.
+>
+> **The canonical form, recorded so the check is reproducible by hand:** the twelve rows above,
+> comma-separated, **no header line**, **LF line endings**, **no trailing newline**. And the sequence
+> **reproduces from the seed** — `random.Random(20260813)`, `shuffle` on `["LOADED"]*6 + ["BARE"]*6`
+> gives the committed A-slot column exactly, and twelve subsequent `choice(["LOADED","BARE"])` draws
+> give the committed `publish_first` column exactly. **[COMPUTED 2026-08-13]** Both halves of §2.4's
+> audit-trail claim are now independently verified rather than asserted.
 
 #### The columns added on 2026-08-13, and why
 
@@ -1259,15 +1840,13 @@ Two deliberate changes to existing columns:
 | `acquisition_channel` | `EBAY_AUCTION` \| `EBAY_BIN` \| `FB_LOCAL` \| `MERCARI` \| `OFFERUP` \| `THRIFT` \| `LOT` | `Item.purchaseSource` | ✅ free text — normalise the values yourself |
 | `acquisition_cost` | money | `Item.purchasePrice` | ✅ |
 | `extra_costs` | money | `Item.extraCosts` | ✅ battery, case, cable |
-| `baseline_price` | money | `CalculatorUnit.baselinePrice` | ✅ **Set to $78 on BOTH arms.** It is your honest bare comp for the grade — not the arm's list price |
-| `list_price` | money | `CalculatorUnit.listPrice` | ✅ $78 bare / $90 loaded |
+| `list_price` | money | `CalculatorUnit.listPrice` | ✅ $78 bare / $90 loaded. **The bare arm's $78 *is* the honest bare comp** — which is why `baseline_price` was removable |
 | `listing_platform` | `EBAY` | ✗ at listing time | `Sale.platformId` only exists once sold — **so an unsold unit has no platform**, which breaks sell-through by platform |
 | `listing_format` | `FIXED_BO` \| `FIXED` \| `AUCTION` | ✗ | Held constant here, but needed for future tests |
 | `listing_url` | URL | ✗ | Your audit trail. Screenshot the listing too |
 | `listed_at` | ISO datetime | ✗ | **Mandatory. Days-to-sale, sell-through at 30/45 days, and the day-45 decision date are all uncomputable without it**, and it cannot be reconstructed in October. Log it the hour you publish. The app has no listing timestamp at all |
 | `photo_count` | int | `Item.photos[]` length | ✅ derivable. Must match within pair (§2.2) |
-| `promoted_rate` | % | ✗ | `0` for this test |
-| `views_d7`, `watchers_d7`, `views_d21`, `watchers_d21` | int | ✗ | Manual from Seller Hub. Leading indicators only (§4.3) |
+| `views_d7`, `watchers_d7` | int | ✗ | Manual from Seller Hub, **day 7 only now**. Leading indicators only (§4.4) — they separate a "nobody wanted it" null from a "nobody saw it" null |
 | `offers_received` | int | ✗ | |
 | `best_offer_amount` | money | ✗ | The accepted offer, if any |
 | `questions_about_programs` | int | ✗ | The one qualitative signal worth counting |
@@ -1301,22 +1880,30 @@ decide anything.
 d <- read.csv("ab_test_log.csv")
 d <- subset(d, arm %in% c("BARE","LOADED") & excluded == FALSE)
 
-w <- reshape(d[, c("pair_id","arm","net_revenue")],
+w <- reshape(d[, c("pair_id","arm","net_revenue","sold")],
              idvar = "pair_id", timevar = "arm", direction = "wide")
-diff <- w$net_revenue.LOADED - w$net_revenue.BARE
 
-mean(diff)          # Delta-hat  -> compare to the section 7.1 table
+# --- THE PRIMARY ENDPOINT FIRST.  This is the one that decides anything (4.1, 7.1). ---
+sum(w$sold.BARE) - sum(w$sold.LOADED)   # the gap.  >= 3  ->  STOP LOADING AT $12
+table(w$sold.LOADED, w$sold.BARE)       # discordant cells: b = loaded-only, c = bare-only
+binom.test(sum(w$sold.LOADED & !w$sold.BARE),
+           sum(xor(w$sold.LOADED, w$sold.BARE)))   # exact McNemar, FOR THE RECORD ONLY (6.6)
+
+# --- The recorded statistic.  Descriptive.  Never a measured premium (4.2). ---
+diff <- w$net_revenue.LOADED - w$net_revenue.BARE
+mean(diff)          # Delta-hat  -> screening band in the section 7.1 table
 sd(diff)            # sigma_d    -> report this; every future power calc needs it
 t.test(diff)        # 95% CI     -> this is the number to report, not the p-value
-wilcox.test(diff)   # rank-based sanity check, robust to one wild pair
 
-# Sell-through, paired
-table(w$sold.LOADED, w$sold.BARE)   # discordant cells -> exact binomial
-binom.test(sum(w$sold.LOADED & !w$sold.BARE),
-           sum(xor(w$sold.LOADED, w$sold.BARE)))
+# wilcox.test(diff) -- DELIBERATELY COMMENTED OUT.  See 6.8: on this endpoint a rank or
+# sign test is an actively misleading harm check, because a -$61.49 pair and a +$10.37
+# pair get the same weight.  Under real harm it reports a significant WIN about a third
+# of the time.  If you want robustness, report the median difference descriptively and
+# leave the p-value alone.
 ```
 
-**Report `t.test(diff)$conf.int` and `sd(diff)` in the write-up whatever the *p*-value says.**
+**Report `t.test(diff)$conf.int` and `sd(diff)` in the write-up whatever the *p*-value says**, and
+report the sell-through gap **above** them.
 
 ### 8.3 Collection discipline
 
@@ -1470,20 +2057,37 @@ The spreadsheet covers #15, #16 and #18 by hand ([`TRACKING_SHEET_NOTES.md`](TRA
 
 Anything unticked invalidates the corresponding part of the analysis.
 
-**The blocking gate block runs first, on the first unit to arrive — not before Drop 1.** Everything
-below it runs before Drop 1 as it always did. The ordering matters: the gate is the one item that can
-still stop the loaded arm, and it is cheapest to fail early.
+**The blocking gate block runs first, on a unit bought locally in person on Aug 13 — before the online
+orders are placed.** Revised 2026-08-13 (second pass): the gate no longer waits for the first shipment
+to arrive. Everything below it runs before Drop 1 as it always did. The ordering matters: the gate is
+the one item that can still stop the loaded arm, and it is cheapest to fail **before $875 of units is
+committed.** See [`README.md`](README.md) for the day-0 sequence and
+[`SOURCING_SHORTLIST.md`](SOURCING_SHORTLIST.md) §7 for how to buy the unit today.
 
 ```
-*** BLOCKING GATE - BEFORE ANY SECOND UNIT IS LOADED (section 3.5) ***
-[ ] All 10 P6 programs run on the FIRST unit, from the qa/ known-answer table
+*** DAY 0 - Aug 13 - ACQUIRE THE GATE UNIT LOCALLY (SOURCING_SHORTLIST.md section 7) ***
+[ ] Variant confirmed AT THE COUNTER, BEFORE PAYING: faceplate says PYTHON, and
+    print(1+1) returns 2 in the Python Shell. Not a seller screenshot
+[ ] The failure string was NOT shown: "Run and Shell are not available right now"
+[ ] Paid at or under the local ceiling; walk-away conditions respected
+[ ] Logged as the gate unit: hw_gate_unit=TRUE, acquisition_channel, cost
+--> IF NO LOCAL UNIT IS FOUND TODAY: see README.md. The gate slips to the first
+    online arrival and the Aug 19-20 order deadline becomes the binding constraint.
+
+*** BLOCKING GATE - BEFORE ANY ONLINE ORDER IS PLACED (section 3.5) ***
+[ ] All 10 P6 programs run on the gate unit, from the qa/ known-answer table
 [ ] Each one: launches, accepts input, correct known answer, exits cleanly
+[ ] TRIG checked against the DERIVED expected value in HW_VALIDATION.md - it is the
+    one program with NO qa/ fixture, so its answer is stated there, not in qa/
 [ ] QUAD sent BOTH ways (.8xv and .py); both run
 [ ] TRIG and SIMPSON results photographed on-screen
 [ ] hw_gate_status / hw_gate_date / payload_format written to AB_TEST_LOG.csv
 [ ] Per-program results appended to HW_VALIDATION.md
 [ ] payload_format copied to ALL 12 loaded rows - identical across the arm
---> IF THIS FAILS: do NOT load units 2-12. Go to section 3.5.4.
+--> IF THIS FAILS: do NOT place the online orders yet. Go to section 3.5.4, and
+    to README.md for what it does to the schedule. FAIL_BOTH means all 24 units
+    ship bare with exclusion_reason = HW_GATE_FAILED, and the Evo R&D unit is
+    bought immediately.
 
 DESIGN LOCKED (by 2026-08-23)
 [x] Randomisation sequence generated and COMMITTED - section 2.4, seed 20260813,
@@ -1491,7 +2095,8 @@ DESIGN LOCKED (by 2026-08-23)
 [ ] Section 7.1 thresholds read and accepted; nothing amended (see 7.3)
 [ ] Bare $78 / loaded $90 confirmed against current sold comps in SOURCING_SHORTLIST.md
 [ ] Best Offer auto-accept / auto-decline set IDENTICALLY on both arms
-[ ] Promoted Listings OFF on all 24 listings
+[ ] Promoted Listings OFF on all 24 listings (no longer logged - the promoted_rate
+    column was dropped; it is a protocol constant, so CHECK it, don't record it)
 [ ] Loadout frozen at re-derived P6; 8xv sizes re-measured; total <= 34,816 B
 [ ] Buyer's-choice option disabled for the duration
 [ ] One pair prepped and drafted end-to-end as the shakedown (there is no pilot -
@@ -1523,7 +2128,9 @@ PER PAIR
 [ ] Both listing URLs logged and screenshotted
 
 WEEKLY (every Sunday)
-[ ] Views, watchers, offers, program questions recorded for all live listings
+[ ] Views + watchers at DAY 7 ONLY (the d21 columns were dropped - section 8.1)
+[ ] Offers, program questions recorded for all live listings
+[ ] SOLD / not-sold status current for every unit - this is the primary endpoint
 [ ] Any protocol deviation logged the day it happens
 [ ] CSV committed to git
 
@@ -1533,14 +2140,19 @@ AT SALE
 [ ] sold_at, sale_price, best_offer_amount, sold=TRUE recorded
 [ ] Return, if any, logged with a reason
 
-DAY 45 (2026-10-21)
-[ ] hw_gate_status is PASS or PASS_AFTER_SUBSTITUTION - else THERE IS NO VERDICT
+DAY 45 (2026-10-21) - IN THIS ORDER
+[ ] STEP 0: hw_gate_status is PASS or PASS_AFTER_SUBSTITUTION - else THERE IS NO
+    VERDICT and NO Delta-hat. Do not compute one. Stop here (section 7.1 step 0)
 [ ] Unsold units recorded as net_revenue = 0, NOT dropped
-[ ] Delta-hat, 95% CI, and observed sigma_d computed
-[ ] Sell-through overriding condition (section 7.1) checked FIRST
+[ ] STEP 1: the PRIMARY ENDPOINT. Sell-through gap = sold(bare) - sold(loaded).
+    >= 3  ->  STOP LOADING AT $12, and the Delta-hat bands do not apply
+[ ] STEP 2, only if step 1 did not fire: Delta-hat, 95% CI, observed sigma_d
 [ ] Verdict row applied as written
-[ ] Delivered pair count and dud/unpairable count recorded (section 7.4 item 8)
-[ ] Limitations from section 7.4 item 10 written down
+[ ] NO rank or sign test used as a harm check (section 6.8 - it points the wrong way)
+[ ] Delivered pair count and dud/unpairable count recorded (section 7.4 item 9)
+[ ] The "this was a harm screen, not a measurement" sentence written down verbatim
+    (section 7.4 item 11) - this is the one that stops Delta-hat being requoted
+[ ] Limitations from section 7.4 item 12 written down
 ```
 
 ---

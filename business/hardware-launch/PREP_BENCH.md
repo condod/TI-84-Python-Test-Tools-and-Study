@@ -435,7 +435,7 @@ allows** — and do not let this section be read as a reason to skip it.
 > pairs ship."* **There are no pilot pairs** — the owner is buying all 24 units up front, so that
 > phrase no longer maps to anything on the calendar.
 >
-> The cash argument is now sharper, not weaker. **$875–$1,115 leaves in the Aug 13–24 window**
+> The cash argument is now sharper, not weaker. **$875–$1,115 leaves in the Aug 13–20 window**
 > ([`README.md`](README.md)), and $160 inside that window is 4–5 calculators — roughly **two matched
 > pairs**, which costs the experiment more than a two-week delay costs the Evo research. The **week of
 > Sep 14** is when the first eBay payouts realistically clear, which funds the Evo from revenue rather
@@ -444,6 +444,13 @@ allows** — and do not let this section be read as a reason to skip it.
 > **One override:** if the hardware gate ([`AB_TEST_PROTOCOL.md`](AB_TEST_PROTOCOL.md) §3.5) **fails on
 > both payload formats**, buy the Evo immediately. The `.py`-as-portable-payload question stops being
 > next season's research and becomes this season's blocker.
+>
+> **⚠️ Further revised 2026-08-13 (second pass): that override is now far more likely to be actionable
+> in time.** The gate moved to **day 0, on a unit bought locally on Aug 13**, ahead of the online
+> orders ([`README.md`](README.md), [`SOURCING_SHORTLIST.md`](SOURCING_SHORTLIST.md) §7). So a
+> `FAIL_BOTH` surfaces on **Aug 13 with the $160 unspent and the order window still open**, rather than
+> around Aug 20 with the money gone. **The window in the sentence above is also a week shorter now:
+> online orders run Aug 14–20, and Aug 19–20 is a hard deadline.**
 
 It needs its own USB-C cable and the `connectevo.ti.com` web tool, so budget **$140–$170** all in and
 expect **none** of the CE workflow to transfer.

@@ -1,9 +1,18 @@
 # Hardware Validation Record — the `.8xv` programs on real silicon
 
-**This file is empty of results on purpose. Filling it in is the first real task of the launch.**
+**This file is empty of results on purpose. Filling it in is the first real task of the launch —
+and as of the 2026-08-13 revision it is the task for *today*, on a unit bought locally in person.**
 
 Created 2026-08-13 to hold the output of the blocking gate in
 [`AB_TEST_PROTOCOL.md`](AB_TEST_PROTOCOL.md) §3.5.
+
+> **Revised 2026-08-13: the gate now runs on day 0, before the online orders are placed.** It used to
+> wait for the first shipment to arrive, which meant it would have reported on **$875+ of units that
+> were already bought.** One unit acquired locally today answers the question first. See
+> [`README.md`](README.md) for the day-0 sequence and
+> [`SOURCING_SHORTLIST.md`](SOURCING_SHORTLIST.md) §7 for how to buy that unit — including the
+> **point-of-sale variant test**, which lets you confirm the unit is a genuine CE *Python* **before
+> paying**, something no online listing allows.
 
 ---
 
@@ -55,6 +64,12 @@ do not overwrite the failed one.
 GATE RUN #1
   Date                    : 2026-__-__
   Gate unit serial (last4): ____
+  Acquisition channel     : ______________  (pawn / FB / thrift / repair shop /
+                            surplus / online)  -- SOURCING_SHORTLIST.md 7
+  Acquired in person?     : [ ] yes  [ ] no
+  Variant test AT POS?    : [ ] yes, print(1+1) returned 2 before I paid
+                            [ ] no  <-- then confirm it now, before anything else
+  Price paid              : $______   (local ceiling: SOURCING_SHORTLIST.md 7.4)
   Cosmetic grade          : _
   OS version BEFORE flash : _____
   OS version AFTER flash  : _____   (expect 5.8.5 or later, PREP_SOP 4b)
@@ -87,6 +102,9 @@ The ten P6 programs, both payload formats on `QUAD`. Known-answer inputs and exp
 [`AB_TEST_PROTOCOL.md`](AB_TEST_PROTOCOL.md) §3.5.3 — copy the *observed* value here, not the expected
 one, or the table proves nothing.
 
+**Nine of the ten expected values come from `qa/cases.py`. `TRIG`'s comes from §3.0 below**, because
+`TRIG` has no `qa/` case. Read §3.0 before you run program 10.
+
 Mark each criterion `pass` / `FAIL` / `-` (not reached).
 
 | # | Program | Format | In File Mgr | Launches | Accepts input | Observed answer | Correct? | Clean exit | Notes |
@@ -101,7 +119,129 @@ Mark each criterion `pass` / `FAIL` / `-` (not reached).
 | 7 | `SUVAT` | | | | | | | | |
 | 8 | `OHMS` | | | | | | | | |
 | 9 | `PH` | | | | | | | | Check `pOH` and the acidic/basic word too |
-| 10 | `TRIG` | | | | | | | | **Highest risk: no `qa/` coverage, largest file.** Photograph it |
+| 10 | `TRIG` | | | | | | | | **Highest risk: no `qa/` coverage, largest file.** Use §3.0's stated expected value. Photograph it |
+
+### 3.0 `TRIG` has no `qa/` fixture. Here is its stated expected value. **[DERIVED 2026-08-13]**
+
+**Read this before running program 10.** Nine of the ten P6 programs are checked against
+`qa/cases.py`, so their expected outputs are values the desktop harness already asserts. **`TRIG` is
+not in `qa/` at all** — neither `qa/cases.py` nor `qa/cases_new.py` contains a case for
+`trigonometry/oblique_triangle_solver.py`. The trigonometry cases in `qa/cases_new.py` cover
+`unit_circle_reference.py` (on-calc `UNITCIRC`), which is a different program. `TRIG` is therefore
+**the largest P6 program (5,361 B) with zero automated coverage**, which is exactly why the protocol
+calls it the highest-risk item in the gate.
+
+A program with no fixture needs one stated by hand, so this section derives it. **`qa/` is not
+modified** — this is the fixture living where the gate can use it.
+
+#### 3.0.1 The fixture, in `qa/` case form
+
+Following the two conventions in `qa/README.md` — *show the arithmetic in a comment*, and *end the
+script with a quit* — the case would be written like this. **Reading it is not required; §3.0.3's
+keystrokes are. It is here so the numbers are checkable without a calculator.**
+
+```python
+# SAS: a = 5, b = 8, included angle C = 60 deg.  cos 60 = 1/2 EXACTLY, so
+#   c^2 = 25 + 64 - 2*5*8*(1/2) = 89 - 40 = 49  ->  c = 7 exactly.
+# cos A = (b^2 + c^2 - a^2)/(2bc) = (64 + 49 - 25)/(2*8*7) = 88/112 = 11/14
+#   A = acos(11/14) = 38.2132107... deg  ->  38.2132 at 4 dp
+#   B = 180 - 60 - A = 81.7867893... deg  ->  81.7868 at 4 dp
+case("TRIG: SAS 5,8,60 -> c = 7 exactly",
+     "trigonometry/oblique_triangle_solver.py", "2\n5\n8\n60\n0\n",
+     ["Side c (opposite C) = 7.0",
+      "Angle A (opposite a) = 38.2132 deg",
+      "Angle B (opposite b) = 81.7868 deg"])
+```
+
+#### 3.0.2 How the expected value was derived, and why it is trustworthy
+
+**The arithmetic was done independently of the program, then the program was run and compared.** In
+that order — an expected value read out of the program's own output only proves the program agrees
+with itself, which is the failure mode `qa/README.md` warns about.
+
+| Step | Working |
+|---|---|
+| Law of Cosines | `c² = a² + b² − 2ab·cos C` = `25 + 64 − 2(5)(8)(½)` = `89 − 40` = **49**, so **c = 7 exactly** |
+| Law of Cosines again, for A | `cos A = (b² + c² − a²)/(2bc)` = `(64 + 49 − 25)/112` = `88/112` = **11/14** = `0.785714285714…` |
+| | `A = acos(11/14)` = **38.2132107017°** → `38.2132` at 4 dp |
+| Angle sum | `B = 180 − 60 − A` = **81.7867892983°** → `81.7868` at 4 dp |
+
+Then **three independent cross-checks**, none of which use the program:
+
+1. **Law of Sines agreement.** `a/sin A = b/sin B = c/sin C` = **8.0829037687** for all three. A
+   triangle whose sides and angles satisfy both laws simultaneously is the triangle.
+2. **Area computed two ways.** `½·ab·sin C` = **17.3205080757**, and Heron's formula on
+   `s = (5+8+7)/2 = 10` gives `√(10·5·2·3)` = **17.3205080757**. Identical.
+3. **The SSS branch reproduces the same triangle.** Entering the three sides `5, 7, 8` returns
+   `60.0` for the angle opposite the 7-side. **Two different code paths, sharing only `acos`,
+   `degrees` and `clamp`, agreeing on the same triangle.**
+
+#### 3.0.3 Why 5-8-60 and not the 3-4-5 triangle the protocol used to cite
+
+**Because the 3-4-5 fixture cannot fail.** The old fixture entered SAS with `a=3, b=4, C=90°`. At
+C = 90° the Law of Cosines term `−2ab·cos C` evaluates to `−2(3)(4)(6.123×10⁻¹⁷)` — it **vanishes** —
+so `c = √(9+16) = 5.0` comes out right *even if the calculator's `cos` were wrong, even if the
+program dropped the cosine term entirely.* It tested Pythagoras, not the Law of Cosines, and it
+exercised none of the trigonometry that makes this the largest program in P6.
+
+**At C = 60° the cosine term contributes −40 of the 49.** Get `cos` wrong and `c` is visibly wrong.
+And the answer is still an exact integer, so it is unambiguous read off a calculator screen at arm's
+length — which is the whole reason the 3-4-5 case was attractive in the first place. **This fixture
+keeps that property and adds the sensitivity.**
+
+It also exercises **every math call in the branch**: `radians`, `cos`, `sqrt`, `acos`, `degrees`, and
+the `clamp` helper. All six are in TI's documented `math` surface, so nothing here should be
+unavailable on-device — but "should" is what the gate exists to check.
+
+#### 3.0.4 What to press, and what a passing unit shows
+
+Run `TRIG` from the Python App Shell, then:
+
+| Press | Prompt |
+|---|---|
+| `2` | at the `>` menu prompt — selects **SAS (2 sides + angle)** |
+| `5` | `a = ` |
+| `8` | `b = ` |
+| `60` | `C (degrees) = ` |
+
+**A passing unit prints exactly these three lines:**
+
+```
+Side c (opposite C) = 7.0
+Angle A (opposite a) = 38.2132 deg
+Angle B (opposite b) = 81.7868 deg
+```
+
+Then press `0` at the menu to quit; **it must return to the Shell prompt with no traceback** (pass
+criterion 4 in `AB_TEST_PROTOCOL.md` §3.5.3).
+
+> **`7.0`, not `7`.** The program prints `str(round(c, 6))` and CPython renders a float `7.0` with the
+> `.0`. **If the unit shows `7` instead, that is a MicroPython float-formatting difference, not a
+> wrong answer** — record it in the Notes column and treat the program as passing on arithmetic. The
+> same caveat applies to `9.0` on `SIMPSON`. **This is precisely the class of difference the gate
+> exists to discover**, and it would be a genuinely new fact about the repo, so write it down
+> verbatim rather than ticking the box.
+
+#### 3.0.5 Three further TRIG checks, if the first one passes
+
+Cheap, and they cover the branches the primary fixture doesn't. **These are secondary — a failure
+here is a bug report, not necessarily a gate failure**, since P6 ships one program and the SAS path
+is the documented demo (`LISTING_TEMPLATES.md` §7.2).
+
+| Press | Branch | Expected — **[DERIVED 2026-08-13]** |
+|---|---|---|
+| `1`, `5`, `7`, `8` | **SSS** | `Angle A (opposite a) = 38.2132 deg`, `Angle B (opposite b) = 60.0 deg`, `Angle C (opposite c) = 81.7868 deg`. **Same triangle as the SAS fixture, entered as three sides.** The `60.0` is exact and is the cross-check. Note the relabelling: sides are named in entry order, so the 60° angle is opposite the 7-side and comes out as **B**, not C |
+| `4`, `5`, `7`, `30` | **SSA, the ambiguous case** | `2 solution(s) found`, then `Angle B = 44.427 deg` / `Angle C = 105.573 deg` / `Side c (opposite C) = 9.632892`, then `Angle B = 135.573 deg` / `Angle C = 14.427 deg` / `Side c (opposite C) = 2.491464`. `sin B = 7·sin30°/5 = 0.7`; `B₁ = asin(0.7) = 44.4270°`, `B₂ = 180 − B₁`. **The branch with the most logic in the program, and the one most likely to be subtly wrong** |
+| `4`, `2`, `7`, `30` | **SSA, impossible** | `No triangle: side a is too short to reach side b.` — `sin B = 7·(½)/2 = 1.75 > 1`. **A graceful refusal, not a traceback.** This is the input a buyer will actually hit by accident |
+
+> **`44.427`, not `44.4270`.** `str(round(x, 4))` drops trailing zeros, so the SSA outputs show three
+> decimals where the value has a trailing zero. Not a defect; don't record it as one.
+
+**All six inputs above were executed under `qa/ti_runner.py`** — the harness's restricted interpreter,
+which exposes only the names TI's MicroPython build documents — and all six produced exactly the
+output stated, exiting cleanly on `0`. **[COMPUTED 2026-08-13]** That is not the same as running on
+hardware, which is the entire point of this file; it does establish that the expected values are right
+and that nothing in `TRIG` reaches outside TI's documented surface.
 
 ### 3.1 Traceback capture
 
