@@ -227,12 +227,15 @@ def main(argv=None) -> int:
     # --- buy links -------------------------------------------------------------------
     buy_comments = len(re.findall(r"BUY LINK", html))
     live_buy = re.findall(r'href="(https?://(?:gumroad|etsy)[^"]*)"', html, re.I)
+    sku_buy = len(re.findall(r'data-sku=', html))
     if live_buy:
         passed.append(f"buy links: {len(live_buy)} real store URLs wired up")
+    elif sku_buy:
+        passed.append(f"buy links: {sku_buy} Stripe data-sku hooks (demo checkout)")
     else:
         passed.append(f"buy links: {buy_comments} BUY LINK placeholders still marked for editing")
-    if buy_comments == 0 and not live_buy:
-        failed.append("buy links: no BUY LINK markers and no store URLs -- purchase path is missing")
+    if buy_comments == 0 and not live_buy and sku_buy == 0:
+        failed.append("buy links: no BUY LINK markers, store URLs, or data-sku hooks")
 
     # --- report ----------------------------------------------------------------------
     for line in passed:

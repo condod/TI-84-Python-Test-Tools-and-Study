@@ -9,24 +9,22 @@
      No build step. Just index.html + styles.css + main.js.
 
      BEFORE YOU PUBLISH, DO THESE THREE THINGS:
-       1. Replace every  href="#"  on a link with class "js-buy" with the real
-          Gumroad or Etsy product URL. Each one is flagged with a "BUY LINK"
-          comment on the line above it, so search this file for: BUY LINK
-       2. Replace the form action in the "Free Starter Pack" section with your
-          real Gumroad free-product URL or email provider form endpoint.
-       3. Update the canonical URL and og:url below to your real domain.
+       Checkout is Stripe (local demo server: python storefront/serve.py).
+       Paste STRIPE_SECRET_KEY and RESEND_API_KEY into storefront/.env
+       (copy from .env.example). Until those keys exist, buy and email
+       buttons explain that they are waiting.
 
      See DEPLOY.md for hosting and SETUP_CHECKLIST.md for store setup.
 -->
 
-<title>TI-84 Plus CE Python Programs — 52-Program Study Toolkit</title>
-<meta name="description" content="52 ready-to-install Python programs for the TI-84 Plus CE Python Edition: calculus, algebra, stats, physics, chemistry and more. Free 5-program starter pack.">
+<title>TI-84 Python Programs — 156-Program Toolkit</title>
+<meta name="description" content="156 Python programs for the TI-84 Plus CE Python Edition: calculus, physics, chemistry, classroom tools and arcade games. Free 5-program starter pack.">
 <meta name="author" content="TI-84 Python Study Toolkit">
 <link rel="canonical" href="https://condod.github.io/TI-84-Python-Test-Tools-and-Study/">
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="TI-84 Plus CE Python Programs — 52-Program Study Toolkit">
-<meta property="og:description" content="52 ready-to-install Python programs for the TI-84 Plus CE Python Edition. Free 5-program starter pack, $12–$19 subject bundles, $49 complete toolkit.">
+<meta property="og:title" content="TI-84 Python Programs — 156-Program Toolkit">
+<meta property="og:description" content="156 Python programs for the TI-84 Plus CE Python Edition. Free starter pack, subject bundles, arcade games, $79 complete toolkit.">
 <meta property="og:url" content="https://condod.github.io/TI-84-Python-Test-Tools-and-Study/">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -40,6 +38,11 @@
 <body>
 
 <a class="skip-link" href="#main">Skip to content</a>
+
+<div class="demo-banner" id="demoBanner" hidden>
+  Checkout and the free-pack email are waiting for Stripe and Resend keys.
+  Paste them into <code>storefront/.env</code> and restart the demo server.
+</div>
 
 <header class="site-header" id="siteHeader">
   <div class="wrap header-inner">
@@ -71,9 +74,9 @@
         <p class="eyebrow">For the TI-84 Plus CE <strong>Python Edition</strong></p>
         <h1>Stop re-deriving the same formula<br class="br-lg"> at 1&nbsp;a.m.</h1>
         <p class="lede">
-          52 clean, menu-driven Python programs for your TI-84 Plus CE — numeric derivatives,
-          Simpson's rule, matrices, hypothesis tests, kinematics, RLC impedance, thermodynamics,
-          gas laws, pH, Punnett squares and loan amortization.
+          156 clean, menu-driven Python programs for your TI-84 Plus CE — the original 52-program
+          study toolkit, plus classroom tools, Calc 3, differential equations, shop math,
+          and a five-game arcade pack.
           Drag-and-drop <code>.8xv</code> install, with the plain <code>.py</code> source
           included so you can read, edit and actually learn from it.
         </p>
@@ -84,8 +87,8 @@
         </div>
 
         <ul class="trust-row">
-          <li><strong>52</strong> programs</li>
-          <li><strong>13</strong> subject areas</li>
+          <li><strong>156</strong> programs</li>
+          <li><strong>22</strong> subject areas</li>
           <li><strong>.8xv</strong> + .py included</li>
           <li><strong>$0</strong> starter pack</li>
         </ul>
@@ -161,9 +164,8 @@ tol?  <span class="c-in">1e-9</span>
     <div class="wrap">
       <h2 class="section-title">Pick your bundle</h2>
       <p class="section-lede">
-        Buy the one subject you're taking, or take all 52 programs for about the price of three
-        subject bundles. Prices in USD, one-time. Bundles are priced by size, so the bigger the
-        bundle the less each program costs.
+        Buy the one subject you're taking, add the arcade pack, or take all 156 programs.
+        Prices in USD, one-time. The complete toolkit is $79 against $248 bought separately.
       </p>
 
       <!-- Desktop comparison table -->
@@ -179,172 +181,23 @@ tol?  <span class="c-in">1e-9</span>
               <th scope="col"><span class="visually-hidden">Buy</span></th>
             </tr>
           </thead>
-          <tbody>
+          <tbody id="bundleRows">
             <tr>
-              <th scope="row"><span class="tbl-name">Free Starter Pack</span><span class="tbl-sub">Unit converter · Quadratics · Stats · Unit circle · Geometry</span></th>
-              <td>5</td>
-              <td>Trying it out on any course</td>
-              <td class="price-cell"><span class="price">Free</span></td>
-              <!-- BUY LINK: this one should point at your Gumroad $0 / "pay what you want" product,
-                   or leave it as #free to use the on-page email form below. -->
-              <td><a class="btn btn-outline js-buy" href="#free">Get it free</a></td>
-            </tr>
-            <tr>
-              <th scope="row"><span class="tbl-name">Algebra, Precalculus &amp; Trigonometry</span><span class="tbl-sub">Quadratics · Matrices · Polynomials · Unit circle</span></th>
-              <td>11</td>
-              <td>College algebra, precalc, trig, geometry</td>
-              <td class="price-cell"><span class="price">$19</span></td>
-              <!-- BUY LINK: paste your Gumroad product URL, e.g.
-                   https://YOURNAME.gumroad.com/l/ti84-algebra-precalc
-                   (or the Etsy listing URL if you sell it there instead) -->
-              <td><a class="btn btn-outline js-buy" href="#">Buy</a></td>
-            </tr>
-            <tr>
-              <th scope="row"><span class="tbl-name">Calculus &amp; Differential Equations</span><span class="tbl-sub">Derivatives · Integrals · Series · ODEs</span></th>
-              <td>6</td>
-              <td>Calc I/II/III, intro ODEs</td>
-              <td class="price-cell"><span class="price">$12</span></td>
-              <!-- BUY LINK: https://YOURNAME.gumroad.com/l/ti84-calculus -->
-              <td><a class="btn btn-outline js-buy" href="#">Buy</a></td>
-            </tr>
-            <tr>
-              <th scope="row"><span class="tbl-name">Statistics, Probability &amp; Discrete Math</span><span class="tbl-sub">Confidence intervals · Hypothesis tests · Chi-square</span></th>
-              <td>5</td>
-              <td>Intro statistics, probability, discrete math</td>
-              <td class="price-cell"><span class="price">$12</span></td>
-              <!-- BUY LINK: https://YOURNAME.gumroad.com/l/ti84-stats -->
-              <td><a class="btn btn-outline js-buy" href="#">Buy</a></td>
-            </tr>
-            <tr>
-              <th scope="row"><span class="tbl-name">Physics &amp; Engineering</span><span class="tbl-sub">Kinematics · Circuits · Fluids · Thermo · Materials</span></th>
-              <td>13</td>
-              <td>Physics I/II, statics, circuits, thermo</td>
-              <td class="price-cell"><span class="price">$19</span></td>
-              <!-- BUY LINK: https://YOURNAME.gumroad.com/l/ti84-physics -->
-              <td><a class="btn btn-outline js-buy" href="#">Buy</a></td>
-            </tr>
-            <tr>
-              <th scope="row"><span class="tbl-name">Chemistry &amp; Exam Tools</span><span class="tbl-sub">Gas laws · Stoichiometry · pH · Kinetics · Drills</span></th>
-              <td>7</td>
-              <td>General chemistry + study drilling</td>
-              <td class="price-cell"><span class="price">$15</span></td>
-              <!-- BUY LINK: https://YOURNAME.gumroad.com/l/ti84-chemistry -->
-              <td><a class="btn btn-outline js-buy" href="#">Buy</a></td>
-            </tr>
-            <tr>
-              <th scope="row"><span class="tbl-name">Biology &amp; Lab Science</span><span class="tbl-sub">Punnett · Hardy-Weinberg · Dilutions · Growth</span></th>
-              <td>6</td>
-              <td>Intro bio, genetics, ecology, lab methods</td>
-              <td class="price-cell"><span class="price">$12</span></td>
-              <!-- BUY LINK: https://YOURNAME.gumroad.com/l/ti84-biology -->
-              <td><a class="btn btn-outline js-buy" href="#">Buy</a></td>
-            </tr>
-            <tr>
-              <th scope="row"><span class="tbl-name">Finance &amp; Business Math</span><span class="tbl-sub">TVM · Amortization · NPV/IRR · Break-even</span></th>
-              <td>5</td>
-              <td>Personal finance, business math, eng. economics</td>
-              <td class="price-cell"><span class="price">$12</span></td>
-              <!-- BUY LINK: https://YOURNAME.gumroad.com/l/ti84-finance -->
-              <td><a class="btn btn-outline js-buy" href="#">Buy</a></td>
-            </tr>
-            <tr class="row-featured">
-              <th scope="row">
-                <span class="tbl-name">Complete Toolkit <span class="tag tag-best">Best value</span></span>
-                <span class="tbl-sub">All 52 programs + full master reference guide</span>
-              </th>
-              <td>52</td>
-              <td>Multiple STEM courses in one semester</td>
-              <td class="price-cell"><span class="price">$49</span><span class="price-was">$101 separately</span></td>
-              <!-- BUY LINK: https://YOURNAME.gumroad.com/l/ti84-complete -->
-              <td><a class="btn btn-primary js-buy" href="#">Buy the toolkit</a></td>
+              <th scope="row"><span class="tbl-name">Loading catalog…</span></th>
+              <td></td><td></td><td></td><td></td>
             </tr>
           </tbody>
         </table>
       </div>
 
-      <!-- Mobile card view of the same data -->
-      <div class="price-cards">
-        <article class="price-card">
-          <h3>Free Starter Pack</h3>
-          <p class="pc-price">Free</p>
-          <p class="pc-meta">5 programs · any course</p>
-          <p class="pc-desc">Unit converter, quadratic solver, descriptive stats, unit circle, geometry.</p>
-          <!-- BUY LINK (mobile duplicate of the free pack link above) -->
-          <a class="btn btn-outline btn-block js-buy" href="#free">Get it free</a>
-        </article>
-        <article class="price-card">
-          <h3>Algebra, Precalc &amp; Trig</h3>
-          <p class="pc-price">$19</p>
-          <p class="pc-meta">11 programs · college algebra, precalc, trig</p>
-          <p class="pc-desc">Quadratics, matrices, linear systems, polynomials, sequences, logs, triangles, unit circle, geometry.</p>
-          <!-- BUY LINK: https://YOURNAME.gumroad.com/l/ti84-algebra-precalc -->
-          <a class="btn btn-outline btn-block js-buy" href="#">Buy</a>
-        </article>
-        <article class="price-card">
-          <h3>Calculus &amp; Diff Eq</h3>
-          <p class="pc-price">$12</p>
-          <p class="pc-meta">6 programs · Calc I–III, ODEs</p>
-          <p class="pc-desc">Derivatives, Simpson's rule, Taylor series, Newton-Raphson, limits, Euler ODEs.</p>
-          <!-- BUY LINK: https://YOURNAME.gumroad.com/l/ti84-calculus -->
-          <a class="btn btn-outline btn-block js-buy" href="#">Buy</a>
-        </article>
-        <article class="price-card">
-          <h3>Statistics &amp; Probability</h3>
-          <p class="pc-price">$12</p>
-          <p class="pc-meta">5 programs · intro stats, probability</p>
-          <p class="pc-desc">Descriptive stats, confidence intervals, hypothesis tests, chi-square, combinatorics, truth tables.</p>
-          <!-- BUY LINK: https://YOURNAME.gumroad.com/l/ti84-stats -->
-          <a class="btn btn-outline btn-block js-buy" href="#">Buy</a>
-        </article>
-        <article class="price-card">
-          <h3>Physics &amp; Engineering</h3>
-          <p class="pc-price">$19</p>
-          <p class="pc-meta">13 programs · physics, statics, circuits, thermo</p>
-          <p class="pc-desc">SUVAT, projectiles, Ohm's law, RLC, 3D vectors, fluids, calorimetry, gas processes, Carnot, stress-strain, orbits.</p>
-          <!-- BUY LINK: https://YOURNAME.gumroad.com/l/ti84-physics -->
-          <a class="btn btn-outline btn-block js-buy" href="#">Buy</a>
-        </article>
-        <article class="price-card">
-          <h3>Chemistry &amp; Exam Tools</h3>
-          <p class="pc-price">$15</p>
-          <p class="pc-meta">7 programs · gen chem + study drills</p>
-          <p class="pc-desc">Gas laws, molar mass, pH/buffers, reaction kinetics, unit converter, formula flashcards, timer.</p>
-          <!-- BUY LINK: https://YOURNAME.gumroad.com/l/ti84-chemistry -->
-          <a class="btn btn-outline btn-block js-buy" href="#">Buy</a>
-        </article>
-        <article class="price-card">
-          <h3>Biology &amp; Lab Science</h3>
-          <p class="pc-price">$12</p>
-          <p class="pc-meta">6 programs · intro bio, genetics, ecology</p>
-          <p class="pc-desc">Punnett squares, Hardy-Weinberg, chi-square, population growth, dilutions, SA:V scaling.</p>
-          <!-- BUY LINK: https://YOURNAME.gumroad.com/l/ti84-biology -->
-          <a class="btn btn-outline btn-block js-buy" href="#">Buy</a>
-        </article>
-        <article class="price-card">
-          <h3>Finance &amp; Business Math</h3>
-          <p class="pc-price">$12</p>
-          <p class="pc-meta">5 programs · finance, business math</p>
-          <p class="pc-desc">Time value of money, loan amortization, compound interest, NPV/IRR, break-even and margins.</p>
-          <!-- BUY LINK: https://YOURNAME.gumroad.com/l/ti84-finance -->
-          <a class="btn btn-outline btn-block js-buy" href="#">Buy</a>
-        </article>
-        <article class="price-card pc-featured">
-          <h3>Complete Toolkit <span class="tag tag-best">Best value</span></h3>
-          <p class="pc-price">$49 <span class="pc-was">$101 separately</span></p>
-          <p class="pc-meta">All 52 programs · every subject</p>
-          <p class="pc-desc">The entire library plus the full master reference guide for every program.</p>
-          <!-- BUY LINK: https://YOURNAME.gumroad.com/l/ti84-complete -->
-          <a class="btn btn-primary btn-block js-buy" href="#">Buy the toolkit</a>
-        </article>
-      </div>
+      <div class="price-cards" id="priceCards"></div>
 
-      <p class="fineprint">
-        Buying on Etsy instead? Etsy listings may be priced slightly differently to account for
-        that marketplace's fees. Same files either way.
+      <p class="fineprint" id="buy">
+        Checkout uses Stripe on the local demo server. Until API keys are in
+        <code>storefront/.env</code>, buy buttons will say they are waiting.
       </p>
     </div>
   </section>
-
   <!-- ================= WHAT'S INCLUDED ================= -->
   <section class="section" id="included">
     <div class="wrap">
@@ -353,137 +206,33 @@ tol?  <span class="c-in">1e-9</span>
         No mystery contents. Here is exactly what lands in your download folder.
       </p>
 
-      <div class="cards cards-2 include-grid">
-
-        <article class="card include-card">
-          <header class="include-head">
-            <h3>Algebra, Precalculus &amp; Trigonometry</h3>
-            <span class="pill">11 programs · $19</span>
-          </header>
-          <ul class="prog-list">
-            <li><code>quadratic_solver.py</code><span>Discriminant classification plus real or complex-conjugate roots written as a ± bi.</span></li>
-            <li><code>quadratic_vertex_analyzer.py</code><span>Build a parabola from vertex + one point; returns both forms, domain/range, intercepts, behaviour.</span></li>
-            <li><code>complex_number_calculator.py</code><span>Complex arithmetic, magnitude and argument, rectangular ↔ polar — done by hand, since there's no cmath.</span></li>
-            <li><code>linear_system_solver.py</code><span>2×2 or 3×3 Gaussian elimination with partial pivoting; flags inconsistent or dependent systems.</span></li>
-            <li><code>matrix_toolkit.py</code><span>Add, multiply, determinant and inverse for 2×2 and 3×3 matrices.</span></li>
-            <li><code>polynomial_analyzer.py</code><span>Real zeros by bounded bisection, end behaviour, turning points — plus rational asymptotes and holes.</span></li>
-            <li><code>sequences_series.py</code><span>Arithmetic and geometric nth terms, partial sums, ratios from two terms, infinite sums.</span></li>
-            <li><code>log_exp_solver.py</code><span>Change of base, solving b^x = c and log_b(x) = c, log rules worked on your numbers, growth and decay.</span></li>
-            <li><code>oblique_triangle_solver.py</code><span>Law of Sines and Cosines: SSS, SAS, ASA/AAS and the ambiguous SSA case with 0, 1 or 2 solutions.</span></li>
-            <li><code>unit_circle_reference.py</code><span>All six trig functions with exact values named, reference angle, quadrant, sign pattern, identities.</span></li>
-            <li><code>shape_geometry_solver.py</code><span>Area and perimeter for 2D shapes, volume and surface area for 3D solids.</span></li>
-          </ul>
-        </article>
-
-        <article class="card include-card">
-          <header class="include-head">
-            <h3>Calculus &amp; Differential Equations</h3>
-            <span class="pill">6 programs · $12</span>
-          </header>
-          <ul class="prog-list">
-            <li><code>derivative_numeric.py</code><span>Central-difference derivative at three step sizes so you can watch it stabilise.</span></li>
-            <li><code>simpsons_rule.py</code><span>Composite Simpson's rule definite integral, auto-corrects an odd subinterval count.</span></li>
-            <li><code>taylor_series.py</code><span>Taylor/Maclaurin terms and running partial sums for sin, cos, e^x, ln(1+x), compared to the exact value.</span></li>
-            <li><code>newton_raphson.py</code><span>Root finder with a full iteration table and numerically estimated derivative.</span></li>
-            <li><code>limit_evaluator.py</code><span>Two-sided numeric limit: evaluates f(c±ε) for shrinking ε and reports agreement.</span></li>
-            <li><code>ode_solver_euler.py</code><span>First-order dy/dx = f(x,y) by Euler's method or Improved Euler (Heun), with a step table.</span></li>
-          </ul>
-        </article>
-
-        <article class="card include-card">
-          <header class="include-head">
-            <h3>Statistics, Probability &amp; Discrete Math</h3>
-            <span class="pill">5 programs · $12</span>
-          </header>
-          <ul class="prog-list">
-            <li><code>descriptive_stats.py</code><span>Mean, median, mode, range, and both sample and population variance/standard deviation.</span></li>
-            <li><code>confidence_interval_hypothesis_test.py</code><span>One-sample z or t interval and hypothesis test, with the critical-value tables built in.</span></li>
-            <li><code>combinatorics_probability.py</code><span>nPr, nCr and binomial probability from a short menu.</span></li>
-            <li><code>chi_square_genetics.py</code><span>Chi-square goodness of fit against a preset or custom ratio, with critical values at 0.05 and 0.01.</span></li>
-            <li><code>discrete_math_toolkit.py</code><span>Binary/octal/decimal/hex conversion, plus truth tables for a typed boolean expression.</span></li>
-          </ul>
-        </article>
-
-        <article class="card include-card">
-          <header class="include-head">
-            <h3>Physics &amp; Engineering</h3>
-            <span class="pill">13 programs · $19</span>
-          </header>
-          <ul class="prog-list">
-            <li><code>kinematics_solver.py</code><span>SUVAT: choose the unknown of v₀, v, a, t, d, enter the rest, get the value and the formula used.</span></li>
-            <li><code>projectile_motion.py</code><span>Time of flight, range and max height, with an optional on-screen trajectory sketch via ti_plotlib.</span></li>
-            <li><code>statics_vectors.py</code><span>2D force resultant from magnitude/angle pairs, and torque about a point with rotation sense.</span></li>
-            <li><code>vector3d_toolkit.py</code><span>3D dot and cross products, magnitude, angle between vectors, scalar and vector projection.</span></li>
-            <li><code>ohms_law_circuits.py</code><span>Solve V/I/R/P from any two knowns, plus a series and parallel resistor combiner.</span></li>
-            <li><code>rlc_impedance.py</code><span>X_L, X_C, impedance magnitude, phase angle and LC resonant frequency.</span></li>
-            <li><code>fluid_mechanics_solver.py</code><span>Bernoulli between two points in a flow, and Reynolds number with a laminar/turbulent verdict.</span></li>
-            <li><code>heat_transfer_calculator.py</code><span>Specific heat, latent heat, and the equilibrium temperature of two masses mixed together.</span></li>
-            <li><code>ideal_gas_processes.py</code><span>Work, heat and ΔU for isothermal, isobaric, isochoric and adiabatic processes.</span></li>
-            <li><code>carnot_efficiency.py</code><span>Carnot and actual engine efficiency, fridge and heat-pump COP, and a second-law sanity check.</span></li>
-            <li><code>stress_strain.py</code><span>Stress, strain, Young's modulus, δ = FL/(AE), factor of safety, Poisson's ratio, material table.</span></li>
-            <li><code>thermal_expansion.py</code><span>Linear, area and volume expansion, thermal stress in a restrained member, expansion gaps.</span></li>
-            <li><code>orbital_mechanics_calculator.py</code><span>Orbital speed and period, escape velocity, and Kepler's Third Law with GM presets.</span></li>
-          </ul>
-        </article>
-
-        <article class="card include-card">
-          <header class="include-head">
-            <h3>Chemistry &amp; Exam Tools</h3>
-            <span class="pill">7 programs · $15</span>
-          </header>
-          <ul class="prog-list">
-            <li><code>ideal_gas_law.py</code><span>Solve PV = nRT for any variable, plus a combined gas law state-1 → state-2 solver.</span></li>
-            <li><code>stoichiometry_molar_mass.py</code><span>Molar mass from element/count pairs using a built-in table, then mass ↔ moles.</span></li>
-            <li><code>acid_base_calculator.py</code><span>pH/pOH from [H⁺] or [OH⁻] and back, plus Henderson-Hasselbalch buffer pH.</span></li>
-            <li><code>reaction_kinetics.py</code><span>Zero-, first- and second-order half-life, [A] at time t, and time to reach a target [A].</span></li>
-            <li><code>unit_converter.py</code><span>Length, mass, pressure, temperature and energy conversions from a numbered menu.</span></li>
-            <li><code>formula_flashcards.py</code><span>Self-quiz recall drill by subject with self-graded scoring. A memorisation aid, not an answer lookup.</span></li>
-            <li><code>exam_countdown_drill.py</code><span>Countdown timer plus randomly generated arithmetic, estimation and percentage drills.</span></li>
-          </ul>
-        </article>
-
-        <article class="card include-card">
-          <header class="include-head">
-            <h3>Biology &amp; Lab Science</h3>
-            <span class="pill">6 programs · $12</span>
-          </header>
-          <ul class="prog-list">
-            <li><code>punnett_square_solver.py</code><span>Monohybrid and dihybrid crosses with full genotype and phenotype ratios.</span></li>
-            <li><code>hardy_weinberg.py</code><span>Allele and genotype frequencies three ways in, carrier frequency, and an equilibrium chi-square test.</span></li>
-            <li><code>chi_square_genetics.py</code><span>Chi-square goodness of fit against a preset or custom ratio, with critical values at 0.05 and 0.01.</span></li>
-            <li><code>population_growth.py</code><span>Exponential and logistic growth, doubling time, dN/dt, and the inflection point at K/2.</span></li>
-            <li><code>dilution_calculator.py</code><span>C1V1 = C2V2 any way round, serial-dilution plans, and molarity ↔ moles ↔ grams.</span></li>
-            <li><code>surface_area_volume.py</code><span>SA:V ratios and how they scale, Kleiber's law metabolic rate, and diffusion time from distance.</span></li>
-          </ul>
-        </article>
-
-        <article class="card include-card">
-          <header class="include-head">
-            <h3>Finance &amp; Business Math</h3>
-            <span class="pill">5 programs · $12</span>
-          </header>
-          <ul class="prog-list">
-            <li><code>tvm_solver.py</code><span>Five-variable time value of money: give any four, get the fifth. Ordinary annuity or annuity due.</span></li>
-            <li><code>loan_amortization.py</code><span>Level payment, full or yearly schedule, lifetime interest, and the effect of paying extra.</span></li>
-            <li><code>compound_interest.py</code><span>Any compounding frequency including continuous, APR ↔ APY, and an honest two-account comparison.</span></li>
-            <li><code>npv_irr.py</code><span>NPV, IRR by bisection, simple and discounted payback, profitability index, multiple-IRR warning.</span></li>
-            <li><code>break_even_margin.py</code><span>Break-even units and revenue, contribution margin, target profit, margin of safety, margin vs markup.</span></li>
-          </ul>
-        </article>
-
+      <div class="cards cards-2 include-grid" id="includeGrid">
+        <p class="section-lede" id="includePlaceholder">Loading every program…</p>
       </div>
+      <template id="catalogClasses">
+        <article class="price-card pc-featured include-card">
+          <header class="include-head"></header>
+          <ul class="prog-list"></ul>
+          <p class="pc-price pc-meta pc-desc pc-was"></p>
+          <span class="pill tag tag-best tbl-sub"></span>
+          <span class="price price-was"></span>
+          <td class="price-cell"></td>
+          <tr class="row-featured"></tr>
+          <a class="btn btn-outline">Buy</a>
+        </article>
+      </template>
 
       <div class="complete-callout">
         <div>
-          <h3>The Complete Toolkit is all seven bundles, nothing held back</h3>
+          <h3>The Complete Toolkit is every bundle, nothing held back</h3>
           <p>
-            All 52 programs above, plus the full master reference guide with per-program usage
-            notes, the TI Connect™ CE install walkthrough, and the exam-policy guidance. Bought
-            separately the seven subject bundles come to $101, so the toolkit saves you $52.
+            All 156 programs above — the original study toolkit, companion classroom and
+            Calc&nbsp;3 tools, and the arcade pack — plus the install walkthrough and
+            exam-policy guidance. Bought separately the subject bundles come to $248,
+            so the toolkit saves you $169.
           </p>
         </div>
-        <!-- BUY LINK: https://YOURNAME.gumroad.com/l/ti84-complete -->
-        <a class="btn btn-primary btn-lg js-buy" href="#">Get all 52 for $49</a>
+        <a class="btn btn-primary btn-lg js-buy" href="#buy" data-sku="complete">Get all 156 for $79</a>
       </div>
     </div>
   </section>
@@ -720,7 +469,7 @@ tol?  <span class="c-in">1e-9</span>
               Chrome specifically, because it relies on WebUSB.
             </p>
             <p>
-              <strong>What we won't say.</strong> Nobody here has run these 52 programs on an Evo.
+              <strong>What we won't say.</strong> Nobody here has run these 156 programs on an Evo.
               The reasoning above is an informed expectation from reading the code and TI's
               documentation, not a test result, and we won't advertise Evo support until it's been
               tested on a real unit. If you're buying specifically for an Evo,
@@ -851,13 +600,13 @@ tol?  <span class="c-in">1e-9</span>
         </details>
 
         <details>
-          <summary>Can I fit all 52 on the calculator at once?</summary>
+          <summary>Can I fit all 156 on the calculator at once?</summary>
           <div class="faq-body">
             <p>
-              <strong>No — and you aren't meant to.</strong> The full library is about
-              243&nbsp;KB, while the calculator holds roughly 50&nbsp;KB of Python across at most
-              100 programs. The Complete Toolkit is a library to install <em>from</em>, a course
-              at a time, not a single payload to dump onto the device.
+              <strong>No — and you aren't meant to.</strong> The full library is far larger than
+              the calculator's roughly 50&nbsp;KB of Python (and the 100-program cap). The
+              Complete Toolkit is a library to install <em>from</em>, a course at a time, not a
+              single payload to dump onto the device.
             </p>
             <p>
               In practice this is a non-issue: any single subject bundle fits comfortably with
@@ -903,7 +652,7 @@ tol?  <span class="c-in">1e-9</span>
       <div class="hero-cta center-cta">
         <a class="btn btn-primary btn-lg" href="#free">Download the free starter pack</a>
         <!-- BUY LINK: https://YOURNAME.gumroad.com/l/ti84-complete -->
-        <a class="btn btn-ghost btn-lg js-buy" href="#">Or get all 52 for $49</a>
+        <a class="btn btn-ghost btn-lg js-buy" href="#buy" data-sku="complete">Or get all 156 for $79</a>
       </div>
     </div>
   </section>
@@ -915,8 +664,8 @@ tol?  <span class="c-in">1e-9</span>
     <div>
       <p class="footer-brand"><span aria-hidden="true">&gt;_</span> TI-84 Python Study Toolkit</p>
       <p class="footer-small">
-        52 Python programs for the TI-84 Plus CE Python Edition. Study and practice aids —
-        check your own exam's calculator policy. Requires a Python-capable TI-84 Plus CE.
+        156 Python programs for the TI-84 Plus CE Python Edition. Study, classroom, and arcade
+        aids — check your own exam's calculator policy. Requires a Python-capable TI-84 Plus CE.
       </p>
     </div>
     <nav class="footer-nav" aria-label="Footer">
@@ -949,6 +698,7 @@ tol?  <span class="c-in">1e-9</span>
   </div>
 </footer>
 
+<script src="catalog.js"></script>
 <script src="main.js" defer></script>
 </body>
 </html>

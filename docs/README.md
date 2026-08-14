@@ -4,13 +4,14 @@ This directory is the GitHub Pages publishing root (Settings -> Pages -> Deploy 
 a branch -> `main` / `/docs`). Pages can only publish from the repository root or
 `/docs`, and the landing page's source lives in [`storefront/`](../storefront/)
 together with tooling that should not be published -- so this is a generated copy of
-just the three files a browser needs.
+just the files a browser needs.
 
 | File | Source |
 |---|---|
 | `index.html` | [`../storefront/index.html`](../storefront/index.html) |
 | `styles.css` | [`../storefront/styles.css`](../storefront/styles.css) |
 | `main.js` | [`../storefront/main.js`](../storefront/main.js) |
+| `catalog.js` | [`../storefront/catalog.js`](../storefront/catalog.js) |
 
 **Edit the files in `storefront/`, never the ones here.** Then regenerate:
 
